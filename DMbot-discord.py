@@ -14,6 +14,6 @@ async def pm(ctx, users: Greedy[User], *, message):
 
 
 # Finally add your token number and run the client
-bot.run("NjkzNTY4MjYyODEzOTA5MDcy.Xn-92Q.fBiNEw77cdR1-VTvDo-AB4MRp90")
+bot.run("Discord Auth Token Here!")
 
 
