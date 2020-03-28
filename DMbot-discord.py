@@ -1,5 +1,6 @@
 #															Send DMs to people using bots (Python)
 import asyncio
+import converter
 from discord.ext.commands import Bot, Greedy
 from discord import User
 
@@ -8,9 +9,9 @@ bot = Bot(command_prefix='!')
 
 # Lets send A DM
 @bot.command()
-async def pm(ctx, users: Greedy[User], *, message):
-    for user in users:
-        await user.send(message)
+async def spam(ctx, victim: discord.User, amount, *, message):
+    for _ in range(amount):
+        await victim.send(message)
 
 
 # Finally add your token number and run the client
