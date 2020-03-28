@@ -1,7 +1,7 @@
 #															Send DMs to people using bots (Python)
 import asyncio
 from discord.ext.commands import Bot, Greedy
-from discord import User
+from discord import User, Converter
 
 # This is prefix of my bot
 bot = Bot(command_prefix='!')
