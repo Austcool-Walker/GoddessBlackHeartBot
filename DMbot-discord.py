@@ -8,9 +8,9 @@ bot = Bot(command_prefix='!')
 
 # Lets send A DM
 @bot.command()
-async def spam(ctx, victim: discord.User, amount, *, message):
-    for _ in range(amount):
-        await victim.send(message)
+async def pm(ctx, users: Greedy[User], *, message):
+    for user in users:
+        await user.send(message)
 
 
 # Finally add your token number and run the client
