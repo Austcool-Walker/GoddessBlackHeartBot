@@ -1,7 +1,25 @@
 #															Send DMs to people using bots (Python)
-import asyncio
+import discord
+from discord.ext.commands.cooldowns import BucketType
 from discord.ext.commands import Bot, Greedy
+from discord.ext.tasks import loop
 from discord import User
+from asyncio import sleep
+import time
+import random
+import json
+import sys
+import asyncio
+import inspect
+import json
+import os
+import asyncio
+import asyncpg
+from datetime import datetime
+import random
+import logging
+import aiohttp
+import traceback
 
 # This is prefix of my bot
 bot = Bot(command_prefix='!')
@@ -13,7 +31,67 @@ async def pm(ctx, users: Greedy[User], *, message):
         await user.send(message)
 
 
+# About embed
+@bot.command()
+async def about(ctx):
+    embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xeee657)
+
+    # give info about you here
+    embed.add_field(name="Author", value="<@318528448320634881>")
+
+    # Shows the number of servers the bot is member of.
+    embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
+
+    # Source Code URL:
+    embed.add_field(name="Source Code", value="https://github.com/Austcool-Walker/DM-discord-bot.git")
+
+    # Your personal Discord Server that the bot was made for.
+    embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
+
+    # give users a link to invite thsi bot to their server
+    embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
+
+    await ctx.send(embed=embed)
+
+client = discord.Client()
+async def my_background_task():
+    await client.wait_until_ready()
+    counter = 0
+    channel = discord.Object(id='channel_id_here')
+    while not client.is_closed:
+        counter += 1
+        await client.send_message(channel, counter)
+        await asyncio.sleep(60) # task runs every 60 seconds
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+client.loop.create_task(my_background_task())
+
+# Bots Status
+# Setting `Playing ` status
+# await bot.change_presence(activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
+
+# Setting `Streaming ` status
+# await bot.change_presence(activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
+
+# Setting `Listening ` status
+# await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
+
+# Setting `Watching ` status
+# await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
+
+# Eval command
+@bot.command(name='eval', pass_context=True)
+async def eval_(ctx, *, command):
+    res = eval(command)
+    if inspect.isawaitable(res):
+        await bot.say(await res)
+    else:
+        await bot.say(res)
+
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
-
 
