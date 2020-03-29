@@ -92,6 +92,21 @@ async def eval_(ctx, *, command):
     else:
         await bot.say(res)
 
+@bot.command()
+async def bowtourqueen(ctx):
+    await ctx.send("https://i.imgur.com/t2LE30K.png")
+
+bot.remove_command('help')
+
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users. List of commands are:", color=0xff00e6)
+    embed.add_field(name="!about", value="Gives information about this bot.", inline=False)
+    embed.add_field(name="!pm", value="Sends user a message in a DM. The bot must share a server with the user you wish to send the message to.", inline=False)
+    embed.add_field(name="!bowtourqueen", value="Sends a image of Goddess Black Heart from neptunia (meme)", inline=False)
+    embed.add_field(name="!help", value="Gives this help message", inline=False)
+    await ctx.send(embed=embed)
+
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
 
