@@ -34,11 +34,7 @@ async def pm(ctx, users: Greedy[User], *, message):
 # About embed
 @bot.command()
 async def about(ctx):
-<<<<<<< HEAD
     embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xff00e6)
-=======
-    embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xeee657)
->>>>>>> ff915df055c39c9505d71527e9112367a6853967
 
     # give info about you here
     embed.add_field(name="Author", value="<@318528448320634881>")
@@ -57,7 +53,6 @@ async def about(ctx):
 
     await ctx.send(embed=embed)
 
-<<<<<<< HEAD
 # Bots Status
 # Setting `Playing ` status
 # await bot.change_presence(activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
@@ -96,10 +91,6 @@ async def help(ctx):
     embed.add_field(name="!help", value="Gives this help message", inline=False)
     await ctx.send(embed=embed)
 
-# Finally add your token number and run the client
-bot.run("NjkzNTY4MjYyODEzOTA5MDcy.Xn_ZAw._oXUNmdat_gkL0e_wy4yOQ4JJ9s")
-
-=======
 client = discord.Client()
 async def my_background_task():
     await client.wait_until_ready()
@@ -139,22 +130,6 @@ async def eval_(ctx, *, command):
     else:
         await bot.say(res)
 
-@bot.command()
-async def bowtourqueen(ctx):
-    await ctx.send("https://i.imgur.com/t2LE30K.png")
-
-bot.remove_command('help')
-
-@bot.command()
-async def help(ctx):
-    embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users. List of commands are:", color=0xff00e6)
-    embed.add_field(name="!about", value="Gives information about this bot.", inline=False)
-    embed.add_field(name="!pm", value="Sends user a message in a DM. The bot must share a server with the user you wish to send the message to.", inline=False)
-    embed.add_field(name="!bowtourqueen", value="Sends a image of Goddess Black Heart from neptunia (meme)", inline=False)
-    embed.add_field(name="!help", value="Gives this help message", inline=False)
-    await ctx.send(embed=embed)
-
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
 
->>>>>>> ff915df055c39c9505d71527e9112367a6853967
