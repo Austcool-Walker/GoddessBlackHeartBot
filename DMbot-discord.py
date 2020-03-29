@@ -1,4 +1,4 @@
-#															Send DMs to people using bots (Python)
+#              Send DMs to people using bots (Python)
 import discord
 from discord.ext.commands.cooldowns import BucketType
 from discord.ext.commands import Bot, Greedy
@@ -65,16 +65,6 @@ async def about(ctx):
 
 # Setting `Watching ` status
 # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
-
-# Eval command
-@bot.command(name='eval', pass_context=True)
-async def eval_(ctx, *, command):
-    res = eval(command)
-    if inspect.isawaitable(res):
-        await bot.say(await res)
-    else:
-        await bot.say(res)
-
 
 @bot.command()
 async def bowtourqueen(ctx):
