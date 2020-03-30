@@ -41,12 +41,12 @@ async def about(ctx):
 
     # give info about you here
     embed.add_field(name="Author", value="<@318528448320634881>")
+    embed.set_image(url="https://avatars2.githubusercontent.com/u/61804916?s=460&u=ba63375358440810a6656f09633a9f2599c7415c&v=4.jpg")
 
     # Shows the number of servers the bot is member of.
     embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
 
     # Source Code URL:
-    embed.set_image(url="https://github.com/Austcool-Walker/DM-discord-bot.git")
     embed.add_field(name="Source Code", value="https://github.com/Austcool-Walker/DM-discord-bot.git")
     
 
