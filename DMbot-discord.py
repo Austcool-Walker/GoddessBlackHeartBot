@@ -88,7 +88,7 @@ async def degen(ctx):
 @bot.command()
 async def finished(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="YOUR FINISHED!")
-    embed.set_image(url="https://i.imgur.com/ed8Xth0.mp4")
+    embed.set_image(url="https://i.fiery.me/2KnBa.gif")
     await ctx.send(embed=embed)
 
 bot.remove_command('help')
