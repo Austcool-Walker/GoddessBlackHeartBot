@@ -50,10 +50,11 @@ async def about(ctx):
 
     # Your personal Discord Server that the bot was made for.
     embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
-    embed.add_field(ctx.guild.icon_url()
-
+    
     # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 # Bots Status
