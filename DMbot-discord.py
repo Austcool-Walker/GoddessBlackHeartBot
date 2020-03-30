@@ -137,6 +137,12 @@ async def status_task():
         await asyncio.sleep(30)
         await bot.change_presence(status=discord.Status.online, activity=discord.Game("I'm Austcool-Walker's first python3 project."))
         await asyncio.sleep(30)
+        await bot.change_presence(activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
+        await asyncio.sleep(30)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
+        await asyncio.sleep(30)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
+        await asyncio.sleep(30)
 
 @bot.event
 async def on_ready():
