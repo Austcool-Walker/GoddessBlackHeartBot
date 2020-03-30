@@ -5,6 +5,9 @@ from discord.ext.commands import Bot, Greedy
 from discord.ext.tasks import loop
 from discord import User
 from asyncio import sleep
+import discord
+from discord.ext import commands
+import random
 import time
 import random
 import json
@@ -66,9 +69,28 @@ async def about(ctx):
 # Setting `Watching ` status
 # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
 
+#@bot.command()
+#async def (ctx):
+#    await ctx.send("")
+
 @bot.command()
-async def bowtourqueen(ctx):
-    await ctx.send("https://i.imgur.com/t2LE30K.png")
+async def bowtourqueen(self, ctx):
+    embed = discord.Embed(color=discord.Colour.red(), title="Bow To Your Queen!")
+    embed.set_image(url="https://i.imgur.com/t2LE30K.png")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def degen(self, ctx):
+    embed = discord.Embed(color=discord.Colour.red(), title="You Are All Degnerates Now!")
+    embed.set_image(url="https://tenor.com/view/we-have-so-many-degenerates-here-incredible-you-know-we-have-so-many-degenerates-here-incredible-you-know-degenerates-degenerate-gif-15576648")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def laceribbon(self, ctx):
+    embed = discord.Embed(color=discord.Colour.red(), title="Lace Ribbon Dance!")
+    embed.set_image(url="https://i.fiery.me/2KnBa.gif")
+    embed = discord.Embed(color=discord.Colour.red(), title="YOUR FINISHED!")
+    await ctx.send(embed=embed)
 
 bot.remove_command('help')
 
@@ -78,6 +100,8 @@ async def help(ctx):
     embed.add_field(name="!about", value="Gives information about this bot.", inline=False)
     embed.add_field(name="!pm", value="Sends user a message in a DM. The bot must share a server with the user you wish to send the message to.", inline=False)
     embed.add_field(name="!bowtourqueen", value="Sends a image of Goddess Black Heart from neptunia (meme)", inline=False)
+    embed.add_field(name="!degen", value="Sends a image of Degenerates", inline=False)
+    embed.add_field(name="!laceribbon", value="Sends a image of Black Heart Destroying you with Lace Ribbon Dance!", inline=False)
     embed.add_field(name="!help", value="Gives this help message", inline=False)
     await ctx.send(embed=embed)
 
