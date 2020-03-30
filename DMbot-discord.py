@@ -129,11 +129,11 @@ async def eval_(ctx, *, command):
         await bot.say(res)
 
 # Set bot's status
-
 @bot.event
 async def on_ready():
-    count = requests.get(file="bot.status")
-    await bot.change_presence(game=discord.Game(name=bot.status, type=3))
+    #count = requests.get(file="bot.status")
+    #await bot.change_presence(status=discord.Status.online, activity=discord.Game("Overcomplicated Weirdness 1.12.2"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game("Waiting for !help"))
 
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
