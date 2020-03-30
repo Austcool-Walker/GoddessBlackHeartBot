@@ -46,7 +46,7 @@ async def about(ctx):
     embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
 
     # Source Code URL:
-    sc = 'https://github.com/Austcool-Walker/DM-discord-bot.git'
+    sc = "https://github.com/Austcool-Walker/DM-discord-bot.git"
     embed.set_image(url=[sc])
     embed.add_field(name="Source Code", value=[sc])
     
