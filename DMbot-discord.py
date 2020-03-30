@@ -102,8 +102,6 @@ async def help(ctx):
     embed.add_field(name="!degen", value="Sends a image of Degenerates", inline=False)
     embed.add_field(name="!lfinished", value="Sends a image of Black Heart Destroying you with Lace Ribbon Dance!", inline=False)
     embed.add_field(name="!help", value="Gives this help message", inline=False)
-    embed.set_thumbnail(url=target.avatar_url)
-    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 # Bots Status
