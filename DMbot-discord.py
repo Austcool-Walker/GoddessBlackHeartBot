@@ -23,6 +23,7 @@ import random
 import logging
 import aiohttp
 import traceback
+import requests
 
 # This is prefix of my bot
 bot = Bot(command_prefix='!')
@@ -126,6 +127,11 @@ async def eval_(ctx, *, command):
         await bot.say(await res)
     else:
         await bot.say(res)
+
+# Set bot's status
+
+count = requests.get(file=".botstatus")
+await client.change_presence(game=discord.Game(name=count.text, type=3))
 
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
