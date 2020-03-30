@@ -105,23 +105,6 @@ async def help(ctx):
     embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
-client = discord.Client()
-async def my_background_task():
-    await client.wait_until_ready()
-    counter = 0
-    channel = discord.Object(id='channel_id_here')
-    while not client.is_closed:
-        counter += 1
-        await client.send_message(channel, counter)
-        await asyncio.sleep(60) # task runs every 60 seconds
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-client.loop.create_task(my_background_task())
-
 # Bots Status
 # Setting `Playing ` status
 # await bot.change_presence(activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
