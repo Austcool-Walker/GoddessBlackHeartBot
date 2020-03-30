@@ -131,7 +131,7 @@ async def status_task():
     while True:
         await bot.change_presence(status=discord.Status.online, activity=discord.Game("Waiting for !help"))
         await asyncio.sleep(30)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Overcomplicated Weirdness 1.12.2"))
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Forgotten Insanity TOW [2.0.0] 1.12.2"))
         await asyncio.sleep(30)
         await bot.change_presence(status=discord.Status.online, activity=discord.Game("Hi I'm the DM bot."))
         await asyncio.sleep(30)
