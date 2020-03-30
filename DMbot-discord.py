@@ -131,10 +131,14 @@ async def eval_(ctx, *, command):
 # Set bot's status
 async def status_task():
     while True:
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Overcomplicated Weirdness 1.12.2"))
-        await asyncio.sleep(10)
         await bot.change_presence(status=discord.Status.online, activity=discord.Game("Waiting for !help"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(30)
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Overcomplicated Weirdness 1.12.2"))
+        await asyncio.sleep(30)
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Hi I'm the DM bot."))
+        await asyncio.sleep(30)
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game("I'm Austcool-Walker's first python3 project."))
+        await asyncio.sleep(30)
 
 @bot.event
 async def on_ready():
