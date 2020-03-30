@@ -50,10 +50,12 @@ async def about(ctx):
 
     # Your personal Discord Server that the bot was made for.
     embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
+    embed.add_field(ctx.guild.icon_url()
 
     # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
-
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 # Bots Status
@@ -77,18 +79,24 @@ async def about(ctx):
 async def bowtourqueen(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="Bow To Your New Queen!")
     embed.set_image(url="https://i.imgur.com/t2LE30K.png")
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 @bot.command()
 async def degen(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="You Are All Degnerates Now!")
     embed.set_image(url="https://media1.tenor.com/images/eade076432e4650c25ed82a6368d5ba4/tenor.gif?itemid=15576648")
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 @bot.command()
 async def finished(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="YOU'RE FINISHED!")
     embed.set_image(url="https://i.fiery.me/2KnBa.gif")
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 bot.remove_command('help')
@@ -102,6 +110,8 @@ async def help(ctx):
     embed.add_field(name="!degen", value="Sends a image of Degenerates", inline=False)
     embed.add_field(name="!lfinished", value="Sends a image of Black Heart Destroying you with Lace Ribbon Dance!", inline=False)
     embed.add_field(name="!help", value="Gives this help message", inline=False)
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 client = discord.Client()
