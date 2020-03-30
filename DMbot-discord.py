@@ -46,8 +46,9 @@ async def about(ctx):
     embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
 
     # Source Code URL:
-    embed.add_field(name="Source Code")
-    embed.set_image(url="https://github.com/Austcool-Walker/DM-discord-bot.git")
+    sc = embed.set_image(url="https://github.com/Austcool-Walker/DM-discord-bot.git")
+    embed.add_field(name="Source Code", value=[sc])
+    
 
     # Your personal Discord Server that the bot was made for.
     embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
