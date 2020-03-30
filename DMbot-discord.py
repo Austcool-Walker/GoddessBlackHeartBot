@@ -40,7 +40,7 @@ async def about(ctx):
     embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xff00e6)
 
     # give info about you here
-    embed.add_field(name="Author", value="<@318528448320634881>", icon_url="https://avatars2.githubusercontent.com/u/61804916?s=460&u=ba63375358440810a6656f09633a9f2599c7415c&v=4.jpg")
+    embed.add_field(name="Author", value="<@318528448320634881>")
 
     # Shows the number of servers the bot is member of.
     embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
@@ -49,7 +49,7 @@ async def about(ctx):
     embed.add_field(name="Source Code", value="https://github.com/Austcool-Walker/DM-discord-bot.git")
 
     # Your personal Discord Server that the bot was made for.
-    embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47", icon_url="https://cdn.discordapp.com/icons/692758311585579088/203473cf00ee5cde6cf7a5c52614464b.webp")
+    embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
 
     # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
