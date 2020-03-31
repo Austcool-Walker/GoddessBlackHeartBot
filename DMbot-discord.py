@@ -59,7 +59,6 @@ async def about(ctx):
 
     # Your personal Discord Server that the bot was made for.
     embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
-    embed.set_image(url="https://cdn.discordapp.com/icons/692758311585579088/203473cf00ee5cde6cf7a5c52614464b.webp")
 
     # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
