@@ -1,29 +1,37 @@
 #              Send DMs to people using bots (Python)
 import discord
+import ast
+import io
+import random
+import time
+import json
+import sys
+import inspect
+import os
+import asyncio
+import asyncpg
+import logging
+import aiohttp
+import traceback
+import requests
+import subprocess
+import textwrap
 from discord.ext.commands.cooldowns import BucketType
 from discord.ext.commands import Bot, Greedy
 from discord.ext.tasks import loop
 from discord import User
 from asyncio import sleep
-import discord
 from discord.ext import commands
-import random
-import time
-import random
-import json
-import sys
-import asyncio
-import inspect
-import json
-import os
-import asyncio
-import asyncpg
 from datetime import datetime
-import random
-import logging
-import aiohttp
-import traceback
-import requests
+from os import listdir
+from os.path import isfile, join
+from contextlib import redirect_stdout
+
+logger = logging.getLogger('discord')
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 # This is prefix of my bot
 bot = Bot(command_prefix='!')
@@ -117,15 +125,6 @@ async def help(ctx):
 # Setting `Watching ` status
 # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
 
-# Eval command
-@bot.command(name='eval', pass_context=True)
-async def eval_(ctx, *, command):
-    res = eval(command)
-    if inspect.isawaitable(res):
-        await bot.say(await res)
-    else:
-        await bot.say(res)
-
 # Set bot's status
 async def status_task():
     while True:
@@ -150,6 +149,84 @@ async def on_ready():
     bot.loop.create_task(status_task())
     #count = requests.get(file="bot.status")
 
+
+# Debug code ripped from Albert Tangs Axiro
+
+@bot.command()
+async def say(ctx, *, message: str):
+    await ctx.message.delete()
+    await ctx.send(message)
+
+# Eval bot command
+
+def insert_returns(body):
+    # insert return stmt if the last expression is a expression statement
+    if isinstance(body[-1], ast.Expr):
+        body[-1] = ast.Return(body[-1].value)
+        ast.fix_missing_locations(body[-1])
+
+    # for if statements, we insert returns into the body and the orelse
+    if isinstance(body[-1], ast.If):
+        insert_returns(body[-1].body)
+        insert_returns(body[-1].orelse)
+
+    # for with blocks, again we insert returns into the body
+    if isinstance(body[-1], ast.With):
+        insert_returns(body[-1].body)
+
+
+@bot.command()
+async def eval(ctx, *, cmd):
+    """Evaluates input.
+
+    Input is interpreted as newline seperated statements.
+    If the last statement is an expression, that is the return value.
+
+    Usable globals:
+      - `bot`: the bot instance
+      - `discord`: the discord module
+      - `commands`: the discord.ext.commands module
+      - `ctx`: the invokation context
+      - `__import__`: the builtin `__import__` function
+
+    Such that `>eval 1 + 1` gives `2` as the result.
+
+    The following invokation will cause the bot to send the text '9'
+    to the channel of invokation and return '3' as the result of evaluating
+
+    >eval ```
+    a = 1 + 2
+    b = a * 2
+    await ctx.send(a + b)
+    a
+    ```
+    """
+    fn_name = "_eval_expr"
+
+    cmd = cmd.strip("` ")
+
+    # add a layer of indentation
+    cmd = "\n".join(f"    {i}" for i in cmd.splitlines())
+
+    # wrap in async def body
+    body = f"async def {fn_name}():\n{cmd}"
+
+    parsed = ast.parse(body)
+    body = parsed.body[0].body
+
+    insert_returns(body)
+
+    env = {
+        'bot': ctx.bot,
+        'discord': discord,
+        'commands': commands,
+        'ctx': ctx,
+        '__import__': __import__
+    }
+    exec(compile(parsed, filename="<ast>", mode="exec"), env)
+
+    result = (await eval(f"{fn_name}()", env))
+    await ctx.send(result)
 
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
