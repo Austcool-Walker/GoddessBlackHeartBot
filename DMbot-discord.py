@@ -175,8 +175,8 @@ def insert_returns(body):
         insert_returns(body[-1].body)
 
 
-@bot.command()
-async def eval(ctx, *, cmd):
+@bot.command(aliases=['eval'])
+async def eval_fn(ctx, *, cmd):
     """Evaluates input.
 
     Input is interpreted as newline seperated statements.
@@ -226,7 +226,7 @@ async def eval(ctx, *, cmd):
     exec(compile(parsed, filename="<ast>", mode="exec"), env)
 
     result = (await eval(f"{fn_name}()", env))
-    await ctx.send(result)
+    await ctx.message.add_reaction('👌')
 
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
