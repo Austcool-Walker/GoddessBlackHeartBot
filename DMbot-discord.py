@@ -44,7 +44,7 @@ async def pm(ctx, users: Greedy[User], *, message):
 
 
 # About embed
-@bot.command()
+@bot.command(aliases=['info'])
 async def about(ctx):
     embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xff00e6)
 
