@@ -49,24 +49,20 @@ async def pm(ctx, users: Greedy[User], *, message):
 # About embed
 @bot.command(aliases=['info'])
 async def about(ctx):
-    embed = discord.Embed(title="DMbot-discord", description="A bot for sending Discord DMs to users.", color=0xff00e6)
-
-    # give info about you here
-    embed.add_field(name="Author", value="<@318528448320634881>")
-
-    # Shows the number of servers the bot is member of.
-    embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
-
-    # Source Code URL:
+    embed = discord.Embed(title="About 女神ブラックハート:", description="The Goddess Black Heart bot started out as  a random mad computer science experiment but evolved into a full scale bot!")
+    embed.add_field(name="Author: ", value="<@318528448320634881>", inline=False)
+    embed.add_field(name="Stats: ", value="Guilds: **{}**\nUnique Players: **{}**\n"
+                    .format(len(bot.guilds),sum(1 for _ in bot.get_all_members())))
+    embed.add_field(name="Version: ", value="女神ブラックハート: **{}**\nPython: **{}**\nDiscord.py: **{}**"
+                    .format(bot.version_code, sys.version, discord.__version__))
     embed.add_field(name="Source Code", value="https://github.com/Austcool-Walker/DM-discord-bot.git")
-
-    # Your personal Discord Server that the bot was made for.
     embed.add_field(name="Discord Server", value="https://discord.gg/veVDS47")
     embed.set_image(url="https://cdn.discordapp.com/icons/692758311585579088/203473cf00ee5cde6cf7a5c52614464b.webp")
-
-    # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
+    embed.set_footer(icon_url=ctx.message.author.avatar_url,
+                     text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
+
 
 
 # Uptime bot command
@@ -112,6 +108,8 @@ async def encode(ctx, target, *, message: str):
                           description="Here's your new message in {}".format(target))
     embed.add_field(name="Before: ", value="{}".format(message), inline=False)
     embed.add_field(name="After: ", value="{}".format(crypto), inline=False)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url,
+                     text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -135,6 +133,8 @@ async def hash(ctx, target, *, message: str):
                           description="Here's your new message in {}".format(target))
     embed.add_field(name="Before: ", value="{}".format(message), inline=False)
     embed.add_field(name="After: ", value="{}".format(hash), inline=False)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url,
+                     text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -156,6 +156,8 @@ async def decode(ctx, target, *, message: str):
                           description="Here's your new message from {}".format(target))
     embed.add_field(name="Before: ", value="{}".format(message), inline=False)
     embed.add_field(name="After: ", value="{}".format(decoded), inline=False)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url,
+                     text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 @bot.command()
