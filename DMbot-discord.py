@@ -67,16 +67,16 @@ async def about(ctx):
 
 # Bots Status
 # Setting `Playing ` status
-# await bot.change_presence(activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
+# !eval await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
 
 # Setting `Streaming ` status
-# await bot.change_presence(activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
+# !eval await bot.change_presence(status=discord.Status.online, activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
 
 # Setting `Listening ` status
-# await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
+# !eval await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
 
 # Setting `Watching ` status
-# await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
+# !eval await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
 
 #@bot.command()
 #async def (ctx):
