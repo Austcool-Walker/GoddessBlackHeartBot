@@ -333,13 +333,13 @@ async def changegame(ctx, gameType: str, *, gameName: str):
     '''?ndert das derzeit spielende Spiel (BOT OWNER ONLY)'''
     gameType = gameType.lower()
     if gameType == 'playing':
-        type = discord.Activity.playing
+        type = discord.ActivityType.playing
     elif gameType == 'watching':
-        type = discord.Activity.watching
+        type = discord.ActivityType.watching
     elif gameType == 'listening':
-        type = discord.Activity.listening
+        type = discord.ActivityType.listening
     elif gameType == 'streaming':
-        type = discord.Activity.streaming
+        type = discord.ActivityTypes.streaming
     guildsCount = len(bot.guilds)
     memberCount = len(list(bot.get_all_members()))
     gameName = gameName.format(guilds = guildsCount, members = memberCount)
