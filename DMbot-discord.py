@@ -302,7 +302,7 @@ async def eval_fn(ctx, *, cmd):
 
 @bot.command(aliases=['quit'], hidden=True)
 async def shutdown(ctx):
-    '''Schaltet mich ab :( (BOT OWNER ONLY)'''
+    '''Turn me off :( (BOT OWNER ONLY)'''
     await ctx.send('**:ok:** Bye!')
     #bot.gamesLoop.cancel()
     await bot.logout()
@@ -310,14 +310,14 @@ async def shutdown(ctx):
 
 @bot.command(hidden=True)
 async def restart(ctx):
-    '''Startet mich neu (BOT OWNER ONLY)'''
-    await ctx.send('**:ok:** Bis gleich!')
+    '''Restart me (BOT OWNER ONLY)'''
+    await ctx.send('**:ok:** See you soon!')
     await bot.logout()
     sys.exit(6)
 
 @bot.command(hidden=True)
 async def botavatar(ctx, url: str):
-    '''Setzt einen neuen Avatar (BOT OWNER ONLY)'''
+    '''Set a new avatar (BOT OWNER ONLY)'''
     tempAvaFile = 'tempAva.png'
     async with aiohttp.get(''.join(url)) as img:
         with open(tempAvaFile, 'wb') as f:
@@ -326,11 +326,11 @@ async def botavatar(ctx, url: str):
     await bot.edit_profile(avatar=f.read())
     os.remove(tempAvaFile)
     asyncio.sleep(2)
-    await ctx.send('**:ok:** Mein neuer Avatar!\n %s' % bot.user.avatar_url)
+    await ctx.send('**:ok:** My new avatar!\n %s' % bot.user.avatar_url)
 
 @bot.command(hidden=True, aliases=['game'])
 async def changegame(ctx, gameType: str, *, gameName: str):
-    '''?ndert das derzeit spielende Spiel (BOT OWNER ONLY)'''
+    '''Changes the game currently playing (BOT OWNER ONLY)'''
     gameType = gameType.lower()
     if gameType == 'playing':
         type = discord.ActivityType.playing
@@ -344,11 +344,11 @@ async def changegame(ctx, gameType: str, *, gameName: str):
     memberCount = len(list(bot.get_all_members()))
     gameName = gameName.format(guilds = guildsCount, members = memberCount)
     await bot.change_presence(activity=discord.Activity(type=type, name=gameName))
-    await ctx.send(f'**:ok:** ?ndere das Spiel zu: {gameType} **{gameName}**')
+    await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
 @bot.command(hidden=True)
 async def changestatus(ctx, status: str):
-    '''?ndert den Online Status vom Bot (BOT OWNER ONLY)'''
+    '''Changes bot online status (BOT OWNER ONLY)'''
     status = status.lower()
     if status == 'offline' or status == 'off' or status == 'invisible':
         discordStatus = discord.Status.invisible
@@ -359,18 +359,18 @@ async def changestatus(ctx, status: str):
     else:
         discordStatus = discord.Status.online
     await bot.change_presence(status=discordStatus)
-    await ctx.send(f'**:ok:** ?ndere Status zu: **{discordStatus}**')
+    await ctx.send(f'**:ok:** to another status: **{discordStatus}**')
 
 @bot.command(hidden=True)
 async def name(ctx, name: str):
-    '''?ndert den globalen Namen vom Bot (BOT OWNER ONLY)'''
+    '''changes bot global name (BOT OWNER ONLY)'''
     await bot.edit_profile(username=name)
-    msg = f':ok: ?ndere meinen Namen zu: **{name}**'
+    msg = f':ok: change my name: **{name}**'
     await ctx.send(msg)
 
 @bot.command(hidden=True, aliases=['guilds'])
 async def servers(ctx):
-    '''Listet die aktuellen verbundenen Guilds auf (BOT OWNER ONLY)'''
+    '''Lists the current connected guilds (BOT OWNER ONLY)'''
     msg = '```js\n'
     msg += '{!s:19s} | {!s:>5s} | {} | {}\n'.format('ID', 'Member', 'Name', 'Owner')
     for guild in bot.guilds:
@@ -380,9 +380,9 @@ async def servers(ctx):
 
 @bot.command(hidden=True)
 async def leaveserver(ctx, guildid: str):
-    '''Tritt aus einem Server aus (BOT OWNER ONLY)
+    '''Leaves a server (BOT OWNER ONLY)
 
-    Beispiel:
+    Example:
     -----------
 
     :leaveserver 102817255661772800
@@ -394,14 +394,14 @@ async def leaveserver(ctx, guildid: str):
         guild = bot.get_guild(guildid)
         if guild:
             await guild.leave()
-            msg = f':ok: Austritt aus {guild.name} erfolgreich!'
+            msg = f':ok: Exit from {guild.name} successful!'
         else:
-            msg = ':x: Konnte keine passende Guild zu dieser ID finden!'
+            msg = ':x: Could not find a suitable guild for this ID!'
     await ctx.send(msg)
 
 @bot.command(hidden=True)
 async def echo(ctx, channel: str, *message: str):
-    '''Gibt eine Nachricht als Bot auf einem bestimmten Channel aus (BOT OWNER ONLY)'''
+    '''Outputs a message as a bot on a specific channel (BOT OWNER ONLY)'''
     ch = bot.get_channel(int(channel))
     msg = ' '.join(message)
     await ch.send(msg)
@@ -409,7 +409,7 @@ async def echo(ctx, channel: str, *message: str):
 
 @bot.command(hidden=True)
 async def discriminator(ctx, disc: str):
-    '''Gibt Benutzer mit dem jeweiligen Discriminator zur?ck'''
+    '''Returns users with the respective discriminator'''
 
     discriminator = disc
     memberList = ''
@@ -422,7 +422,7 @@ async def discriminator(ctx, disc: str):
     if memberList:
         await ctx.send(memberList)
     else:
-        await ctx.send(':x: Konnte niemanden finden')
+        await ctx.send(":x: Couldn't find anyone")
 
 @bot.command(hidden=True)
 async def nickname(ctx, *name):
@@ -430,27 +430,27 @@ async def nickname(ctx, *name):
     nickname = ' '.join(name)
     await ctx.me.edit(nick=nickname)
     if nickname:
-        msg = f':ok: ?ndere meinen Server Nickname zu: **{nickname}**'
+        msg = f':ok: Change my server nickname: **{nickname}**'
     else:
-        msg = f':ok: Reset von meinem Server Nickname auf: **{ctx.me.name}**'
+        msg = f':ok: Reset from my server nickname: **{ctx.me.name}**'
     await ctx.send(msg)
 
 @bot.command(hidden=True)
 async def setnickname(ctx, member: discord.Member=None, *name):
-    '''?ndert den Nickname eines Benutzer (BOT OWNER ONLY)'''
+    '''Changes a user's nickname (BOT OWNER ONLY)'''
     if member == None:
         member = ctx.author
     nickname = ' '.join(name)
     await member.edit(nick=nickname)
     if nickname:
-        msg = f':ok: ?ndere Nickname von {member} zu: **{nickname}**'
+        msg = f':ok: Change nickname of {member} to: **{nickname}**'
     else:
-        msg = f':ok: Reset von Nickname f?r {member} auf: **{member.name}**'
+        msg = f':ok: Reset nickname for {member} on: **{member.name}**'
     await ctx.send(msg)
 
 @bot.command(hidden=True)
 async def geninvite(ctx, serverid: str):
-    '''Generiert einen Invite f?r eine Guild wenn m?glich (BOT OWNER ONLY)'''
+    '''Generates an invite for a guild if possible (BOT OWNER ONLY)'''
     guild = bot.get_guild(int(serverid))
     invite = await bot.create_invite(guild, max_uses=1, unique=False)
     msg = f'Invite f?r **{guild.name}** ({guild.id})\n{invite.url}'
@@ -458,10 +458,10 @@ async def geninvite(ctx, serverid: str):
 
 @bot.command(hidden=True, aliases=['wichteln'])
 async def wichtel(ctx, *participants: str):
-    '''N?tzlich f?r das Community Wichtel Event 2018 (BOT OWNER ONLY)'''
+    '''Useful for the Community Wichtel Event 2018 (BOT OWNER ONLY)'''
     participantsList = list(participants)
     random.shuffle(participantsList)
-    msg = 'Wichtelpartner stehen fest:\n```'
+    msg = 'Imp partners have been determined:\n```'
     for i, val in enumerate(participantsList):
         if i == len(participantsList) - 1:
             msg += f'{val.ljust(10)} ===> {participantsList[0]}\n'
