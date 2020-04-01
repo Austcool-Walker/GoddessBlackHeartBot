@@ -1,0 +1,5 @@
+2020-04-01 19:12:10,687:INFO:discord.client: logging in using static token
+2020-04-01 19:12:10,899:WARNING:discord.http: We are being rate limited. Retrying in 0.34 seconds. Handled under the bucket "None:None:/users/@me"
+2020-04-01 19:12:10,899:WARNING:discord.http: Global rate limit has been hit. Retrying in 0.34 seconds.
+2020-04-01 19:12:11,291:INFO:discord.client: Cleaning up tasks.
+2020-04-01 19:12:11,291:INFO:discord.client: Closing the event loop.
