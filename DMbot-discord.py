@@ -39,6 +39,9 @@ logger.addHandler(handler)
 # This is prefix of my bot
 bot = Bot(command_prefix='!')
 
+bot.launch_time = datetime.utcnow()
+bot.version_code = "Release 1.2 Beta"
+
 # Lets send A DM
 @bot.command()
 async def pm(ctx, users: Greedy[User], *, message):
