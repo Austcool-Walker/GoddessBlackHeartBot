@@ -745,8 +745,7 @@ async def connect_to(guild_id: int, channel_id: str):
     # The above looks dirty, we could alternatively use `bot.shards[shard_id].ws` but that assumes
     # the bot instance is an AutoShardedBot.
 
-@commands.command(aliases=['p'])
-@commands.guild_only()
+@bot.command(aliases=['p'])
 async def play(ctx, *, query: str):
     """ Searches and plays a song from a given query. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -782,8 +781,7 @@ async def play(ctx, *, query: str):
     if not player.is_playing:
         await player.play()
 
-@commands.command()
-@commands.guild_only()
+@bot.command()
 async def seek(ctx, *, seconds: int):
     """ Seeks to a given position in a track. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -793,8 +791,7 @@ async def seek(ctx, *, seconds: int):
 
     await ctx.send(f'Moved track to **{lavalink.utils.format_time(track_time)}**')
 
-@commands.command(aliases=['forceskip'])
-@commands.guild_only()
+@bot.command(aliases=['forceskip'])
 async def skip(ctx):
     """ Skips the current track. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -805,8 +802,7 @@ async def skip(ctx):
     await player.skip()
     await ctx.send('⏭ | Skipped.')
 
-@commands.command()
-@commands.guild_only()
+@bot.command()
 async def stop(ctx):
     """ Stops the player and clears its queue. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -818,8 +814,7 @@ async def stop(ctx):
     await player.stop()
     await ctx.send('⏹ | Stopped.')
 
-@commands.command(aliases=['np', 'n', 'playing'])
-@commands.guild_only()
+@bot.command(aliases=['np', 'n', 'playing'])
 async def now(ctx):
     """ Shows some stats about the currently playing song. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -838,8 +833,7 @@ async def now(ctx):
                           title='Now Playing', description=song)
     await ctx.send(embed=embed)
 
-@commands.command(aliases=['q'])
-@commands.guild_only()
+@bot.command(aliases=['q'])
 async def queue(ctx, page: int = 1):
     """ Shows the player's queue. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -862,8 +856,7 @@ async def queue(ctx, page: int = 1):
     embed.set_footer(text=f'Viewing page {page}/{pages}')
     await ctx.send(embed=embed)
 
-@commands.command(aliases=['resume'])
-@commands.guild_only()
+@bot.command(aliases=['resume'])
 async def pause(ctx):
     """ Pauses/Resumes the current track. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -878,8 +871,7 @@ async def pause(ctx):
         await player.set_pause(True)
         await ctx.send('⏯ | Paused')
 
-@commands.command(aliases=['vol'])
-@commands.guild_only()
+@bot.command(aliases=['vol'])
 async def volume(ctx, volume: int = None):
     """ Changes the player's volume (0-1000). """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -890,8 +882,7 @@ async def volume(ctx, volume: int = None):
     await player.set_volume(volume)  # Lavalink will automatically cap values between, or equal to 0-1000.
     await ctx.send(f'🔈 | Set to {player.volume}%')
 
-@commands.command()
-@commands.guild_only()
+@bot.command()
 async def shuffle(ctx):
     """ Shuffles the player's queue. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -901,8 +892,7 @@ async def shuffle(ctx):
     player.shuffle = not player.shuffle
     await ctx.send('🔀 | Shuffle ' + ('enabled' if player.shuffle else 'disabled'))
 
-@commands.command(aliases=['loop'])
-@commands.guild_only()
+@bot.command(aliases=['loop'])
 async def repeat(ctx):
     """ Repeats the current song until the command is invoked again. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -913,8 +903,7 @@ async def repeat(ctx):
     player.repeat = not player.repeat
     await ctx.send('🔁 | Repeat ' + ('enabled' if player.repeat else 'disabled'))
 
-@commands.command()
-@commands.guild_only()
+@bot.command()
 async def remove(ctx, index: int):
     """ Removes an item from the player's queue with the given index. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -929,8 +918,7 @@ async def remove(ctx, index: int):
 
     await ctx.send(f'Removed **{removed.title}** from the queue.')
 
-@commands.command()
-@commands.guild_only()
+@bot.command()
 async def find(ctx, *, query):
     """ Lists the first 10 search results from a given query. """
     player = bot.lavalink.players.get(ctx.guild.id)
@@ -954,8 +942,7 @@ async def find(ctx, *, query):
     embed = discord.Embed(color=discord.Color.blurple(), description=o)
     await ctx.send(embed=embed)
 
-@commands.command(aliases=['dc'])
-@commands.guild_only()
+@bot.command(aliases=['dc'])
 async def disconnect(ctx):
     """ Disconnects the player from the voice channel and clears its queue. """
     player = bot.lavalink.players.get(ctx.guild.id)
