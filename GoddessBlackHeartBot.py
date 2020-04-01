@@ -32,6 +32,7 @@ from contextlib import redirect_stdout
 import math
 import re
 import lavalink
+import ldap
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
