@@ -319,27 +319,27 @@ async def help(ctx):
 # await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
 
 # Set bot's status
-async def status_task():
-    while True:
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Waiting for !help"))
-        await asyncio.sleep(30)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Forgotten Insanity TOW [2.0.0] 1.12.2"))
-        await asyncio.sleep(30)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Hi I'm the DM bot."))
-        await asyncio.sleep(30)
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("I'm Austcool-Walker's first python3 project."))
-        await asyncio.sleep(30)
-        await bot.change_presence(activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
-        await asyncio.sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
-        await asyncio.sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
-        await asyncio.sleep(30)
+#async def status_task():
+#    while True:
+#        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Waiting for !help"))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Forgotten Insanity TOW [2.0.0] 1.12.2"))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(status=discord.Status.online, activity=discord.Game("Hi I'm the DM bot."))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(status=discord.Status.online, activity=discord.Game("I'm Austcool-Walker's first python3 project."))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(activity=discord.Streaming(name="Approaching Nirvana", url="https://www.twitch.tv/approachingnirvana"))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Reboot by Approaching Nirvana & Big Giant Circles"))
+#        await asyncio.sleep(30)
+#        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Azur Lane"))
+#        await asyncio.sleep(30)
 
-@bot.event
-async def on_ready():
-    ...
-    bot.loop.create_task(status_task())
+#@bot.event
+#async def on_ready():
+#    ...
+#    bot.loop.create_task(status_task())
     #count = requests.get(file="bot.status")
 
 #Grab user Avatar bot command.
