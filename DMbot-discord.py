@@ -65,6 +65,163 @@ async def about(ctx):
     embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot)")
     await ctx.send(embed=embed)
 
+
+# Uptime bot command
+@bot.command()
+async def uptime(ctx):
+    delta_uptime = datetime.utcnow() - bot.launch_time
+    hours, remainder = divmod(int(delta_uptime.total_seconds()), 3600)
+    minutes, seconds = divmod(remainder, 60)
+    days, hours = divmod(hours, 24)
+    await ctx.send("I have been up for "f"{days} days, {hours} hours, {minutes} minutes, and {seconds} seconds.")
+
+@bot.command()
+async def winner(ctx):
+    try:
+        user = ctx.message.mentions[0]
+    except Exception:
+        memberlist = ctx.message.guild.members
+        user = memberlist[random.randint(0, len(memberlist))]
+    await ctx.send("Congratulations, {}! You're a winner!".format(user.name))
+
+@bot.command()
+async def loser(ctx):
+    try:
+        user = ctx.message.mentions[0]
+    except Exception:
+        memberlist = ctx.message.guild.members
+        user = memberlist[random.randint(0, len(memberlist))]
+    await ctx.send("Sorry, {}! You're a loser!".format(user.name))
+
+# Encryption commands from Albert Tangs Axiro.
+
+@bot.command()
+async def encode(ctx, target, *, message: str):
+    if "base64".lower() in target:
+        crypto = str(base64.b64encode(bytes(message, 'utf-8')))
+        crypto = crypto[2:-1]
+    elif "binary".lower() in target:
+        crypto = ' '.join(format(ord(x), 'b') for x in message)
+    else:
+        await ctx.send('That is not a valid target.')
+        return
+    embed = discord.Embed(title="Encryption complete.", color=discord.Colour.dark_blue(),
+                          description="Here's your new message in {}".format(target))
+    embed.add_field(name="Before: ", value="{}".format(message), inline=False)
+    embed.add_field(name="After: ", value="{}".format(crypto), inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def hash(ctx, target, *, message: str):
+    if "md5".lower() in target:
+        hash = hashlib.md5(message.encode('utf-8')).hexdigest()
+    elif "sha1".lower() in target:
+        hash = hashlib.sha1(message.encode('utf-8')).hexdigest()
+    elif "sha224".lower() in target:
+        hash = hashlib.sha224(message.encode('utf-8')).hexdigest()
+    elif "sha256".lower() in target:
+        hash = hashlib.sha256(message.encode('utf-8')).hexdigest()
+    elif "sha384".lower() in target:
+        hash = hashlib.sha384(message.encode('utf-8')).hexdigest()
+    elif "sha512".lower() in target:
+        hash = hashlib.sha512(message.encode('utf-8')).hexdigest()
+    else:
+        await ctx.send('That is not a valid target.')
+        return
+    embed = discord.Embed(title="Hash complete.", color=discord.Colour.dark_blue(),
+                          description="Here's your new message in {}".format(target))
+    embed.add_field(name="Before: ", value="{}".format(message), inline=False)
+    embed.add_field(name="After: ", value="{}".format(hash), inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def decode(ctx, target, *, message: str):
+    if "base64".lower() in target:
+        decoded = str(base64.b64decode(bytes(message, 'utf-8')))
+        decoded = decoded[2:-1]
+    elif "binary".lower() in target:
+        """This currently does not work."""
+        # decoded = ''.join(chr(int(message[i*8:i*8+8],2)) for i in range(len(message)//8))
+        #decoded = binascii.b2a_qp(message)
+        #await ctx.send(decoded)
+        await ctx.send("Binary decryption is currently not ready.")
+        return
+    else:
+        await ctx.send('That is not a valid target.')
+        return
+    embed = discord.Embed(title="Decryption complete.", color=discord.Colour.dark_red(),
+                          description="Here's your new message from {}".format(target))
+    embed.add_field(name="Before: ", value="{}".format(message), inline=False)
+    embed.add_field(name="After: ", value="{}".format(decoded), inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def encipher(ctx, target, *, message: str):
+    if "caesar".lower() in target:
+        L2I = dict(zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ", range(26)))
+        I2L = dict(zip(range(26), "ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        key = 3
+        ciphertext = ""
+        for c in message.upper():
+            if c.isalpha():
+                ciphertext += I2L[(L2I[c] + key) % 26]
+            else:
+                ciphertext += c
+        await ctx.send(ciphertext)
+    else:
+        await ctx.send('That\'s not a valid cipher option.')
+
+@bot.command()
+async def decipher(ctx, target, *, message: str):
+    if "caesar".lower() in target:
+        L2I = dict(zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ", range(26)))
+        I2L = dict(zip(range(26), "ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        key = 3
+        plaintext = ""
+        for c in message.upper():
+            if c.isalpha():
+                plaintext += I2L[(L2I[c] - key) % 26]
+            else:
+                plaintext += c
+        await ctx.send(plaintext)
+    else:
+        await ctx.send('That\'s not a valid cipher option.')
+
+@bot.command()
+async def reverse(ctx, *, message: str):
+    new_msg = message[::-1]
+    await ctx.send(new_msg)
+
+# More bot commands from Axiro's General module.
+@bot.command()
+async def user(ctx):
+    try:
+        target = ctx.message.mentions[0]
+    except Exception:
+        target = ctx.message.author
+        await ctx.send("User not found or specified. Collecting information about sender...")
+    roles = []
+    for x in target.roles:
+        roles.append(x.name)
+    knownroles = "\n".join(roles)
+    embed = discord.Embed(title="Information successfully collected!", description="Here's what we know about {} "
+                                "(also known as {})".format(target.name, target.display_name))
+    embed.add_field(name="User ID: ", value=str(target.id), inline=False)
+    embed.add_field(name="Current Roles: ", value=knownroles, inline=False)
+    embed.add_field(name="Joined Discord on: ", value=target.created_at, inline=False)
+    embed.set_thumbnail(url=target.avatar_url)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def ping(ctx):
+    t_1 = time.perf_counter()
+    await ctx.trigger_typing()
+    t_2 = time.perf_counter()
+    time_delta = round((t_2 - t_1) * 1000)
+    responses = ['Pong!', 'Ack!', 'Whoa!', 'Pang!', 'How am I doing?']
+    await ctx.send("{} ``Time: {}ms``".format(random.choice(responses), time_delta))
+
 # Bots Status
 # Setting `Playing ` status
 # !eval await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="The Overcomplicated Weirdness 1.12.2"))
@@ -150,6 +307,11 @@ async def on_ready():
     bot.loop.create_task(status_task())
     #count = requests.get(file="bot.status")
 
+#Grab user Avatar bot command.
+@bot.command()
+async def avatar(ctx, *,  avamember : discord.Member=None):
+    userAvatarUrl = avamember.avatar_url
+    await ctx.send(userAvatarUrl)
 
 # Debug code ripped from Albert Tangs Axiro
 
