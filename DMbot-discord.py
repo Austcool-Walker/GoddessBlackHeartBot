@@ -1,5 +1,8 @@
 #              Send DMs to people using bots (Python)
 import discord
+import base64
+import binascii
+import hashlib
 import ast
 import io
 import random
