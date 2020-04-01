@@ -268,9 +268,33 @@ async def help(ctx):
     embed.add_field(name="!about", value="Gives information about this bot.", inline=False)
     embed.add_field(name="!pm", value="Sends user a message in a DM. The bot must share a server with the user you wish to send the message to.", inline=False)
     embed.add_field(name="!bowtourqueen", value="Sends a image of Goddess Black Heart from neptunia (meme)", inline=False)
-    embed.add_field(name="!degen", value="Sends a image of Degenerates", inline=False)
+    embed.add_field(name="!degen", value="Sends a image of Degenerates.", inline=False)
     embed.add_field(name="!lfinished", value="Sends a image of Black Heart Destroying you with Lace Ribbon Dance!", inline=False)
+    embed.add_field(name="!user", value="Gives gives information about the targeted user.", inline=False)
+    embed.add_field(name="!ping", value="Tests users speed. (ping)", inline=False)
+    embed.add_field(name="!encode", value="Encodes sent text in targeted encoding (binary | base64).", inline=False)
+    embed.add_field(name="!hash", value="Hashes the targeted text into a hash. (md5 | sha1sum | sha224sum | sha256sum | sha384sum | sha512sum)", inline=False)
+    embed.add_field(name="!decode", value="Decodes sent text in targeted encoding. (binary | base64", inline=False)
+    embed.add_field(name="!encipher", value="Enciphers text in the targeted cipher. (caesar)", inline=False)
+    embed.add_field(name="!decipher", value="Deciphers text in the targeted cipher. (caesar)", inline=False)
+    embed.add_field(name="!reverse", value="Reverses the targeted text.", inline=False)
+    embed.add_field(name="!say", value="Says the targeted text.", inline=False)
+    embed.add_field(name="!kick", value="Kicks the targeted user from the server.", inline=False)
+    embed.add_field(name="!ban", value="Bans the targeted user from the server.", inline=False)
+    embed.add_field(name="!mute", value="Mutes the targeted user in the server.", inline=False)
+    embed.add_field(name="!unmute", value="Unmutes the targeted user in the server.", inline=False)
+    embed.add_field(name="!prune", value="Prunes messages in the current channel. (number of messages to be pruned)", inline=False)
+    embed.add_field(name="!nickname", value="Changes the current global nickname of the bot.", inline=False)
+    embed.add_field(name="!servers", value="Lists the current servers the bot is in.", inline=False)
+    embed.add_field(name="!setnickname", value="Changes the nickname of the targeted user.", inline=False)
+    embed.add_field(name="!geninvite", value="Generates an invite for a guild if possible.", inline=False)
+    embed.add_field(name="!test", value="Makes bot send Test to ensure its working correctly.", inline=False)
+    embed.add_field(name="!echo", value="Outputs a message as a bot on a specific channel. Make sure the bot shares the targeted server if sending to channel of alternate server. (Channel_ID)", inline=False)
+    embed.add_field(name="!discriminator", value="Returns users with the respective discriminator. (Discriminator_Number)", inline=False)
+    embed.add_field(name="!avatar", value="Sends the targeted users avatar.", inline=False)
     embed.add_field(name="!help", value="Gives this help message", inline=False)
+    embed.set_footer(icon_url=ctx.message.author.avatar_url,
+                     text="Requested by {}".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
 # Bots Status
@@ -642,6 +666,46 @@ async def test(ctx):
     await ctx.send('Test')
     await bot.AppInfo.owner.send('Test')
     await ctx.send(bot.cogs)
+
+# Guild Logging
+
+    async def on_guild_join(self, guild):
+        if self.usedatabase:
+            sql = "INSERT INTO guilds (id, name, prefix) VALUES ($1, $2, $3)"
+            await self.db.execute(sql, guild.id, guild.name, self.config['prefix'])
+        channel = self.get_channel(477206313139699722)
+        embed = discord.Embed(title="Guild joined!", color=discord.Colour.blue(),
+                              description="We have joined a guild, bringing us to {} guilds!".format(len(self.guilds)))
+        embed.add_field(name="Guild name:", value=guild.name)
+        embed.add_field(name="Guild Owner: ", value=guild.owner)
+        embed.add_field(name="Member count: ", value=guild.member_count)
+        embed.set_thumbnail(url=guild.icon_url)
+        await channel.send(embed=embed)
+
+    async def on_guild_remove(self, guild):
+        if self.usedatabase:
+            sql = "DELETE FROM guilds where id = $1"
+            await self.db.execute(sql, guild.id)
+        channel = self.get_channel(477206313139699722)
+        embed = discord.Embed(title="Guild lost!", color=discord.Colour.red(),
+                              description="We have lost a guild, dropping us to {} guilds!".format(len(self.guilds)))
+        embed.add_field(name="Guild name:", value=guild.name)
+        embed.add_field(name="Guild Owner: ", value=guild.owner)
+        embed.add_field(name="Member count: ", value=guild.member_count)
+        embed.set_thumbnail(url=guild.icon_url)
+        await channel.send(embed=embed)
+
+    async def prefixcall(self, bot, ctx):
+        if ctx.guild is None:
+            return self.config['prefix']
+        if not self.usedatabase:
+            return self.config['prefix']
+        sql = "SELECT prefix FROM guilds WHERE id = $1"
+        result = bot.db.fetchval(sql, ctx.guild.id)
+        if result:
+            return result
+        else:
+            return self.config['prefix']
 
 # Finally add your token number and run the client
 bot.run("Discord Auth Token Here!")
