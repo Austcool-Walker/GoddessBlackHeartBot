@@ -11,6 +11,7 @@ code = "```py\n{0}\n```"
 
 class Reminders(commands.Cog, name="Reminders"):
   def __init__(self, bot):
+      self.bot = bot
 #    super().__init__(bot)
 #    self.cursor = bot.mysql.cursor
 #    self.truncate = bot.truncate
