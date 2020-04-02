@@ -16,13 +16,13 @@ class Reactions(commands.Cog, name="Reactions"):
         @bot.event
         async def on_message(message):
                 channel = message.channel
-                if message.content.startswith('mad', 'angry'):
+                if message.content.startswith('mad, angry'):
                     await ctx.message.add_reaction('😡')
 
         @bot.event
         async def on_message(message):
                 channel = message.channel
-                if message.content.startswith('sad' , 'despair'):
+                if message.content.startswith('sad , despair'):
                     await ctx.message.add_reaction('😭')
 
         @bot.event
@@ -34,7 +34,7 @@ class Reactions(commands.Cog, name="Reactions"):
         @bot.event
         async def on_message(message):
                 channel = message.channel
-                if message.content.startswith('happy', 'joy'):
+                if message.content.startswith('happy, joy'):
                     await ctx.message.add_reaction('😁')
 
 
