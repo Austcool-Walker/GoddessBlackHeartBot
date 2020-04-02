@@ -9,9 +9,34 @@ import sys
 
 class General(commands.Cog, name="General"):
 
-    def __init__(self, bot):
+    def __init__(self, bot, **attr):
         self.bot = bot
         self.information = json.loads(open('help.json', 'r').read())
+
+    @staticmethod
+    def _newImage(width, height, color):
+        return Image.new("L", (width, height), color)
+
+    @staticmethod
+    def _getRoles(roles):
+        string = ''
+        for role in roles[::-1]:
+            if not role.is_default():
+                string += f'{role.mention}, '
+        if string is '':
+            return 'None'
+        else:
+            return string[:-2]
+
+    @staticmethod
+    def _getEmojis(emojis):
+        string = ''
+        for emoji in emojis:
+            string += str(emoji)
+        if string is '':
+            return 'None'
+        else:
+            return string[:1000] #The maximum allowed charcter amount for embed fields
 
     @commands.command(name='help')
     async def _help(self, beep, commands=None):
