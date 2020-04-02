@@ -84,7 +84,7 @@ class General(commands.Cog, name="General"):
         if len(users) == 0:
             users = [ctx.message.author]
         for user in users:
-            await self.bot.say("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
+            await ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
 
     @commands.command(pass_context=True, no_pm=True)
     async def serverinfo(self, ctx):
@@ -121,7 +121,7 @@ class General(commands.Cog, name="General"):
             msg += ':art: Server Icon: {0}'.format(server.icon_url)
             await self.truncate(ctx.message.channel, msg)
         except Exception as e:
-            await self.bot.say(e)
+            await ctx.send(e)
 
 #    @commands.command()
 #    async def invite(self, ctx):
