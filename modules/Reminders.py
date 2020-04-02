@@ -11,7 +11,7 @@ code = "```py\n{0}\n```"
 
 class Reminders(commands.Cog, name="Reminders"):
   def __init__(self, bot):
-    super().__init__(bot)
+    self.bot = bot
     self.cursor = bot.mysql.cursor
     self.truncate = bot.truncate
     #https://github.com/Rapptz/RoboDanny/tree/master/cogs/meta.py#L13
