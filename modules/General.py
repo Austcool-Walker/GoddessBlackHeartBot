@@ -86,40 +86,28 @@ class General(commands.Cog, name="General"):
         for user in users:
             await ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
 
-    @commands.command(pass_context=True, no_pm=True)
-    async def serverinfo(self, ctx):
-        """server info"""
-        try:
-            server = ctx.message.server
-            online = str(sum(1 for member in server.members if member.status == discord.Status.online or member.status == discord.Status.idle))
-            msg = ':desktop: **{0}** Information:\n'.format(server)
-            msg += ":id:: `{0}`\n".format(server.id)
-            msg += ":map: Region: __{0}__\n".format(str(server.region))
-            msg += ":busts_in_silhouette: Users: **{0}**/{1}\n".format(online, len(server.members))
-            msg += ":calendar_spiral: Created: `{0}`\n".format(str(server.created_at.strftime('%m/%d/%Y %H:%M:%S')))
-            msg += ":bust_in_silhouette: Owner: `{0}`\n".format(server.owner)
-            if server.verification_level:
-                msg += ":exclamation: Verification Level: **{0}**\n".format(str(server.verification_level).upper())
-            msg += ":speech_balloon: Default Channel: {0}\n".format(server.default_channel.mention)
-            if ctx.message.server.afk_channel:
-                msg += ":telephone_receiver: AFK Channel: {0}\n".format(ctx.message.server.afk_channel.mention)
-                msg += ":keyboard: AFK Timeout: {0} minutes\n".format(str(int(int(ctx.message.server.afk_timeout)/60)))
-            voice = 0
-            text = 0
-            for channel in server.channels:
-                if channel.type == discord.ChannelType.text:
-                    text += 1
-                elif channel.type == discord.ChannelType.voice:
-                    voice += 1
-            msg += ":arrow_forward: Channels: `{0}` Text | `{1}` Voice | **{2}** Total\n".format(text, voice, str(len(server.channels)))
-            msg += ":arrow_forward: Roles: `{0}`\n".format(str(len(server.roles)))
-            if len(server.emojis) != 0:
-                emotes = ""
-                for emote in server.emojis:
-                    emotes += "<:{0}:{1}>".format(emote.name, emote.id)
-                msg += ":arrow_forward: Emotes: {0}\n".format(emotes)
-            msg += ':art: Server Icon: {0}'.format(server.icon_url)
-            await ctx.send(ctx.message.channel, msg)
+    @commands.command(pass_context=True, aliases=['serverinfo', 'guild', 'membercount'])
+    async def server(self, ctx):
+        '''Returns information about the current Discord Guild'''
+        emojis = self._getEmojis(ctx.guild.emojis)
+        #print(emojis)
+        roles = self._getRoles(ctx.guild.roles)
+        embed = discord.Embed(color=0xf1c40f) #Golden
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.set_footer(text='Emojis may be missing')
+        embed.add_field(name='Name', value=ctx.guild.name, inline=True)
+        embed.add_field(name='ID', value=ctx.guild.id, inline=True)
+        embed.add_field(name='owner', value=ctx.guild.owner, inline=True)
+        embed.add_field(name='Region', value=ctx.guild.region, inline=True)
+        embed.add_field(name='Members', value=ctx.guild.member_count, inline=True)
+        embed.add_field(name='Created on', value=ctx.guild.created_at.strftime('%d.%m.%Y'), inline=True)
+        if ctx.guild.system_channel:
+            embed.add_field(name='Standard Channel', value=f'#{ctx.guild.system_channel}', inline=True)
+        embed.add_field(name='AFK Voice Timeout', value=f'{int(ctx.guild.afk_timeout / 60)} min', inline=True)
+        embed.add_field(name='Guild Shard', value=ctx.guild.shard_id, inline=True)
+        embed.add_field(name='Rollen', value=roles, inline=True)
+        embed.add_field(name='Custom Emojis', value=emojis, inline=True)
+        await ctx.send(embed=embed)
 
 #    @commands.command()
 #    async def invite(self, ctx):
