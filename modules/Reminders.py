@@ -13,7 +13,7 @@ class Reminders(commands.Cog, name="Reminders"):
   def __init__(self, bot):
 #    super().__init__(bot)
 #    self.cursor = bot.mysql.cursor
-    self.truncate = bot.truncate
+#    self.truncate = bot.truncate
     #https://github.com/Rapptz/RoboDanny/tree/master/cogs/meta.py#L13
     self.time_regex = re.compile(r"(?:(?P<months>\d+)mo)?(?:(?P<weeks>\d+)w)?(?:(?P<days>\d+)d)?(?:(?P<hours>\d+)h)?(?:(?P<minutes>\d+)m)?(?:(?P<seconds>\d+)s)?")
     bot.loop.create_task(self.remind_task())
