@@ -6,7 +6,7 @@ import time as ti
 from timestring.timestring_re import TIMESTRING_RE
 from datetime import datetime
 from discord.ext import commands
-import mysql
+import pymysql
 
 code = "```py\n{0}\n```"
 
