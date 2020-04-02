@@ -119,9 +119,7 @@ class General(commands.Cog, name="General"):
                     emotes += "<:{0}:{1}>".format(emote.name, emote.id)
                 msg += ":arrow_forward: Emotes: {0}\n".format(emotes)
             msg += ':art: Server Icon: {0}'.format(server.icon_url)
-            await self.truncate(ctx.message.channel, msg)
-        except Exception as e:
-            await ctx.send(e)
+            await ctx.send(ctx.message.channel, msg)
 
 #    @commands.command()
 #    async def invite(self, ctx):
