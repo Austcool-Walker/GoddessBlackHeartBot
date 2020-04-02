@@ -9,6 +9,7 @@ import random
 import logging
 import aiohttp
 import traceback
+import pymysql
 
 
 class GoddessBlackHeartBot(commands.AutoShardedBot):
