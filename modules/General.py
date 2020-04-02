@@ -23,7 +23,7 @@ class General(commands.Cog, name="General"):
         for role in roles[::-1]:
             if not role.is_default():
                 string += f'{role.mention}, '
-        if string is '':
+        if string == '':
             return 'None'
         else:
             return string[:-2]
@@ -33,7 +33,7 @@ class General(commands.Cog, name="General"):
         string = ''
         for emoji in emojis:
             string += str(emoji)
-        if string is '':
+        if string == '':
             return 'None'
         else:
             return string[:1000] #The maximum allowed charcter amount for embed fields
@@ -122,7 +122,7 @@ class General(commands.Cog, name="General"):
         embed.set_footer(text='Emojis may be missing')
         embed.add_field(name='Name', value=ctx.guild.name, inline=True)
         embed.add_field(name='ID', value=ctx.guild.id, inline=True)
-        embed.add_field(name='owner', value=ctx.guild.owner, inline=True)
+        embed.add_field(name='Owner', value=ctx.guild.owner, inline=True)
         embed.add_field(name='Region', value=ctx.guild.region, inline=True)
         embed.add_field(name='Members', value=ctx.guild.member_count, inline=True)
         embed.add_field(name='Created on', value=ctx.guild.created_at.strftime('%d.%m.%Y'), inline=True)
@@ -130,23 +130,23 @@ class General(commands.Cog, name="General"):
             embed.add_field(name='Standard Channel', value=f'#{ctx.guild.system_channel}', inline=True)
         embed.add_field(name='AFK Voice Timeout', value=f'{int(ctx.guild.afk_timeout / 60)} min', inline=True)
         embed.add_field(name='Guild Shard', value=ctx.guild.shard_id, inline=True)
-        embed.add_field(name='Rollen', value=roles, inline=True)
+        embed.add_field(name='Rolls', value=roles, inline=True)
         embed.add_field(name='Custom Emojis', value=emojis, inline=True)
         await ctx.send(embed=embed)
 
-#    @commands.command()
-#    async def invite(self, ctx):
-#        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
-#                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
-#        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-#        await ctx.send(embed=embed)
+    @commands.command()
+    async def invite(self, ctx):
+        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
+                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
+        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
 
-#    @commands.command()
-#    async def server(self, ctx):
-#        embed = discord.Embed(color=discord.Colour.dark_gold(), title="So you want to join my creator's server?",
-#                              description="Come join the support server by clicking [here](https://discord.gg/veVDS47)")
-#        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-#        await ctx.send(embed=embed)
+    @commands.command()
+    async def server(self, ctx):
+        embed = discord.Embed(color=discord.Colour.dark_gold(), title="So you want to join my creator's server?",
+                              description="Come join the support server by clicking [here](https://discord.gg/veVDS47)")
+        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+       await ctx.send(embed=embed)
 
     @commands.command()
     async def suggest(self, ctx, *, report: str):
