@@ -4,10 +4,10 @@ from discord.ext import commands
 
 class Reactions(commands.Cog, name="Reactions"):
 
-    def __init__(self, bot):
-        self.bot = bot
-        Client =  bot
-    
+    def __init__(self, bot, Client):
+#        self.bot = bot
+    bot = Client
+
     @Client.event
     async def on_message(message):
             channel = message.channel
