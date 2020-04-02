@@ -23,7 +23,7 @@ class General(commands.Cog, name="General"):
         for role in roles[::-1]:
             if not role.is_default():
                 string += f'{role.mention}, '
-        if string == '':
+        if string is '':
             return 'None'
         else:
             return string[:-2]
@@ -33,7 +33,7 @@ class General(commands.Cog, name="General"):
         string = ''
         for emoji in emojis:
             string += str(emoji)
-        if string == '':
+        if string is '':
             return 'None'
         else:
             return string[:1000] #The maximum allowed charcter amount for embed fields
