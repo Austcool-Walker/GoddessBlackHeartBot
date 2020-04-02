@@ -45,7 +45,7 @@ class General(commands.Cog, name="General"):
     @commands.command(aliases=['info'])
     async def about(self, beep):
         embed = discord.Embed(title="About 女神ブラックハート:", description="The Goddess Black Heart bot started out as  a random mad computer science experiment but evolved into a full scale bot!")
-        embed.add_field(name="Author: ", value="Origional Base Code from (<@310496481435975693>) forked by (<@318528448320634881>)", inline=False)
+        embed.add_field(name="Author: ", value="Original Base Code from (<@310496481435975693>) forked by (<@318528448320634881>)", inline=False)
         embed.add_field(name="Stats: ", value="Guilds: **{}**\nUnique Players: **{}**\n"
                         .format(len(self.bot.guilds),sum(1 for _ in self.bot.get_all_members())))
         embed.add_field(name="Version: ", value="女神ブラックハート: **{}**\nPython: **{}**\nDiscord.py: **{}**"
