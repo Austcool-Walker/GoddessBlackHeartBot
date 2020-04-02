@@ -4,8 +4,8 @@ from discord.ext import commands
 
 class Reactions(commands.Cog, name="Reactions"):
 
-	def __init__(self, bot):
-#		self.bot = bot
+    def __init__(self, bot):
+        self.bot = bot
     
     @Client.event
     async def on_message(message):
@@ -39,4 +39,4 @@ class Reactions(commands.Cog, name="Reactions"):
 
 
 def setup(bot):
-	bot.add_cog(Reactions(bot))
+    bot.add_cog(Reactions(bot))
