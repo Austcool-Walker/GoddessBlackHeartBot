@@ -166,12 +166,12 @@ class General(commands.Cog, name="General"):
         await channel.send(embed=embed)
         await ctx.send("Your report has been sent.")
 
-#    @commands.command()
-#    async def github(self, ctx):
-#        embed = discord.Embed(color=discord.Colour.light_grey(), title="Are you a programmer and want to help?",
-#                              description="You should click [here](https://github.com/Austcool-Walker/GoddessBlackHeartBot.git) to see my repository. I am an open-source bot.")
-#        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-#        await ctx.send(embed=embed)
+    @commands.command()
+    async def github(self, ctx):
+        embed = discord.Embed(color=discord.Colour.light_grey(), title="Are you a programmer and want to help?",
+                              description="You should click [here](https://github.com/Austcool-Walker/GoddessBlackHeartBot.git) to see my repository. I am an open-source bot.")
+        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
 
 #    @commands.command()
 #    async def upvote(self, ctx):
