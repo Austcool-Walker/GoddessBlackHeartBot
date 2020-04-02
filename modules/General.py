@@ -111,8 +111,8 @@ class General(commands.Cog, name="General"):
         for user in users:
             await ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
 
-    @commands.command(pass_context=True, aliases=['serverinfo', 'guild', 'membercount'])
-    async def server(self, ctx):
+    @commands.command(pass_context=True, aliases=['guild', 'membercount'])
+    async def serverinfo(self, ctx):
         '''Returns information about the current Discord Guild'''
         emojis = self._getEmojis(ctx.guild.emojis)
         #print(emojis)
