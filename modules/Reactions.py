@@ -6,7 +6,7 @@ class Reactions(commands.Cog, name="Reactions"):
 
     def __init__(self, bot, Client):
 #        self.bot = bot
-    bot = Client
+            bot = Client
 
     @Client.event
     async def on_message(message):
