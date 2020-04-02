@@ -1,4 +1,5 @@
 from discord.ext import commands
+import discord
 import io
 from contextlib import redirect_stdout
 import subprocess
