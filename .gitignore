@@ -1,2 +1,12 @@
-.DS_Store
+.idea
 __pycache__
+#config.json
+discord.log
+.vs
+.DS_Store
+logs
+macOS
+linux
+modules/.DS_Store
+natives/.DS_Store
+natives/darwin/.DS_Store

@@ -12,8 +12,6 @@ class Image(commands.Cog, name="Image"):
         self.bot = bot
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def neko(self, ctx):
         if ctx.message.channel.is_nsfw():
             url = 'https://nekos.life/api/v2/img/lewd'
@@ -26,8 +24,6 @@ class Image(commands.Cog, name="Image"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 3, BucketType.user)
-    @commands.guild_only()
     async def danbooru(self, context, tags=None, secondtag=None):
         """Posts an image directly from Project Danbooru."""
         if context.message.channel.is_nsfw():
@@ -92,8 +88,6 @@ class Image(commands.Cog, name="Image"):
         await context.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 3, BucketType.user)
-    @commands.guild_only()
     async def konachan(self, context, tags=None, rating=None):
         """Picks a random image from Konachan and displays it."""
         if context.message.channel.is_nsfw():
@@ -152,8 +146,6 @@ class Image(commands.Cog, name="Image"):
         await context.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 3, BucketType.user)
-    @commands.guild_only()
     async def yandere(self, context, tags=None, rating=None):
         if context.message.channel.is_nsfw():
             if tags is None:

@@ -1,0 +1,10 @@
+{
+    "discordtoken": "discordapp.com API token",
+    "newsapitoken": "newsapi token",
+    "lavalinkpass": "youshallnotpass",
+    "dbpass": "Database password",
+    "dbuser": "Database username",
+    "dbl_token": "DiscordBotToken",
+    "prefix": "X",
+	"lavaport": "1983"
+}
