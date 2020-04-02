@@ -173,7 +173,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         if self.usedatabase:
             sql = "INSERT INTO guilds (id, name, prefix) VALUES ($1, $2, $3)"
             await self.db.execute(sql, guild.id, guild.name, self.config['prefix'])
-        channel = self.get_channel(477206313139699722)
+        channel = self.get_channel(694634431327240282)
         embed = discord.Embed(title="Guild joined!", color=discord.Colour.blue(),
                               description="We have joined a guild, bringing us to {} guilds!".format(len(self.guilds)))
         embed.add_field(name="Guild name:", value=guild.name)
@@ -186,7 +186,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         if self.usedatabase:
             sql = "DELETE FROM guilds where id = $1"
             await self.db.execute(sql, guild.id)
-        channel = self.get_channel(477206313139699722)
+        channel = self.get_channel(694634431327240282)
         embed = discord.Embed(title="Guild lost!", color=discord.Colour.red(),
                               description="We have lost a guild, dropping us to {} guilds!".format(len(self.guilds)))
         embed.add_field(name="Guild name:", value=guild.name)
