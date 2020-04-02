@@ -146,7 +146,7 @@ class General(commands.Cog, name="General"):
         embed = discord.Embed(color=discord.Colour.dark_gold(), title="So you want to join my creator's server?",
                               description="Come join the support server by clicking [here](https://discord.gg/veVDS47)")
         embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-       await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def suggest(self, ctx, *, report: str):
