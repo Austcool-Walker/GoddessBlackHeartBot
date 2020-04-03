@@ -19,6 +19,7 @@ class Admin(commands.Cog, name="Admin"):
         return await ctx.bot.is_owner(ctx.author)
 
     @commands.command(aliases=['quit'], hidden=True)
+    @commands.is_owner()    
     async def shutdown(self, ctx):
         '''Turn me off :( (BOT OWNER ONLY)'''
         await ctx.send('**:ok:** Bye!')
@@ -27,6 +28,7 @@ class Admin(commands.Cog, name="Admin"):
         sys.exit(0)
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def restart(self, ctx):
         ''''Restart me (BOT OWNER ONLY)'''
         await ctx.send('**:ok:** See you soon!')
@@ -34,6 +36,7 @@ class Admin(commands.Cog, name="Admin"):
         sys.exit(6)
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         tempAvaFile = 'tempAva.png'
@@ -47,6 +50,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
+    @commands.is_owner()
     async def changegame(self, ctx, gameType: str, *, gameName: str):
         '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
@@ -65,6 +69,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def changestatus(self, ctx, status: str):
         '''Changes bot online status (BOT OWNER ONLY)'''
         status = status.lower()
@@ -80,6 +85,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**:ok:** to another status: **{discordStatus}**')
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def name(self, ctx, name: str):
         '''changes bot global name (BOT OWNER ONLY)'''
         await self.bot.edit_profile(username=name)
@@ -97,6 +103,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def leaveserver(self, ctx, guildid: str):
         '''Leaves a server (BOT OWNER ONLY)
 
