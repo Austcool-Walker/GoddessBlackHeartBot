@@ -112,7 +112,7 @@ class Admin(commands.Cog, name="Admin"):
 
         :leaveserver 102817255661772800
         '''
-        if guildid == 'this':
+        if guild_id == 'server':
             await ctx.guild.leave()
             return
         else:
