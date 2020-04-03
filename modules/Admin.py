@@ -104,7 +104,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def leaveserver(self, ctx, guildid: str):
+    async def leaveserver(self, ctx, guild_id: str):
         '''Leaves a server (BOT OWNER ONLY)
 
         Example:
@@ -116,9 +116,9 @@ class Admin(commands.Cog, name="Admin"):
             await ctx.guild.leave()
             return
         else:
-            guild = self.bot.get_guild(guildid)
+            guild = self.bot.get_guild(guild_id)
             if guild:
-                await ctx.guild.leave()
+                await guild.leave()
                 msg = f':ok: Exit from {guild.name} successful!'
             else:
                 msg = ':x: Could not find a suitable guild for this ID!'
