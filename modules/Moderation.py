@@ -82,25 +82,17 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def unban(ctx):
-            ban_list = await self.bot.get_bans(ctx.message.server)
-
-            # Show banned users
-            await ctx.send("Ban list:\n{}".format("\n".join([user.name for user in ban_list])))
-
-            # Unban last banned user
-            if not ban_list:
-                await ctx.send("Ban list is empty.")
-                return
-            try:
-                await ctx.message.guild.unban(ctx.message.server, ban_list[-1])
-                await ctx.send(":white_check_mark: Unbanned user: `{}`".format(ban_list[-1].name))
-            except discord.Forbidden:
-                await ctx.send("I do not have permission to unban.")
-                return
-            except discord.HTTPException:
-                await ctx.send('**:no_entry:** Unban failed! No user specified!')
-                return
+    async def unban(self, ctx, user: int = None, *, reason=None):
+        """Unban a person from the guild"""
+        if user is None:
+            return await ctx.send("Please provide the user's ID to unban him.")
+        elif len(str(user)) > 18 or len(str(user)) < 18:
+            return await ctx.send("Please provide a valid user's ID")
+        try:
+            await ctx.guild.unban(discord.Object(user), reason=reason)
+            await ctx.send(":white_check_mark: Successfully unbanned the user.user: `{}`".format(ban_list[-1].name))
+        except (discord.Forbidden, discord.HTTPException):
+            await ctx.send(":negative_squared_cross_mark: Unban failed! or No user specified!") 
 
     @commands.command()
     @commands.has_permissions(kick_members = True)
