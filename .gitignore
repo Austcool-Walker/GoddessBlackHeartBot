@@ -1,6 +1,6 @@
 .idea
 __pycache__
-#config.json
+config.json
 discord.log
 .vs
 .DS_Store
