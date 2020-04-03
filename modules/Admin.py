@@ -118,8 +118,8 @@ class Admin(commands.Cog, name="Admin"):
         else:
             guild = self.bot.get_guild(guildid)
             if guild:
-                await guild.leave()
-                msg = f':ok: Austritt aus {guild.name} erfolgreich!'
+                await ctx.guild.leave()
+                msg = f':ok: Exit from {guild.name} successful!'
             else:
                 msg = ':x: Could not find a suitable guild for this ID!'
         await ctx.send(msg)
