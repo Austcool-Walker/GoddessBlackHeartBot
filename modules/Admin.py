@@ -116,8 +116,8 @@ class Admin(commands.Cog, name="Admin"):
     if guild is None:
             await ctx.send("I don't recognize that ID ({guild.id}) .")
             return
-                await self.bot.leave_guild(guild)
-                await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
+            await self.bot.leave_guild(guild)
+            await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
 
     @commands.command(hidden=True)
     async def echo(self, ctx, channel: str, *message: str):
