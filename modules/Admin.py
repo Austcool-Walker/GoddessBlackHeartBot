@@ -112,11 +112,11 @@ class Admin(commands.Cog, name="Admin"):
 
         :leaveserver 102817255661772800
         '''
-        if guild_id == 'server':
+        if guild_id == '':
             await ctx.guild.leave()
             return
         else:
-            guild = self.bot.get_guild(guild_id)
+            guild = self.bot.get_guild(id)
             if guild:
                 await guild.leave()
                 msg = f':ok: Exit from {guild.name} successful!'
