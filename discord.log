@@ -1,5 +1,7 @@
-2020-04-02 13:09:03,180:INFO:discord.client: logging in using static token
-2020-04-02 13:09:03,363:INFO:discord.client: Cleaning up tasks.
-2020-04-02 13:09:03,363:INFO:discord.client: Cleaning up after 1 tasks.
-2020-04-02 13:09:03,365:INFO:discord.client: All tasks finished cancelling.
-2020-04-02 13:09:03,365:INFO:discord.client: Closing the event loop.
+2020-04-02 20:53:30,109:INFO:discord.client: logging in using static token
+2020-04-02 20:53:30,299:WARNING:discord.http: We are being rate limited. Retrying in 0.01 seconds. Handled under the bucket "None:None:/users/@me"
+2020-04-02 20:53:30,299:WARNING:discord.http: Global rate limit has been hit. Retrying in 0.01 seconds.
+2020-04-02 20:53:30,376:INFO:discord.client: Cleaning up tasks.
+2020-04-02 20:53:30,376:INFO:discord.client: Cleaning up after 1 tasks.
+2020-04-02 20:53:30,378:INFO:discord.client: All tasks finished cancelling.
+2020-04-02 20:53:30,378:INFO:discord.client: Closing the event loop.
