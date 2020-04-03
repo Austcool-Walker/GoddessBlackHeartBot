@@ -1,10 +1,5 @@
 #              Send DMs to people using bots (Python)
 import discord
-import ast
-import io
-import random
-import time
-import json
 import asyncio
 from discord.ext.commands import Bot, Greedy
 from discord import User
