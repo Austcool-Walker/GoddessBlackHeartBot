@@ -82,22 +82,25 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def unban(self, ctx, user: int=None, *reason):
-        '''Releases a member with a reason (MOD ONLY)
-        The user ID must be specified, name + discriminator is not enough
-        example:
-        -----------
-        :unban 102815825781596160
-        '''
-        user = discord.User(id=user)
-        if user is not None:
-            if reason:
-                reason = ' '.join(reason)
-            else:
-                reason = None
-            await ctx.guild.unban(user, reason=reason)
-        else:
-            await ctx.send('**:no_entry:** No user specified!')
+    async def unban(ctx):
+            ban_list = await self.bot.get_bans(ctx.message.server)
+
+            # Show banned users
+            await ctx.send("Ban list:\n{}".format("\n".join([user.name for user in ban_list])))
+
+            # Unban last banned user
+            if not ban_list:
+                await ctx.send("Ban list is empty.")
+                return
+            try:
+                await bot.unban(ctx.message.server, ban_list[-1])
+                await ctx.send(":white_check_mark: Unbanned user: `{}`".format(ban_list[-1].name))
+            except discord.Forbidden:
+                await ctx.send("I do not have permission to unban.")
+                return
+            except discord.HTTPException:
+                await ctx.send('**:no_entry:** Unban failed! No user specified!')
+                return
 
     @commands.command()
     @commands.has_permissions(kick_members = True)
