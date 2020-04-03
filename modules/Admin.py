@@ -104,7 +104,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def leave(self, ctx, *, guild_id):
+    async def leaveserver(self, ctx, *, guild_id):
         guild = discord.utils.get(self.bot.guilds, name=guild_id)
         if guild is None:
             await ctx.send("I don't recognize that guild ID.")
