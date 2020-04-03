@@ -105,19 +105,13 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command(hidden=True)
     @commands.is_owner()
     async def leave(self, ctx, *, guild_id):
-            '''Leaves a server (BOT OWNER ONLY)
-
-            Example:
-            -----------
-
-            :leaveserver 102817255661772800
-            '''
-    guild = discord.utils.get(self.bot.guilds, name=guild_id)
-    if guild is None:
-            await ctx.send("I don't recognize that ID ({guild.id}) .")
-            return 
-    await self.bot.leave_guild(guild)
-    await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
+        guild = discord.utils.get(self.bot.guilds, name=guild_id)
+        if guild is None:
+            await ctx.send("I don't recognize that guild ID.")
+            return
+        await self.bot.leave_guild(guild)
+        await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
+    
 
     @commands.command(hidden=True)
     async def echo(self, ctx, channel: str, *message: str):
