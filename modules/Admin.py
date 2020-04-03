@@ -112,7 +112,7 @@ class Admin(commands.Cog, name="Admin"):
 
             :leaveserver 102817255661772800
             '''
-        guild = discord.utils.get(self.bot.guilds, name=guild_id)
+    guild = discord.utils.get(self.bot.guilds, name=guild_id)
         if guild is None:
             await ctx.send("I don't recognize that ID ({guild.id}) .")
             return
