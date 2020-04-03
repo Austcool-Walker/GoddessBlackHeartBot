@@ -93,7 +93,7 @@ class Moderation(commands.Cog, name="Moderation"):
                 await ctx.send("Ban list is empty.")
                 return
             try:
-                await bot.unban(ctx.message.server, ban_list[-1])
+                await ctx.message.guild.unban(ctx.message.server, ban_list[-1])
                 await ctx.send(":white_check_mark: Unbanned user: `{}`".format(ban_list[-1].name))
             except discord.Forbidden:
                 await ctx.send("I do not have permission to unban.")
