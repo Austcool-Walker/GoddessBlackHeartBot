@@ -90,7 +90,7 @@ class Moderation(commands.Cog, name="Moderation"):
             return await ctx.send("Please provide a valid user's ID")
         try:
             await ctx.guild.unban(discord.Object(user), reason=reason)
-            await ctx.send(":white_check_mark: Successfully unbanned the user: `{}`".format(user.display_name))
+            await ctx.send(":white_check_mark: Successfully unbanned the user: {}.".format(user.display_name))
         except (discord.Forbidden, discord.HTTPException):
             await ctx.send(":negative_squared_cross_mark: Unban failed! or No user specified!") 
 

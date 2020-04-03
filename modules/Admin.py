@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 from discord.ext import commands
 
-class Admin(commands.Cog, command_attrs=dict(hidden=True), name="Admin"):
+class Admin(commands.Cog, name="Admin"):
     '''Commands for the bot admin'''
 
     def __init__(self, bot):
