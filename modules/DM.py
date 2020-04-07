@@ -14,6 +14,7 @@ class DM(commands.Cog, name="DM"):
 	async def pm(self, ctx, users: Greedy[User], *, message: str):
 		for user in users:
 			await user.send(message)
+			await ctx.message.add_reaction('👌')
 
 def setup(bot):
 	bot.add_cog(DM(bot))
