@@ -5,5 +5,7 @@ requests
 lxml
 discord
 discord.py
+dataIO
 clint
 config
+timestring
