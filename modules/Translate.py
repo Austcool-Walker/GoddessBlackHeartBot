@@ -132,6 +132,3 @@ class Translate(commands.Cog):
                 description=result,
                 footer="{} --> {} - Powered by Google Translate".format(from_lang_name, lang_name)
         ).send(ctx)
-
-def setup(bot):
-    bot.add_cog(Translate(bot))
