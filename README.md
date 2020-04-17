@@ -27,3 +27,4 @@ Please refer to the INSTALL.md file for instructions on how to run an instance o
 * ~~Build music module.~~
 * Add more cool bot functions/features.
 * Complete the Encryption module.
+lb
