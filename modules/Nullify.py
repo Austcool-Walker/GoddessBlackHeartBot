@@ -16,6 +16,3 @@ def clean(string, deaden_links = False):
         for match in matches:
             string = string.replace(match, "<{}>".format(match))
     return string.replace("@everyone", "@{}everyone".format(zerospace)).replace("@here", "@{}here".format(zerospace))
-
-def setup(bot):
-    bot.add_cog(Nullify(bot))
