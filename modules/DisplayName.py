@@ -302,3 +302,6 @@ class DisplayName(commands.Cog, name="DisplayName"):
                     return { "Role" : None, "Int" : None }
         # Should never get here
         return None
+
+def setup(bot):
+    bot.add_cog(DisplayName(bot))
