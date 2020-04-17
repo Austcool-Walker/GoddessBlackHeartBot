@@ -3,21 +3,7 @@ import discord
 import re
 from   discord.ext import commands
 
-# Stupid global vars because I didn't plan this
-# out correctly... sigh...
-bot = None
-
-def setup(bot):
-	# This module isn't actually a cog - but it is a place
-    # we can start small fires and watch them burn the entire
-    # house to the ground.
-    bot.add_cog(DisplayName(bot))
-    
-    # global bot
-    # bot = bot_start
-    # return
-
-class DisplayName(commands.Cog):
+class DisplayName(commands.Cog, name="DisplayName"):
     def __init__(self,bot):
         self.bot = bot
 
