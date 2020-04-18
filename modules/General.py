@@ -134,12 +134,12 @@ class General(commands.Cog, name="General"):
         embed.add_field(name='Custom Emojis', value=emojis, inline=True)
         await ctx.send(embed=embed)
 
-    @commands.command()
-    async def invite(self, ctx):
-        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
-                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
-        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-        await ctx.send(embed=embed)
+#    @commands.command()
+#    async def invite(self, ctx):
+#        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
+#                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
+#        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+#        await ctx.send(embed=embed)
 
     @commands.command()
     async def server(self, ctx):

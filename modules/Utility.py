@@ -23,7 +23,7 @@ class TimeParser:
         except ValueError as e:
             match = compiled.match(argument)
             if match is None or not match.group(0):
-                raise commands.BadArgument('Falsche Zeit angegeben, gültig sind z.B. `4h`, `3m` oder `2s`') from e
+                raise commands.BadArgument('Wrong time specified, e.g. `4h`, `3m` or `2s`') from e
 
             self.seconds = 0
             hours = match.group('hours')
@@ -37,10 +37,10 @@ class TimeParser:
                 self.seconds += int(seconds)
 
         if self.seconds <= 0:
-            raise commands.BadArgument('Zu wenig Zeit angegeben, gültig sind z.B. `4h`, `3m` oder `2s`')
+            raise commands.BadArgument('Given too little time, e.g.`4h`, `3m` or `2s`')
 
         if self.seconds > 604800: # 7 days
-            raise commands.BadArgument('7 Tage sind ne lange Zeit, denkste du nicht auch?')
+            raise commands.BadArgument("7 Days are a long time, don't you think?")
 
     @staticmethod
     def human_timedelta(dt):
@@ -53,19 +53,19 @@ class TimeParser:
 
         if days:
             if hours:
-                return '%s und %s' % (Plural(Tag=days), Plural(Stunde=hours))
+                return '%s and %s' % (Plural(Tag=days), Plural(Stunde=hours))
             return Plural(day=days)
 
         if hours:
             if minutes:
-                return '%s und %s' % (Plural(Stunde=hours), Plural(Minute=minutes))
+                return '%s and %s' % (Plural(Stunde=hours), Plural(Minute=minutes))
             return Plural(hour=hours)
 
         if minutes:
             if seconds:
-                return '%s und %s' % (Plural(Minute=minutes), Plural(Sekunde=seconds))
+                return '%s and %s' % (Plural(Minute=minutes), Plural(Sekunde=seconds))
             return Plural(Minute=minutes)
-        return Plural(Sekunde=seconds)
+        return Plural(Second=seconds)
 
 class Plural:
     def __init__(self, **attr):
@@ -79,7 +79,7 @@ class Plural:
         return '%s %s' % (v, self.name)
 
 class Utility(commands.Cog, name="Utility"):
-    '''Allgemeine/nützliche Befehle welche nirgendwo sonst reinpassen'''
+    '''General / useful commands that don't fit anywhere else'''
 
     def __init__(self, bot):
         self.bot = bot
