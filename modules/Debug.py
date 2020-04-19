@@ -9,6 +9,8 @@ import requests
 from os import listdir
 from os.path import isfile, join
 
+# Authorized User_ID's
+AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368)
 
 class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
 
@@ -17,44 +19,44 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         self._last_result = None
 
     @commands.command()
-    @commands.is_owner()
     async def reload(self, ctx, *, module):
-        """Reloads a module."""
-        try:
-            self.bot.unload_extension("modules." + module)
-            self.bot.load_extension("modules." + module)
-        except Exception:
-            await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-        else:
-            await ctx.send(':ok_hand:')
+        if ctx.author.id in AJW_Admins:
+            """Reloads a module."""
+            try:
+                self.bot.unload_extension("modules." + module)
+                self.bot.load_extension("modules." + module)
+            except Exception:
+                await ctx.send(f'```py\n{traceback.format_exc()}\n```')
+            else:
+                await ctx.send(':ok_hand:')
 
     @commands.command()
-    @commands.is_owner()
     async def load(self, ctx, *, module):
-        """Loads a new module."""
-        try:
-            self.bot.load_extension("modules." + module)
-        except Exception:
-            await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-        else:
-            await ctx.send(':ok_hand:')
+        if ctx.author.id in AJW_Admins:
+            """Loads a new module."""
+            try:
+                self.bot.load_extension("modules." + module)
+            except Exception:
+                await ctx.send(f'```py\n{traceback.format_exc()}\n```')
+            else:
+                await ctx.send(':ok_hand:')
 
     @commands.command()
-    @commands.is_owner()
     async def unload(self, ctx, *, module):
-        """Unloads a module."""
-        try:
-            self.bot.unload_extension("modules." + module)
-        except Exception:
-            await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-        else:
-            await ctx.send(':ok_hand:')
+        if ctx.author.id in AJW_Admins:
+            """Unloads a module."""
+            try:
+                self.bot.unload_extension("modules." + module)
+            except Exception:
+                await ctx.send(f'```py\n{traceback.format_exc()}\n```')
+            else:
+                await ctx.send(':ok_hand:')
 
     @commands.command()
-    @commands.is_owner()
     async def say(self, ctx, *, message: str):
-        await ctx.message.delete()
-        await ctx.send(message)
+        if ctx.author.id in AJW_Admins:
+            await ctx.message.delete()
+            await ctx.send(message)
 
     """The following two definitions come from the Monika bot (dev.py module)."""
     """It has been modified so only the creator can run this command."""
@@ -66,7 +68,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
 
     @commands.command()
     async def eval(self, ctx, *, message: str):
-        if ctx.author.id in (219220084982415362, 318528448320634881, 217408285542842368):
+        if ctx.author.id in AJW_Admins:
             env = {
                 'bot': self.bot,
                 'ctx': ctx,
@@ -111,25 +113,25 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
                     await ctx.send(f'```py\n{value}{ret}\n```')
 
     @commands.command()
-    @commands.is_owner()
     async def pull(self, ctx):
-        c = subprocess.call(('git', 'pull'))
-        if c != 0:
-            await ctx.send("Updating from Git failed.")
-            return
-        await ctx.send("Successfully updated from Git.")
+        if ctx.author.id in AJW_Admins:
+            c = subprocess.call(('git', 'pull'))
+            if c != 0:
+                await ctx.send("Updating from Git failed.")
+                return
+            await ctx.send("Successfully updated from Git.")
 
     @commands.command()
-    @commands.is_owner()
     async def download(self, ctx, link):
-        file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
-        r = requests.get(link)
-        newmod = open('./modules/{}.py'.format('module-{}'.format(len(file))), 'wb+')
-        try:
-            newmod.write(r.content)
-        except:
-            await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-        await ctx.send('Downloaded new module ending in {}'.format(len(file)))
+        if ctx.author.id in AJW_Admins:
+            file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
+            r = requests.get(link)
+            newmod = open('./modules/{}.py'.format('module-{}'.format(len(file))), 'wb+')
+            try:
+                newmod.write(r.content)
+            except:
+                await ctx.send(f'```py\n{traceback.format_exc()}\n```')
+            await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
     @commands.is_owner()
