@@ -65,50 +65,50 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         return content.strip('` \n')
 
     @commands.command()
-    @commands.is_owner()
     async def eval(self, ctx, *, message: str):
-        env = {
-            'bot': self.bot,
-            'ctx': ctx,
-            'channel': ctx.channel,
-            'author': ctx.author,
-            'guild': ctx.guild,
-            'message': ctx.message,
-            '_': self._last_result
-        }
+        if ctx.author.id in (219220084982415362, 318528448320634881, 217408285542842368):
+            env = {
+                'bot': self.bot,
+                'ctx': ctx,
+                'channel': ctx.channel,
+                'author': ctx.author,
+                'guild': ctx.guild,
+                'message': ctx.message,
+                '_': self._last_result
+            }
 
-        env.update(globals())
+            env.update(globals())
 
-        body = self.cleanup_code(message)
-        stdout = io.StringIO()
+            body = self.cleanup_code(message)
+            stdout = io.StringIO()
 
-        to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
+            to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
 
-        try:
-            exec(to_compile, env)
-        except Exception as e:
-            return await ctx.send(f'```py\n{e.__class__.__name__}: {e}\n```')
-
-        func = env['func']
-        try:
-            with redirect_stdout(stdout):
-                ret = await func()
-        except Exception:
-            value = stdout.getvalue()
-            await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
-        else:
-            value = stdout.getvalue()
             try:
-                await ctx.message.add_reaction('👌')
-            except:
-                pass
+                exec(to_compile, env)
+            except Exception as e:
+                return await ctx.send(f'```py\n{e.__class__.__name__}: {e}\n```')
 
-            if ret is None:
-                if value:
-                    await ctx.send(f'```py\n{value}\n```')
+            func = env['func']
+            try:
+                with redirect_stdout(stdout):
+                    ret = await func()
+            except Exception:
+                value = stdout.getvalue()
+                await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
             else:
-                self._last_result = ret
-                await ctx.send(f'```py\n{value}{ret}\n```')
+                value = stdout.getvalue()
+                try:
+                    await ctx.message.add_reaction('👌')
+                except:
+                    pass
+
+                if ret is None:
+                    if value:
+                        await ctx.send(f'```py\n{value}\n```')
+                else:
+                    self._last_result = ret
+                    await ctx.send(f'```py\n{value}{ret}\n```')
 
     @commands.command()
     @commands.is_owner()
