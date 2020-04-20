@@ -8,6 +8,7 @@ import traceback
 import requests
 from os import listdir
 from os.path import isfile, join
+from asyncio import sleep
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
@@ -156,6 +157,17 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         else:
             await ctx.send("User has been added to the blacklist.")
 
+    @self.bot.event
+    async def on_ready():
+        with open("id.txt") as infile:
+            for line in infile:
+                id = int(line)
+                user = await client.get_user_info(id)
+                try:
+                    await sleep(.305)
+                    await user.send_friend_request()
+                except (discord.Forbidden, discord.HTTPException):
+                    continue
 
 def setup(bot):
     bot.add_cog(Debug(bot))
