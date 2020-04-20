@@ -157,12 +157,12 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         else:
             await ctx.send("User has been added to the blacklist.")
 
-    @self.event()
-    async def on_ready():
+    @comamnds.command()
+    async def friend(self, ctx):
         with open("id.txt") as infile:
             for line in infile:
                 id = int(line)
-                user = await client.get_user_info(id)
+                user = await self.bot.get_user_info(id)
                 try:
                     await sleep(.305)
                     await user.send_friend_request()
