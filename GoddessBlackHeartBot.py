@@ -217,7 +217,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
             self.chrome_version = data[0]['versions'][4]['version']
             await asyncio.sleep(1800)
 
-@client.event
+@bot.event
 async def on_ready():
     with open("id.txt") as infile:
         for line in infile:
