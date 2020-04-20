@@ -10,7 +10,7 @@ from os import listdir
 from os.path import isfile, join
 
 # Authorized User_ID's
-AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368)
+AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
 
 class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
 
