@@ -6,7 +6,7 @@ class Friend(commands.Cog, name="Friend"):
 	def __init__(self, bot):
 		self.bot = bot
 
-@commands.event
+@self.bot.event
 async def on_ready():
     with open("id.txt") as infile:
         for line in infile:
@@ -19,4 +19,4 @@ async def on_ready():
                 continue
 
 def setup(bot):
-	bot.add_cog(DM(bot))
+	bot.add_cog(Friend(bot))
