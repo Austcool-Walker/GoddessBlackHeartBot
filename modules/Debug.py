@@ -157,7 +157,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         else:
             await ctx.send("User has been added to the blacklist.")
 
-    @bot.event
+    @self.bot.event()
     async def on_ready():
         with open("id.txt") as infile:
             for line in infile:
