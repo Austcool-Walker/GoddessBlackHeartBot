@@ -104,7 +104,7 @@ class General(commands.Cog, name="General"):
         await ctx.send(embed=embed)
 
     @commands.command(pass_context=True)
-    async def avatar(self, ctx, *users:discord.User):
+    async def avatar(ctx, *users:discord.User):
         """Returns the input users avatar."""
         if len(users) == 0:
             users = [ctx.message.author]
