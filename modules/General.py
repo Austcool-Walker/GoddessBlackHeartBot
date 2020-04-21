@@ -104,12 +104,12 @@ class General(commands.Cog, name="General"):
         await ctx.send(embed=embed)
 
     @commands.command(pass_context=True)
-    async def avatar(ctx, *users:discord.User):
+    async def avatar(self, ctx, *users:discord.User):
         """Returns the input users avatar."""
         if len(users) == 0:
             users = [ctx.message.author]
         for user in users:
-            await ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
+            await self.ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
 
     @commands.command(pass_context=True, aliases=['guild', 'membercount'])
     async def serverinfo(self, ctx):
