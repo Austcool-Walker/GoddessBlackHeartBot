@@ -33,43 +33,42 @@ class DMspam(commands.Cog, name="DMspam"):
 		self.bot = bot
 
 	@commands.command()
-	async def DMspam(self, ctx, users: Greedy[User], *, time: str, message: str):
+	async def pm(self, ctx, users: Greedy[User], *, time: str, message: str):
 		for user in users:
-			shit = ctx.user.send(message)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
-		await shit
-		await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
+			await user.send(message)
+			await asyncio.sleep(time)
 
 def setup(bot):
 	bot.add_cog(DMspam(bot))
