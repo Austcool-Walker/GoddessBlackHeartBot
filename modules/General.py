@@ -109,7 +109,7 @@ class General(commands.Cog, name="General"):
         if len(users) == 0:
             users = [ctx.message.author]
         for user in users:
-            await self.ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
+            await ctx.send("`{0}`'s avatar is: {1}".format(user, user.avatar_url))
 
     @commands.command(pass_context=True, aliases=['guild', 'membercount'])
     async def serverinfo(self, ctx):
