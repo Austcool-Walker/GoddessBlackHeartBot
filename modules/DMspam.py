@@ -35,7 +35,7 @@ class DMspam(commands.Cog, name="DMspam"):
 	@commands.command()
 	async def DMspam(self, ctx, users: Greedy[User], *, time: str, message: str):
 		for user in users:
-			shit = await user.send(message)
+			shit = user.send(message)
 		await shit
 		await asyncio.sleep(time)
 		await shit
