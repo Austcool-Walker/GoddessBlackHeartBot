@@ -33,7 +33,7 @@ class DMspam(commands.Cog, name="DMspam"):
 		self.bot = bot
 
 	@commands.command()
-	async def pm(self, ctx, users: Greedy[User], *, time: str, message: str):
+	async def DMspam(self, ctx, users: Greedy[User], *, time: str, message: str):
 		for user in users:
 			shit = await user.send(message)
 		await shit
