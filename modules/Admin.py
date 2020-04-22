@@ -122,7 +122,8 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     async def leaveserver(self, ctx, guildid: str):
-        '''Leaves a server (BOT OWNER ONLY)
+        if ctx.author.id in AJW_Admins:
+            '''Leaves a server (BOT OWNER ONLY)
         Example:
         -----------
         : leaveserver 102817255661772800
