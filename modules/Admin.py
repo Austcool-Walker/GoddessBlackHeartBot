@@ -181,6 +181,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True)
+    @commands.bot_has_permissions(create_instant_invite = True)
     async def geninvite(self, ctx, channelid: str, userid: str):
         '''Generates an invite for a guild if possible (BOT OWNER ONLY)'''
         guild = self.bot.get_channel(int(channelid))
