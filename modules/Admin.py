@@ -70,7 +70,7 @@ class Admin(commands.Cog, name="Admin"):
         guildsCount = len(self.bot.guilds)
         memberCount = len(list(self.bot.get_all_members()))
         gameName = gameName.format(guilds = guildsCount, members = memberCount)
-        await self.bot.change_presence(activity=discord.Activity(type=type, name=gameName))
+        await self.bot.change_presence(activity=discord.Activity(type=gameType, name=gameName))
         await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
