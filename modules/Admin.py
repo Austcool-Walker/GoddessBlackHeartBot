@@ -184,7 +184,7 @@ class Admin(commands.Cog, name="Admin"):
     async def geninvite(self, ctx, channelid: str):
         '''Generates an invite for a guild if possible (BOT OWNER ONLY)'''
         guild = self.bot.get_channel(int(channelid))
-        invite = await ctx.channel.create_invite(guild, unique=False)
+        invite = await ctx.create_invite(guild, max_uses=1, unique=False)
         msg = f'Invite for **{guild.name}** ({guild.id})\n{invite.url}'
         await ctx.author.send(msg)
 
