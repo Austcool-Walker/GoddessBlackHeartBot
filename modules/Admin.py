@@ -33,11 +33,11 @@ class Admin(commands.Cog, name="Admin"):
         ''''Restart me (BOT OWNER ONLY)'''
         await ctx.send('**:ok:** See you soon!')
         try:
-            await self.bot.logout()
+                await self.bot.logout()
         except:
             pass
         finally:
-            os.system("python3 GoddessBlackHeart.py")
+            os.system("python3 GoddessBlackHeartBot.pu")
         await ctx.send('**:ok_hand:** Restart Successful!')
 
     @commands.command(hidden=True)
