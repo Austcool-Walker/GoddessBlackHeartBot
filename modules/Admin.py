@@ -48,7 +48,7 @@ class Admin(commands.Cog, name="Admin"):
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         async with aiohttp.ClientSession(loop=loop) as session:
-        async with session.get(url) as response:
+    async with session.get(url) as response:
         async with aiohttp.session(''.join(int)) 
         tempBHFile = 'tempBH.png'
                 f.write(await img.read())
