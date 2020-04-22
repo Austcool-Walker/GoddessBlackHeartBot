@@ -33,6 +33,7 @@ run
 -------------
 Either you start the script directly via `python3 main.py` or create a systemd unit, you can find an example under`GoddessBlackHeartBot.service`:
 
+```
 [Unit]
 Description=GoddessBlackHeart Discord Bot
 After=multi-user.target
@@ -49,5 +50,6 @@ TimeoutStartSec=15
 
 [Install]
 WantedBy=multi-user.target
+```
 
 Copy to `/ etc / systemd / system / GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
