@@ -60,7 +60,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command(hidden=True, aliases=['game'])
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
         if ctx.author.id in AJW_Admins:
-        '''Changes the game currently playing (BOT OWNER ONLY)'''
+            '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
         if gameType == 'playing':
             type2 = discord.ActivityType.playing
@@ -88,7 +88,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command(hidden=True)
     async def changestatus(self, ctx, status: str):
         if ctx.author.id in AJW_Admins:
-        '''Changes bot online status (BOT OWNER ONLY)'''
+            '''Changes bot online status (BOT OWNER ONLY)'''
         status = status.lower()
         if status == 'offline' or status == 'off' or status == 'invisible':
             discordStatus = discord.Status.invisible
