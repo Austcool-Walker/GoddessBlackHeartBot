@@ -175,7 +175,7 @@ class spam(commands.Cog, name="spam"):
 			await ctx.message.add_reaction('👌')
 
 	@commands.command()
-	async def chspam(self, ctx, channel_id: str, *message: str):
+	async def chspam(self, ctx, channel: str, *message: str):
 		ch = self.bot.get_channel(int(channel))
 		msg = ' '.join(message)
 		await ch.send(msg)
