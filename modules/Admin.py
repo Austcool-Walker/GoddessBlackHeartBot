@@ -119,16 +119,25 @@ class Admin(commands.Cog, name="Admin"):
         msg += '```'
         await ctx.send(msg)
 
+
     @commands.command(hidden=True)
-    @commands.is_owner()
-    async def leaveserver(self, ctx, guild: str):
-        guild = get_guild(str(guild)
-        if guild is None:
-            await ctx.send("I don't recognize that guild ID.")
+    async def leaveserver(self, ctx, guildid: str):
+        '''Leaves a server (BOT OWNER ONLY)
+        Example:
+        -----------
+        : leaveserver 102817255661772800
+        '''
+        if guildid == 'this':
+            await ctx.guild.leave()
             return
-        await guild.leave_guild(guild)
+        else:
+            guild = self.bot.get_guild(int(guildid))
+            if guild:
+                await guild.leave()
         await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
-    
+            else:
+                msg = ": x: Couldn't find a matching guild for this ID!"
+        await ctx.send(msg)
 
     @commands.command(hidden=True)
     async def echo(self, ctx, channel: str, *message: str):
