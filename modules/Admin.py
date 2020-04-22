@@ -37,7 +37,7 @@ class Admin(commands.Cog, name="Admin"):
         except:
             pass
         finally:
-            os.system("python3 GoddessBlackHeartBot.pu")
+            os.system("python3 GoddessBlackHeartBot.py")
         await ctx.send('**:ok_hand:** Restart Successful!')
 
     @commands.command(hidden=True)
