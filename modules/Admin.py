@@ -47,9 +47,10 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
+        async with aiohttp.ClientSession(loop=loop) as session:
+        async with session.get(url) as response:
+        async with aiohttp.session(''.join(int)) 
         tempBHFile = 'tempBH.png'
-        async with aiohttp.session(''.join(int)) as img:
-            with open(tempBHFile, 'wb') as f:
                 f.write(await img.read())
         f = discord.File(tempBHFile)
         await self.bot.edit_settings(avatar=f.read())
