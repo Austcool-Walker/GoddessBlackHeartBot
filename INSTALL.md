@@ -113,6 +113,6 @@ TimeoutStartSec=15
 WantedBy=multi-user.target
 ```
 
-Copy `GoddessBlackHeartBot.service` using terminal **(linux only)** run `sudo  cp -v /etc/systemd/system/GoddessBlackHeartBot.service /etc/systemd/system/GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
+Copy `GoddessBlackHeartBot.service` using terminal **(linux only)** run `sudo  cp -v GoddessBlackHeartBot.service /etc/systemd/system/GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
 and
-Copy `Lavalink.service` using terminal **(linux only)** run `sudo  cp -v /etc/systemd/system/Lavalink.service /etc/systemd/system/Lavalink.service` and adapt. Don't forget to start the unit via `sudo systemctl start Lavalink.service` or autostart via` sudo systemctl enable Lavalink.service`.
+Copy `Lavalink.service` using terminal **(linux only)** run `sudo  cp -v Lavalink.service /etc/systemd/system/Lavalink.service` and adapt. Don't forget to start the unit via `sudo systemctl start Lavalink.service` or autostart via` sudo systemctl enable Lavalink.service`.
