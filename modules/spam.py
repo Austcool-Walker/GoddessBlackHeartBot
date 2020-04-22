@@ -291,7 +291,7 @@ class spam(commands.Cog, name="spam"):
 		await asyncio.sleep(time)
 		await self.bot.get_channel(channel_id).send(message)
 		await asyncio.sleep(time)
-			await ctx.message.add_reaction('👌')
+		await ctx.message.add_reaction('👌')
 
 def setup(bot):
 	bot.add_cog(spam(bot))
