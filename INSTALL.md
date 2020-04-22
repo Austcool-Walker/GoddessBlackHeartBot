@@ -71,7 +71,7 @@ Note 2: If you're on macOS, you will need to download Java 8 from [Oracle](https
 
 ## run
 -------------
-Either you start the script directly via `python3 main.py` or create a systemd unit, you can find an example under`GoddessBlackHeartBot.service`:
+Either you start the script directly via `python3 main.py` or create a systemd unit, you can find an example under`GoddessBlackHeartBot.service`. Do the same with `Lavalink.service` if you want audio support.
 
 ```
 [Unit]
@@ -92,4 +92,27 @@ TimeoutStartSec=15
 WantedBy=multi-user.target
 ```
 
+## Lavalink service Example
+-------------
+```
+[Unit]
+Description=Lavalink library for Discord Bot
+After=multi-user.target
+[Service]
+WorkingDirectory=/home/noire/Documents/GoddessBlackHeartBot
+Environment="PYTHONHASHSEED=0"
+User=noire
+Group=noire
+ExecStart=/usr/bin/java -jar /home/noire/Documents/GoddessBlackHeartBot/Lavalink.jar
+Type=idle
+Restart=on-failure
+RestartSec=15
+TimeoutStartSec=15
+
+[Install]
+WantedBy=multi-user.target
+```
+
 Copy to `/etc/systemd/system/GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
+and
+Copy to `/etc/systemd/system/Lavalink.service` and adapt. Don't forget to start the unit via `sudo systemctl start Lavalink.service` or autostart via` sudo systemctl enable Lavalink.service`.

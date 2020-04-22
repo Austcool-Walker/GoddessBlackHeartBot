@@ -1,0 +1,16 @@
+[Unit]
+Description=Lavalink library for Discord Bot
+After=multi-user.target
+[Service]
+WorkingDirectory=/home/noire/Documents/GoddessBlackHeartBot
+Environment="PYTHONHASHSEED=0"
+User=noire
+Group=noire
+ExecStart=/usr/bin/java -jar /home/noire/Documents/GoddessBlackHeartBot/Lavalink.jar
+Type=idle
+Restart=on-failure
+RestartSec=15
+TimeoutStartSec=15
+
+[Install]
+WantedBy=multi-user.target
