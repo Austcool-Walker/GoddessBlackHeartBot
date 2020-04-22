@@ -180,12 +180,12 @@ class Admin(commands.Cog, name="Admin"):
             msg = f':ok: Reset nickname for {member} on: **{member.name}**'
         await ctx.send(msg)
 
-    @commands.command(hidden=True)
+    @commands.command(hidden=True, pass_context=True)
     async def geninvite(self, ctx, channelid: str):
         '''Generates an invite for a guild if possible (BOT OWNER ONLY)'''
-        guild = self.bot.get_channel(int(channelid))
-        invite = await ctx.create_invite(guild, max_uses=1, unique=False)
-        msg = f'Invite for **{guild.name}** ({guild.id})\n{invite.url}'
+        guild = self.bot.get_guild(int(serverid))
+        invite = await self.bot.create_invite(guild, max_uses=1, unique=False)
+        msg = f'Invite für **{guild.name}** ({guild.id})\n{invite.url}'
         await ctx.author.send(msg)
 
     @commands.command(hidden=True, aliases=['wichteln'])
