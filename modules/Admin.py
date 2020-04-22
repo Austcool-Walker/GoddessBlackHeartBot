@@ -48,7 +48,7 @@ class Admin(commands.Cog, name="Admin"):
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         tempBHFile = 'tempBH.png'
-        async with aiohttp.get(''.join(url)) as img:
+        async with requests.get(''.join(url)) as img:
             with open(tempBHFile, 'wb') as f:
                 f.write(await img.read())
         f = discord.File(tempBHFile)
