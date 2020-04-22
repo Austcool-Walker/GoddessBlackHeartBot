@@ -50,7 +50,7 @@ class Admin(commands.Cog, name="Admin"):
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         tempBHFile = 'tempBH.png'
-        r = requests.get(''.join(url, stream=True))
+        r = requests.get((url, stream=True))
         with open(tempBHFile, 'wb') as f:
                 total_length = int(r.headers.get('content-length'))
                 for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
