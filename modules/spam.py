@@ -175,7 +175,7 @@ class spam(commands.Cog, name="spam"):
 			await ctx.message.add_reaction('👌')
 
 	@commands.command()
-	async def dmspam(self, ctx, users: Greedy[Channel_id], * message: str):
+	async def dmspam(self, ctx, channel_ids: Greedy[Channel_id], * message: str):
 		time = 1
 		for channel_id in channel_ids:
 			await channel.send(message)
