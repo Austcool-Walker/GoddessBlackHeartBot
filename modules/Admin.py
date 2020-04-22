@@ -105,7 +105,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def name(self, ctx, name: str):
         '''changes bot global name (BOT OWNER ONLY)'''
-        namestr = f'username=name'
+        namestr = {username=name}
         await self.bot.user.edit(namestr)
         msg = f':ok: change my name: **{name}**'
         await ctx.send(msg)
