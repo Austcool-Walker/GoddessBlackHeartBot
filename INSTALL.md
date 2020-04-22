@@ -92,4 +92,4 @@ TimeoutStartSec=15
 WantedBy=multi-user.target
 ```
 
-Copy to `/ etc / systemd / system / GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
+Copy to `/etc/systemd/system/GoddessBlackHeartBot.service` and adapt. Don't forget to start the unit via `sudo systemctl start GoddessBlackHeartBot.service` or autostart via` sudo systemctl enable GoddessBlackHeartBot.service`.
