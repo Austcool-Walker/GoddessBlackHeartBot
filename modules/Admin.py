@@ -83,7 +83,7 @@ class Admin(commands.Cog, name="Admin"):
         memberCount = len(list(self.bot.get_all_members()))
         gameName = gameName.format(guilds = guildsCount, members = memberCount)
         await self.bot.change_presence(status=discordStatus, activity=discord.Activity(type=type2, name=gameName))
-        await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
+        await ctx.send(f'**:ok:** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
     async def changestatus(self, ctx, status: str):
