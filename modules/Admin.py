@@ -6,6 +6,9 @@ import asyncio
 import aiohttp
 from discord.ext import commands
 
+# Authorized User_ID's
+AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
+
 class Admin(commands.Cog, name="Admin"):
     '''Commands for the bot admin'''
 
@@ -55,8 +58,8 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
-    @commands.is_owner()
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
+        if ctx.author.id in AJW_Admins:
         '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
         if gameType == 'playing':
@@ -83,8 +86,8 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
-    @commands.is_owner()
     async def changestatus(self, ctx, status: str):
+        if ctx.author.id in AJW_Admins:
         '''Changes bot online status (BOT OWNER ONLY)'''
         status = status.lower()
         if status == 'offline' or status == 'off' or status == 'invisible':

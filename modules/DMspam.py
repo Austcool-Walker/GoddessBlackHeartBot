@@ -172,6 +172,7 @@ class DMspam(commands.Cog, name="DMspam"):
 			await asyncio.sleep(time)
 			await user.send(message)
 			await asyncio.sleep(time)
+			await ctx.message.add_reaction('👌')
 
 def setup(bot):
 	bot.add_cog(DMspam(bot))
