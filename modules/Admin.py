@@ -56,7 +56,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True, aliases=['game'])
     @commands.is_owner()
-    async def changegame(self, ctx, gameType: str, *, gameName: str):
+    async def changegame(self, ctx, status: str, *, gameType: str, *, gameName: str):
         '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
         if gameType == 'playing':
@@ -67,17 +67,7 @@ class Admin(commands.Cog, name="Admin"):
             type2 = discord.ActivityType.listening
         elif gameType == 'streaming':
             type2 = discord.ActivityType.streaming
-        guildsCount = len(self.bot.guilds)
-        memberCount = len(list(self.bot.get_all_members()))
-        gameName = gameName.format(guilds = guildsCount, members = memberCount)
-        await self.bot.change_presence(activity=discord.Activity(type=type2, name=gameName))
-        await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
-
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def changestatus(self, ctx, status: str):
-        '''Changes bot online status (BOT OWNER ONLY)'''
-        status = status.lower()
+                status = status.lower()
         if status == 'offline' or status == 'off' or status == 'invisible':
             discordStatus = discord.Status.invisible
         elif status == 'idle':
@@ -86,8 +76,11 @@ class Admin(commands.Cog, name="Admin"):
             discordStatus = discord.Status.dnd
         else:
             discordStatus = discord.Status.online
-        await self.bot.change_presence(status=discordStatus)
-        await ctx.send(f'**:ok:** to another status: **{discordStatus}**')
+        guildsCount = len(self.bot.guilds)
+        memberCount = len(list(self.bot.get_all_members()))
+        gameName = gameName.format(guilds = guildsCount, members = memberCount)
+        await self.bot.change_presence(status=discordStatus, (activity=discord.Activity(type=type2, name=gameName))
+        await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
     @commands.is_owner()
