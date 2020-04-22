@@ -1,0 +1,16 @@
+[Unit]
+Description=GoddessBlackHeart Discord Bot
+After=multi-user.target
+[Service]
+WorkingDirectory=/home/noire/Documents/GoddessBlackHeartBot
+Environment="PYTHONHASHSEED=0"
+User=noire
+Group=noire
+ExecStart=/usr/bin/python3 /home/noire/Documents/GoddessBlackHeartBot/GoddessBlackHeartBot.py
+Type=idle
+Restart=on-failure
+RestartSec=15
+TimeoutStartSec=15
+
+[Install]
+WantedBy=multi-user.target
