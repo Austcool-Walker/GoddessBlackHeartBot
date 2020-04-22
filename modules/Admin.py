@@ -59,13 +59,13 @@ class Admin(commands.Cog, name="Admin"):
     async def changegame(self, ctx, gameType: str, *, gameName: str):
         '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
-        if gameType == 'playing':
+        if gameType = 'playing':
             type = discord.ActivityType.playing
-        elif gameType == 'watching':
+        elif gameType = 'watching':
             type = discord.ActivityType.watching
-        elif gameType == 'listening':
+        elif gameType = 'listening':
             type = discord.ActivityType.listening
-        elif gameType == 'streaming':
+        elif gameType = 'streaming':
             type = discord.ActivityType.streaming
         guildsCount = len(self.bot.guilds)
         memberCount = len(list(self.bot.get_all_members()))
