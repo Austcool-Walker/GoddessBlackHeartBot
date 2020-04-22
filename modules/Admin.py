@@ -121,12 +121,12 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def leaveserver(self, ctx, *, guild_id):
-        guild = discord.utils.get(self.bot.guilds, name=guild_id)
+    async def leaveserver(self, ctx, guild: str):
+        guild = get_guild(str(guild)
         if guild is None:
             await ctx.send("I don't recognize that guild ID.")
             return
-        await self.bot.leave_guild(guild)
+        await guild.leave_guild(guild)
         await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
     
 
