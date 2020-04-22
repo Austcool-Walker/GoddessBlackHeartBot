@@ -135,7 +135,7 @@ class Admin(commands.Cog, name="Admin"):
             if guild:
                 await guild.leave()
         await ctx.send(f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!")
-            else:
+        else:
                 msg = ": x: Couldn't find a matching guild for this ID!"
         await ctx.send(msg)
 
