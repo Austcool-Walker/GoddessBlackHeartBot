@@ -5,6 +5,8 @@ import discord
 import asyncio
 import aiohttp
 from discord.ext import commands
+from clint.textui import progress
+import requests
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
@@ -48,9 +50,13 @@ class Admin(commands.Cog, name="Admin"):
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         tempBHFile = 'tempBH.png'
-        async with requests.get(''.join(url)) as img:
-            with open(tempBHFile, 'wb') as f:
-                f.write(await img.read())
+        r = requests.get(''.join(url, stream=True)) as chunk:
+        with open(tempBHFile, 'wb') as f:
+        total_length = int(r.headers.get('content-length'))
+            for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
+                if chunk:
+                    f.write(await chunk.read())
+                    f.flush()
         f = discord.File(tempBHFile)
         await self.bot.user.edit(avatar=f.read())
         os.remove(tempBHFile)
