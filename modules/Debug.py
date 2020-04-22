@@ -124,7 +124,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send("Successfully updated from Git.")
 
     @commands.command()
-    async def DLmodule(self, ctx, link):
+    async def download(self, ctx, link):
         if ctx.author.id in AJW_Admins:
             file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
             r = requests.get(link)
@@ -136,7 +136,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
-    async def download(self, ctx, arg1, arg2):
+    async def dl(self, ctx, arg1, arg2):
         if ctx.author.id in AJW_Admins:
             c = subprocess.call('download {} {}'.format(arg1, arg2))
             if c != 0:

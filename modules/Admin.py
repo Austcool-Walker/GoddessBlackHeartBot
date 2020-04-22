@@ -5,6 +5,7 @@ import discord
 import asyncio
 import aiohttp
 from discord.ext import commands
+import subprocess
 
 class Admin(commands.Cog, name="Admin"):
     '''Commands for the bot admin'''
@@ -34,6 +35,11 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**:ok:** See you soon!')
         await self.bot.logout()
         sys.exit(6)
+        c = subprocess.call(('python3', 'GoddessBlackHeartBot.py'))
+        if c != 0:
+            await ctx.send("Restart Failed.")
+            return
+        await ctx.send("Successfully Restarted.")
 
     @commands.command(hidden=True)
     @commands.is_owner()
@@ -44,7 +50,7 @@ class Admin(commands.Cog, name="Admin"):
             with open(tempAvaFile, 'wb') as f:
                 f.write(await img.read())
         f = discord.File(tempAvaFile)
-        await self.bot.edit_profile(avatar=f.read())
+        await self.ClientUser.edit(avatar=f.read())
         os.remove(tempAvaFile)
         asyncio.sleep(2)
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
