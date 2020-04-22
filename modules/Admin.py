@@ -32,8 +32,13 @@ class Admin(commands.Cog, name="Admin"):
     async def restart(self, ctx):
         ''''Restart me (BOT OWNER ONLY)'''
         await ctx.send('**:ok:** See you soon!')
-        await self.bot.logout()
-        sys.exit(6)
+        try:
+            await self.bot.logout()
+        except:
+            pass
+        finally:
+            os.system("python3 GoddessBlackHeart.py")
+        await ctx.send('**:ok_hand:** Restart Successful!')
 
     @commands.command(hidden=True)
     @commands.is_owner()
