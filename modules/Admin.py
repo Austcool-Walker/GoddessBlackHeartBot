@@ -59,18 +59,18 @@ class Admin(commands.Cog, name="Admin"):
     async def changegame(self, ctx, gameType: str, *, gameName: str):
         '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
-        if gameType = 'playing':
-            type = discord.ActivityType.playing
-        elif gameType = 'watching':
-            type = discord.ActivityType.watching
-        elif gameType = 'listening':
-            type = discord.ActivityType.listening
-        elif gameType = 'streaming':
-            type = discord.ActivityType.streaming
+        if gameType == 'playing':
+            type2 = discord.ActivityType.playing
+        elif gameType == 'watching':
+            type2 = discord.ActivityType.watching
+        elif gameType == 'listening':
+            type2 = discord.ActivityType.listening
+        elif gameType == 'streaming':
+            type2 = discord.ActivityType.streaming
         guildsCount = len(self.bot.guilds)
         memberCount = len(list(self.bot.get_all_members()))
         gameName = gameName.format(guilds = guildsCount, members = memberCount)
-        await self.bot.change_presence(activity=discord.Activity(type=type, name=gameName))
+        await self.bot.change_presence(activity=discord.Activity(type=type2, name=gameName))
         await ctx.send(f'**:ok:** Change the game: {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
