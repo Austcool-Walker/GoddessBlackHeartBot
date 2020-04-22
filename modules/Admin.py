@@ -47,13 +47,13 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
-        tempAvaFile = 'tempAva.png'
-        async with aiohttp.get(''.join(url)) as img:
-            with open(tempAvaFile, 'wb') as f:
+        tempBHFile = 'tempBH.png'
+        async with aiohttp.get(''.join(int)) as img:
+            with open(tempBHFile, 'wb') as f:
                 f.write(await img.read())
-        f = discord.File(tempAvaFile)
+        f = discord.File(tempBHFile)
         await self.bot.edit_settings(avatar=f.read())
-        os.remove(tempAvaFile)
+        os.remove(tempBHFile)
         asyncio.sleep(2)
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
 
