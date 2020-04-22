@@ -136,10 +136,9 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
-    async def download(self, ctx, *, message: str):
+    async def download(self, ctx, *, file: str):
         if ctx.author.id in AJW_Admins:
-            file = message
-            c = subprocess.call(('download', file))
+            c = subprocess.call(('download', file, 'shell=True'))
             if c != 0:
                 await ctx.send("Downloading {file}")
                 return
