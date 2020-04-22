@@ -138,11 +138,12 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def download(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
-            c = subprocess.call(('download', 'message'))
+            file = message
+            c = subprocess.call(('download', file))
             if c != 0:
-                await ctx.send("Downloading file.")
+                await ctx.send("Downloading {file}")
                 return
-            await ctx.send("Successfully Downloaded file from URL.")
+            await ctx.send("Successfully Downloaded {file} from URL.")
 
     @commands.command()
     @commands.is_owner()
