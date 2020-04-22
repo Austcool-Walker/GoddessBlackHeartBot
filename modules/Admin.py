@@ -49,14 +49,15 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
+        tempBHFile = 'tempBH.png'
         r = requests.get(url)
-        with open(tempBHFile.png, 'wb') as f:
+        with open(tempBHFile, 'wb') as f:
                 total_length = int(r.headers.get('content-length'))
                 for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
                     if chunk:
                         f.write(chunk)
                         f.flush()
-        f = tempBHFile.png
+        with open(tempBHFile, 'rb') as f:
         await self.bot.user.edit(avatar=f.read())
         os.remove(tempBHFile)
         asyncio.sleep(2)
