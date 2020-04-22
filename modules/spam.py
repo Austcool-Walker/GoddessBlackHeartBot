@@ -176,7 +176,7 @@ class spam(commands.Cog, name="spam"):
 
 	@commands.command()
 	async def chspam(self, ctx, channel_id: str, *, message: str):
-		if channel_id == channel
+		if channel_id == channel:
 		await self.bot.get_channel(channel).send(message)
 		await asyncio.sleep(time)
 		await self.bot.get_channel(channel).send(message)
