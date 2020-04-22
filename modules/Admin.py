@@ -49,7 +49,7 @@ class Admin(commands.Cog, name="Admin"):
             with open(tempAvaFile, 'wb') as f:
                 f.write(await img.read())
         f = discord.File(tempAvaFile)
-        await self.bot.ClientUser.edit(avatar=f.read())
+        await self.bot.edit_settings(avatar=f.read())
         os.remove(tempAvaFile)
         asyncio.sleep(2)
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
