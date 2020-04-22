@@ -9,6 +9,7 @@ import requests
 from os import listdir
 from os.path import isfile, join
 from asyncio import sleep
+import subprocess
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
@@ -123,7 +124,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send("Successfully updated from Git.")
 
     @commands.command()
-    async def download(self, ctx, link):
+    async def DLmodule(self, ctx, link):
         if ctx.author.id in AJW_Admins:
             file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
             r = requests.get(link)
@@ -133,6 +134,15 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             except:
                 await ctx.send(f'```py\n{traceback.format_exc()}\n```')
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
+
+    @commands.command()
+    async def download(self, ctx, *, message: str):
+        if ctx.author.id in AJW_Admins:
+            c = subprocess.call(('download', 'message'))
+            if c != 0:
+                await ctx.send("Downloading file.")
+                return
+            await ctx.send("Successfully Downloaded file from URL.")
 
     @commands.command()
     @commands.is_owner()
