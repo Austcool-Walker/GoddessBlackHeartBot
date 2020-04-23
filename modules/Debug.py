@@ -137,11 +137,11 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
-    async def dl(self, ctx, url: str, path):
+    async def dl(self, ctx, url: str, path: str):
         '''Downloads File to Hard Drive'''
         if ctx.author.id in AJW_Admins:
-                r = requests.get(url)
-                with open(path, 'wb') as f:
+                r = requests.get(int(url), stream=True)))
+                with open(int(path), 'wb') as f:
                         total_length = int(r.headers.get('content-length'))
                         for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
                                 if chunk:
