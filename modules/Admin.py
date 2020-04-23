@@ -76,7 +76,7 @@ class Admin(commands.Cog, name="Admin"):
                         f.write(chunk)
                         f.flush()
         with open('tempsvicon.png', 'rb') as f:
-                await self.bot.edit_server(ctx.message.server, icon=f.read())
+                await self.bot.guild.edit(icon=f.read())
         os.remove(tempsvicon)
         asyncio.sleep(2)
         await ctx.send('**:ok:** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
