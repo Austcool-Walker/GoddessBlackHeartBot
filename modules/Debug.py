@@ -141,7 +141,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         '''Downloads File to Hard Drive'''
         if ctx.author.id in AJW_Admins:
                 r = requests.get(url, stream=True)
-                with open(int, 'wb') as f:
+                with open(int(path, 'wb')) as f:
                         total_length = int(r.headers.get('content-length'))
                         for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
                                 if chunk:
