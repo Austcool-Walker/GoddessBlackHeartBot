@@ -79,7 +79,7 @@ class Admin(commands.Cog, name="Admin"):
                 await self.bot.edit_server(ctx.message.server, icon=f.read())
         os.remove(tempsvicon)
         asyncio.sleep(2)
-        await ctx.send('**:ok:** New Server Icon set!' #\n %s' % self.bot.user.avatar_url)
+        await ctx.send('**:ok:** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
