@@ -137,7 +137,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
-    async def dl(self, ctx, url, path):
+    async def dl(self, ctx, url: str, path: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         if ctx.author.id in AJW_Admins:
                 r = requests.get(url, stream=True)
