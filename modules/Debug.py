@@ -144,9 +144,9 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
                 with open(path, 'wb') as f:
                         total_length = int(r.headers.get('content-length'))
                         for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
-                            if chunk:
-                                f.write(chunk)
-                                f.flush()
+                                if chunk:
+                                    f.write(chunk)
+                                    f.flush()
         await ctx.send(f':white_check_mark: downloaded file from **{url}** saved **{path}**')
 
     @commands.command()
