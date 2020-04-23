@@ -25,8 +25,8 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def reload(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            """Reloads a module."""
+            if ctx.author.id in Matt:
+                """Reloads a module."""
             try:
                 self.bot.unload_extension("modules." + module)
                 self.bot.load_extension("modules." + module)
@@ -38,8 +38,8 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def load(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            """Loads a new module."""
+            if ctx.author.id in Matt:
+                """Loads a new module."""
             try:
                 self.bot.load_extension("modules." + module)
             except Exception:
@@ -50,8 +50,8 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def unload(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            """Unloads a module."""
+            if ctx.author.id in Matt:
+                """Unloads a module."""
             try:
                 self.bot.unload_extension("modules." + module)
             except Exception:
@@ -62,8 +62,8 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def say(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            await ctx.message.delete()
+            if ctx.author.id in Matt:
+                await ctx.message.delete()
             await ctx.send(message)
 
     """The following two definitions come from the Monika bot (dev.py module)."""
@@ -77,6 +77,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def eval(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
+            '''runs arbitrary code'''
         if ctx.author.id in Matt:
             env = {
                 'bot': self.bot,
@@ -124,18 +125,18 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def pull(self, ctx):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            c = subprocess.call(('git', 'pull'))
-            if c != 0:
-                await ctx.send("Updating from Git failed.")
+            if ctx.author.id in Matt:
+                c = subprocess.call(('git', 'pull'))
+                if c != 0:
+                    await ctx.send("Updating from Git failed.")
                 return
             await ctx.send("Successfully updated from Git.")
 
     @commands.command()
     async def download(self, ctx, link):
         if ctx.author.id in AJW_Admins:
-        if ctx.author.id in Matt:
-            file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
+            if ctx.author.id in Matt:
+                file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
             r = requests.get(link)
             newmod = open('./modules/{}.py'.format('module-{}'.format(len(file))), 'wb+')
             try:
@@ -148,6 +149,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     async def dl(self, ctx, url: str, path: str):
         '''Downloads File to Hard Drive'''
         if ctx.author.id in AJW_Admins:
+#            if ctx.author.id in Matt:
                 r = requests.get(url, stream=True)
                 with open(path, 'wb') as f:
                         total_length = int(r.headers.get('content-length'))
