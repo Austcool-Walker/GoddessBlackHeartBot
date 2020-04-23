@@ -126,17 +126,17 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**:ok:** to another status: **{discordStatus}**')
 
     @commands.command(hidden=True)
-    @commands.is_owner()
     async def name(self, ctx, name):
-        '''changes bot global name (BOT OWNER ONLY)'''
+        if ctx.author.id in AJW_Admins:
+            '''changes bot global name (BOT OWNER ONLY)'''
         await self.bot.user.edit(username=name)
         msg = f':ok: change my name: **{name}**'
         await ctx.send(msg)
 
     @commands.command(hidden=True)
-    @commands.is_owner()
     async def servername(self, ctx, name):
-        '''changes server global name (BOT OWNER ONLY)'''
+        if ctx.author.id in AJW_Admins:
+            '''changes server global name (BOT OWNER ONLY)'''
         await ctx.guild.edit(name=name)
         msg = f':ok: change server name: **{name}**'
         await ctx.send(msg)
