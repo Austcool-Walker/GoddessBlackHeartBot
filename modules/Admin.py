@@ -63,6 +63,24 @@ class Admin(commands.Cog, name="Admin"):
         asyncio.sleep(2)
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
 
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def servericon(self, ctx, url: str):
+        '''Set a new avatar (BOT OWNER ONLY)'''
+        tempsvicon = 'tempsvicon.png'
+        r = requests.get(url)
+        with open('tempsvicon.png', 'wb') as f:
+                total_length = int(r.headers.get('content-length'))
+                for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
+                    if chunk:
+                        f.write(chunk)
+                        f.flush()
+        with open('tempsvicon.png', 'rb') as f:
+                await bot.server.edit(icon=f.read())
+        os.remove(tempsvicon)
+        asyncio.sleep(2)
+        await ctx.send('**:ok:** New Server Icon set!\n %s' % self.bot.user.avatar_url)
+
     @commands.command(hidden=True, aliases=['game'])
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
         if ctx.author.id in AJW_Admins:
