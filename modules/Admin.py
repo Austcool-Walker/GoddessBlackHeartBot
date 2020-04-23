@@ -57,7 +57,6 @@ class Admin(commands.Cog, name="Admin"):
                     if chunk:
                         f.write(chunk)
                         f.flush()
-                        f.close()
         with open('tempBH.png', 'rb') as f:
                 await self.bot.user.edit(avatar=f.read())
         os.remove(tempBHFile)
