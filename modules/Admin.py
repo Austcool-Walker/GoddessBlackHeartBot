@@ -57,8 +57,8 @@ class Admin(commands.Cog, name="Admin"):
                     if chunk:
                         f.write(chunk)
                         f.flush()
-        with open(tempBHFile, 'rb') as f:
-            await self.bot.user.edit(avatar=f.read)
+        with open(tempBHFile, 'rb') as b:
+            await self.bot.user.edit(avatar=b)
         os.remove(tempBHFile)
         asyncio.sleep(2)
         await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
