@@ -13,7 +13,8 @@ import subprocess
 from clint.textui import progress
 
 # Authorized User_ID's
-AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
+AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368)
+Matt = (617456938904453190)
 
 class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
 
@@ -24,6 +25,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def reload(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             """Reloads a module."""
             try:
                 self.bot.unload_extension("modules." + module)
@@ -36,6 +38,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def load(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             """Loads a new module."""
             try:
                 self.bot.load_extension("modules." + module)
@@ -47,6 +50,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def unload(self, ctx, *, module):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             """Unloads a module."""
             try:
                 self.bot.unload_extension("modules." + module)
@@ -58,6 +62,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def say(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             await ctx.message.delete()
             await ctx.send(message)
 
@@ -72,6 +77,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def eval(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             env = {
                 'bot': self.bot,
                 'ctx': ctx,
@@ -118,6 +124,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def pull(self, ctx):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             c = subprocess.call(('git', 'pull'))
             if c != 0:
                 await ctx.send("Updating from Git failed.")
@@ -127,6 +134,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     @commands.command()
     async def download(self, ctx, link):
         if ctx.author.id in AJW_Admins:
+        if ctx.author.id in Matt:
             file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
             r = requests.get(link)
             newmod = open('./modules/{}.py'.format('module-{}'.format(len(file))), 'wb+')
