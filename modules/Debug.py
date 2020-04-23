@@ -10,6 +10,7 @@ from os import listdir
 from os.path import isfile, join
 from asyncio import sleep
 import subprocess
+from clint.textui import progress
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
@@ -124,16 +125,16 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send("Successfully updated from Git.")
 
     @commands.command()
-    async def download(self, ctx, link):
-        if ctx.author.id in AJW_Admins:
-            file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
-            r = requests.get(link)
-            newmod = open('./modules/{}.py'.format('module-{}'.format(len(file))), 'wb+')
-            try:
-                newmod.write(r.content)
-            except:
-                await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-            await ctx.send('Downloaded new module ending in {}'.format(len(file)))
+    async def dl(self, ctx, url: str, path: str):
+        '''Set a new avatar (BOT OWNER ONLY)'''
+        r = requests.get(url, stream=True)
+        with open(path, 'wb') as f:
+                total_length = int(r.headers.get('content-length'))
+                for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
+                    if chunk:
+                        f.write(chunk)
+                        f.flush()
+        await ctx.send(f':white_check_mark: downloaded file from **{url}** saved **{path}**')
 
     @commands.command()
     async def dl(self, ctx, arg1, arg2):
