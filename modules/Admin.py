@@ -57,7 +57,7 @@ class Admin(commands.Cog, name="Admin"):
                     if chunk:
                         f.write(chunk)
                         f.flush()
-        await self.bot.user.edit(avatar=f.read())
+        await self.bot.user.edit(avatar=tempBHFile())
         f.close()
         os.remove(tempBHFile)
         asyncio.sleep(2)
