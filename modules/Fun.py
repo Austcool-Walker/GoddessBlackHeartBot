@@ -15,13 +15,10 @@ class Fun(commands.Cog, name="Fun"):
         self.quotes = json.loads(open('quotes.json', 'r').read())
 
     @commands.command()
-    @commands.guild_only()
     async def meme(self, meme):
         await meme.send("This feature has not been implemented yet.")
 
     @commands.command(aliases=['ask'], name='8ball')
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def _8ball(self, ctx, *, question):
         responses = [['Yes, definitely.', 'Of course! Bill Cipher would agree!', 'Did an iDroid program me?',
                       'The answer is simple: 25-5-19',
@@ -42,8 +39,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(random.choice(random.choice(responses)))
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def kiss(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -57,8 +52,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def hug(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -72,8 +65,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def tickle(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -87,8 +78,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def poke(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -102,8 +91,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def slap(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -117,8 +104,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def cuddle(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -132,8 +117,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def pat(self, ctx):
         try:
             user = ctx.message.mentions[0]
@@ -147,8 +130,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def urban(self, ctx, *, term):
         if not ctx.message.channel.is_nsfw():
             await ctx.send("Due to the fact that some definitions are not appropriate, this command can only be used in NSFW channels.")
@@ -183,8 +164,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.user)
-    @commands.guild_only()
     async def randomfact(self, ctx):
         """async with aiohttp.ClientSession() as session:
             async with session.get('https://www.cs.cmu.edu/~bingbin/index.html') as entry:
@@ -195,8 +174,6 @@ class Fun(commands.Cog, name="Fun"):
         await ctx.send(facts[random.randint(0, len(facts))])
 
     @commands.command()
-    @commands.cooldown(1, 3, BucketType.user)
-    @commands.guild_only()
     async def randomquote(self, ctx):
         quote = self.quotes[str(random.randint(0, 10))]
         await ctx.send(quote)
