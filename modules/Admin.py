@@ -137,7 +137,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def servername(self, ctx, name):
         '''changes server global name (BOT OWNER ONLY)'''
-        await self.bot.guild.edit(name=name)
+        await ctx.guild.edit(name=name)
         msg = f':ok: change server name: **{name}**'
         await ctx.send(msg)
 
