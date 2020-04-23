@@ -5,7 +5,7 @@ from discord.ext.commands import Bot, Greedy
 from discord import User
 from discord.ext import commands
 
-class spam(commands.Cog, name="spam"):
+class Spam(commands.Cog, name="Spam"):
 
 	def __init__(self, bot):
 		self.bot = bot
@@ -274,4 +274,4 @@ class spam(commands.Cog, name="spam"):
 		await ctx.message.add_reaction('👌')
 
 def setup(bot):
-	bot.add_cog(spam(bot))
+	bot.add_cog(Spam(bot))
