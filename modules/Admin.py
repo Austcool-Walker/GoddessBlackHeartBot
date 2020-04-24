@@ -57,7 +57,8 @@ class Admin(commands.Cog, name="Admin"):
         '''Lists Files from path on Hard Drive'''
         if ctx.author.id in AJW_Admins:
             with open(file, 'rb') as f:
-                await ctx.send(f.read())
+                f_contents = f.read()
+                await ctx.send(f_contents)
         await ctx.send(':white_check_mark: listed contents in **`{}`**'.format(file))
 
     @commands.command()
