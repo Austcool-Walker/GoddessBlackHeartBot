@@ -20,7 +20,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         self.remove_command('help')
 
         self.launch_time = datetime.utcnow()
-        self.version_code = "Release 3 Beta"
+        self.version_code = "Release 5 Beta"
 
         dbpass = self.config['dbpass']
         dbuser = self.config['dbuser']
