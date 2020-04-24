@@ -259,7 +259,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True)
-    async def geninvite(self, ctx, guildid: str):
+    async def serverimage(self, ctx, guildid: str):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
         icon = await ctx.send(guild.icon_url)
