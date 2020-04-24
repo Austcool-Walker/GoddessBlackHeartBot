@@ -261,7 +261,7 @@ class Admin(commands.Cog, name="Admin"):
     async def serverimage(self, ctx, guildid: str):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
-        icon = await ctx.send(guild.icon_url)
+        icon = await ctx.send(server.icon_url)
         msg = f'Server icon from **({guildid})**'
         await icon.send(msg)
 
