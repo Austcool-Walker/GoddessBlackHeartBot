@@ -53,6 +53,14 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(':white_check_mark: list of files in **`{}`**'.format(path))
 
     @commands.command()
+    async def cat(self, ctx, file: str):
+        '''Lists Files from path on Hard Drive'''
+        if ctx.author.id in AJW_Admins:
+            with open(file, 'rb') as f:
+                await ctx.send(f.read())
+        await ctx.send(':white_check_mark: list contents in **`{}`**'.format(file))
+
+    @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
         '''Sends Files in path to user from Hard Drive'''
         if ctx.author.id in AJW_Admins:
