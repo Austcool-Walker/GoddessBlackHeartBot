@@ -50,7 +50,7 @@ class Admin(commands.Cog, name="Admin"):
         '''Lists Files from path on Hard Drive'''
         if ctx.author.id in AJW_Admins:
             await ctx.send(os.listdir(path))
-        await ctx.send(':white_check_mark: list of files in **{}**'.format(path))
+        await ctx.send(':white_check_mark: list of files in **`{}`**'.format(path))
 
     @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
