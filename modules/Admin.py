@@ -260,7 +260,7 @@ class Admin(commands.Cog, name="Admin"):
         '''Gaves servers icon by ID (BOT OWNER ONLY)'''
         guild = self.bot.get_guild(guildid)
         await ctx.send(guild.icon_url)
-        await ctx.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
+#        await ctx.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
