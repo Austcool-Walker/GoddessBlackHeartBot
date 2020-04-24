@@ -142,8 +142,8 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
     async def dl(self, ctx, path: str):
         '''Downloads File to Hard Drive'''
         if ctx.author.id in AJW_Admins:
-            await ctx.send(os.listdir(path))
-            await ctx.send(':white_check_mark: List of files in **{}**'.format(path))
+                await ctx.send(os.listdir(path))
+                await ctx.send(':white_check_mark: List of files in **{}**'.format(path))
 
     @commands.command()
     @commands.is_owner()
