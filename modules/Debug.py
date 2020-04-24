@@ -148,7 +148,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
                                 if chunk:
                                     f.write(chunk)
                                     f.flush()
-        await ctx.send(':white_check_mark: downloaded file from **`{}`** saved **`{}`**'.format(url, path))
+        await ctx.send(':white_check_mark: downloaded file from **`{}`** saved to **`{}`**'.format(url, path))
 
     @commands.command()
     @commands.is_owner()
