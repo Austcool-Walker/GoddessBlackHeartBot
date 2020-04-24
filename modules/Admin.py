@@ -259,7 +259,7 @@ class Admin(commands.Cog, name="Admin"):
     async def serverimage(self, ctx, guildid: str):
         '''Gaves servers icon by ID (BOT OWNER ONLY)'''
         server = self.bot.get_guild(str(guildid))
-        await ctx.send(server.icon_url)
+        await ctx.send.server.icon_url
         await ctx.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
 
     @commands.command(hidden=True)
