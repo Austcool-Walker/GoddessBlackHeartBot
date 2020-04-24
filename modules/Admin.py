@@ -259,9 +259,8 @@ class Admin(commands.Cog, name="Admin"):
     async def serverimage(self, ctx, guildid: str):
         '''Gaves servers icon by ID (BOT OWNER ONLY)'''
         guild = self.bot.get_guild(str(guildid))
-        icon = guild.icon_url
-        await ctx.send(icon)
-        await ctx.send('Server image from **`{}`**'.format(guildid))
+        Server = await ctx.send(guild.icon_url)
+        await ctx.send('Server image from **`{}`**').format(guildid)
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
