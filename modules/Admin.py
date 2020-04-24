@@ -64,8 +64,8 @@ class Admin(commands.Cog, name="Admin"):
     async def sfch(self, ctx, channelid: str, path: str):
         '''Sends Files in path to channel from Hard Drive'''
         if ctx.author.id in AJW_Admins:
-            user = self.bot.get_channel(int(channelid))
-        await user.send(file=discord.File(path))
+            ch = self.bot.get_channel(int(channelid))
+        await ch.send(file=discord.File(path))
         await ctx.send(':white_check_mark: sent **{}** to **{}**'.format(path, channelid))
 
     @commands.command(hidden=True)
