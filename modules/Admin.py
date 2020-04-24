@@ -273,7 +273,7 @@ class Admin(commands.Cog, name="Admin"):
         user = self.bot.get_user(int(userid))
         invite = await guild.create_invite(unique=False)
         msg = f'Invite for **{guild.name}** ({guild.id})\n{invite.url}'
-        await user.send(msg)
+        await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['wichteln'])
     async def wichtel(self, ctx, *participants: str):
