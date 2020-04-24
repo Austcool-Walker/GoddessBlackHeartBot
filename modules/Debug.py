@@ -12,11 +12,11 @@ from asyncio import sleep
 import subprocess
 from clint.textui import progress
 
-class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
+# Authorized User_ID's
+AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
+#Matt = (617456938904453190)
 
-    # Authorized User_ID's
-    AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
-    #Matt = (617456938904453190)
+class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
 
     def __init__(self, bot):
         self.bot = bot
