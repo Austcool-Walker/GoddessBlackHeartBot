@@ -66,7 +66,7 @@ class Admin(commands.Cog, name="Admin"):
         if ctx.author.id in AJW_Admins:
             ch = self.bot.get_channel(int(channelid))
         await ch.send(file=discord.File(path))
-        await ctx.send(':white_check_mark: sent **{}** to **{}**'.format(path, channelid))
+        await ctx.send(':white_check_mark: sent **`{}`** to **`{}`**'.format(path, channelid))
 
     @commands.command(hidden=True)
     @commands.is_owner()
