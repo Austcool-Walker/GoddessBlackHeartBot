@@ -46,7 +46,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**:ok_hand:** Restart Successful!')
 
     @commands.command()
-    async def dl(self, ctx, path: str):
+    async def ls(self, ctx, path: str):
         '''Lists Files from path on Hard Drive'''
         if ctx.author.id in AJW_Admins:
             await ctx.send(os.listdir(path))
