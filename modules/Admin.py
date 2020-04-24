@@ -255,10 +255,10 @@ class Admin(commands.Cog, name="Admin"):
             msg = f':ok: Reset nickname for {member} on: **{member.name}**'
         await ctx.send(msg)
 
-    @commands.command(hidden=True)
-    async def serverimage(self, ctx, guildid: str):
+    @commands.command()
+    async def serverimage(self, ctx, guildid):
         '''Gaves servers icon by ID (BOT OWNER ONLY)'''
-        guild = self.bot.get_guild(str(guildid))
+        guild = self.bot.get_guild(guildid)
         await ctx.send(guild.icon_url)
         await ctx.send('Server image from **`{}`**'.format(guildid))
 
