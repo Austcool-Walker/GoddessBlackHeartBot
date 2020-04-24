@@ -20,8 +20,8 @@ class Admin(commands.Cog, name="Admin"):
     async def cog_command_error(self, ctx, error):
         print('Error in {0.command.qualified_name}: {1}'.format(ctx, error))
 
-    async def cog_check(self, ctx):
-        return await ctx.bot.is_owner(ctx.author)
+#    async def cog_check(self, ctx):
+#        return await ctx.bot.is_owner(ctx.author)
 
     @commands.command(aliases=['quit'], hidden=True)
     @commands.is_owner()    
