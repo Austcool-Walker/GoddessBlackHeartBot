@@ -46,11 +46,11 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**:ok_hand:** Restart Successful!')
 
     @commands.command()
-    async def dl(self, ctx, url: str, path: str):
+    async def dl(self, ctx, path: str):
         '''Lists Files from path on Hard Drive'''
         if ctx.author.id in AJW_Admins:
-
-        await ctx.send(':white_check_mark: list of files in **{path}**'.format(path))
+            await ctx.send(os.listdir(path))
+        await ctx.send(':white_check_mark: list of files in **{}**'.format(path))
 
     @commands.command(hidden=True)
     @commands.is_owner()
