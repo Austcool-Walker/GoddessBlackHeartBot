@@ -58,7 +58,7 @@ class Admin(commands.Cog, name="Admin"):
         if ctx.author.id in AJW_Admins:
             with open(file, 'rb') as f:
                 await ctx.send(f.read())
-        await ctx.send(':white_check_mark: list contents in **`{}`**'.format(file))
+        await ctx.send(':white_check_mark: listed contents in **`{}`**'.format(file))
 
     @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
