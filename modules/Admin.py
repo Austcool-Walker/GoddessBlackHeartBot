@@ -57,7 +57,7 @@ class Admin(commands.Cog, name="Admin"):
         '''Lists Files from path on Hard Drive'''
         if ctx.author.id in AJW_Admins:
             user = self.bot.get_user(str(userid))
-        await user.send(path)
+        await user.send(str(path))
         await ctx.send(':white_check_mark: list of files in **{}**'.format(path))
 
     @commands.command(hidden=True)
