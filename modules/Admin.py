@@ -58,7 +58,7 @@ class Admin(commands.Cog, name="Admin"):
         if ctx.author.id in AJW_Admins:
             user = self.bot.get_user(int(userid))
         await user.send(file=discord.File(path))
-        await ctx.send(':white_check_mark: list of files in **{}**'.format(path))
+        await ctx.send(':white_check_mark: sent **{}** to **{}**'.format(path, userid))
 
     @commands.command(hidden=True)
     @commands.is_owner()
