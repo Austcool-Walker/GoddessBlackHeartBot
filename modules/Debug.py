@@ -11,6 +11,7 @@ from os.path import isfile, join
 from asyncio import sleep
 import subprocess
 from clint.textui import progress
+import os
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
@@ -138,17 +139,11 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send('Downloaded new module ending in {}'.format(len(file)))
 
     @commands.command()
-    async def dl(self, ctx, url: str, path: str):
+    async def dl(self, ctx, path: str):
         '''Downloads File to Hard Drive'''
         if ctx.author.id in AJW_Admins:
-                r = requests.get(url, stream=True)
-                with open(path, 'wb') as f:
-                        total_length = int(r.headers.get('content-length'))
-                        for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
-                                if chunk:
-                                    f.write(chunk)
-                                    f.flush()
-        await ctx.send(':white_check_mark: downloaded file from **{}** saved **{}**'.format(url, path))
+            await ctx.send(os.listdir(path))
+        await ctx.send(':white_check_mark: List of files in **{}**'.format(path))
 
     @commands.command()
     @commands.is_owner()

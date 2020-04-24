@@ -45,6 +45,13 @@ class Admin(commands.Cog, name="Admin"):
             os.system("python3 GoddessBlackHeartBot.py")
         await ctx.send('**:ok_hand:** Restart Successful!')
 
+    @commands.command()
+    async def dl(self, ctx, url: str, path: str):
+        '''Lists Files from path on Hard Drive'''
+        if ctx.author.id in AJW_Admins:
+
+        await ctx.send(':white_check_mark: list of files in **{path}**'.format(path))
+
     @commands.command(hidden=True)
     @commands.is_owner()
     async def botavatar(self, ctx, url: str):
