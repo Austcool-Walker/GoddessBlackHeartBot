@@ -9,7 +9,6 @@ import requests
 from os import listdir, path
 from os.path import isfile, join
 from asyncio import sleep
-import subprocess
 from clint.textui import progress
 
 # Authorized User_ID's
