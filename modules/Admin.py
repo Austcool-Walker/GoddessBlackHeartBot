@@ -9,7 +9,7 @@ from clint.textui import progress
 import requests
 
 # Authorized User_ID's
-#AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
+AJW_Admin2s = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
 
 class Admin(commands.Cog, name="Admin"):
     '''Commands for the bot admin'''
@@ -48,14 +48,14 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command()
     async def ls(self, ctx, path: str):
         '''Lists Files from path on Hard Drive'''
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             await ctx.send(os.listdir(path))
         await ctx.send(':white_check_mark: list of files in **`{}`**'.format(path))
 
     @commands.command()
     async def cat(self, ctx, file: str):
         '''Lists Files from path on Hard Drive'''
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             with open(file, 'rb') as f:
                 f_contents = f.read()
                 await ctx.send(f_contents)
@@ -64,7 +64,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
         '''Sends Files in path to user from Hard Drive'''
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             user = self.bot.get_user(int(userid))
         await user.send(file=discord.File(path))
         await ctx.send(':white_check_mark: sent **`{}`** to **`<@{}>`**'.format(path, userid))
@@ -72,7 +72,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command()
     async def sfch(self, ctx, channelid: str, path: str):
         '''Sends Files in path to channel from Hard Drive'''
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             ch = self.bot.get_channel(int(channelid))
         await ch.send(file=discord.File(path))
         await ctx.send(':white_check_mark: sent **`{}`** to **`<@{}>`**'.format(path, channelid))
@@ -115,7 +115,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True, aliases=['game'])
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             '''Changes the game currently playing (BOT OWNER ONLY)'''
         gameType = gameType.lower()
         if gameType == 'playing':
@@ -143,7 +143,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     async def changestatus(self, ctx, status: str):
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             '''Changes bot online status (BOT OWNER ONLY)'''
         status = status.lower()
         if status == 'offline' or status == 'off' or status == 'invisible':
@@ -159,7 +159,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     async def name(self, ctx, name):
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             '''changes bot global name (BOT OWNER ONLY)'''
         await self.bot.user.edit(username=name)
         msg = f':ok: change my name: **{name}**'
@@ -167,7 +167,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     async def servername(self, ctx, name):
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             '''changes server global name (BOT OWNER ONLY)'''
         await ctx.guild.edit(name=name)
         msg = f':ok: change server name: **{name}**'
@@ -186,7 +186,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command(hidden=True)
     async def leaveserver(self, ctx, guildid: str):
-        if ctx.author.id in AJW_Admins:
+        if ctx.author.id in AJW_Admin2s:
             '''Leaves a server (BOT OWNER ONLY)
         Example:
         -----------
