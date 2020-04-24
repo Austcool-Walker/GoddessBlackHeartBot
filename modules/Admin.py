@@ -229,6 +229,8 @@ class Admin(commands.Cog, name="Admin"):
             await ctx.send(memberList)
         else:
             await ctx.send(":x: Couldn't find anyone")
+
+
     @commands.command(hidden=True)
     @commands.bot_has_permissions(manage_nicknames = True)
     async def nickname(self, ctx, *name):
@@ -256,11 +258,12 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True)
-    async def serverimage(self, ctx, guildid: str):
-        '''Gaves servers icon by ID (BOT OWNER ONLY)'''
-        server = self.bot.get_guild(str(guildid))
-        await ctx.send.server.icon_url
-        await ctx.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
+    async def geninvite(self, ctx, guildid: str):
+        '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
+        server = self.bot.get_guild(int(guildid))
+        icon = await ctx.send(guild.icon_url)
+        msg = f'Server icon from **({guildid})**'
+        await icon.send(msg)
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
