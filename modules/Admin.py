@@ -190,7 +190,7 @@ class Admin(commands.Cog, name="Admin"):
             guild = self.bot.get_guild(int(guildid))
             if guild:
                 await guild.leave()
-                msg = f":ok_hand: Exit from: {guild.name} ({guild.id}) successful!"
+                msg = f":ok_hand: Exit from: **{}** **{}** successful!".format(guild.name, guild.id)
             else:
                 msg = f":x: Couldn't find a matching guild for this ID!"
         await ctx.send(msg)
