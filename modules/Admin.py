@@ -229,8 +229,6 @@ class Admin(commands.Cog, name="Admin"):
             await ctx.send(memberList)
         else:
             await ctx.send(":x: Couldn't find anyone")
-
-
     @commands.command(hidden=True)
     @commands.bot_has_permissions(manage_nicknames = True)
     async def nickname(self, ctx, *name):
@@ -261,9 +259,7 @@ class Admin(commands.Cog, name="Admin"):
     async def serverimage(self, ctx, guildid: str):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
-        icon = await ctx.send(server.icon_url)
-        await icon.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
-
+        await ctx.send(server.icon_url)
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
@@ -272,6 +268,8 @@ class Admin(commands.Cog, name="Admin"):
         guild = self.bot.get_channel(int(channelid))
         user = self.bot.get_user(int(userid))
         invite = await guild.create_invite(unique=False)
+        msg = f'Invite for **{guild.name}** ({guild.id})\n{invite.url}'
+        await user.send(msg)
 
     @commands.command(hidden=True, aliases=['wichteln'])
     async def wichtel(self, ctx, *participants: str):
