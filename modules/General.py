@@ -135,7 +135,7 @@ class General(commands.Cog, name="General"):
         embed.add_field(name='Custom Emojis', value=emojis, inline=True)
         await ctx.send(embed=embed)
 
-    @commands()
+    @commands.command()
     async def host(self, ctx):
         embed = discord.Embed(color=0xff00ec, title="Host Information.",
                                 description="Here is what we know about the machine hosting the bot.")
