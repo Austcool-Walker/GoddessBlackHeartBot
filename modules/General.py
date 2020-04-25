@@ -5,7 +5,8 @@ import time
 import random
 import json
 import sys
-
+import os
+import platform
 
 class General(commands.Cog, name="General"):
 
@@ -134,12 +135,23 @@ class General(commands.Cog, name="General"):
         embed.add_field(name='Custom Emojis', value=emojis, inline=True)
         await ctx.send(embed=embed)
 
-#    @commands.command()
-#    async def invite(self, ctx):
-#        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
-#                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
-#        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
-#        await ctx.send(embed=embed)
+    @commands()
+    async def host(self, ctx):
+        embed = discord.Embed(color=0xff00ec, title="Host Information.",
+                                description="Here is what we know about the machine hosting the bot.")
+        embed.add_field(name='Platform', value=platform.platform(), inline=True)
+        embed.add_field(name='OS Type', value=os.name, inline=True)
+        embed.add_field(name='OS Release', value=platform.release(), inline=True)
+        embed.add_field(name='OS Version', value=platform.version(), inline=True)
+        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def invite(self, ctx):
+        embed = discord.Embed(color=discord.Colour.dark_orange(), title="Are you going to invite me to your server?",
+                              description="Invite me by clicking [here](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).")
+        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def server(self, ctx):
@@ -176,7 +188,7 @@ class General(commands.Cog, name="General"):
 #    @commands.command()
 #    async def upvote(self, ctx):
 #        embed = discord.Embed(color=discord.Colour.blue(), title="Come vote for 女神ブラックハート!",
-#                              description="Do you really like using Axiro? You can upvote it by clicking [here](https://discordbots.org/bot/458834071796187149/vote)!")
+#                              description="Do you really like using 女神ブラックハート? You can upvote it by clicking [here](https://discordbots.org/bot/458834071796187149/vote)!")
 #        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
 #        await ctx.send(embed=embed)
 
