@@ -262,7 +262,7 @@ class Admin(commands.Cog, name="Admin"):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
         icon = await ctx.send(server.icon_url)
-        msg = f'Server icon from **({guildid})**'
+        msg = f'Server icon from **`{guildid}`**'
         await icon.send(msg)
 
     @commands.command(hidden=True)
@@ -272,8 +272,6 @@ class Admin(commands.Cog, name="Admin"):
         guild = self.bot.get_channel(int(channelid))
         user = self.bot.get_user(int(userid))
         invite = await guild.create_invite(unique=False)
-        msg = f'Invite for **{guild.name}** ({guild.id})\n{invite.url}'
-        await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['wichteln'])
     async def wichtel(self, ctx, *participants: str):
