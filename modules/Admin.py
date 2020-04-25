@@ -262,8 +262,8 @@ class Admin(commands.Cog, name="Admin"):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
         icon = await ctx.send(server.icon_url)
-        msg = f'Server icon from **`{guildid}`**'
-        await icon.send(msg)
+        await icon.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
+
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
