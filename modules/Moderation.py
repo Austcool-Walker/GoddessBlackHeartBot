@@ -22,37 +22,37 @@ class Moderation(commands.Cog, name="Moderation"):
             return
         await ctx.send(":white_check_mark: Player {} has been kicked from the server.".format(user.name))
 
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, user: discord.User, *, reason: str):
-        if not ctx.message.channel.permissions_for(ctx.message.author.guild.me).ban_members:
-            await ctx.send(":x: I do not have permission to ban players.")
-            return
-        try:
-            await ctx.message.guild.ban(user, reason=reason)
-        except Exception:
-            await ctx.send(":x: I completely failed to ban that player.")
-            return
-        await ctx.send(":white_check_mark: Player {} has been banned from the server.".format(user.name))
-
 #    @commands.command()
-#    @commands.has_permissions(ban_members = True)
-#    async def ban(self, ctx, user: int=None, *reason):
+#    @commands.has_permissions(ban_members=True)
+#    async def ban(self, ctx, user: discord.User, *, reason: str):
+#        if not ctx.message.channel.permissions_for(ctx.message.author.guild.me).ban_members:
+#            await ctx.send(":x: I do not have permission to ban players.")
+#            return
+#        try:
+#            await ctx.message.guild.ban(user, reason=reason)
+#        except Exception:
+#            await ctx.send(":x: I completely failed to ban that player.")
+#            return
+#        await ctx.send(":white_check_mark: Player {} has been banned from the server.".format(user.name))
+
+    @commands.command()
+    @commands.has_permissions(ban_members = True)
+    async def ban(self, ctx, user: int=None, *reason):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
         -----------
         :ban 102815825781596160
         '''
-#        user = discord.User(id=user)
-#        if user is not None:
-#            if reason:
-#                reason = ' '.join(reason)
-#            else:
-#                reason = None
-#            await ctx.guild.ban(user, reason=reason)
-#        else:
-#            await ctx.send(":white_check_mark: Player {} has been banned from the server.".format(user.name))
+        user = discord.User(id=user)
+        if user is not None:
+            if reason:
+                reason = ' '.join(reason)
+            else:
+                reason = None
+            await ctx.guild.ban(user, reason=reason)
+        else:
+            await ctx.send(":white_check_mark: Player {} has been banned from the server.".format(user.name))
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
