@@ -220,7 +220,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
     async def on_message(self, message):
         guild = message.guild
         if guild:
-            path = "chatlogs/{}.txt".format(guild.id)  
+            path = "chatlogs/{}.log".format(guild.id)  
             with open(path, 'a+') as f:
                 print("{0.created_at} : {0.author.name} : {0.content}".format(message), file=f)
         await self.process_commands(message)
