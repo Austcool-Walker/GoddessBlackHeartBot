@@ -143,7 +143,9 @@ class General(commands.Cog, name="General"):
         embed.add_field(name='OS Type', value=os.name, inline=True)
         embed.add_field(name='OS Release', value=platform.release(), inline=True)
         embed.add_field(name='OS Version', value=platform.version(), inline=True)
-        embed.set_footer(icon_url=ctx.message.author.avatar_url, text="Requested by {}".format(ctx.message.author.name))
+        embed.add_field(name='Hostname', value=platform.node(), inline=True)
+        embed.add_field(name='CPU Architecture', value=platform.machine(), inline=True)
+        embed.add_field(name='Operating System', value=platform.system(), inline=True)
         await ctx.send(embed=embed)
 
 #    @commands.command()
