@@ -37,16 +37,14 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def ban(self, ctx, userid: int=None, *reason):
+#    @commands.has_any_role('<@704449694134304788>')
+    async def ban(self, ctx, member:discord.User=None, reason =None):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
         -----------
         :ban 102815825781596160
         '''
-    @commands.command()
-#    @commands.has_any_role('<@704449694134304788>')
-    async def ban(self, ctx, member:discord.User=None, reason =None):
         if member == None or member == ctx.message.author:
             await ctx.send("You cannot ban yourself")
             return
