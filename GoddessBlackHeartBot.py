@@ -225,8 +225,8 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
                 print("{0.created_at} : {0.author.name} : {0.content}".format(message), file=f)
         await self.process_commands(message)
 
+logging.basicConfig(filename='bot.log')
+
 client = GoddessBlackHeartBot()
 config = json.loads(open('config.json', 'r').read())
 client.run(config.get('discordtoken'))
-
-logging.basicConfig(filename='bot.log', filemode='a')
