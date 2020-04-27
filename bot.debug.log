@@ -1,0 +1,38 @@
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished coro=<Client.start() done, defined at /usr/local/lib/python3.6/dist-packages/discord/client.py:500> exception=LoginFailure('Improper token has been passed.',)>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 258, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 222, in request
+    raise HTTPException(r, data)
+discord.errors.HTTPException: Unauthorized (status code: 401): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/discord/client.py", line 508, in start
+    await self.login(*args, bot=bot)
+  File "/usr/local/lib/python3.6/dist-packages/discord/client.py", line 380, in login
+    await self.http.static_login(token, bot=bot)
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 262, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished coro=<Client.start() done, defined at /usr/local/lib/python3.6/dist-packages/discord/client.py:500> exception=LoginFailure('Improper token has been passed.',)>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 258, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 222, in request
+    raise HTTPException(r, data)
+discord.errors.HTTPException: Unauthorized (status code: 401): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/discord/client.py", line 508, in start
+    await self.login(*args, bot=bot)
+  File "/usr/local/lib/python3.6/dist-packages/discord/client.py", line 380, in login
+    await self.http.static_login(token, bot=bot)
+  File "/usr/local/lib/python3.6/dist-packages/discord/http.py", line 262, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
