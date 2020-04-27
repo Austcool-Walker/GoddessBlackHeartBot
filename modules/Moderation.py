@@ -37,14 +37,14 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def ban(self, ctx, user: int, *reason):
+    async def ban(self, ctx, user: str, *reason):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
         -----------
         :ban 102815825781596160
         '''
-        user = self.bot.get_user(id=user)
+        user = self.bot.get_user(str(id=user))
         if user is not None:
             if reason:
                 reason = ' '.join(reason)
