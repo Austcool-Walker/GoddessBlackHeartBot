@@ -44,15 +44,18 @@ class Moderation(commands.Cog, name="Moderation"):
         -----------
         :ban 102815825781596160
         '''
-        user = discord.User(str(userid))
-        if user is not None:
-            if reason:
-                reason = ' '.join(reason)
-            else:
-                reason = None
-            await ctx.guild.ban(user, reason=reason)
-        else:
-            await ctx.send(":white_check_mark: Player <@!{}> has been banned from the server.".format(user))
+    @client.command()
+    @commands.has_any_role("<@!704449694134304788>")
+    async def ban(self, ctx, member:discord.User=None, reason =None):
+        if member == None or member == ctx.message.author:
+            await ctx.send("You cannot ban yourself")
+            return
+        if reason == None:
+            reason = "For being a jerk!"
+        message = f"You have been banned from {ctx.guild.name} for {reason}"
+        await member.send(message)
+        await ctx.guild.ban(member, reason=reason)
+        await ctx.send(f"{member} is banned!")
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
