@@ -37,22 +37,22 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def ban(self, ctx, userid: int=None, *reason):
+    async def unban(self, ctx, user: int = None, *, reason=None):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
         -----------
         :ban 102815825781596160
         '''
-        user = discord.User(id=userid)
-        if user is not None:
-            if reason:
-                reason = ' '.join(reason)
-            else:
-                reason = None
-            await ctx.guild.ban(user, reason=reason)
-        else:
-            await ctx.send(":white_check_mark: Player {} has been banned from the server.".format(user.name))
+        if user is None:
+            return await ctx.send("Please provide the user's ID to ban him.")
+        elif len(str(user)) > 18 or len(str(user)) < 18:
+            return await ctx.send("Please provide a valid user's ID")
+        try:
+            await ctx.guild.ban(discord.Object(user), reason=reason)
+            await ctx.send(":white_check_mark: Successfully banned the user: {}.".format(user.display_name))
+        except (discord.Forbidden, discord.HTTPException):
+            await ctx.send(":negative_squared_cross_mark: ban failed! or No user specified!") 
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
