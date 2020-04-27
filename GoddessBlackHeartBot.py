@@ -228,6 +228,3 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
 client = GoddessBlackHeartBot()
 config = json.loads(open('config.json', 'r').read())
 client.run(config.get('discordtoken'))
-
-#terminal output logging
-logging.basicConfig(filename='bot.log')
