@@ -52,7 +52,7 @@ class Moderation(commands.Cog, name="Moderation"):
                 reason = None
             await ctx.guild.unban(user, reason=reason)
         else:
-            await ctx.send(":white_check_mark: Player <@!{}> has been banned from the server.".format(user.name))
+            await ctx.send(":white_check_mark: Player <@!{}> has been banned from the server.".format(user))
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
