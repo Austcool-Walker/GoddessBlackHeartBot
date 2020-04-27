@@ -44,7 +44,7 @@ class Moderation(commands.Cog, name="Moderation"):
         -----------
         :ban 102815825781596160
         '''
-        user = bot.get_user(id=userid)
+        user = self.bot.get_user(id=userid)
         if user is not None:
             if reason:
                 reason = ' '.join(reason)
