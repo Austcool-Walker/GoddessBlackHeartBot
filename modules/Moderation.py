@@ -44,7 +44,7 @@ class Moderation(commands.Cog, name="Moderation"):
         -----------
         :ban 102815825781596160
         '''
-    @client.command()
+    @commands.command()
     @commands.has_any_role("<@!704449694134304788>")
     async def ban(self, ctx, member:discord.User=None, reason =None):
         if member == None or member == ctx.message.author:
