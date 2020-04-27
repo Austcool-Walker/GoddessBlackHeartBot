@@ -37,22 +37,22 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def ban(self, ctx, user: str, *reason):
+    async def ban(self, ctx, userid: int=None, *reason):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
         -----------
         :ban 102815825781596160
         '''
-        user = self.bot.get_user(str(id=user))
+        user = bot.get_user(id=userid)
         if user is not None:
             if reason:
                 reason = ' '.join(reason)
             else:
                 reason = None
-            await ctx.guild.unban(user, reason=reason)
+            await ctx.guild.ban(user, reason=reason)
         else:
-            await ctx.send(":white_check_mark: Player <@!{}> has been banned from the server.".format(user))
+            await ctx.send(":white_check_mark: Player <@!{}> has been banned from the server.".format(userid))
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
