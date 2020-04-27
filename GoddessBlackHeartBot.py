@@ -229,4 +229,4 @@ client = GoddessBlackHeartBot()
 config = json.loads(open('config.json', 'r').read())
 client.run(config.get('discordtoken'))
 
-logging.basicConfig(filename='bot.debug.log', filemode='a')
+logging.basicConfig(filename='bot.log', filemode='a')
