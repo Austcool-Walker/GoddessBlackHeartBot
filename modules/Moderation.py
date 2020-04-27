@@ -37,7 +37,7 @@ class Moderation(commands.Cog, name="Moderation"):
 
     @commands.command()
     @commands.has_permissions(ban_members = True)
-    async def unban(self, ctx, user: int = None, *, reason=None):
+    async def ban(self, ctx, user: int = None, *, reason=None):
         '''Bans a member with a reason (MOD ONLY)
         The user ID must be specified, name + discriminator is not enough
         example:
