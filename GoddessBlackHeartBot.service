@@ -6,7 +6,7 @@ WorkingDirectory=/home/noire/Documents/GoddessBlackHeartBot
 Environment="PYTHONHASHSEED=0"
 User=noire
 Group=noire
-ExecStart=/usr/bin/python3 /home/noire/Documents/GoddessBlackHeartBot/GoddessBlackHeartBot.py 2>/home/noire/Documents/GoddessBlackHeartBot/bot.debug.log
+ExecStart=/usr/bin/python3 /home/noire/Documents/GoddessBlackHeartBot/GoddessBlackHeartBot.py
 Type=idle
 Restart=on-failure
 RestartSec=15

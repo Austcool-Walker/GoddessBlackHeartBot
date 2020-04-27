@@ -11,6 +11,8 @@ import aiohttp
 import traceback
 from asyncio import sleep
 
+logging.basicConfig(filename='bot.log')
+
 class GoddessBlackHeartBot(commands.AutoShardedBot):
 
     def __init__(self):
