@@ -75,7 +75,7 @@ class Admin(commands.Cog, name="Admin"):
             '''Sends Files in path to channel from Hard Drive'''
             ch = self.bot.get_channel(int(channelid))
         await ch.send(file=discord.File(path))
-        await ctx.send(':white_check_mark: sent **`{}`** to **`<@{}>`**'.format(path, channelid))
+        await ctx.send(':white_check_mark: sent **`{}`** to **`<#{}>`**'.format(path, channelid))
 
     @commands.command(hidden=True)
     @commands.is_owner()
