@@ -10,6 +10,7 @@ import logging
 import aiohttp
 import traceback
 from asyncio import sleep
+import sys
 
 class GoddessBlackHeartBot(commands.AutoShardedBot):
 
@@ -61,6 +62,10 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='a')
         handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
         logger.addHandler(handler)
+
+        f = open("bot.log", 'a')
+        sys.stdout = f
+        f.close()
 
     async def update_stats(self):
         """This function runs every 30 minutes to automatically update your server count"""
