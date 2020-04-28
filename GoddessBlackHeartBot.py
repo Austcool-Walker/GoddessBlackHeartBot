@@ -63,9 +63,6 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
         logger.addHandler(handler)
 
-        f = open("bot.log", 'a')
-        sys.stdout = f
-
     async def update_stats(self):
         """This function runs every 30 minutes to automatically update your server count"""
         while not self.is_closed():
