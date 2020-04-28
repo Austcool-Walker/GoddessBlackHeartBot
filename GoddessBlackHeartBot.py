@@ -56,7 +56,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
                         print(f"The {name} module failed to load. Please repair it and load it.")
                         traceback.print_exc()
 
-        logger = logging.getLogger('__init__')
+        logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)
         handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='a')
         handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
