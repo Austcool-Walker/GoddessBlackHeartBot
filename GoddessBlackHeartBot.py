@@ -57,7 +57,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
                         print(f"The {name} module failed to load. Please repair it and load it.")
                         traceback.print_exc()
 
-        logger = logging.getLogger()
+        logger = logging.getLogger('discord')
         logger.setLevel(logging.DEBUG)
         handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='a')
         handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
@@ -65,7 +65,6 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
 
         f = open("bot.log", 'a')
         sys.stdout = f
-        f.close()
 
     async def update_stats(self):
         """This function runs every 30 minutes to automatically update your server count"""
