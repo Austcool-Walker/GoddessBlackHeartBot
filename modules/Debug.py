@@ -31,7 +31,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             except Exception:
                 await ctx.send(f'```py\n{traceback.format_exc()}\n```')
             else:
-                await ctx.send(':ok_hand:')
+                await ctx.send('👌🏼')
 
     @commands.command()
     async def load(self, ctx, *, module):
@@ -42,7 +42,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             except Exception:
                 await ctx.send(f'```py\n{traceback.format_exc()}\n```')
             else:
-                await ctx.send(':ok_hand:')
+                await ctx.send('👌🏼')
 
     @commands.command()
     async def unload(self, ctx, *, module):
@@ -53,7 +53,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             except Exception:
                 await ctx.send(f'```py\n{traceback.format_exc()}\n```')
             else:
-                await ctx.send(':ok_hand:')
+                await ctx.send('👌🏼')
 
     @commands.command()
     async def say(self, ctx, *, message: str):
@@ -104,7 +104,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             else:
                 value = stdout.getvalue()
                 try:
-                    await ctx.message.add_reaction('👌')
+                    await ctx.message.add_reaction('👌🏼')
                 except:
                     pass
 

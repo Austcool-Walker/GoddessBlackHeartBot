@@ -27,7 +27,7 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()    
     async def shutdown(self, ctx):
         '''Turn me off :( (BOT OWNER ONLY)'''
-        await ctx.send('**:ok:** Bye!')
+        await ctx.send('**👌🏼** Bye!')
         #self.bot.gamesLoop.cancel()
         await self.bot.logout()
         sys.exit(0)
@@ -36,21 +36,21 @@ class Admin(commands.Cog, name="Admin"):
     @commands.is_owner()
     async def restart(self, ctx):
         ''''Restart me (BOT OWNER ONLY)'''
-        await ctx.send('**:ok:** See you soon!')
+        await ctx.send('**👌🏼** See you soon!')
         try:
                 await self.bot.logout()
         except:
             pass
         finally:
             os.system("python3 GoddessBlackHeartBot.py")
-        await ctx.send('**:ok_hand:** Restart Successful!')
+        await ctx.send('**👌🏼** Restart Successful!')
 
     @commands.command()
     async def ls(self, ctx, path: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
             await ctx.send(os.listdir(path))
-        await ctx.send(':white_check_mark: list of files in **`{}`**'.format(path))
+        await ctx.send('✅ list of files in **`{}`**'.format(path))
 
     @commands.command()
     async def cat(self, ctx, file: str):
@@ -59,7 +59,7 @@ class Admin(commands.Cog, name="Admin"):
             with open(file, 'rb') as f:
                 f_contents = f.read()
                 await ctx.send(f_contents)
-        await ctx.send(':white_check_mark: listed contents in **`{}`**'.format(file))
+        await ctx.send('✅ listed contents in **`{}`**'.format(file))
 
     @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
@@ -67,7 +67,7 @@ class Admin(commands.Cog, name="Admin"):
             '''Sends Files in path to user from Hard Drive'''
             user = self.bot.get_user(int(userid))
         await user.send(file=discord.File(path))
-        await ctx.send(':white_check_mark: sent **`{}`** to **`<@{}>`**'.format(path, userid))
+        await ctx.send('✅ sent **`{}`** to **`<@{}>`**'.format(path, userid))
 
     @commands.command()
     async def sfch(self, ctx, channelid: str, path: str):
@@ -75,7 +75,7 @@ class Admin(commands.Cog, name="Admin"):
             '''Sends Files in path to channel from Hard Drive'''
             ch = self.bot.get_channel(int(channelid))
         await ch.send(file=discord.File(path))
-        await ctx.send(':white_check_mark: sent **`{}`** to **`<#{}>`**'.format(path, channelid))
+        await ctx.send('✅ sent **`{}`** to **`<#{}>`**'.format(path, channelid))
 
     @commands.command(hidden=True)
     @commands.is_owner()
@@ -93,7 +93,7 @@ class Admin(commands.Cog, name="Admin"):
                 await self.bot.user.edit(avatar=f.read())
         os.remove(tempBHFile)
         asyncio.sleep(2)
-        await ctx.send('**:ok:** My new avatar!\n %s' % self.bot.user.avatar_url)
+        await ctx.send('**👌🏼** My new avatar!\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True)
     @commands.is_owner()
@@ -111,7 +111,7 @@ class Admin(commands.Cog, name="Admin"):
                 await ctx.guild.edit(icon=f.read())
         os.remove(tempsvicon)
         asyncio.sleep(2)
-        await ctx.send('**:ok:** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
+        await ctx.send('**👌🏼** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
@@ -139,7 +139,7 @@ class Admin(commands.Cog, name="Admin"):
         memberCount = len(list(self.bot.get_all_members()))
         gameName = gameName.format(guilds = guildsCount, members = memberCount)
         await self.bot.change_presence(status=discordStatus, activity=discord.Activity(type=type2, name=gameName))
-        await ctx.send(f'**:ok:** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
+        await ctx.send(f'**👌🏼** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
     async def changestatus(self, ctx, status: str):
@@ -155,14 +155,14 @@ class Admin(commands.Cog, name="Admin"):
         else:
             discordStatus = discord.Status.online
         await self.bot.change_presence(status=discordStatus)
-        await ctx.send(f'**:ok:** to another status: **{discordStatus}**')
+        await ctx.send(f'**👌🏼** to another status: **{discordStatus}**')
 
     @commands.command(hidden=True)
     async def name(self, ctx, name):
         if ctx.author.id in AJW_Admins:
             '''changes bot global name (BOT OWNER ONLY)'''
         await self.bot.user.edit(username=name)
-        msg = f':ok: change my name: **{name}**'
+        msg = f'👌🏼 change my name: **{name}**'
         await ctx.send(msg)
 
     @commands.command(hidden=True)
@@ -170,7 +170,7 @@ class Admin(commands.Cog, name="Admin"):
         if ctx.author.id in AJW_Admins:
             '''changes server global name (BOT OWNER ONLY)'''
         await ctx.guild.edit(name=name)
-        msg = f':ok: change server name: **{name}**'
+        msg = f'👌🏼 change server name: **{name}**'
         await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['guilds'])
@@ -199,7 +199,7 @@ class Admin(commands.Cog, name="Admin"):
             guild = self.bot.get_guild(int(guildid))
             if guild:
                 await guild.leave()
-                msg = ":ok_hand: Exit from: **{}** **{}** successful!".format(guild.name, guild.id)
+                msg = "👌🏼 Exit from: **{}** **{}** successful!".format(guild.name, guild.id)
             else:
                 msg = f":x: Couldn't find a matching guild for this ID!"
         await ctx.send(msg)
@@ -236,9 +236,9 @@ class Admin(commands.Cog, name="Admin"):
         nickname = ' '.join(name)
         await ctx.me.edit(nick=nickname)
         if nickname:
-            msg = f':ok: Change my server nickname: **{nickname}**'
+            msg = f'👌🏼 Change my server nickname: **{nickname}**'
         else:
-            msg = f':ok: Reset from my server nickname: **{ctx.me.name}**'
+            msg = f'👌🏼 Reset from my server nickname: **{ctx.me.name}**'
         await ctx.send(msg)
 
     @commands.command(hidden=True)
@@ -250,9 +250,9 @@ class Admin(commands.Cog, name="Admin"):
         nickname = ' '.join(name)
         await member.edit(nick=nickname)
         if nickname:
-            msg = f':ok: Change nickname of {member} to: **{nickname}**'
+            msg = f'👌🏼 Change nickname of {member} to: **{nickname}**'
         else:
-            msg = f':ok: Reset nickname for {member} on: **{member.name}**'
+            msg = f'👌🏼 Reset nickname for {member} on: **{member.name}**'
         await ctx.send(msg)
 
     @commands.command(hidden=True)
@@ -260,7 +260,7 @@ class Admin(commands.Cog, name="Admin"):
         '''Grabs icon from a guild if possible (BOT OWNER ONLY)'''
         server = self.bot.get_guild(int(guildid))
         await ctx.send(server.icon_url)
-        await ctx.send(':white_check_mark: Server icon from **`{}`**'.format(guildid))
+        await ctx.send('✅ Server icon from **`{}`**'.format(guildid))
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
