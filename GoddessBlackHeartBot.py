@@ -66,40 +66,6 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         f = open("bot.log", 'a')
         sys.stdout = f
 
-    def get_prefix(self, message):
-            with open('prefixes.json', 'r') as f:
-                    prefixes = json.load(f)
-
-            return prefixes[str(message.guild.id)]
-
-    self = commands.Bot(command_prefix = get_prefix)
-
-    async def on_guild_join(self, guild):
-        with open('prefixes.json', 'r') as f:
-            prefixes = json.load(f)
-
-        prefixes[str(guild.id)] = '-'
-
-        with open('prefixes.json', 'w') as f:
-                json.dump(prefixes, f, indent=4)
-
-    async def on_guild_remove(self, guild):
-            with open('prefixes.json', 'r') as f:
-                prefixes = json.load(f)
-                
-            prefixes.pop(str(guild.id))
-
-            with open('prefixes,json', 'w') as f:
-                json.dump(prefixes, f, indent=4)
-
-    async def changeprefix(self, ctx, prefix):
-            with open('prefixes.json', 'r') as f:
-                    prefixes = json.load(f)
-
-            prefixes[str(ctx.guild.id)] = prefix
-
-            with open('prefixes.json', 'w') as f:
-                    json.dump(prefixes, f, indent=4)
 
     async def update_stats(self):
         """This function runs every 30 minutes to automatically update your server count"""
