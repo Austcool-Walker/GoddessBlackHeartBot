@@ -6,7 +6,7 @@ WorkingDirectory=/home/noire/Documents/GoddessBlackHeartBot
 Environment="PYTHONHASHSEED=0"
 User=noire
 Group=noire
-ExecStart=/usr/bin/java -jar  -Xmx34M /home/noire/Documents/GoddessBlackHeartBot/Lavalink.jar
+ExecStart=/usr/bin/java -jar  -Xmx1024M /home/noire/Documents/GoddessBlackHeartBot/Lavalink.jar
 Type=idle
 Restart=on-failure
 RestartSec=15
