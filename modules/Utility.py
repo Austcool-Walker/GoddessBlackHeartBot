@@ -10,8 +10,6 @@ from collections import Counter
 import aiohttp
 import discord
 from discord.ext import commands
-from PIL import Image, ImageDraw, ImageFont
-import loadconfig
 
 #Stolen from https://github.com/Rapptz/RoboDanny/blob/b513a32dfbd4fdbd910f7f56d88d1d012ab44826/cogs/meta.py
 class TimeParser:
