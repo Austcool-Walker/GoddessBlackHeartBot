@@ -19,6 +19,8 @@ from concurrent.futures._base import CancelledError
 
 code = "```py\n{0}\n```"
 
+self.is_nsfw = bot.funcs.is_nsfw
+
 #http://stackoverflow.com/a/34084933
 #for google_scrap
 def get_deep_text(element):
