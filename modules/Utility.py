@@ -238,7 +238,7 @@ class Utility(commands.Cog, name="Utility"):
             msg = ":no_entry: You haven't specified a user!"
             await ctx.send(msg)
 
-    @commands.command(aliases=['e'])
+    @commands.command()
     async def emoji(self, ctx, emojiname: str):
         '''Returns an enlarged version of a specified emoji
 
