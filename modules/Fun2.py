@@ -615,16 +615,16 @@ class Fun2(commands.Cog, name="Fun2"):
 		b = await self.bytes_download(url)
 		await self.bot.upload(b, filename='rip.png')
 
-	@commands.command(pass_context=True)
-	async def urban(self, ctx, *, word:str):
-		urb = urbandict.define(word)
-		if "There aren't any definitions" in urb[0]['def']:
-			await self.bot.say(":no_mouth: `No definition found.`")
-			return
-		msg = "**{0}**\n".format(word)
-		msg += "`Definition:` {0}\n".format(urb[0]['def'].replace("\n", ""))
-		msg += "`Example:` {0}".format(urb[0]['example'].replace("\n", ""))
-		await self.truncate(ctx.message.channel, msg)
+#	@commands.command(pass_context=True)
+#	async def urban(self, ctx, *, word:str):
+#		urb = urbandict.define(word)
+#		if "There aren't any definitions" in urb[0]['def']:
+#			await self.bot.say(":no_mouth: `No definition found.`")
+#			return
+#		msg = "**{0}**\n".format(word)
+#		msg += "`Definition:` {0}\n".format(urb[0]['def'].replace("\n", ""))
+#		msg += "`Example:` {0}".format(urb[0]['example'].replace("\n", ""))
+#		await self.truncate(ctx.message.channel, msg)
 
 	async def add_cache(self, search, result, t=0, level=1):
 		try:
