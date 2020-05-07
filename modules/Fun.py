@@ -13,9 +13,9 @@ class Fun(commands.Cog, name="Fun"):
         self.bot = bot
         self.quotes = json.loads(open('quotes.json', 'r').read())
 
-    @commands.command()
-    async def meme(self, meme):
-        await meme.send("This feature has not been implemented yet.")
+#    @commands.command()
+#    async def meme(self, meme):
+#        await meme.send("This feature has not been implemented yet.")
 
     @commands.command(aliases=['ask'], name='8ball')
     async def _8ball(self, ctx, *, question):
