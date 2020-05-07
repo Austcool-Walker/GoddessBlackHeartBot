@@ -1123,16 +1123,16 @@ class Fun2(commands.Cog, name="Fun2"):
 		"""Gives users a list of meme templates."""
 		await self.bot.say("Templates to choose from: <{}>".format("http://memegen.link/templates/"))
 
-	@commands.command(aliases=['r'])
-	async def reverse(self, *, text:str):
-		"""Reverse Text\n.revese <text>"""
-		text = text.replace('\u202E', '')
-		s = text.split('\n')
-		kek = ''
-		for x in s:
-			kek += u"\u202E " + x + '\n'
-		kek = kek
-		await self.bot.say(kek, replace_mentions=True)
+#	@commands.command(aliases=['r'])
+#	async def reverse(self, *, text:str):
+#		"""Reverse Text\n.revese <text>"""
+#		text = text.replace('\u202E', '')
+#		s = text.split('\n')
+#		kek = ''
+#		for x in s:
+#			kek += u"\u202E " + x + '\n'
+#		kek = kek
+#		await self.bot.say(kek, replace_mentions=True)
 
 	async def get_emote_image(self, em, one=False, apple=False):
 		em = em.replace('⠀', '').replace(' ', '')
