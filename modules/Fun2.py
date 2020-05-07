@@ -19,8 +19,6 @@ from concurrent.futures._base import CancelledError
 
 code = "```py\n{0}\n```"
 
-self.is_nsfw = bot.funcs.is_nsfw
-
 #http://stackoverflow.com/a/34084933
 #for google_scrap
 def get_deep_text(element):
@@ -52,6 +50,8 @@ def find_coeffs(pa, pb):
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
+
+		self.is_nsfw = bot.funcs.is_nsfw
 
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
