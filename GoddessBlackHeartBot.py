@@ -11,6 +11,7 @@ import aiohttp
 import traceback
 from asyncio import sleep
 import sys
+from os import path
 
 class GoddessBlackHeartBot(commands.AutoShardedBot):
 
