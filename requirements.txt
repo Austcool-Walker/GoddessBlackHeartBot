@@ -10,3 +10,6 @@ clint
 config
 timestring
 loadconfig
+wand
+numpy
+cairosvg
