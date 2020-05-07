@@ -13,4 +13,4 @@ loadconfig
 wand
 numpy
 cairosvg
-jpglitch
+urbandict
