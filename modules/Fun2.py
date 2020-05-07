@@ -1796,42 +1796,42 @@ class Fun2(commands.Cog, name="Fun2"):
 		msg = '`{0}`'.format(json.loads(load)['BotMessages'][-1])
 		await self.bot.say(msg)
 
-	@commands.command(pass_context=True, aliases=['mentionspam'])
-	async def ms(self, ctx, amount:int, id:str, channel:discord.Channel=None):
-		if amount > 100:
-			await self.bot.say("2 many mentions asshole")
-			return
-		try:
-			await self.bot.delete_message(ctx.message)
-		except:
-			pass
-		user = discord.Server.get_member(ctx.message.server, id)
-		if user is None:
-			await self.bot.say("invalid user id")
-			return
-		channels_readable = []
-		for s in ctx.message.server.channels:
-			if s.type == discord.ChannelType.voice:
-				continue
-			if user.permissions_in(s).read_messages and user.permissions_in(s).send_messages:
-				channels_readable.append(s)
-		count = 0
-		for i in range(amount):
-			if channel is None:
-				for s in channels_readable:
-					if count == amount:
-						break
-					x = await self.bot.send_message(s, '{0}'.format(user.mention))
-					await self.bot.delete_message(x)
-					count += 1
-					await asyncio.sleep(0.21)
-			else:
-				x = await self.bot.send_message(channel, '{0}'.format(user.mention))
-				await self.bot.delete_message(x)
-				await asyncio.sleep(0.21)
-		x = await self.bot.say('done')
-		await asyncio.sleep(5)
-		await self.bot.delete_message(x)
+#	@commands.command(pass_context=True, aliases=['mentionspam'])
+#	async def ms(self, ctx, amount:int, id:str, channel:discord.Channel=None):
+#		if amount > 100:
+#			await self.bot.say("2 many mentions asshole")
+#			return
+#		try:
+#			await self.bot.delete_message(ctx.message)
+#		except:
+#			pass
+#		user = discord.Server.get_member(ctx.message.server, id)
+#		if user is None:
+#			await self.bot.say("invalid user id")
+#			return
+#		channels_readable = []
+#		for s in ctx.message.server.channels:
+#			if s.type == discord.ChannelType.voice:
+#				continue
+#			if user.permissions_in(s).read_messages and user.permissions_in(s).send_messages:
+#				channels_readable.append(s)
+#		count = 0
+#		for i in range(amount):
+#			if channel is None:
+#				for s in channels_readable:
+#					if count == amount:
+#						break
+#					x = await self.bot.send_message(s, '{0}'.format(user.mention))
+#					await self.bot.delete_message(x)
+#					count += 1
+#					await asyncio.sleep(0.21)
+#			else:
+#				x = await self.bot.send_message(channel, '{0}'.format(user.mention))
+#				await self.bot.delete_message(x)
+#				await asyncio.sleep(0.21)
+#		x = await self.bot.say('done')
+#		await asyncio.sleep(5)
+#		await self.bot.delete_message(x)
 
 	# yeah, hardcoded paths for life on this one
 	@commands.group(pass_context=True, invoke_without_command=True, aliases=['texttospeech', 'text2speech'])
