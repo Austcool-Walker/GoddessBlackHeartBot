@@ -58,7 +58,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		url = random.choice(load['data']['memes'])
 		url = url['url']
 		if direct:
-			await self.bot.say(url)
+			await ctx.send(url)
 		else:
 			b = await self.bytes_download(url)
 			await self.bot.upload(b, filename='badmeme.png')
@@ -125,13 +125,13 @@ class Fun2(commands.Cog, name="Fun2"):
 				b = await self.bytes_download(url)
 				if b is False:
 					if len(img_urls) > 1:
-						await self.bot.say(':warning: **Command download function failed...**')
+						await ctx.send(':warning: **Command download function failed...**')
 						return
 					continue
 				list_imgs.append(b)
 			final, content_msg = await self.bot.loop.run_in_executor(None, self.do_magik, scale, *list_imgs)
 			if type(final) == str:
-				await self.bot.say(final)
+				await ctx.send(final)
 				return
 			if content_msg is None:
 				content_msg = scale_msg
@@ -140,9 +140,9 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.delete_message(msg)
 			await self.bot.upload(final, filename='magik.png', content=content_msg)
 		except discord.errors.Forbidden:
-			await self.bot.say(":warning: **I do not have permission to send files!**")
+			await ctx.send(":warning: **I do not have permission to send files!**")
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 
 	def do_gmagik(self, ctx, gif, gif_dir, rand):
 		try:
@@ -199,7 +199,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			gif_dir = self.files_path('gif/')
 			check = await self.isgif(url)
 			if check is False:
-				await self.bot.say("Invalid or Non-GIF!")
+				await ctx.send("Invalid or Non-GIF!")
 				ctx.command.reset_cooldown(ctx)
 				return
 			x = await self.bot.send_message(ctx.message.channel, "ok, processing (this might take a while for big gifs)")
@@ -208,16 +208,16 @@ class Fun2(commands.Cog, name="Fun2"):
 			gifout = gif_dir+'2_{0}.gif'.format(rand)
 			await self.download(url, gifin)
 			if os.path.getsize(gifin) > 5000000 and ctx.message.author.id != self.bot.owner.id:
-				await self.bot.say(":no_entry: `GIF Too Large (>= 5 mb).`")
+				await ctx.send(":no_entry: `GIF Too Large (>= 5 mb).`")
 				os.remove(gifin)
 				return
 			try:
 				result = await self.bot.loop.run_in_executor(None, self.do_gmagik, ctx, gifin, gif_dir, rand)
 			except CancelledError:
-				await self.bot.say(':warning: Gmagik failed...')
+				await ctx.send(':warning: Gmagik failed...')
 				return
 			if type(result) == str:
-				await self.bot.say(result)
+				await ctx.send(result)
 				return
 			if framerate != None:
 				args = ['ffmpeg', '-y', '-nostats', '-loglevel', '0', '-i', gif_dir+'%d_{0}.png'.format(rand), '-r', framerate, gifout]
@@ -242,13 +242,13 @@ class Fun2(commands.Cog, name="Fun2"):
 			user = ctx.message.mentions[0].name
 		msg = "``` _________     \n|         |    \n|         0 <-- {0}    \n|        /|\\  \n|        / \\  \n|              \n|              \n```\n".format(user)
 		msg += "**kronk your splinter** `{0}`\nropstor.org?u={1}".format(user, quote(user))    
-		await self.bot.say(msg)
+		await ctx.send(msg)
 
 	@commands.command(pass_context=True)
 	async def a(self, ctx, *, user:str, direct=None):
 		"""make dank meme"""
 		if len(user) > 25:
-			await self.bot.say("ur names 2 long asshole")
+			await ctx.send("ur names 2 long asshole")
 			return
 		if len(ctx.message.mentions) and len(ctx.message.mentions) == 1:
 			user = ctx.message.mentions[0].name
@@ -258,7 +258,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				load = await r.json()
 		url = load['data']['url']
 		if direct:
-			await self.bot.say(url)
+			await ctx.send(url)
 		else:
 			b = await self.bytes_download(url)
 			await self.bot.upload(b, filename='a.png')
@@ -268,11 +268,11 @@ class Fun2(commands.Cog, name="Fun2"):
 		"""Add caption to an image\n .caption text image_url"""
 		try:
 			if url is None:
-				await self.bot.say("Error: Invalid Syntax\n`.caption <image_url> <text>** <color>* <size>* <x>* <y>*`\n`* = Optional`\n`** = Wrap text in quotes`")
+				await ctx.send("Error: Invalid Syntax\n`.caption <image_url> <text>** <color>* <size>* <x>* <y>*`\n`* = Optional`\n`** = Wrap text in quotes`")
 				return
 			check = await self.isimage(url)
 			if check == False:
-				await self.bot.say("Invalid or Non-Image!")
+				await ctx.send("Invalid or Non-Image!")
 				return
 			xx = await self.bot.send_message(ctx.message.channel, "ok, processing")
 			b = await self.bytes_download(url)
@@ -309,7 +309,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.delete_message(xx)
 			await self.bot.upload(final, filename='caption.png')
 		except Exception as e:
-			await self.bot.say("Error: Invalid Syntax\n `.caption <image_url> <text>** <color>* <size>* <x>* <y>*`\n`* = Optional`\n`** = Wrap text in quotes`")
+			await ctx.send("Error: Invalid Syntax\n `.caption <image_url> <text>** <color>* <size>* <x>* <y>*`\n`* = Optional`\n`** = Wrap text in quotes`")
 			print(e)
 
 	@commands.command(pass_context=True)
@@ -368,7 +368,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			os.remove(path)
 			os.remove(path2)
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 			try:
 				os.remove(path)
 				os.remove(path2)
@@ -414,7 +414,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		t_path = self.files_path('triggered.png')
 		path = await self.do_triggered(ctx, user, url, t_path)
 		if path is False:
-			await self.bot.say(':warning: **Command Failed.**')
+			await ctx.send(':warning: **Command Failed.**')
 			try:
 				os.remove(path)
 			except:
@@ -429,7 +429,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		t_path = self.files_path('triggered2.png')
 		path = await self.do_triggered(ctx, user, url, t_path)
 		if path is False:
-			await self.bot.say(':warning: **Command Failed.**')
+			await ctx.send(':warning: **Command Failed.**')
 			try:
 				os.remove(path)
 			except:
@@ -472,13 +472,13 @@ class Fun2(commands.Cog, name="Fun2"):
 	async def ascii(self, ctx, *, text:str):
 		"""Convert text into ASCII"""
 		if len(text) > 1000:
-			await self.bot.say("2 long asshole")
+			await ctx.send("2 long asshole")
 			return
 		if text == 'donger' or text == 'dong':
 			text = "8====D"
 		final, txt = await self.bot.loop.run_in_executor(None, self.do_ascii, text)
 		if final is False:
-			await self.bot.say(':no_entry: go away with your invalid characters.')
+			await ctx.send(':no_entry: go away with your invalid characters.')
 			return
 		if len(txt) >= 1999:
 			await self.gist(ctx, text, txt)
@@ -515,11 +515,11 @@ class Fun2(commands.Cog, name="Fun2"):
 			if not get_images:
 				return
 			for url in get_images:
-				x = await self.bot.say("ok, processing")
+				x = await ctx.send("ok, processing")
 				b = await self.bytes_download(url)
 				if b is False:
 					if len(get_images) == 1:
-						await self.bot.say(':warning: **Command download function failed...**')
+						await ctx.send(':warning: **Command download function failed...**')
 						return
 					continue
 				im = PIL.Image.open(b)
@@ -530,7 +530,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				await self.bot.delete_message(x)
 				await self.bot.upload(final, filename='iascii.png')
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 
 	def do_gascii(self, b, rand, gif_dir):
 		try:
@@ -561,7 +561,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		try:
 			get_images = await self.get_images(ctx, urls=url, gif=True, limit=2)
 			if not get_images:
-				await self.bot.say("Error: Invalid Syntax\n`.gascii <gif_url> <liquid_rescale>*`\n`* = Optional`")
+				await ctx.send("Error: Invalid Syntax\n`.gascii <gif_url> <liquid_rescale>*`\n`* = Optional`")
 				return
 			for url in get_images:
 				rand = self.bot.random()
@@ -571,16 +571,16 @@ class Fun2(commands.Cog, name="Fun2"):
 				x = await self.bot.send_message(ctx.message.channel, "ok, processing")
 				await self.download(url, location)
 				if os.path.getsize(location) > 3000000 and ctx.message.author.id != self.bot.owner.id:
-					await self.bot.say("Sorry, GIF Too Large!")
+					await ctx.send("Sorry, GIF Too Large!")
 					os.remove(location)
 					return
 				result = await self.bot.loop.run_in_executor(None, self.do_gascii, location, rand, gif_dir)
 				if type(result) == str:
-					await self.bot.say(result)
+					await ctx.send(result)
 					return
 				list_imgs = glob.glob(gif_dir+"*_{0}.png".format(rand))
 				if len(list_imgs) > 120 and ctx.message.author.id != "130070621034905600":
-					await self.bot.say("Sorry, GIF has too many frames!")
+					await ctx.send("Sorry, GIF has too many frames!")
 					for image in list_imgs:
 						os.remove(image)
 					os.remove(location)
@@ -593,7 +593,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				os.remove(location)
 				os.remove(location2)
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 
 	@commands.command(pass_context=True)
 	async def rip(self, ctx, name:str=None, *, text:str=None):
@@ -619,7 +619,7 @@ class Fun2(commands.Cog, name="Fun2"):
 #	async def urban(self, ctx, *, word:str):
 #		urb = urbandict.define(word)
 #		if "There aren't any definitions" in urb[0]['def']:
-#			await self.bot.say(":no_mouth: `No definition found.`")
+#			await ctx.send(":no_mouth: `No definition found.`")
 #			return
 #		msg = "**{0}**\n".format(word)
 #		msg += "`Definition:` {0}\n".format(urb[0]['def'].replace("\n", ""))
@@ -736,7 +736,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		elif current_level == 3:
 			msg = 'HIGH'
 		if level is None:
-			await self.bot.say(':information_source: Current google safety level: `{0}` *{1}*'.format(current_level, msg))
+			await ctx.send(':information_source: Current google safety level: `{0}` *{1}*'.format(current_level, msg))
 			return
 		else:
 			level = level.lower()
@@ -749,7 +749,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			elif level == 'high':
 				level = 3
 			if level not in levels:
-				await self.bot.say(':no_entry: `Invalid level.`')
+				await ctx.send(':no_entry: `Invalid level.`')
 				return
 		if level == 0 or level == 1:
 			level = 1
@@ -759,17 +759,17 @@ class Fun2(commands.Cog, name="Fun2"):
 		elif level == 3:
 			smsg = 'HIGH'
 		if current_level == level:
-			await self.bot.say(':no_entry: Google Saftey is already at that level!')
+			await ctx.send(':no_entry: Google Saftey is already at that level!')
 			return
 		if check is False:
 			sql = 'INSERT INTO `google_nsfw` (`server`, `level`) VALUES (%s, %s)'
 			self.cursor.execute(sql, (ctx.message.server.id, level))
-			await self.bot.say(':white_check_mark: Set google safety level to **{1}**'.format(level, smsg))
+			await ctx.send(':white_check_mark: Set google safety level to **{1}**'.format(level, smsg))
 		else:
 			sql = 'UPDATE `google_nsfw` SET level={0} WHERE server={1}'
 			sql = sql.format(level, ctx.message.server.id)
 			self.cursor.execute(sql)
-			await self.bot.say(':white_check_mark: Updated google safety level from **{0}** *to* **{1}**'.format(msg, smsg))
+			await ctx.send(':white_check_mark: Updated google safety level from **{0}** *to* **{1}**'.format(msg, smsg))
 		self.cursor.commit()
 
 	@commands.command(pass_context=True, aliases=['im', 'photo', 'img'])
@@ -790,24 +790,24 @@ class Fun2(commands.Cog, name="Fun2"):
 				assert len(load)
 			rand = random.choice(load['items'])
 			image = rand['link']
-			await self.bot.say(image)
+			await ctx.send(image)
 			await self.add_cache(search, load, 0, level)
 		except discord.errors.Forbidden:
-			await self.bot.say("no send_file permission asshole")
+			await ctx.send("no send_file permission asshole")
 			return
 		except AssertionError:
 			scrap = await self.google_scrap(search, True if level != 'off' else False, True)
 			if scrap:
-				await self.bot.say(scrap)
+				await ctx.send(scrap)
 			else:
-				await self.bot.say(":warning: `API Quota Reached or Invalid Search`")
+				await ctx.send(":warning: `API Quota Reached or Invalid Search`")
 		except:
 			raise
 
 	@commands.command(pass_context=True, aliases=['go', 'googl', 'gogle', 'g'])
 	async def google(self, ctx, *, search:str=None):
 		if search is None:
-			await self.bot.say("Error: Invalid Syntax\n`.google <text>`")
+			await ctx.send("Error: Invalid Syntax\n`.google <text>`")
 			return
 		in_cache = False
 		level = await self.google_safety(ctx.message, True)
@@ -828,7 +828,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			result = rand['link']
 			title = rand['title']
 			snippet = rand['snippet']
-			await self.bot.say("**{0}**\n`{1}`\n{2}".format(title, snippet, result))
+			await ctx.send("**{0}**\n`{1}`\n{2}".format(title, snippet, result))
 			await self.add_cache(search, load, 1, level)
 		except AssertionError:
 			scrap = await self.google_scrap(search, True if level != 'off' else False, False)
@@ -836,9 +836,9 @@ class Fun2(commands.Cog, name="Fun2"):
 				title = scrap[0]
 				snippet = scrap[1]
 				result = scrap[2]
-				await self.bot.say("**{0}**\n`{1}`\n{2}".format(title, snippet, result))
+				await ctx.send("**{0}**\n`{1}`\n{2}".format(title, snippet, result))
 			else:
-				await self.bot.say(":warning: `API Quota Reached or Invalid Search`")
+				await ctx.send(":warning: `API Quota Reached or Invalid Search`")
 		except:
 			raise
 
@@ -876,7 +876,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	@commands.command(pass_context=True, aliases=['yt', 'video'])
 	async def youtube(self, ctx, *, search:str=None):
 		if search is None:
-			await self.bot.say("Error: Invalid Syntax\n`.yt/youtube <text>`")
+			await ctx.send("Error: Invalid Syntax\n`.yt/youtube <text>`")
 			return
 		level = await self.google_safety(ctx.message, True)
 		in_cache = False
@@ -896,16 +896,16 @@ class Fun2(commands.Cog, name="Fun2"):
 			link = rand['link']
 			title = rand['title']
 			snippet = rand['snippet']
-			await self.bot.say('**{0}**\n`{1}`\n{2}'.format(title, snippet, link))
+			await ctx.send('**{0}**\n`{1}`\n{2}'.format(title, snippet, link))
 			await self.add_cache(search, load, 2, level)
 		except AssertionError:
 			scrap = await self.youtube_scrap(search, True if level != 'off' else False)
 			if scrap:
 				title = scrap[0]
 				url = scrap[1]
-				await self.bot.say("**{0}**\n{1}".format(title, url))
+				await ctx.send("**{0}**\n{1}".format(title, url))
 			else:
-				await self.bot.say(":warning: `API Quota Reached or Invalid Search`")
+				await ctx.send(":warning: `API Quota Reached or Invalid Search`")
 
 	@commands.command()
 	async def imgur(self, *, text:str=None):
@@ -917,7 +917,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			rand = random.choice(load)
 			try:
 				if 'image/' in rand.type:
-					await self.bot.say('{0}'.format(rand.link))
+					await ctx.send('{0}'.format(rand.link))
 			except AttributeError:
 				if rand.title:
 					title = '**'+rand.title+'**\n'
@@ -927,9 +927,9 @@ class Fun2(commands.Cog, name="Fun2"):
 					desc = '`'+rand.description+'`\n'
 				else:
 					desc = ''
-				await self.bot.say('{0}{1}{2}'.format(title, desc, rand.link))
+				await ctx.send('{0}{1}{2}'.format(title, desc, rand.link))
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 
 	@commands.command(aliases=['gif'])
 	async def giphy(self, *, text:str=None):
@@ -939,7 +939,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			api = 'http://api.giphy.com/v1/gifs/search?q={0}&api_key=dc6zaTOxFJmzC'.format(quote(text))
 		load = await self.get_json(api)
 		if len(load['data']) == 0:
-			await self.bot.say(':warning: `No results found on` <https://giphy.com>')
+			await ctx.send(':warning: `No results found on` <https://giphy.com>')
 		else:
 			rand = False
 			try:
@@ -952,7 +952,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				gif_url = gif['image_url']
 			else:
 				gif_url = gif['images']['fixed_height']['url']
-			await self.bot.say('{0}'.format(url))
+			await ctx.send('{0}'.format(url))
 
 	@commands.command(pass_context=True, aliases=['w2x', 'waifu2x', 'enlarge', 'upscale'])
 	async def resize(self, ctx, *urls):
@@ -974,7 +974,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			x = await self.bot.send_message(ctx.message.channel, "ok, resizing `{0}` by `{1}`".format(url, str(size)))
 			b = await self.bytes_download(url)
 			if sys.getsizeof(b) > 3000000:
-				await self.bot.say("Sorry, image too large for waifu2x servers!")
+				await ctx.send("Sorry, image too large for waifu2x servers!")
 				return
 			await self.bot.edit_message(x, "25%, resizing")
 			headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:43.0) Gecko/20100101 Firefox/43.0'}
@@ -1057,7 +1057,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			if final is None:
 				final = await self.bytes_download(download_url)
 			if sys.getsizeof(final) > 8388608:
-				await self.bot.say("Sorry, image too large for discord!")
+				await ctx.send("Sorry, image too large for discord!")
 				return
 			await self.bot.edit_message(x, "100%, uploading")
 			i = 0
@@ -1072,17 +1072,17 @@ class Fun2(commands.Cog, name="Fun2"):
 			await asyncio.sleep(3)
 			await self.bot.delete_message(x)
 		except Exception as e:
-			await self.bot.say(code.format(e))
-			await self.bot.say("Error: Failed\n `Discord Failed To Upload or Waifu2x Servers Failed`")
+			await ctx.send(code.format(e))
+			await ctx.send("Error: Failed\n `Discord Failed To Upload or Waifu2x Servers Failed`")
 
 	@commands.group(pass_context=True, invoke_without_command=True)
 	async def meme(self, ctx, meme:str=None, *, line=None):
 		"""Generates a meme."""
 		if meme is None:
-			await self.bot.say("Error: Invalid Syntax\n`meme` has 4 commands\n`meme` **+** `<mention> or <custom_image> or <template>` **+** `<line1> <line2>*` *=optional")
+			await ctx.send("Error: Invalid Syntax\n`meme` has 4 commands\n`meme` **+** `<mention> or <custom_image> or <template>` **+** `<line1> <line2>*` *=optional")
 			return
 		if line is None:
-			await self.bot.say("Error: Invalid Syntax\n`meme` has 4 parameters\n`.meme <template> <line_one> <line_two> <style>*`\n* = Optional")
+			await ctx.send("Error: Invalid Syntax\n`meme` has 4 parameters\n`.meme <template> <line_one> <line_two> <style>*`\n* = Optional")
 			return
 		line2 = None
 		if '|' in line:
@@ -1114,14 +1114,14 @@ class Fun2(commands.Cog, name="Fun2"):
 			link = "http://memegen.link/{0}/{1}/{2}.jpg".format(meme, line1, line2)
 			b = await self.bytes_download(link)
 		if b is False:
-			await self.bot.say(':warning: **Command download function failed...**')
+			await ctx.send(':warning: **Command download function failed...**')
 			return
 		await self.bot.upload(b, filename='meme.png')
 
 	@meme.group(name="templates", pass_context=True, invoke_without_command=True)
 	async def _templates(self, ctx):
 		"""Gives users a list of meme templates."""
-		await self.bot.say("Templates to choose from: <{}>".format("http://memegen.link/templates/"))
+		await ctx.send("Templates to choose from: <{}>".format("http://memegen.link/templates/"))
 
 #	@commands.command(aliases=['r'])
 #	async def reverse(self, *, text:str):
@@ -1132,7 +1132,7 @@ class Fun2(commands.Cog, name="Fun2"):
 #		for x in s:
 #			kek += u"\u202E " + x + '\n'
 #		kek = kek
-#		await self.bot.say(kek, replace_mentions=True)
+#		await ctx.send(kek, replace_mentions=True)
 
 	async def get_emote_image(self, em, one=False, apple=False):
 		em = em.replace('⠀', '').replace(' ', '')
@@ -1171,10 +1171,10 @@ class Fun2(commands.Cog, name="Fun2"):
 		"""Returns a large emoji image"""
 		try:
 			if len(ems) == 0:
-				await self.bot.say(':no_entry: Please input emotes to enlargen.')
+				await ctx.send(':no_entry: Please input emotes to enlargen.')
 				return
 			if len(ems) > 50:
-				await self.bot.say(':no_entry: `Max emoji limit (<= 50)`')
+				await ctx.send(':no_entry: `Max emoji limit (<= 50)`')
 				return
 			size = 1024
 			for s in ems:
@@ -1309,7 +1309,7 @@ class Fun2(commands.Cog, name="Fun2"):
 							if os.path.isfile(path):
 								list_imgs.append(await self.png_svg(path, size))
 				if not list_imgs:
-					await self.bot.say(":warning: `Emoji Invalid/Not Found`")
+					await ctx.send(":warning: `Emoji Invalid/Not Found`")
 					return
 			if len(list_imgs) > 1:
 				imgs = [PIL.Image.open(i).convert('RGBA') for i in list_imgs]
@@ -1324,7 +1324,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			try:
 				await self.bot.upload(b, filename='emote.gif' if gif and len(list_imgs) == 1 else 'emote.png')
 			except:
-				await self.bot.say('sorry, file 2 big (> 8 mb)')
+				await ctx.send('sorry, file 2 big (> 8 mb)')
 			await asyncio.sleep(5)
 			try:
 				self.bot.pruned_messages.append(ctx.message)
@@ -1338,7 +1338,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			filename = f.f_code.co_filename
 			linecache.checkcache(filename)
 			line = linecache.getline(filename, lineno, f.f_globals)
-			await self.bot.say(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
+			await ctx.send(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
 
 	@commands.command(pass_context=True, aliases=['steamemoji', 'steame', 'semoji'])
 	async def se(self, ctx, em:str):
@@ -1351,7 +1351,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			url = "https://steamcommunity-a.akamaihd.net/economy/emoticonhover/{0}".format(em)
 			txt = await self.get_text(url)
 			if not txt:
-				await self.bot.say(":warning: `Emoticon Not Found/Invalid`\nRemember to do :steam_emoticon: (optional ':').")
+				await ctx.send(":warning: `Emoticon Not Found/Invalid`\nRemember to do :steam_emoticon: (optional ':').")
 				return
 			root = etree.fromstring(txt, etree.HTMLParser())
 			base = root.find('.//img[@class="emoticon_large"]')
@@ -1374,7 +1374,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				vertical = False
 			get_images = await self.get_images(ctx, urls=urls, limit=20)
 			if get_images and len(get_images) == 1:
-				await self.bot.say('You gonna merge one image?')
+				await ctx.send('You gonna merge one image?')
 				return
 			elif not get_images:
 				return
@@ -1385,7 +1385,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				count += 1
 				b = await self.bytes_download(url)
 				if sys.getsizeof(b) == 215:
-					await self.bot.say(":no_entry: Image `{0}` is invalid!".format(str(count)))
+					await ctx.send(":no_entry: Image `{0}` is invalid!".format(str(count)))
 					continue
 				list_im.append(b)
 			imgs = [PIL.Image.open(i).convert('RGBA') for i in list_im]
@@ -1402,7 +1402,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.delete_message(xx)
 			await self.bot.upload(final, filename='merge.png')
 		except Exception as e:
-			await self.bot.say(code.format(e))
+			await ctx.send(code.format(e))
 
 	@commands.command(pass_context=True, aliases=['cancerify', 'em'])
 	async def emojify(self, ctx, *, txt:str):
@@ -1413,7 +1413,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				msg += "{0}".format(self.emoji_map[s])
 			else:
 				msg += s
-		await self.bot.say(msg)
+		await ctx.send(msg)
 
 	@commands.command(pass_context=True, aliases=['toe', 'analyze'])
 	async def tone(self, ctx, *, text:str):
@@ -1439,7 +1439,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		agreeableness = load['document_tone']['tone_categories'][2]['tones'][3]['score']
 		emotional_range = load['document_tone']['tone_categories'][2]['tones'][4]['score']
 		social_msg = "Openness: {0}\nConscientiousness: {1}\nExtraversion (Stimulation): {2}\nAgreeableness: {3}\nEmotional Range: {4}".format(openness, conscientiousness, extraversion, agreeableness, emotional_range)
-		await self.bot.say("\n**Emotions**"+code.format(emotions_msg)+"**Language Style**"+code.format(language_msg)+"**Social Tendencies**"+code.format(social_msg))
+		await ctx.send("\n**Emotions**"+code.format(emotions_msg)+"**Language Style**"+code.format(language_msg)+"**Social Tendencies**"+code.format(social_msg))
 
 	@commands.command(pass_context=True, aliases=['text2img', 'texttoimage', 'text2image'])
 	async def tti(self, ctx, *, txt:str):
@@ -1469,7 +1469,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			img = PIL.Image.open(b).convert('RGB')
@@ -1534,7 +1534,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			else:
 				i += 1
 		if i == 10 and sys.getsizeof(b) == 88:
-			await self.bot.say("Minecraft Achievement Generator API is bad, pls try again")
+			await ctx.send("Minecraft Achievement Generator API is bad, pls try again")
 			return
 		await self.bot.upload(b, filename='achievement.png')
 
@@ -1543,7 +1543,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		try:
 			msg = await self.bot.run_process(["cowsay", txt], True)
 			msg = msg
-			await self.bot.say("```\n"+msg+"```")
+			await ctx.send("```\n"+msg+"```")
 		except Exception as e:
 			print(e)
 
@@ -1551,37 +1551,37 @@ class Fun2(commands.Cog, name="Fun2"):
 	async def dragonsay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'dragon', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	@commands.command(aliases=['sheep'])
 	async def sheepsay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'sheep', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	@commands.command(aliases=['dino'])
 	async def dinosay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'stegosaurus', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	@commands.command(aliases=['pony'])
 	async def ponysay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'unipony-smaller', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	@commands.command(aliases=['mech'])
 	async def mechsay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'mech-and-cow', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	@commands.command(aliases=['dragoncow', 'dragonandcow'])
 	async def dragoncowsay(self, *, txt:str):
 		msg = await self.bot.run_process(["cowsay", '-f', 'dragon-and-cow', txt], True)
 		msg = msg
-		await self.bot.say("```\n"+msg+"```")
+		await ctx.send("```\n"+msg+"```")
 
 	# thanks RoadCrosser#3657
 	@commands.group(pass_context=True, aliases=['eye'], invoke_without_command=True)
@@ -1651,7 +1651,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			img = PIL.Image.open(b).convert("RGBA")
@@ -1662,11 +1662,11 @@ class Fun2(commands.Cog, name="Fun2"):
 				async with session.post('https://api.projectoxford.ai/face/v1.0/detect?returnFaceId=false&returnFaceLandmarks=true&returnFaceAttributes=headPose', headers=headers, data=json.dumps(data)) as r:
 					faces = await r.json()
 			if "error" in faces:
-				await self.bot.say(":warning: `Error occured in the API, could not process image url`")
+				await ctx.send(":warning: `Error occured in the API, could not process image url`")
 				await self.bot.delete_message(x)
 				return
 			if len(faces) == 0:
-				await self.bot.say(":no_entry: `Face not detected`")
+				await ctx.send(":no_entry: `Face not detected`")
 				await self.bot.delete_message(x)
 				return
 			eye_list = []
@@ -1722,7 +1722,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		# 	filename = f.f_code.co_filename
 		# 	linecache.checkcache(filename)
 		# 	line = linecache.getline(filename, lineno, f.f_globals)
-		# 	await self.bot.say(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
+		# 	await ctx.send(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
 		# 	os.remove(location)
 		# 	os.remove(final_location)
 		# 	os.remove(s_image_loc)
@@ -1733,7 +1733,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		thing = []
 		for s in eyes:
 			thing.append('`'+s+'`')
-		await self.bot.say("In order to use, you must do `eyes image_url eye_type (name or number)`\n**Eye types**\n"+', '.join(thing))
+		await ctx.send("In order to use, you must do `eyes image_url eye_type (name or number)`\n**Eye types**\n"+', '.join(thing))
 
 	@commands.command(pass_context=True, aliases=['identify', 'captcha', 'whatis'])
 	async def i(self, ctx, *, url:str):
@@ -1743,12 +1743,12 @@ class Fun2(commands.Cog, name="Fun2"):
 				pass
 		load = await self.get_json("https://www.captionbot.ai/api/message?waterMark=&conversationId=FPrBPK2gAJj")
 		msg = '`{0}`'.format(json.loads(load)['BotMessages'][-1])
-		await self.bot.say(msg)
+		await ctx.send(msg)
 
 #	@commands.command(pass_context=True, aliases=['mentionspam'])
 #	async def ms(self, ctx, amount:int, id:str, channel:discord.Channel=None):
 #		if amount > 100:
-#			await self.bot.say("2 many mentions asshole")
+#			await ctx.send("2 many mentions asshole")
 #			return
 #		try:
 #			await self.bot.delete_message(ctx.message)
@@ -1756,7 +1756,7 @@ class Fun2(commands.Cog, name="Fun2"):
 #			pass
 #		user = discord.Server.get_member(ctx.message.server, id)
 #		if user is None:
-#			await self.bot.say("invalid user id")
+#			await ctx.send("invalid user id")
 #			return
 #		channels_readable = []
 #		for s in ctx.message.server.channels:
@@ -1778,7 +1778,7 @@ class Fun2(commands.Cog, name="Fun2"):
 #				x = await self.bot.send_message(channel, '{0}'.format(user.mention))
 #				await self.bot.delete_message(x)
 #				await asyncio.sleep(0.21)
-#		x = await self.bot.say('done')
+#		x = await ctx.send('done')
 #		await asyncio.sleep(5)
 #		await self.bot.delete_message(x)
 
@@ -1798,7 +1798,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		url_msg = 'https://bot.facepunch.org/tts/{0}'.format(html_file_name)
 		url = 'https://text-to-speech-demo.mybluemix.net/api/synthesize?voice=en-US_AllisonVoice&X-WDC-PL-OPT-OUT=1&self.download=true&text={0}'.format(quote(txt))
 		await self.download(url, path)
-		await self.bot.say(url_msg)
+		await ctx.send(url_msg)
 
 	@tts.command(name='custom', pass_context=True, invoke_without_command=True, aliases=['texttospeech', 'text2speech'])
 	async def tts_custom(self, ctx, voice:str, *, txt:str):
@@ -1832,7 +1832,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		elif voice == 'sofia':
 			vv = 'es-US_SofiaVoice'
 		if vv is None:
-			await self.bot.say("**Invalid Voice**\nHere's a list of voices you can use `format: tts custom <voice (without location)> <text>`\n"+', '.join(self.voice_list))
+			await ctx.send("**Invalid Voice**\nHere's a list of voices you can use `format: tts custom <voice (without location)> <text>`\n"+', '.join(self.voice_list))
 			return
 		rand = self.bot.random()
 		ogg_name = 'tts_{0}.ogg'.format(rand)
@@ -1846,18 +1846,18 @@ class Fun2(commands.Cog, name="Fun2"):
 		url_msg = 'https://bot.facepunch.org/tts/{0}'.format(html_file_name)
 		url = 'https://text-to-speech-demo.mybluemix.net/api/synthesize?voice={1}&text={0}&X-WDC-PL-OPT-OUT=1&self.download=true'.format(txt.replace(' ', '%20'), vv)
 		await self.download(url, path)
-		await self.bot.say(url_msg)
+		await ctx.send(url_msg)
 
 	@tts.command(name='list', invoke_without_command=True)
 	async def tts_list(self):
-		await self.bot.say("**List of custom voices**\nFormat: `tts custom <voice (without location)> <text>`\n"+', '.join(self.voice_list))
+		await ctx.send("**List of custom voices**\nFormat: `tts custom <voice (without location)> <text>`\n"+', '.join(self.voice_list))
 
 	@commands.command(pass_context=True, aliases=['wm'])
 	async def watermark(self, ctx, url:str, mark:str=None):
 		try:
 			check = await self.isimage(url)
 			if check == False:
-				await self.bot.say("Invalid or Non-Image!")
+				await ctx.send("Invalid or Non-Image!")
 				return
 			b = await self.bytes_download(url)
 			if mark == 'brazzers' or mark is None:
@@ -1865,7 +1865,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			else:
 				check = await self.isimage(mark)
 				if check == False:
-					await self.bot.say("Invalid or Non-Image for Watermark!")
+					await ctx.send("Invalid or Non-Image for Watermark!")
 					return
 				wmm = await self.bytes_download(mark)
 			final = BytesIO()
@@ -1886,7 +1886,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			filename = f.f_code.co_filename
 			linecache.checkcache(filename)
 			line = linecache.getline(filename, lineno, f.f_globals)
-			await self.bot.say(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
+			await ctx.send(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
 
 	def do_glitch(self, b, amount, seed, iterations):
 		b.seek(0)
@@ -1941,7 +1941,7 @@ class Fun2(commands.Cog, name="Fun2"):
 					final = await self.bot.loop.run_in_executor(None, self.do_gglitch, b)
 					await self.bot.upload(final, filename='glitch.gif')
 		except:
-			await self.bot.say("sorry, can't reglitch an image.")
+			await ctx.send("sorry, can't reglitch an image.")
 			raise
 
 	@commands.command(pass_context=True)
@@ -2006,13 +2006,13 @@ class Fun2(commands.Cog, name="Fun2"):
 				else:
 					s_func = str(arg)
 			if interval not in self.interval_functions.keys():
-				await self.bot.say(':warning: Invalid Interval Function.\nInterval Functions: `{0}`'.format(', '.join(list(self.interval_functions.keys()))))
+				await ctx.send(':warning: Invalid Interval Function.\nInterval Functions: `{0}`'.format(', '.join(list(self.interval_functions.keys()))))
 				return
 			elif s_func not in self.s_functions.keys():
-				await self.bot.say(':warning: Invalid Sorting Function.\nSorting Functions: `{0}`'.format(', '.join(list(self.s_functions.keys()))))
+				await ctx.send(':warning: Invalid Sorting Function.\nSorting Functions: `{0}`'.format(', '.join(list(self.s_functions.keys()))))
 				return
 			if angle >= 360:
-				await self.bot.say(':warning: Angle must be less then `360`.')
+				await ctx.send(':warning: Angle must be less then `360`.')
 				angle = 0
 			get_images = await self.get_images(ctx, urls=url)
 			if not get_images:
@@ -2021,7 +2021,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				b = await self.bytes_download(url)
 				if b is False:
 					if len(get_images) == 1:
-						await self.bot.say(':warning: **Command download function failed...**')
+						await ctx.send(':warning: **Command download function failed...**')
 						return
 					continue
 				img = await self.bot.loop.run_in_executor(None, self.do_sort, b, interval, angle, randomness, s_func)
@@ -2033,7 +2033,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			filename = f.f_code.co_filename
 			linecache.checkcache(filename)
 			line = linecache.getline(filename, lineno, f.f_globals)
-			await self.bot.say(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
+			await ctx.send(code.format('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)))
 
 	@commands.command()
 	async def bean(self, url:str):
@@ -2041,7 +2041,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		try:
 			check = await self.isimage(url)
 			if check is False:
-				await self.bot.say('Invalid or Non-Image!')
+				await ctx.send('Invalid or Non-Image!')
 				return
 			b = await self.bytes_download(url)
 			bean_path = self.files_path('bean.png')
@@ -2055,7 +2055,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			final.seek(0)
 			await self.bot.upload(final, filename='beaned.png')
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 
 	@commands.command(aliases=['pixel'], pass_context=True)
 	async def pixelate(self, ctx, *urls):
@@ -2074,7 +2074,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				b = await self.bytes_download(url)
 				if b is False:
 					if len(img_urls) > 1:
-						await self.bot.say(':warning: **Command download function failed...**')
+						await ctx.send(':warning: **Command download function failed...**')
 						return
 					continue
 				bg = (0, 0, 0)
@@ -2093,7 +2093,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				await self.bot.upload(final, filename='pixelated.png', content=scale_msg)
 				await asyncio.sleep(0.21)
 		except:
-			await self.bot.say(':warning: `Too many pixels.`')
+			await ctx.send(':warning: `Too many pixels.`')
 
 	async def do_retro(self, text, bcg):
 		if '|' not in text:
@@ -2139,7 +2139,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	async def retro(self, *, text:str):
 		retro_result = await self.do_retro(text, '5')
 		if retro_result is False:
-			await self.bot.say(':warning: This text contains unsupported characters')
+			await ctx.send(':warning: This text contains unsupported characters')
 		else:
 			await self.bot.upload(retro_result, filename='retro.png')
 
@@ -2147,7 +2147,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	async def retro2(self, *, text:str):
 		retro_result = await self.do_retro(text, '2')
 		if retro_result is False:
-			await self.bot.say(':warning: This text contains unsupported characters')
+			await ctx.send(':warning: This text contains unsupported characters')
 		else:
 			await self.bot.upload(retro_result, filename='retro.png')
 
@@ -2155,7 +2155,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	async def retro3(self, *, text:str):
 		retro_result = await self.do_retro(text, '4')
 		if retro_result is False:
-			await self.bot.say(':warning: This text contains unsupported characters')
+			await ctx.send(':warning: This text contains unsupported characters')
 		else:
 			await self.bot.upload(retro_result, filename='retro.png')
 
@@ -2193,7 +2193,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			final = await self.bot.loop.run_in_executor(None, self.do_waaw, b)
@@ -2231,7 +2231,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			final = await self.bot.loop.run_in_executor(None, self.do_haah, b)
@@ -2270,7 +2270,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			final = await self.bot.loop.run_in_executor(None, self.do_woow, b)
@@ -2309,7 +2309,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			b = await self.bytes_download(url)
 			if b is False:
 				if len(get_images) == 1:
-					await self.bot.say(':warning: **Command download function failed...**')
+					await ctx.send(':warning: **Command download function failed...**')
 					return
 				continue
 			final = await self.bot.loop.run_in_executor(None, self.do_hooh, b)
@@ -2372,7 +2372,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				msg += u'​'+self.regional_map[s]
 			else:
 				msg += s
-		await self.bot.say(msg)
+		await ctx.send(msg)
 
 	@commands.command(pass_context=True)
 	async def react(self, ctx, *, txt:str):
@@ -2384,7 +2384,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		if not channel.is_private:
 			perms = channel.permissions_for(ctx.message.server.me)
 			if perms.add_reactions is False:
-				await self.bot.say(':no_entry: `Sorry, I do not have add_rections permission.`')
+				await ctx.send(':no_entry: `Sorry, I do not have add_rections permission.`')
 				return
 		for s in txt.split():
 			if s.isdigit():
@@ -2486,7 +2486,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				await asyncio.sleep(0.21)
 			icount += 1
 		if count == 0:
-			await self.bot.say(':no_entry: Invalid Text.')
+			await ctx.send(':no_entry: Invalid Text.')
 		else:
 			x = await self.bot.send_message(ctx.message.channel, ':white_check_mark: Added `{0}` reactions.'.format(count))
 			await asyncio.sleep(5)
@@ -2505,7 +2505,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			self.webmd_count = 0
 		kek = self.webmd_responses[self.webmd_count]
 		self.webmd_count += 1
-		await self.bot.say(':information_source: *According to WebMD*\n**{0}**...'.format(kek))
+		await ctx.send(':information_source: *According to WebMD*\n**{0}**...'.format(kek))
 
 	@commands.command(pass_context=True)
 	async def wasted(self, ctx, *urls:str):
@@ -2576,7 +2576,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.delete_message(ctx.message)
 		except:
 			pass
-		await self.bot.say('```css\n>{0}\n```'.format(txt), replace_mentions=True)
+		await ctx.send('```css\n>{0}\n```'.format(txt), replace_mentions=True)
 
 	@commands.command(pass_context=True, aliases=['lsd', 'drugs', 'wew'])
 	async def rainbow(self, ctx, *urls:str):
@@ -2954,7 +2954,7 @@ class Fun2(commands.Cog, name="Fun2"):
 				os.remove(path)
 				os.remove(path2)
 		except Exception as e:
-			await self.bot.say(e)
+			await ctx.send(e)
 			try:
 				os.remove(path)
 				os.remove(path2)
