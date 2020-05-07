@@ -50,7 +50,7 @@ def find_coeffs(pa, pb):
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
-		self.discord_path = bot.path.discord
+#		self.discord_path = bot.path.discord
 		self.files_path = bot.path.files
 		self.download = bot.download
 		self.bytes_download = bot.bytes_download
