@@ -160,7 +160,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			return str(e), None
 
 	@commands.command(pass_context=True, aliases=['imagemagic', 'imagemagick', 'magic', 'magick', 'cas', 'liquid'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def magik(self, ctx, *urls:str):
 		"""Apply magik to Image(s)\n .magik image_url or .magik image_url image_url_2"""
 		try:
@@ -242,7 +241,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			print('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj))
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 20, commands.BucketType)
 	async def gmagik(self, ctx, url:str=None, framerate:str=None):
 		try:
 			url = await self.get_images(ctx, urls=url, gif=True, limit=2)
@@ -367,7 +365,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def triggered(self, ctx, user:str=None):
 		"""Generate a Triggered Gif for a User or Image"""
 		try:
@@ -464,7 +461,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			return False
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def triggered2(self, ctx, user:str=None, url:str=None):
 		"""Generate a Triggered Image for a User or Image"""
 		t_path = self.files_path('triggered.png')
@@ -480,7 +476,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		os.remove(path)
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def triggered3(self, ctx, user:str=None, url:str=None):
 		"""Generate a Triggered2 Image for a User or Image"""
 		t_path = self.files_path('triggered2.png')
@@ -526,7 +521,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			return False, False
 
 	@commands.command(pass_context=True, aliases=['expand'])
-	@commands.cooldown(1, 5)
 	async def ascii(self, ctx, *, text:str):
 		"""Convert text into ASCII"""
 		if len(text) > 1000:
@@ -567,7 +561,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return imagefit
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5, commands.BucketType.user)
 	async def iascii(self, ctx, url:str=None):
 		try:
 			get_images = await self.get_images(ctx, urls=url, limit=5)
@@ -615,7 +608,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 10, commands.BucketType.server)
 	async def gascii(self, ctx, url:str=None):
 		"""Gif to ASCII"""
 		try:
@@ -834,7 +826,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		self.cursor.commit()
 
 	@commands.command(pass_context=True, aliases=['im', 'photo', 'img'])
-	@commands.cooldown(3, 5)
 	async def image(self, ctx, *, search:str):
 		level = await self.google_safety(ctx.message, True)
 		in_cache = False
@@ -867,7 +858,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True, aliases=['go', 'googl', 'gogle', 'g'])
-	@commands.cooldown(3, 5)
 	async def google(self, ctx, *, search:str=None):
 		if search is None:
 			await self.bot.say("Error: Invalid Syntax\n`.google <text>`")
@@ -937,7 +927,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return result
 
 	@commands.command(pass_context=True, aliases=['yt', 'video'])
-	@commands.cooldown(3, 5)
 	async def youtube(self, ctx, *, search:str=None):
 		if search is None:
 			await self.bot.say("Error: Invalid Syntax\n`.yt/youtube <text>`")
@@ -972,7 +961,6 @@ class Fun2(commands.Cog, name="Fun2"):
 				await self.bot.say(":warning: `API Quota Reached or Invalid Search`")
 
 	@commands.command()
-	@commands.cooldown(2, 5)
 	async def imgur(self, *, text:str=None):
 		try:
 			if text is None:
@@ -997,7 +985,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.say(e)
 
 	@commands.command(aliases=['gif'])
-	@commands.cooldown(2, 5)
 	async def giphy(self, *, text:str=None):
 		if text is None:
 			api = 'http://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC'
@@ -1021,7 +1008,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.say('{0}'.format(url))
 
 	@commands.command(pass_context=True, aliases=['w2x', 'waifu2x', 'enlarge', 'upscale'])
-	@commands.cooldown(1, 15)
 	async def resize(self, ctx, *urls):
 		try:
 			get_images = await self.get_images(ctx, urls=urls, scale=10, limit=1)
@@ -1234,7 +1220,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		#redacted spam
 	}
 	@commands.command(pass_context=True, aliases=['emoji', 'hugemoji', 'hugeemoji'])
-	@commands.cooldown(1, 3, commands.BucketType.user)
 	async def e(self, ctx, *ems:str):
 		"""Returns a large emoji image"""
 		try:
@@ -1428,13 +1413,11 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.upload(b, filename='steam.png', content=desc)
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(3, 5)
 	async def b1(self, ctx):
 		"""cool"""
 		await self.bot.upload(self.files_path('b1.png'))
 
 	@commands.group(pass_context=True, invoke_without_command=True)
-	@commands.cooldown(1, 5)
 	async def merge(self, ctx, *urls:str):
 		"""Merge/Combine Two Photos"""
 		try:
@@ -1526,7 +1509,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.upload(b, filename='tti.png')
 
 	@commands.command(pass_context=True, aliases=['needsmorejpeg', 'jpegify', 'magik2'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def jpeg(self, ctx, url:str=None, quality:int=1):
 		"""Add more JPEG to an Image\nNeeds More JPEG!"""
 		if quality > 10:
@@ -1574,7 +1556,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return final
 
 	@commands.command(pass_context=True, aliases=['vaporwave', 'vape', 'vapewave'])
-	@commands.cooldown(2, 5)
 	async def vw(self, ctx, url:str, *, txt:str=None):
 		"""Vaporwave an image!"""
 		get_images = await self.get_images(ctx, urls=url, limit=1)
@@ -1657,7 +1638,6 @@ class Fun2(commands.Cog, name="Fun2"):
 
 	# thanks RoadCrosser#3657
 	@commands.group(pass_context=True, aliases=['eye'], invoke_without_command=True)
-	@commands.cooldown(2, 5)
 	async def eyes(self, ctx, url:str=None, eye:str=None, resize:str=None):
 		get_images = await self.get_images(ctx, urls=url, limit=5)
 		if not get_images:
@@ -1801,7 +1781,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		# 	os.remove(s_image_loc)
 
 	@eyes.command(name='list', pass_context=True, invoke_without_command=True)
-	@commands.cooldown(1, 20)
 	async def eyes_list(self, ctx):
 		eyes = ['Default - 0', 'Spongebob - 1', 'Big - 2', 'Small - 3', 'Money - 4', 'Bloodshot - 5', 'Red - 6', 'Illuminati - 7', 'Googly - 8', 'Monocle - 9', 'Flipped - 10', 'Center - 11']
 		thing = []
@@ -1820,7 +1799,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.say(msg)
 
 	@commands.command(pass_context=True, aliases=['mentionspam'])
-	@commands.cooldown(1, 30)
 	@checks.admin_or_perm(manage_server=True)
 	async def ms(self, ctx, amount:int, id:str, channel:discord.Channel=None):
 		if amount > 100:
@@ -1987,7 +1965,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return BytesIO(b)
 
 	@commands.command(aliases=['jpglitch'], pass_context=True)
-	@commands.cooldown(2, 5)
 	async def glitch(self, ctx, url:str=None, iterations:int=None, amount:int=None, seed:int=None):
 		try:
 			if iterations is None:
@@ -2067,7 +2044,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return b
 
 	@commands.command(aliases=['pixelsort'], pass_context=True)
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def sort(self, ctx, url:str=None, *args):
 		try:
 			angle = 0
@@ -2263,7 +2239,6 @@ class Fun2(commands.Cog, name="Fun2"):
 
 	#Thanks to Iguniisu#9746 for the idea
 	@commands.command(pass_context=True, aliases=['magik3', 'mirror'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def waaw(self, ctx, *urls:str):
 		get_images = await self.get_images(ctx, urls=urls, limit=5)
 		if not get_images:
@@ -2302,7 +2277,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return final
 
 	@commands.command(pass_context=True, aliases=['magik4', 'mirror2'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def haah(self, ctx, *urls:str):
 		get_images = await self.get_images(ctx, urls=urls, limit=5)
 		if not get_images:
@@ -2342,7 +2316,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return final
 
 	@commands.command(pass_context=True, aliases=['magik5', 'mirror3'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def woow(self, ctx, *urls:str):
 		get_images = await self.get_images(ctx, urls=urls, limit=5)
 		if not get_images:
@@ -2382,7 +2355,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		return final
 
 	@commands.command(pass_context=True, aliases=['magik6', 'mirror4'])
-	@commands.cooldown(2, 5, commands.BucketType.user)
 	async def hooh(self, ctx, *urls:str):
 		get_images = await self.get_images(ctx, urls=urls, limit=5)
 		if not get_images:
@@ -2457,7 +2429,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.say(msg)
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(2, 5)
 	async def react(self, ctx, *, txt:str):
 		msg = None
 		channel = ctx.message.channel
@@ -2591,7 +2562,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.say(':information_source: *According to WebMD*\n**{0}**...'.format(kek))
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def wasted(self, ctx, *urls:str):
 		"""GTA5 Wasted Generator"""
 		try:
@@ -2663,7 +2633,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.say('```css\n>{0}\n```'.format(txt), replace_mentions=True)
 
 	@commands.command(pass_context=True, aliases=['lsd', 'drugs', 'wew'])
-	@commands.cooldown(1, 5)
 	async def rainbow(self, ctx, *urls:str):
 		"""Change images color matrix multiple times into a gif"""
 		try:
@@ -2701,7 +2670,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True, aliases=['waves'])
-	@commands.cooldown(1, 5)
 	async def wave(self, ctx, *urls:str):
 		"""Wave image multiple times into a gif"""
 		try:
@@ -2749,7 +2717,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def wall(self, ctx, *urls:str):
 		"""Image multiplied with curved perspective"""
 		try:
@@ -2770,7 +2737,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True, aliases=['cappend', 'layers'])
-	@commands.cooldown(1, 5)
 	async def layer(self, ctx, *urls:str):
 		"""Layers an image with its self"""
 		try:
@@ -2829,7 +2795,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			await self.bot.upload(final, filename='rotate.png', content='Rotated: `{0}°`'.format(scale))
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def dice(self, ctx, *urls:str):
 		"""Dice up an image"""
 		try:
@@ -2873,7 +2838,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def scramble(self, ctx, *urls:str):
 		"""Scramble image"""
 		try:
@@ -2921,7 +2885,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def scramble2(self, ctx, *urls:str):
 		"""Scramble image without rotation"""
 		try:
@@ -2968,7 +2931,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True, aliases=['multi'])
-	@commands.cooldown(1, 10)
 	async def multiply(self, ctx, *urls:str):
 		"""Rotate and shrink image multiple times on a large canvas"""
 		try:
@@ -3009,7 +2971,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			raise
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 5)
 	async def shake(self, ctx, *urls:str):
 		"""Generate a Triggered Gif for a User or Image"""
 		try:
@@ -3055,7 +3016,6 @@ class Fun2(commands.Cog, name="Fun2"):
 				pass
 
 	@commands.command(pass_context=True, aliases=['360', 'grotate'])
-	@commands.cooldown(1, 5)
 	async def spin(self, ctx, *urls:str):
 		"""Make image into circular form and rotate it 360 into a gif"""
 		try:
