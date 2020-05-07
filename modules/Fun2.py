@@ -15,7 +15,6 @@ from discord.ext import commands
 from pyfiglet import figlet_format
 from string import ascii_lowercase as alphabet
 from urllib.parse import quote
-from mods.cog import Cog
 from concurrent.futures._base import CancelledError
 
 code = "```py\n{0}\n```"
