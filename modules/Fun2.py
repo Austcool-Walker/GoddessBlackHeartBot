@@ -242,7 +242,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			print('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj))
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 20, commands.BucketType.server)
+	@commands.cooldown(1, 20, commands.BucketType)
 	async def gmagik(self, ctx, url:str=None, framerate:str=None):
 		try:
 			url = await self.get_images(ctx, urls=url, gif=True, limit=2)
