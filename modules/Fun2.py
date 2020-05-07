@@ -4,7 +4,7 @@ import re, json, random, math, html
 import wand, wand.color, wand.drawing
 import PIL, PIL.Image, PIL.ImageFont, PIL.ImageOps, PIL.ImageDraw
 import numpy as np
-import cairosvg, jpglitch, urbandict
+import cairosvg, urbandict
 import pixelsort.sorter, pixelsort.sorting, pixelsort.util, pixelsort.interval
 import hashlib, base64
 from vw import macintoshplus
