@@ -1166,7 +1166,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	fp_emotes = {
 		#redacted spam
 	}
-	@commands.command(pass_context=True, aliases=['emoji', 'hugemoji', 'hugeemoji'])
+	@commands.command(pass_context=True, aliases=['hugemoji', 'hugeemoji'])
 	async def e(self, ctx, *ems:str):
 		"""Returns a large emoji image"""
 		try:
