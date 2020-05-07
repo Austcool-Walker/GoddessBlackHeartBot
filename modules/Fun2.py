@@ -103,7 +103,6 @@ class Fun2(commands.Cog, name="Fun2"):
 				await self.bot.say('Uploaded to paste, URL: <{0}>'.format(url))
 
 	@commands.command(pass_context=True)
-	@commands.cooldown(1, 3)
 	async def badmeme(self, ctx, direct=None):
 		"""returns bad meme (shit api)"""
 		load = await self.get_json("https://api.imgflip.com/get_memes")
@@ -776,7 +775,6 @@ class Fun2(commands.Cog, name="Fun2"):
 			return level
 
 	@commands.command(pass_context=True, aliases=['googlesafety', 'safetylevel', 'googlensfw', 'saftey'])
-	@checks.mod_or_perm(manage_server=True)
 	async def safety(self, ctx, level:str=None):
 		s = await self.google_safety(ctx.message)
 		current_level = s[0] if type(s) != str and type(s) != int else s
@@ -1799,7 +1797,6 @@ class Fun2(commands.Cog, name="Fun2"):
 		await self.bot.say(msg)
 
 	@commands.command(pass_context=True, aliases=['mentionspam'])
-	@checks.admin_or_perm(manage_server=True)
 	async def ms(self, ctx, amount:int, id:str, channel:discord.Channel=None):
 		if amount > 100:
 			await self.bot.say("2 many mentions asshole")
