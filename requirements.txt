@@ -16,3 +16,4 @@ cairosvg
 urbandict
 pixelsort
 imgurpython
+pyfiglet

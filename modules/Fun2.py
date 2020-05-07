@@ -12,7 +12,6 @@ from lxml import etree
 from imgurpython import ImgurClient
 from io import BytesIO, StringIO
 from discord.ext import commands
-from utils import checks
 from pyfiglet import figlet_format
 from string import ascii_lowercase as alphabet
 from urllib.parse import quote
