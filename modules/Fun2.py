@@ -7,7 +7,6 @@ import numpy as np
 import cairosvg, urbandict
 import pixelsort.sorter, pixelsort.sorting, pixelsort.util, pixelsort.interval
 import hashlib, base64
-from vw import macintoshplus
 from urllib.parse import parse_qs
 from lxml import etree
 from imgurpython import ImgurClient
