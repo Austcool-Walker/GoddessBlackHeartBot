@@ -17,7 +17,6 @@ from string import ascii_lowercase as alphabet
 from urllib.parse import quote
 from concurrent.futures._base import CancelledError
 from Utils import Checks
-from Utils import Funcs
 
 code = "```py\n{0}\n```"
 
@@ -51,8 +50,7 @@ def find_coeffs(pa, pb):
 
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
-
-		self.is_nsfw = bot.funcs.is_nsfw
+		self.bot = bot
 
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
@@ -702,78 +700,78 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-	async def google_safety(self, message, s=False):
-		check = await self.is_nsfw(message)
-		if check:
-			if s:
-				return 'off'
-			return 1, False
-		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
-		sql = sql.format(message.server.id)
-		result = self.cursor.execute(sql).fetchall()
-		if len(result) == 0:
-			if s:
-				return 'medium'
-			return 2, False
-		else:
-			level = int(result[0]['level'])
-			if s:
-				if level == 1:
-					return 'off'
-				elif level == 2:
-					return 'medium'
-				elif level == 3:
-					return 'high'
-			return level
+#	async def google_safety(self, message, s=False):
+#		check = await self.is_nsfw(message)
+#		if check:
+#			if s:
+#				return 'off'
+#			return 1, False
+#		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
+#		sql = sql.format(message.server.id)
+#		result = self.cursor.execute(sql).fetchall()
+#		if len(result) == 0:
+#			if s:
+#				return 'medium'
+#			return 2, False
+#		else:
+#			level = int(result[0]['level'])
+#			if s:
+#				if level == 1:
+#					return 'off'
+#				elif level == 2:
+#					return 'medium'
+#				elif level == 3:
+#					return 'high'
+#			return level
 
-	@commands.command(pass_context=True, aliases=['googlesafety', 'safetylevel', 'googlensfw', 'saftey'])
-	async def safety(self, ctx, level:str=None):
-		s = await self.google_safety(ctx.message)
-		current_level = s[0] if type(s) != str and type(s) != int else s
-		check = s[1] if type(s) != str and type(s) != int else True
-		levels = [0, 1, 2, 3]
-		if current_level == 1:
-			msg = 'OFF'
-		elif current_level == 2:
-			msg = 'MEDIUM'
-		elif current_level == 3:
-			msg = 'HIGH'
-		if level is None:
-			await ctx.send(':information_source: Current google safety level: `{0}` *{1}*'.format(current_level, msg))
-			return
-		else:
-			level = level.lower()
-			if level.isdigit() and int(level) in levels:
-				level = int(level)
-			elif level == 'off' or level == 'disable':
-				level = 1
-			elif level == 'low' or level == 'medium':
-				level = 2
-			elif level == 'high':
-				level = 3
-			if level not in levels:
-				await ctx.send(':no_entry: `Invalid level.`')
-				return
-		if level == 0 or level == 1:
-			level = 1
-			smsg = 'OFF'
-		elif level == 2:
-			smsg = 'MEDIUM'
-		elif level == 3:
-			smsg = 'HIGH'
-		if current_level == level:
-			await ctx.send(':no_entry: Google Saftey is already at that level!')
-			return
-		if check is False:
-			sql = 'INSERT INTO `google_nsfw` (`server`, `level`) VALUES (%s, %s)'
-			self.cursor.execute(sql, (ctx.message.server.id, level))
-			await ctx.send(':white_check_mark: Set google safety level to **{1}**'.format(level, smsg))
-		else:
-			sql = 'UPDATE `google_nsfw` SET level={0} WHERE server={1}'
-			sql = sql.format(level, ctx.message.server.id)
-			self.cursor.execute(sql)
-			await ctx.send(':white_check_mark: Updated google safety level from **{0}** *to* **{1}**'.format(msg, smsg))
-		self.cursor.commit()
+#	@commands.command(pass_context=True, aliases=['googlesafety', 'safetylevel', 'googlensfw', 'saftey'])
+#	async def safety(self, ctx, level:str=None):
+#		s = await self.google_safety(ctx.message)
+#		current_level = s[0] if type(s) != str and type(s) != int else s
+#		check = s[1] if type(s) != str and type(s) != int else True
+#		levels = [0, 1, 2, 3]
+#		if current_level == 1:
+#			msg = 'OFF'
+#		elif current_level == 2:
+#			msg = 'MEDIUM'
+#		elif current_level == 3:
+#			msg = 'HIGH'
+#		if level is None:
+#			await ctx.send(':information_source: Current google safety level: `{0}` *{1}*'.format(current_level, msg))
+#			return
+#		else:
+#			level = level.lower()
+#			if level.isdigit() and int(level) in levels:
+#				level = int(level)
+#			elif level == 'off' or level == 'disable':
+#				level = 1
+#			elif level == 'low' or level == 'medium':
+#				level = 2
+#			elif level == 'high':
+#				level = 3
+#			if level not in levels:
+#				await ctx.send(':no_entry: `Invalid level.`')
+#				return
+#		if level == 0 or level == 1:
+#			level = 1
+#			smsg = 'OFF'
+#		elif level == 2:
+#			smsg = 'MEDIUM'
+#		elif level == 3:
+#			smsg = 'HIGH'
+#		if current_level == level:
+#			await ctx.send(':no_entry: Google Saftey is already at that level!')
+#			return
+#		if check is False:
+#			sql = 'INSERT INTO `google_nsfw` (`server`, `level`) VALUES (%s, %s)'
+#			self.cursor.execute(sql, (ctx.message.server.id, level))
+#			await ctx.send(':white_check_mark: Set google safety level to **{1}**'.format(level, smsg))
+#		else:
+#			sql = 'UPDATE `google_nsfw` SET level={0} WHERE server={1}'
+#			sql = sql.format(level, ctx.message.server.id)
+#			self.cursor.execute(sql)
+#			await ctx.send(':white_check_mark: Updated google safety level from **{0}** *to* **{1}**'.format(msg, smsg))
+#		self.cursor.commit()
 
 	@commands.command(pass_context=True, aliases=['im', 'photo', 'img'])
 	async def image(self, ctx, *, search:str):
