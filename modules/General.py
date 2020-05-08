@@ -7,6 +7,7 @@ import json
 import sys
 import os
 import platform
+import datetime
 
 class General(commands.Cog, name="General"):
 
@@ -67,6 +68,12 @@ class General(commands.Cog, name="General"):
         time_delta = round((t_2 - t_1) * 1000)
         responses = ['Pong!', 'Ack!', 'Whoa!', 'Pang!', 'How am I doing?']
         await ctx.send("{} ``Time: {}ms``".format(random.choice(responses), time_delta))
+
+    @commands.command()
+    async def time(self, ctx):
+    now = datetime.datetime.now()
+    print ("Current date and time : ")
+    print (now.strftime("+%Y.%m.%d %H:%M:%S"))
 
     @commands.command(aliases=['info'])
     async def about(self, beep):
