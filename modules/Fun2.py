@@ -16,6 +16,7 @@ from pyfiglet import figlet_format
 from string import ascii_lowercase as alphabet
 from urllib.parse import quote
 from concurrent.futures._base import CancelledError
+from modules import checks
 
 code = "```py\n{0}\n```"
 
@@ -50,6 +51,8 @@ def find_coeffs(pa, pb):
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
+
+		self.is_nsfw = bot.funcs.is_nsfw
 
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
@@ -699,29 +702,29 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-#	async def google_safety(self, message, s=False):
-#		check = await self.is_nsfw(message)
-#		if check:
-#			if s:
-#				return 'off'
-#			return 1, False
-#		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
-#		sql = sql.format(message.server.id)
-#		result = self.cursor.execute(sql).fetchall()
-#		if len(result) == 0:
-#			if s:
-#				return 'medium'
-#			return 2, False
-#		else:
-#			level = int(result[0]['level'])
-#			if s:
-#				if level == 1:
-#					return 'off'
-#				elif level == 2:
-#					return 'medium'
-#				elif level == 3:
-#					return 'high'
-#			return level
+	async def google_safety(self, message, s=False):
+		check = await self.is_nsfw(message)
+		if check:
+			if s:
+				return 'off'
+			return 1, False
+		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
+		sql = sql.format(message.server.id)
+		result = self.cursor.execute(sql).fetchall()
+		if len(result) == 0:
+			if s:
+				return 'medium'
+			return 2, False
+		else:
+			level = int(result[0]['level'])
+			if s:
+				if level == 1:
+					return 'off'
+				elif level == 2:
+					return 'medium'
+				elif level == 3:
+					return 'high'
+			return level
 
 	@commands.command(pass_context=True, aliases=['googlesafety', 'safetylevel', 'googlensfw', 'saftey'])
 	async def safety(self, ctx, level:str=None):
