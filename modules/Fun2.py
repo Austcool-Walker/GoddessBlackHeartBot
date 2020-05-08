@@ -16,7 +16,7 @@ from pyfiglet import figlet_format
 from string import ascii_lowercase as alphabet
 from urllib.parse import quote
 from concurrent.futures._base import CancelledError
-from modules import checks
+from Utils import checks
 
 code = "```py\n{0}\n```"
 
