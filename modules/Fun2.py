@@ -703,7 +703,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			return False
 
 	async def google_safety(self, message, s=None):
-		check = await self.(message)
+		check = None
 		if check:
 			if s:
 				return 'off'
