@@ -7,8 +7,7 @@ import bs4
 import sys
 from io import BytesIO
 from discord.ext import commands
-from utils import checks
-from mods.cog import Cog
+from Utils import Checks
 from urllib.parse import quote
 
 class Nsfw(commands.Cog, name="Nsfw"):
