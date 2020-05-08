@@ -775,7 +775,7 @@ class Fun2(commands.Cog, name="Fun2"):
 
 	@commands.command(pass_context=True, aliases=['im', 'photo', 'img'])
 	async def image(self, ctx, *, search:str):
-		level = await self.google_safety(ctx.message, True)
+#		level = await self.google_safety(ctx.message, True)
 		in_cache = False
 		if search in self.image_cache.keys():
 			load_level = self.image_cache[search][1]
@@ -811,7 +811,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			await ctx.send("Error: Invalid Syntax\n`.google <text>`")
 			return
 		in_cache = False
-		level = await self.google_safety(ctx.message, True)
+#		level = await self.google_safety(ctx.message, True)
 		in_cache = False
 		if search in self.search_cache.keys():
 			load_level = self.search_cache[search][1]
@@ -879,7 +879,7 @@ class Fun2(commands.Cog, name="Fun2"):
 		if search is None:
 			await ctx.send("Error: Invalid Syntax\n`.yt/youtube <text>`")
 			return
-		level = await self.google_safety(ctx.message, True)
+#		level = await self.google_safety(ctx.message, True)
 		in_cache = False
 		if search in self.youtube_cache.keys():
 			load_level = self.youtube_cache[search][1]
