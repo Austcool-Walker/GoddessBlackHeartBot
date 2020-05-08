@@ -702,7 +702,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			return False
 
 	async def google_safety(self, message, s=False):
-		check = None
+		check = await ctx.send(message)
 		if check:
 			if s:
 				return 'off'
