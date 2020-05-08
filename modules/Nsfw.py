@@ -12,7 +12,7 @@ from urllib.parse import quote
 
 class Nsfw(commands.Cog, name="Nsfw"):
 	def __init__(self, bot):
-		super().__init__(bot)
+		self.bot = bot
 		self.cursor = bot.mysql.cursor
 		self.escape = bot.escape
 		self.bytes_download = bot.bytes_download
