@@ -699,29 +699,29 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-	async def google_safety(self, message, s=False):
-		check = await self.is_nsfw(message)
-		if check:
-			if s:
-				return 'off'
-			return 1, False
-		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
-		sql = sql.format(message.server.id)
-		result = self.cursor.execute(sql).fetchall()
-		if len(result) == 0:
-			if s:
-				return 'medium'
-			return 2, False
-		else:
-			level = int(result[0]['level'])
-			if s:
-				if level == 1:
-					return 'off'
-				elif level == 2:
-					return 'medium'
-				elif level == 3:
-					return 'high'
-			return level
+#	async def google_safety(self, message, s=False):
+#		check = await self.is_nsfw(message)
+#		if check:
+#			if s:
+#				return 'off'
+#			return 1, False
+#		sql = 'SELECT * FROM `google_nsfw` WHERE server={0}'
+#		sql = sql.format(message.server.id)
+#		result = self.cursor.execute(sql).fetchall()
+#		if len(result) == 0:
+#			if s:
+#				return 'medium'
+#			return 2, False
+#		else:
+#			level = int(result[0]['level'])
+#			if s:
+#				if level == 1:
+#					return 'off'
+#				elif level == 2:
+#					return 'medium'
+#				elif level == 3:
+#					return 'high'
+#			return level
 
 	@commands.command(pass_context=True, aliases=['googlesafety', 'safetylevel', 'googlensfw', 'saftey'])
 	async def safety(self, ctx, level:str=None):
