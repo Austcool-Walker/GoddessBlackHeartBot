@@ -73,7 +73,7 @@ class General(commands.Cog, name="General"):
     async def time(self, ctx):
         now = datetime.datetime.now()
         embed = discord.Embed(color=0xff00ec, title="Time.",
-                            description="Current date and time : ")
+                                description="Current date and time : ")
         embed.add_field(name='Date/Time', value=now.strftime("+%Y.%m.%d %H:%M:%S", inline=True)
         await ctx.send(embed=embed)
 
