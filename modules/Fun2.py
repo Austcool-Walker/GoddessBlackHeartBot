@@ -51,8 +51,8 @@ def find_coeffs(pa, pb):
 
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
-		self.bot = bot
 
+		self.is_nsfw = bot.funcs.is_nsfw
 
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
@@ -702,8 +702,8 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-	async def google_safety(self, message, s=None):
-		check = None
+	async def google_safety(self, message, s=False):
+		check = await self.is_nsfw(message)
 		if check:
 			if s:
 				return 'off'
