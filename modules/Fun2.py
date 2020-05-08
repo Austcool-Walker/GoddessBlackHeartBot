@@ -17,6 +17,7 @@ from string import ascii_lowercase as alphabet
 from urllib.parse import quote
 from concurrent.futures._base import CancelledError
 from Utils import Checks
+from Utils import Funcs
 
 code = "```py\n{0}\n```"
 
@@ -51,6 +52,8 @@ def find_coeffs(pa, pb):
 class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
+
+		self.is_nsfw = bot.funcs.is_nsfw
 
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
