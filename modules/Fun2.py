@@ -701,7 +701,7 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-	async def google_safety(self, message, s=False):
+	async def google_safety(self, ctx, message, s=False):
 		check = await ctx.send(message)
 		if check:
 			if s:
