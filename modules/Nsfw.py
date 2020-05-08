@@ -41,7 +41,6 @@ class Nsfw(commands.Cog, name="Nsfw"):
 		return False
 
 	@commands.group(pass_context=True, aliases=['bannsfwtag', 'bannsfwsearch', 'nsfwban'], invoke_without_command=True, no_pm=True)
-	@checks.mod_or_perm(manage_server=True)
 	async def bantag(self, ctx, *tags:str):
 		"""Ban a string/tag from being searched with nsfw commands"""
 		if len(tags) == 0:
