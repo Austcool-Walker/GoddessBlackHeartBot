@@ -53,6 +53,7 @@ class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
 
+
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
 		"""returns bad meme (shit api)"""
@@ -701,8 +702,8 @@ class Fun2(commands.Cog, name="Fun2"):
 			print(e)
 			return False
 
-	async def google_safety(self, ctx, message, s=False):
-		check = await ctx.send(message)
+	async def google_safety(self, message, s=None):
+		check = await self.is_nsfw(message)
 		if check:
 			if s:
 				return 'off'
