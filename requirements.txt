@@ -17,3 +17,4 @@ urbandict
 pixelsort
 imgurpython
 pyfiglet
+aiosocks
