@@ -52,8 +52,6 @@ class Fun2(commands.Cog, name="Fun2"):
 	def __init__(self, bot):
 		self.bot = bot
 
-		self.is_nsfw = bot.funcs.is_nsfw
-
 	@commands.command(pass_context=True)
 	async def badmeme(self, ctx, direct=None):
 		"""returns bad meme (shit api)"""
