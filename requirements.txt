@@ -18,3 +18,5 @@ pixelsort
 imgurpython
 pyfiglet
 aiosocks
+jsonpickle
+pymysql
