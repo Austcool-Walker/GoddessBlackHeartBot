@@ -70,8 +70,8 @@ class General(commands.Cog, name="General"):
         await ctx.send("{} ``Time: {}ms``".format(random.choice(responses), time_delta))
 
     @commands.command()
-    async def time(self, ctx, now):
-        now = datetime.datetime.now()
+    async def time(self, ctx):
+        now = datetime.datetime.now
     print ("Current date and time : ")
     print (now.strftime("+%Y.%m.%d %H:%M:%S"))
 
