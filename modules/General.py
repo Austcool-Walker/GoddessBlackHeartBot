@@ -72,8 +72,10 @@ class General(commands.Cog, name="General"):
     @commands.command()
     async def time(self, ctx):
         now = datetime.datetime.now()
-    ctx.send("Current date and time : ")
-    ctx.send(now.strftime("+%Y.%m.%d %H:%M:%S"))
+    embed = discord.Embed(color=0xff00ec, title="Time.",
+                            description="Current date and time : ")
+    embed.add_field(name='Date/Time', value=now.strftime("+%Y.%m.%d %H:%M:%S", inline=True)
+    await ctx.send(embed=embed)
 
     @commands.command(aliases=['info'])
     async def about(self, beep):
@@ -171,7 +173,7 @@ class General(commands.Cog, name="General"):
 
     @commands.command()
     async def suggest(self, ctx, *, report: str):
-        channel = self.bot.get_channel(460669314933063680)
+        channel = self.bot.get_channel(708423667574636595)
         color = discord.Colour.blue()
         embed = discord.Embed(color=color, title="Suggestion!", description="We got a suggestion from {}".format(ctx.message.author))
         embed.add_field(name="Suggestion: ", value=report)
@@ -180,7 +182,7 @@ class General(commands.Cog, name="General"):
 
     @commands.command()
     async def report(self, ctx, *, report: str):
-        channel = self.bot.get_channel(460666448352641026)
+        channel = self.bot.get_channel(708423667574636595)
         color = discord.Colour.red()
         embed = discord.Embed(color=color, title="Bug report!", description="We got a bug report from {}".format(ctx.message.author))
         embed.add_field(name="Full report: ", value=report)
