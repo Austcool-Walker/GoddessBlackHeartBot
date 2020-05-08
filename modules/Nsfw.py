@@ -103,9 +103,9 @@ class Nsfw(commands.Cog, name="Nsfw"):
 		await self.bot.say(':white_check_mark: Removed `all` banned tags.')
 
 # Commands redacted, thanks github sjws
-banned = await self.banned_tags(ctx, search)
-if banned:
-	return
+#banned = await self.banned_tags(ctx, search)
+#if banned:
+#	return
 
 def setup(bot):
 	bot.add_cog(Nsfw(bot))
