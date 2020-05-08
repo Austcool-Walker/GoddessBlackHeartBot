@@ -71,7 +71,7 @@ class General(commands.Cog, name="General"):
 
     @commands.command()
     async def time(self, ctx):
-    now = datetime.datetime.now()
+        now = datetime.datetime.now()
     print ("Current date and time : ")
     print (now.strftime("+%Y.%m.%d %H:%M:%S"))
 
