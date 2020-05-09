@@ -74,8 +74,8 @@ class General(commands.Cog, name="General"):
         now = datetime.datetime.now()
         msg = ("Current date and time : ")
         timeline = (now.strftime("%Y.%m.%d %H:%M:%S"))
-        await ctx.send("**`{}`**".format(msg))
-        await ctx.send("**`{}`**".format(timeline))
+        await ctx.send('**`{}`**'.format(msg))
+        await ctx.send('**`{}`**'.format(timeline))
 
     @commands.command(aliases=['info'])
     async def about(self, beep):

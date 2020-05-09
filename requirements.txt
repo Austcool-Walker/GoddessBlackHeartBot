@@ -10,13 +10,3 @@ clint
 config
 timestring
 loadconfig
-wand
-numpy
-cairosvg
-urbandict
-pixelsort
-imgurpython
-pyfiglet
-aiosocks
-jsonpickle
-pymysql
