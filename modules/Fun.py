@@ -183,6 +183,22 @@ class Fun(commands.Cog, name="Fun"):
         image = image.get('url')
         return image
 
+    @commands.command(pass_context=True, aliases=['achievement', 'ach'])
+	async def mc(self, ctx, *, txt:str):
+		"""Generate a Minecraft Achievement"""
+		api = "https://mcgen.herokuapp.com/a.php?i=1&h=Achievement-{0}&t={1}".format(ctx.message.author.name, txt)
+		b = await self.bytes_download(api)
+		i = 0
+		while sys.getsizeof(b) == 88 and i != 10:
+			b = await self.bytes_download(api)
+			if sys.getsizeof(b) != 0:
+				i = 10
+			else:
+				i += 1
+		if i == 10 and sys.getsizeof(b) == 88:
+			await self.bot.say("Minecraft Achievement Generator API is bad, pls try again")
+			return
+		await self.bot.upload(b, filename='achievement.png')
 
 def setup(bot):
     bot.add_cog(Fun(bot))
