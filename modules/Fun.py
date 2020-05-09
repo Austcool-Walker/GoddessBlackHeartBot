@@ -7,6 +7,8 @@ from lxml import html
 import json
 from io import BytesIO, StringIO
 
+self.download = bot.download
+self.bytes_download = bot.bytes_download
 
 class Fun(commands.Cog, name="Fun"):
 
