@@ -190,7 +190,7 @@ class Fun(commands.Cog, name="Fun"):
         b = await self.bytes_download(api)
         i = 0
         while sys.getsizeof(b) == 88 and i != 10:
-        b = await self.bytes_download(api)
+            b = await self.bytes_download(api)
             if sys.getsizeof(b) != 0:
                 i = 10
             else:
