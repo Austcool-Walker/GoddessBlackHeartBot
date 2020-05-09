@@ -5,6 +5,7 @@ import requests
 import aiohttp
 from lxml import html
 import json
+from io import BytesIO, StringIO
 
 
 class Fun(commands.Cog, name="Fun"):
