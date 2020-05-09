@@ -7,9 +7,6 @@ from lxml import html
 import json
 from io import BytesIO, StringIO
 
-self.download = bot.download
-self.bytes_download = bot.bytes_download
-
 class Fun(commands.Cog, name="Fun"):
 
     def __init__(self, bot):
@@ -190,10 +187,10 @@ class Fun(commands.Cog, name="Fun"):
     async def mc(self, ctx, *, txt:str):
         """Generate a Minecraft Achievement"""
         api = "https://mcgen.herokuapp.com/a.php?i=1&h=Achievement-{0}&t={1}".format(ctx.message.author.name, txt)
-        b = await self.bytes_download(api)
+        b = await self.bot.bytes_download(api)
         i = 0
         while sys.getsizeof(b) == 88 and i != 10:
-            b = await self.bytes_download(api)
+            b = await self.bot.bytes_download(api)
             if sys.getsizeof(b) != 0:
                 i = 10
             else:
