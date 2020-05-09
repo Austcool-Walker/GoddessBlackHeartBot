@@ -196,7 +196,7 @@ class Fun(commands.Cog, name="Fun"):
             else:
                 i += 1
         if i == 10 and sys.getsizeof(b) == 88:
-        await self.bot.say("Minecraft Achievement Generator API is bad, pls try again")
+            await self.bot.say("Minecraft Achievement Generator API is bad, pls try again")
         return
         await self.bot.upload(b, filename='achievement.png')
 
