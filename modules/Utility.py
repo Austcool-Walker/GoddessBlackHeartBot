@@ -200,7 +200,7 @@ class Utility(commands.Cog, name="Utility"):
         await ctx.send(msg)
 
     @commands.command()
-    async def whois(self, ctx, *users:discord.User):
+    async def whois(self, ctx, member: discord.Member=None):
         '''Returns information about a user
 
         Example:
@@ -208,13 +208,8 @@ class Utility(commands.Cog, name="Utility"):
 
         : whois @ Der-Eddy # 6508
         '''
-        	try:
-		if len(users) == 0:
-			users = [ctx.message.author]
-		server = ctx.message.server
-		for user in users:
-			seen_on_self = True if user == self.bot.user else False
-			seen_on = set([member.server.name for member in self.bot.get_all_members() if member == user and member.server != server]) if user != self.bot.user else 'ALL OF THEM'
+        if member == None:
+            member = ctx.author
 
         if member.top_role.is_default():
             topRole = 'everyone' #to prevent @everyone spam
