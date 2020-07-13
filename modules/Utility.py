@@ -200,7 +200,7 @@ class Utility(commands.Cog, name="Utility"):
         await ctx.send(msg)
 
     @commands.command()
-    async def whois(self, ctx, member: discord.Member=None):
+    async def whois(self, ctx, *users:discord.User):
         '''Returns information about a user
 
         Example:
