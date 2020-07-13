@@ -94,7 +94,7 @@ class General(commands.Cog, name="General"):
         await beep.send(embed=embed)
 
     @commands.command()
-    async def info(self, ctx, *users:discord.User):
+    async def user(self, ctx, *users:discord.User):
         try:
             target = ctx.User.id.mentions[0]
         except Exception:
