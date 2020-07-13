@@ -202,10 +202,8 @@ class Utility(commands.Cog, name="Utility"):
     @commands.command()
     async def whois(self, ctx, member: discord.Member=None):
         '''Returns information about a user
-
         Example:
         -----------
-
         : whois @ Der-Eddy # 6508
         '''
         if member == None:
