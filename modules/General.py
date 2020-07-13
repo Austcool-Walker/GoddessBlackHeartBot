@@ -96,7 +96,7 @@ class General(commands.Cog, name="General"):
     @commands.command()
     async def user(self, ctx):
         try:
-            target = ctx.message.mentions[0]
+            target = ctx.user.mentions[0]
         except Exception:
             target = ctx.message.author
             await ctx.send("User not found or specified. Collecting information about sender...")
