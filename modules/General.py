@@ -94,9 +94,9 @@ class General(commands.Cog, name="General"):
         await beep.send(embed=embed)
 
     @commands.command()
-    async def user(self, ctx, *users:discord.User):
+    async def user(self, ctx):
         try:
-            target = ctx.User.id.mentions[0]
+            target = ctx.User.id[0]
         except Exception:
             target = ctx.message.author
             await ctx.send("User not found or specified. Collecting information about sender...")
