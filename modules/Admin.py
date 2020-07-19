@@ -66,7 +66,7 @@ class Admin(commands.Cog, name="Admin"):
         if ctx.author.id in AJW_Admins:
             '''Writes Text to Files from path on Hard Drive'''
             with open(file, 'a+') as f:
-                f_contents = f.write(int(i) + "\r\n")
+                f_contents = f.write(int(text) + "\r\n")
                 await ctx.send(f_contents)
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
