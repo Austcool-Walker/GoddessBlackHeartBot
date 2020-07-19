@@ -70,12 +70,19 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
     @commands.command()
+    async def rm(self, ctx, file: str):
+        if ctx.author.id in AJW_Admins:
+            '''Removes Files from path on Hard Drive'''
+            os.remove(file)
+        await ctx.send('✅ removed **`{}`**'.format(file))
+
+    @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to user from Hard Drive'''
             user = self.bot.get_user(int(userid))
         await user.send(file=discord.File(path))
-        await ctx.send('✅ sent **`{}`** to **`<@{}>`**'.format(path, userid))
+        await ctx.send('✅ sent **`{}`** to **`<#{}>`**'.format(path, userid))
 
     @commands.command()
     async def sfch(self, ctx, channelid: str, path: str):
