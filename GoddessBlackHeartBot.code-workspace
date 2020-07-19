@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../learning/Ex_Files_Learning_Python"
 		}
 	],
 	"settings": {}

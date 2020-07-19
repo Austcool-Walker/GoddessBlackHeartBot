@@ -62,6 +62,15 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ listed contents in **`{}`**'.format(file))
 
     @commands.command()
+    async def touch(self, ctx, file: str):
+        if ctx.author.id in AJW_Admins:
+            '''Writes Text to Files from path on Hard Drive'''
+            with open(file, 'aw+') as f:
+                f_contents = f.write()
+                await ctx.send(f_contents)
+        await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
+
+    @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to user from Hard Drive'''
