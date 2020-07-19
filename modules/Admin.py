@@ -65,7 +65,7 @@ class Admin(commands.Cog, name="Admin"):
     async def touch(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Writes Text to Files from path on Hard Drive'''
-            with open(file, 'aw+') as f:
+            with open(file, 'a+') as f:
                 f_contents = f.write()
                 await ctx.send(f_contents)
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
