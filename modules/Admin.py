@@ -77,6 +77,17 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ removed **`{}`**'.format(file))
 
     @commands.command()
+    async def cmd(self, ctx, cmd: str):
+        if ctx.author.id in AJW_Admins:
+            '''Runs command from the computers command and directs the output to Discord'''
+        # returns output as byte string
+        returned_output = subprocess.check_output(cmd, shell=True)
+
+        # using decode() function to convert byte string to string
+        await ctx.send(returned_output)
+        await ctx.send('✅ command **`{}`** ran'.format(cmd))
+
+    @commands.command()
     async def sfuser(self, ctx, userid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to user from Hard Drive'''
