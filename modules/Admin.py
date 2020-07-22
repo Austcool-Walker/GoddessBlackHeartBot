@@ -7,6 +7,7 @@ import aiohttp
 from discord.ext import commands
 from clint.textui import progress
 import requests
+import subprocess
 
 # Authorized User_ID's
 AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190)
