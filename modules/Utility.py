@@ -343,7 +343,7 @@ class Utility(commands.Cog, name="Utility"):
         : timer 2h stream starts
         '''
         usrid = usr.split("<@!>")
-        user = self.bot.get_user(int(usrid))
+        user = self.bot.get_user(usrid)
         reminder = None
         completed = None
         message = message.replace('@everyone', '@\u200beveryone').replace('@here', '@\u200bhere')
