@@ -332,7 +332,7 @@ class Utility(commands.Cog, name="Utility"):
 
     @commands.command()
     @commands.cooldown(1, 30, commands.cooldowns.BucketType.user)
-    async def remindme(self, ctx, usr, time : TimeParser, *, message=''):
+    async def remindme(self, ctx, usr: str, time : TimeParser, *, message=''):
         '''Set a timer and then notify you
 
         Example:
