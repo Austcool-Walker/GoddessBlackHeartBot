@@ -293,7 +293,7 @@ class Utility(commands.Cog, name="Utility"):
 #        await ctx.send(embed=embed)
 
     #Shameful copied from https://github.com/Rapptz/RoboDanny/blob/b513a32dfbd4fdbd910f7f56d88d1d012ab44826/cogs/meta.py
-    @commands.command(aliases=['reminder'])
+    @commands.command()
     @commands.cooldown(1, 30, commands.cooldowns.BucketType.user)
     async def timer(self, ctx, time : TimeParser, *, message=''):
         '''Set a timer and then notify you
@@ -313,7 +313,7 @@ class Utility(commands.Cog, name="Utility"):
             reminder = ':timer: Ok {0.mention}, I set up a timer {1}.'
             completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer has expired.'
         else:
-            reminder = ':timer: Ok {0.mention}, I am setting a timer for `{2}` auf {1}.'
+            reminder = ':timer: Ok {0.mention}, I am setting a timer for `{2}` on {1}.'
             completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer for `{1}` has expired.'
 
         human_time = datetime.utcnow() - timedelta(seconds=time.seconds)
@@ -321,6 +321,43 @@ class Utility(commands.Cog, name="Utility"):
         await ctx.send(reminder.format(ctx.author, human_time, message))
         await asyncio.sleep(time.seconds)
         await ctx.send(completed.format(ctx.author, message, human_time))
+
+    @timer.error
+    async def timer_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            await ctx.send(str(error))
+        elif isinstance(error, commands.errors.CommandOnCooldown):
+            seconds = str(error)[34:]
+            await ctx.send(f':alarm_clock: Cooldown! Try it in {seconds} again')
+
+    @commands.command()
+    @commands.cooldown(1, 30, commands.cooldowns.BucketType.user)
+    async def remindme(self, ctx, user: str, time : TimeParser, *, message=''):
+        '''Set a timer and then notify you
+
+        Example:
+        -----------
+
+        : timer 13m pizza
+
+        : timer 2h stream starts
+        '''
+        reminder = None
+        completed = None
+        message = message.replace('@everyone', '@\u200beveryone').replace('@here', '@\u200bhere')
+
+        if not message:
+            reminder = ':timer: Ok {0.mention}, I set up a timer {1}.'
+            completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer has expired.'
+        else:
+            reminder = ':timer: Ok {0.mention}, I am setting a timer for `{2}` on {1}.'
+            completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer for `{1}` has expired.'
+
+        human_time = datetime.utcnow() - timedelta(seconds=time.seconds)
+        human_time = TimeParser.human_timedelta(human_time)
+        await ctx.send(reminder.format(ctx.author, human_time, message))
+        await asyncio.sleep(time.seconds)
+        await user.send(completed.format(ctx.author, message, human_time))
 
     @timer.error
     async def timer_error(self, ctx, error):
