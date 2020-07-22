@@ -85,7 +85,7 @@ class Admin(commands.Cog, name="Admin"):
         returned_output = subprocess.check_output(cmd, shell=True)
 
         # using decode() function to convert byte string to string
-        await ctx.send(returned_output)
+        await ctx.send(f'```py\n{returned_output}\n```')
         await ctx.send('✅ command **`{}`** ran'.format(cmd))
 
     @commands.command()

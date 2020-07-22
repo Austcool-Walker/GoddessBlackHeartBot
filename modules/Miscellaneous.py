@@ -2,7 +2,10 @@ import discord
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
 import json
+from datetime import date
+from datetime import time
 from datetime import datetime
+from datetime import timedelta
 import aiohttp
 import random
 
@@ -31,6 +34,10 @@ class Miscellaneous(commands.Cog, name="Miscellaneous"):
         except Exception:
             pass
         await msg.send(embed=embed)
+
+    @commands..command()
+    async def remindme(self, ctx, s: str, m: str, h: str, m: str, y: str,)
+
 
     @commands.command()
     async def uptime(self, ctx):
