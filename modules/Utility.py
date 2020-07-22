@@ -332,7 +332,7 @@ class Utility(commands.Cog, name="Utility"):
 
     @commands.command()
     @commands.cooldown(1, 30, commands.cooldowns.BucketType.user)
-    async def remindme(self, ctx, usr: str, time : TimeParser, *, message=''):
+    async def remindme(self, ctx, usr='', time : TimeParser, *, message=''):
         '''Set a timer and then notify you
 
         Example:
@@ -342,9 +342,8 @@ class Utility(commands.Cog, name="Utility"):
 
         : timer 2h stream starts
         '''
-        usrid = (int(usr))
-        t = usrid.translate({ord(i): None for i in '<@!>'})
-        user = self.bot.get_user(t)
+        usrid = usr.translate({ord(i): None for i in '<@!>'})
+        user = self.bot.get_user(usrid)
         reminder = None
         completed = None
         message = message.replace('@everyone', '@\u200beveryone').replace('@here', '@\u200bhere')
@@ -353,8 +352,8 @@ class Utility(commands.Cog, name="Utility"):
             reminder = ':timer: Ok {0.mention}, I set up a timer {1}.'
             completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer has expired.'
         else:
-            reminder = ':timer: Ok {0.mention}, I am setting a timer for `{2}` on {1}.'
-            completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer for `{1}` has expired.'
+            reminder = ':timer: Ok {0.mention}, I am setting a timer for {2} on {1}.'
+            completed = ':alarm_clock: Ding Ding Ding {0.mention}! Your timer for {1} has expired.'
 
         human_time = datetime.utcnow() - timedelta(seconds=time.seconds)
         human_time = TimeParser.human_timedelta(human_time)
