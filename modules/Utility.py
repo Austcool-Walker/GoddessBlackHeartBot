@@ -342,7 +342,8 @@ class Utility(commands.Cog, name="Utility"):
 
         : timer 2h stream starts
         '''
-        t = usr.translate({ord(i): None for i in '<@!>'})
+        usrid = (int(usr))
+        t = usrid.translate({ord(i): None for i in '<@!>'})
         user = self.bot.get_user(t)
         reminder = None
         completed = None
