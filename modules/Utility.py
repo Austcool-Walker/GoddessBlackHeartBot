@@ -332,7 +332,7 @@ class Utility(commands.Cog, name="Utility"):
 
     @commands.command()
     @commands.cooldown(1, 30, commands.cooldowns.BucketType.user)
-    async def remindme(self, ctx, user: str, time : TimeParser, *, message=''):
+    async def remindme(self, ctx, usr: str, time : TimeParser, *, message=''):
         '''Set a timer and then notify you
 
         Example:
@@ -342,6 +342,7 @@ class Utility(commands.Cog, name="Utility"):
 
         : timer 2h stream starts
         '''
+        user = self.bot.get_user(usr)
         reminder = None
         completed = None
         message = message.replace('@everyone', '@\u200beveryone').replace('@here', '@\u200bhere')
