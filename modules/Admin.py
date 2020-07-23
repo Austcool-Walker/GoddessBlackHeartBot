@@ -292,11 +292,11 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command()
     async def channels(self, ctx, guildid: str):
         server = self.bot.get_guild(int(guildid))
-        log = open("channel.ids.log","w+")
+        log = open("channel.ids.txt","w+")
         ids = server.channels
         log.write("" + str(ids)  + "\r\n")
-        await ctx.send(file=discord.File("channel.ids.log"))
-        await ctx.send('✅ sent **`{}`** to **`{}`**'.format("channel.ids.log", server))
+        await ctx.send(file=discord.File("channel.ids.txt"))
+        await ctx.send('✅ sent **`{}`** to **`{}`**'.format("channel.ids.txt", server))
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
