@@ -289,6 +289,17 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(server.icon_url)
         await ctx.send('✅ Server icon from **`{}`**'.format(guildid))
 
+    @commands.command()
+    async def channels(self, ctx, guildid: str):
+        file = "channel.ids.log"
+        server = self.bot.get_guild(int(guildid))
+        f = open("channel.ids.log","w+")
+        ids = server.channels
+        f.write("" + str(ids)  + "\r\n")
+        await ctx.send(file=discord.File(file))
+        os.remove(file)
+        await ctx.send('✅ sent **`{}`** to **`{}`**'.format(file, server))
+
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
     async def geninvite(self, ctx, channelid: str, userid: str):
