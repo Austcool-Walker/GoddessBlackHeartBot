@@ -290,11 +290,22 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ Server icon from **`{}`**'.format(guildid))
 
     @commands.command()
-    async def channels(self, ctx, guildid: str):
+    async def lschannels(self, ctx, guildid: str):
         logfile = 'channel.ids.txt'
         server = self.bot.get_guild(int(guildid))
         log = open(logfile,"w+")
         ids = server.channels
+        log.write("" + str(ids)  + "\r\n")
+        log.close()
+        await ctx.send(file=discord.File(logfile))
+        await ctx.send('✅ sent **`{}`** from **`{}`**'.format(logfile, server))
+
+    @commands.command()
+    async def lsusers(self, ctx, guildid: str):
+        logfile = 'user.ids.txt'
+        server = self.bot.get_guild(int(guildid))
+        log = open(logfile,"w+")
+        ids = server.members
         log.write("" + str(ids)  + "\r\n")
         log.close()
         await ctx.send(file=discord.File(logfile))
