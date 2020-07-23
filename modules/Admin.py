@@ -291,7 +291,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command()
     async def channels(self, ctx, guildid: str):
-        logfile = guild.name.'channel.ids.txt'
+        logfile = 'channel.ids.txt'
         server = self.bot.get_guild(int(guildid))
         log = open(logfile,"w+")
         ids = server.channels
