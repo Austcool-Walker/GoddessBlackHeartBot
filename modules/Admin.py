@@ -292,11 +292,11 @@ class Admin(commands.Cog, name="Admin"):
     @commands.command()
     async def channels(self, ctx, guildid: str):
         file = "channel.ids.log"
-        server = self.bot.get_guild(int(guildid))
-        f = open("channel.ids.log","w+")
+        server = self.bot.get_guild(guildid)
+        log = open("channel.ids.log","w+")
         ids = server.channels
-        f.write("" + str(ids)  + "\r\n")
-        await asyncio.sleep(200)
+        log.write("" + str(ids)  + "\r\n")
+        await asyncio.sleep(98)
         await ctx.send(file=discord.File(file))
         await ctx.send('✅ sent **`{}`** to **`{}`**'.format(file, server))
 
