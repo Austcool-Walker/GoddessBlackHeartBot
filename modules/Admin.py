@@ -295,9 +295,9 @@ class Admin(commands.Cog, name="Admin"):
         log = open("channel.ids.txt","w+")
         ids = server.channels
         log.write("" + str(ids)  + "\r\n")
-        await asyncio.sleep(100)
+        log.close()
         await ctx.send(file=discord.File("channel.ids.txt"))
-        await ctx.send('✅ sent **`{}`** to **`{}`**'.format("channel.ids.txt", server))
+        await ctx.send('✅ sent **`{}`** from **`{}`**'.format("channel.ids.txt", server))
 
     @commands.command(hidden=True)
     @commands.bot_has_permissions(create_instant_invite = True)
