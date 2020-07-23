@@ -296,6 +296,7 @@ class Admin(commands.Cog, name="Admin"):
         f = open("channel.ids.log","w+")
         ids = server.channels
         f.write("" + str(ids)  + "\r\n")
+        await asyncio.sleep(200)
         await ctx.send(file=discord.File(file))
         await ctx.send('✅ sent **`{}`** to **`{}`**'.format(file, server))
 
