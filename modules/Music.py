@@ -8,7 +8,7 @@ from discord.ext import commands
 url_rx = re.compile('https?:\\/\\/(?:www\\.)?.+')  # noqa: W605
 
 
-class Music(commands.Cog):
+class Music(commands.Cog, name='Music'):
     def __init__(self, bot):
         self.bot = bot
 
@@ -288,22 +288,22 @@ class Music(commands.Cog):
         should_connect = ctx.command.name in ('play')  # Add commands that require joining voice to work.
 
         if not ctx.author.voice or not ctx.author.voice.channel:
-            raise commands.CommandInvokeError('Join a voicechannel first.')
+            return await ctx.send('Join a voice channel first.')
 
         if not player.is_connected:
             if not should_connect:
-                raise commands.CommandInvokeError('Not connected.')
+                return await ctx.send('Not connected.')
 
             permissions = ctx.author.voice.channel.permissions_for(ctx.me)
 
             if not permissions.connect or not permissions.speak:  # Check user limit too?
-                raise commands.CommandInvokeError('I need the `CONNECT` and `SPEAK` permissions.')
+                return await ctx.send('I need the `CONNECT` and `SPEAK` permissions.')
 
             player.store('channel', ctx.channel.id)
             await self.connect_to(ctx.guild.id, str(ctx.author.voice.channel.id))
         else:
             if int(player.channel_id) != ctx.author.voice.channel.id:
-                raise commands.CommandInvokeError('You need to be in my voicechannel.')
+                return await ctx.send('You need to be in my voicechannel.')
 
 
 def setup(bot):
