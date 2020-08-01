@@ -35,9 +35,6 @@ class Miscellaneous(commands.Cog, name="Miscellaneous"):
             pass
         await msg.send(embed=embed)
 
-    @commands..command()
-    async def remindme(self, ctx, s: str, m: str, h: str, m: str, y: str,)
-
 
     @commands.command()
     async def uptime(self, ctx):
