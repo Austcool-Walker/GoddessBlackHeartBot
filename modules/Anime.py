@@ -103,42 +103,42 @@ class anime(commands.Cog):
         msg = f'{random.choice(nepnep)} {random.choice(neps)}'
         await ctx.send(msg)
 
-    @commands.command(aliases=['headpat'])
-    async def pat(self, ctx, member: discord.Member = None):
-        '''/r/headpats Pat Pat Pat :3
-
-        Beispiel:
-        -----------
-
-        :pat @Der-Eddy#6508
-        '''
-        gifs = ['https://gfycat.com/PoisedWindingCaecilian',
-                'https://cdn.awwni.me/sou1.jpg',
-                'https://i.imgur.com/Nzxa95W.gifv',
-                'https://cdn.awwni.me/sk0x.png',
-                'https://i.imgur.com/N0UIRkk.png',
-                'https://cdn.awwni.me/r915.jpg',
-                'https://i.imgur.com/VRViMGf.gifv',
-                'https://i.imgur.com/73dNfOk.gifv',
-                'https://i.imgur.com/UXAKjRc.jpg',
-                'https://i.imgur.com/dzlDuNs.jpg',
-                'https://i.imgur.com/hPR7SOt.gif',
-                'https://i.imgur.com/IqGRUu4.gif',
-                'https://68.media.tumblr.com/f95f14437809dfec8057b2bd525e6b4a/tumblr_omvkl2SzeK1ql0375o1_500.gif',
-                'https://i.redd.it/0ffv8i3p1vrz.jpg',
-                'http://i.imgur.com/3dzA6OU.png',
-                'http://i.imgur.com/vkFKabZ.jpg',
-                'https://i.imgur.com/Lb4p20s.jpg',
-                'https://cdn.awwni.me/snot.jpg',
-                'https://i.imgur.com/5yEOa6u.jpg',
-                'https://i.redd.it/dc7oebkfsetz.jpg']
-
-        if member == ctx.me:
-            msg = f'Arigato {ctx.author.mention} <:Hiding:322410632517517324> \n{random.choice(gifs)}'
-            await ctx.send(msg)
-        elif member is not None:
-            msg = f'{ctx.author.mention} tätschelt dich {member.mention} :3 \n{random.choice(gifs)}'
-            await ctx.send(msg)
+#    @commands.command(aliases=['headpat'])
+#    async def pat(self, ctx, member: discord.Member = None):
+#        '''/r/headpats Pat Pat Pat :3
+#
+#        Beispiel:
+#        -----------
+#
+#        :pat @Der-Eddy#6508
+#        '''
+#        gifs = ['https://gfycat.com/PoisedWindingCaecilian',
+#                'https://cdn.awwni.me/sou1.jpg',
+#                'https://i.imgur.com/Nzxa95W.gifv',
+#                'https://cdn.awwni.me/sk0x.png',
+#                'https://i.imgur.com/N0UIRkk.png',
+#                'https://cdn.awwni.me/r915.jpg',
+#                'https://i.imgur.com/VRViMGf.gifv',
+#                'https://i.imgur.com/73dNfOk.gifv',
+#                'https://i.imgur.com/UXAKjRc.jpg',
+#                'https://i.imgur.com/dzlDuNs.jpg',
+#                'https://i.imgur.com/hPR7SOt.gif',
+#                'https://i.imgur.com/IqGRUu4.gif',
+#                'https://68.media.tumblr.com/f95f14437809dfec8057b2bd525e6b4a/tumblr_omvkl2SzeK1ql0375o1_500.gif',
+#                'https://i.redd.it/0ffv8i3p1vrz.jpg',
+#                'http://i.imgur.com/3dzA6OU.png',
+#                'http://i.imgur.com/vkFKabZ.jpg',
+#                'https://i.imgur.com/Lb4p20s.jpg',
+#                'https://cdn.awwni.me/snot.jpg',
+#                'https://i.imgur.com/5yEOa6u.jpg',
+#                'https://i.redd.it/dc7oebkfsetz.jpg']
+#
+#        if member == ctx.me:
+#            msg = f'Arigato {ctx.author.mention} <:Hiding:322410632517517324> \n{random.choice(gifs)}'
+#            await ctx.send(msg)
+#        elif member is not None:
+#            msg = f'{ctx.author.mention} tätschelt dich {member.mention} :3 \n{random.choice(gifs)}'
+#            await ctx.send(msg)
 
     @commands.command(aliases=['rate', 'waifu'])
     async def ratewaifu(self, ctx, *, waifuName: str):
