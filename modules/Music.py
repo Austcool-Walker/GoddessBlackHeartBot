@@ -58,7 +58,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def play(self, ctx, *, query: str):
         """ Searches and plays a song from a given query. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         query = query.strip('<>')
 
@@ -95,7 +95,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def seek(self, ctx, *, seconds: int):
         """ Seeks to a given position in a track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         track_time = player.position + (seconds * 1000)
         await player.seek(track_time)
@@ -106,7 +106,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def skip(self, ctx):
         """ Skips the current track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_playing:
             return await ctx.send('Not playing.')
@@ -118,7 +118,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def stop(self, ctx):
         """ Stops the player and clears its queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_playing:
             return await ctx.send('Not playing.')
@@ -131,7 +131,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def now(self, ctx):
         """ Shows some stats about the currently playing song. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.current:
             return await ctx.send('Nothing playing.')
@@ -151,7 +151,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def queue(self, ctx, page: int = 1):
         """ Shows the player's queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.queue:
             return await ctx.send('Nothing queued.')
@@ -175,7 +175,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def pause(self, ctx):
         """ Pauses/Resumes the current track. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_playing:
             return await ctx.send('Not playing.')
@@ -191,7 +191,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def volume(self, ctx, volume: int = None):
         """ Changes the player's volume (0-1000). """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not volume:
             return await ctx.send(f'🔈 | {player.volume}%')
@@ -203,7 +203,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def shuffle(self, ctx):
         """ Shuffles the player's queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         if not player.is_playing:
             return await ctx.send('Nothing playing.')
 
@@ -214,7 +214,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def repeat(self, ctx):
         """ Repeats the current song until the command is invoked again. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_playing:
             return await ctx.send('Nothing playing.')
@@ -226,7 +226,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def remove(self, ctx, index: int):
         """ Removes an item from the player's queue with the given index. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.queue:
             return await ctx.send('Nothing queued.')
@@ -242,7 +242,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def find(self, ctx, *, query):
         """ Lists the first 10 search results from a given query. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not query.startswith('ytsearch:') and not query.startswith('scsearch:'):
             query = 'ytsearch:' + query
@@ -267,7 +267,7 @@ class Music(commands.Cog, name='Music'):
     @commands.guild_only()
     async def disconnect(self, ctx):
         """ Disconnects the player from the voice channel and clears its queue. """
-        player = self.bot.lavalink.players.get(ctx.guild.id)
+        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_connected:
             return await ctx.send('Not connected.')
@@ -282,7 +282,7 @@ class Music(commands.Cog, name='Music'):
 
     async def ensure_voice(self, ctx):
         """ This check ensures that the bot and command author are in the same voicechannel. """
-        player = self.bot.lavalink.players.create(ctx.guild.id, endpoint=str(ctx.guild.region))
+        player = self.bot.lavalink.player_manager.create(ctx.guild.id, endpoint=str(ctx.guild.region))
         # Create returns a player if one exists, otherwise creates.
 
         should_connect = ctx.command.name in ('play')  # Add commands that require joining voice to work.
