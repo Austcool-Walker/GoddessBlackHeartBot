@@ -174,7 +174,7 @@ class Fun(commands.Cog, name="Fun"):
 
     @commands.command()
     async def randomquote(self, ctx):
-        quote = self.quotes[str(random.randint(0, 27))]
+        quote = self.quotes[str(random.randint(0, 32))]
         await ctx.send(quote)
 
     def getImage(self, url):
