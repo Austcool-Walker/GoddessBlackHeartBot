@@ -164,7 +164,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
             await context.send("You cannot use this command in private messages.")
         else:
             await context.send("An error has occurred, and has been reported to the developer.")
-            c = self.get_channel(768184896598310912)
+            c = self.get_channel(768186647958519849)
             await c.send(f'Error in command {context.command}:\n```py\n{exception}\n```')
 
 #    async def status_task(self):
@@ -179,7 +179,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         if self.usedatabase:
             sql = "INSERT INTO guilds (id, name, prefix) VALUES ($1, $2, $3)"
             await self.db.execute(sql, guild.id, guild.name, self.config['prefix'])
-        channel = self.get_channel(752585771994710022)
+        channel = self.get_channel(768186647958519849)
         embed = discord.Embed(title="Guild joined!", color=discord.Colour.blue(),
                               description="We have joined a guild, bringing us to {} guilds!".format(len(self.guilds)))
         embed.add_field(name="Guild name:", value=guild.name)
