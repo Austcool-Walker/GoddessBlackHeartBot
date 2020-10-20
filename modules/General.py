@@ -173,7 +173,7 @@ class General(commands.Cog, name="General"):
 
     @commands.command()
     async def suggest(self, ctx, *, report: str):
-        channel = self.bot.get_channel(752577635795861504)
+        channel = self.bot.get_channel(768184952524898335)
         color = discord.Colour.blue()
         embed = discord.Embed(color=color, title="Suggestion!", description="We got a suggestion from {}".format(ctx.message.author))
         embed.add_field(name="Suggestion: ", value=report)
@@ -182,7 +182,7 @@ class General(commands.Cog, name="General"):
 
     @commands.command()
     async def report(self, ctx, *, report: str):
-        channel = self.bot.get_channel(752577635795861504)
+        channel = self.bot.get_channel(768184952524898335)
         color = discord.Colour.red()
         embed = discord.Embed(color=color, title="Bug report!", description="We got a bug report from {}".format(ctx.message.author))
         embed.add_field(name="Full report: ", value=report)
