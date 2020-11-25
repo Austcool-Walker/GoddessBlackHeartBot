@@ -2,7 +2,7 @@
 
 ~~Axiro is a discord bot, designed to be weird and fun at the same time, as proven from this [Reddit thread](https://www.reddit.com/r/softwaregore/comments/ayfcbe/and_you_thought_student_debt_was_bad_try_discord/).~~
 
-You can join the official server [here](https://discord.gg/veVDS47), or invite the bot with this [link](https://discordapp.com/api/oauth2/authorize?client_id=693568262813909072&permissions=8&scope=bot).
+You can join the official server [here](https://discord.gg/veVDS47), or invite the bot with this [link](https://discord.com/oauth2/authorize?client_id=762890120268480523&permissions=8&scope=bot).
 
 ## Features:
 
