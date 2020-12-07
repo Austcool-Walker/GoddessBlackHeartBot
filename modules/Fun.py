@@ -11,7 +11,8 @@ class Fun(commands.Cog, name="Fun"):
 
     def __init__(self, bot):
         self.bot = bot
-        self.quotes = json.loads(open('quotes.json', 'r', encoding='utf-8').read())
+#        self.quotes = json.loads(open('quotes.json', 'r', encoding='utf-8').read())
+        self.quotes = json.loads(open('quotes.json', 'r').read())
 
 #    @commands.command()
 #    async def meme(self, meme):
@@ -175,7 +176,8 @@ class Fun(commands.Cog, name="Fun"):
     @commands.command()
     async def randomquote(self, ctx):
         quote = self.quotes[str(random.randint(0, 32))]
-        await ctx.send(quote.encode("utf-8"))
+#        await ctx.send(quote.encode("utf-8"))
+        await ctx.send(quote)
 
     def getImage(self, url):
         response = requests.get(url)
