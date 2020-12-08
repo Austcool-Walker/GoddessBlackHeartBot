@@ -164,7 +164,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
             await context.send("You cannot use this command in private messages.")
         else:
             await context.send("An error has occurred, and has been reported to the developer.")
-            c = self.get_channel(768184896598310912)
+            c = self.get_channel(785694261369634838)
             await c.send(f'Error in command {context.command}:\n```py\n{exception}\n```')
 
 #    async def status_task(self):
