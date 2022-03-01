@@ -1,5 +1,5 @@
 lavalink
-aiohttp==3.6.0
+aiohttp==3.7.4
 asyncpg
 requests
 lxml
