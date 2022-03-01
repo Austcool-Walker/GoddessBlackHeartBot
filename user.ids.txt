@@ -1,0 +1,1 @@
+[<Member id=802253583776350279 name='Austcool-Walker' discriminator='0847' bot=True nick='austin' guild=<Guild id=897155544949878854 name='Religion Anthropology Philosophy Entropy' shard_id=0 chunked=False member_count=80>>]

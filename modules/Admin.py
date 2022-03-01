@@ -143,6 +143,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
+    @commands.is_owner()
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
         if ctx.author.id in AJW_Admins:
             '''Changes the game currently playing (BOT OWNER ONLY)'''
@@ -171,6 +172,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def changestatus(self, ctx, status: str):
         if ctx.author.id in AJW_Admins:
             '''Changes bot online status (BOT OWNER ONLY)'''
