@@ -4,7 +4,7 @@ asyncpg
 requests
 lxml
 discord
-discord.py
+discord.py==1.5.0
 dataIO
 clint
 config
