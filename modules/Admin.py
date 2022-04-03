@@ -96,6 +96,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ command **`{}`** ran'.format(cmd))
 
     @commands.command()
+    @commands.is_owner()
     async def sfuser(self, ctx, userid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to user from Hard Drive'''
@@ -104,6 +105,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ sent **`{}`** to **`<#{}>`**'.format(path, userid))
 
     @commands.command()
+    @commands.is_owner()
     async def sfch(self, ctx, channelid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to channel from Hard Drive'''
@@ -194,6 +196,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** to another status: **{discordStatus}**')
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def name(self, ctx, name):
         if ctx.author.id in AJW_Admins:
             '''changes bot global name (BOT OWNER ONLY)'''
@@ -210,6 +213,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['guilds'])
+    @commands.is_owner()
     async def servers(self, ctx):
         '''Lists the current connected guilds (BOT OWNER ONLY)'''
         msg = '```js\n'
@@ -221,6 +225,7 @@ class Admin(commands.Cog, name="Admin"):
 
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def leaveserver(self, ctx, guildid: str):
         if ctx.author.id in AJW_Admins:
             '''Leaves a server (BOT OWNER ONLY)
@@ -242,6 +247,7 @@ class Admin(commands.Cog, name="Admin"):
 
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def echo(self, ctx, channel: str, *message: str):
         '''Outputs a message as a bot on a specific channel (BOT OWNER ONLY)'''
         ch = self.bot.get_channel(int(channel))
@@ -266,6 +272,7 @@ class Admin(commands.Cog, name="Admin"):
         else:
             await ctx.send(":x: Couldn't find anyone")
     @commands.command(hidden=True)
+    @commands.is_owner()
     @commands.bot_has_permissions(manage_nicknames = True)
     async def nickname(self, ctx, *name):
         '''Changes the server nickname from the bot (BOT OWNER ONLY)'''
