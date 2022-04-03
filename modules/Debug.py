@@ -70,6 +70,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
         return content.strip('` \n')
 
     @commands.command()
+    @commands.is_owner()
     async def eval(self, ctx, *, message: str):
         if ctx.author.id in AJW_Admins:
             env = {
@@ -116,6 +117,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
                     await ctx.send(f'```py\n{value}{ret}\n```')
 
     @commands.command()
+    @commands.is_owner()
     async def pull(self, ctx):
         if ctx.author.id in AJW_Admins:
             c = subprocess.call(('git', 'pull'))
@@ -125,6 +127,7 @@ class Debug(commands.Cog, command_attrs=dict(hidden=True), name="Debug"):
             await ctx.send("Successfully updated from Git.")
 
     @commands.command()
+    @commands.is_owner()
     async def download(self, ctx, link):
         if ctx.author.id in AJW_Admins:        
             file = [f for f in listdir('./modules/') if isfile(join('./modules/', f))]
