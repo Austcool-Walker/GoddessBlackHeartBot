@@ -11,6 +11,7 @@ class Spam(commands.Cog, name="Spam"):
 		self.bot = bot
 
 	@commands.command()
+	@commands.is_owner()
 	async def dmspam(self, ctx, userid: str, *message: str):
 		time = 1
 		dm = self.bot.get_user(int(userid))
@@ -115,6 +116,7 @@ class Spam(commands.Cog, name="Spam"):
 
 
 	@commands.command()
+	@commands.is_owner()
 	async def chspam(self, ctx, channel: str, *message: str):
 		time = 1
 		ch = self.bot.get_channel(int(channel))
