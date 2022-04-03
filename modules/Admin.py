@@ -49,6 +49,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** Restart Successful!')
 
     @commands.command()
+    @commands.is_owner()
     async def ls(self, ctx, path: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
@@ -56,6 +57,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ list of files in **`{}`**'.format(path))
 
     @commands.command()
+    @commands.is_owner()
     async def cat(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
@@ -65,6 +67,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ listed contents in **`{}`**'.format(file))
 
     @commands.command()
+    @commands.is_owner()
     async def touch(self, ctx, text: str, file: str):
         if ctx.author.id in AJW_Admins:
             '''Writes Text to Files from path on Hard Drive'''
@@ -73,6 +76,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
     @commands.command()
+    @commands.is_owner()
     async def rm(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Removes Files from path on Hard Drive'''
@@ -80,6 +84,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ removed **`{}`**'.format(file))
 
     @commands.command()
+    @commands.is_owner()
     async def cmd(self, ctx, cmd: str):
         if ctx.author.id in AJW_Admins:
             '''Runs command from the computers command and directs the output to Discord'''
@@ -294,6 +299,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ Server icon from **`{}`**'.format(guildid))
 
     @commands.command()
+    @commands.is_owner()
     async def lschannels(self, ctx, guildid: str):
         logfile = 'channel.ids.txt'
         server = self.bot.get_guild(int(guildid))
@@ -305,6 +311,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ sent **`{}`** from **`{}`**'.format(logfile, server))
 
     @commands.command()
+    @commands.is_owner()
     async def lsusers(self, ctx, guildid: str):
         logfile = 'user.ids.txt'
         server = self.bot.get_guild(int(guildid))
