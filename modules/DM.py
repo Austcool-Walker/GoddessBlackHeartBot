@@ -11,6 +11,7 @@ class DM(commands.Cog, name="DM"):
 		self.bot = bot
 
 	@commands.command()
+	@commands.is_owner()
 	async def pm(self, ctx, users: Greedy[User], *, message: str):
 		for user in users:
 			await user.send(message)
