@@ -86,7 +86,7 @@ class General(commands.Cog, name="General"):
         embed.add_field(name="Version: ", value="女神ブラックハート: **{}**\nPython: **{}**\nDiscord.py: **{}**"
                         .format(self.bot.version_code, sys.version, discord.__version__))
         embed.add_field(name="Source Code", value="https://github.com/Austcool-Walker/GoddessBlackHeartBot.git")
-        embed.add_field(name="Discord Server", value="https://discord.gg/XtKg4UTzEb")
+        embed.add_field(name="Discord Server", value="https://discord.gg/3hWhWaBdCw")
         embed.set_image(url="https://avatars0.githubusercontent.com/u/61804916?s=400&v=4")
         embed.add_field(name="Invite", value="[Invite link](https://discord.com/api/oauth2/authorize?client_id=791806413503463445&permissions=8&scope=bot)")
         embed.set_footer(icon_url=beep.message.author.avatar_url,

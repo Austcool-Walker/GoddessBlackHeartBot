@@ -1,8 +1,7 @@
 lavalink
-aiohttp==3.6.0
+aiohttp
 asyncpg
 requests
-lxml
 discord
 discord.py==1.5.0
 dataIO

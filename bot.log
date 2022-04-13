@@ -67,3 +67,13 @@ Error in echo: Command raised an exception: ValueError: invalid literal for int(
 Error in changegame: gameType is a required argument that is missing.
 Error in restart: Command raised an exception: RuntimeError: Session is closed
 Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Error in test: Command raised an exception: AttributeError: 'GoddessBlackHeartBot' object has no attribute 'AppInfo'
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Error in test: Command raised an exception: AttributeError: 'GoddessBlackHeartBot' object has no attribute 'AppInfo'
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.

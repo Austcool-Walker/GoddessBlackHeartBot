@@ -1,5 +1,5 @@
 {
-    "discordtoken": "",
+    "discordtoken": "DiscordBot token",
     "newsapitoken": "newsapi token",
     "lavalinkpass": "youshallnotpass",
     "dbpass": "Database password",

@@ -26,7 +26,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
 
         dbpass = self.config['dbpass']
         dbuser = self.config['dbuser']
-        govinfo = {"user": dbuser, "password": dbpass, "database": "GoddessBlackHeart", "host": "localhost", "max_size": 10}
+        govinfo = {"user": dbuser, "password": dbpass, "database": "GoddessBlackHeartBot", "host": "localhost", "max_size": 10}
         self.usedatabase = True
 
         async def _init_db():
