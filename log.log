@@ -1,0 +1,50 @@
+2022-04-13 19:28:39.970 EDT [10222] LOG:  starting PostgreSQL 14.2 on arm-unknown-linux-androideabi, compiled by Android (7714059, based on r416183c1) clang version 12.0.8 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee), 32-bit
+2022-04-13 19:28:40.157 EDT [10222] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-04-13 19:28:40.158 EDT [10222] LOG:  listening on IPv6 address "::1", port 5432
+2022-04-13 19:28:40.173 EDT [10222] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2022-04-13 19:28:40.400 EDT [10230] LOG:  database system was interrupted; last known up at 2022-04-13 19:09:08 EDT
+2022-04-13 19:28:42.444 EDT [10230] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-04-13 19:28:42.456 EDT [10230] LOG:  redo starts at 0/16FC590
+2022-04-13 19:28:42.457 EDT [10230] LOG:  invalid record length at 0/16FC5C8: wanted 24, got 0
+2022-04-13 19:28:42.457 EDT [10230] LOG:  redo done at 0/16FC590 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-04-13 19:28:42.523 EDT [10222] LOG:  database system is ready to accept connections
+2022-04-13 19:31:22.158 EDT [10559] FATAL:  role "noire" does not exist
+2022-04-13 19:32:16.915 EDT [10650] FATAL:  role "noire" does not exist
+2022-04-13 20:57:49.456 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:50.141 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:50.141 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:50.822 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:50.822 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:51.555 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:51.558 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:52.255 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:52.255 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:52.937 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:52.937 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:53.627 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:53.628 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:54.307 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:54.308 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:54.990 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:54.990 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:55.668 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:55.668 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:56.409 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:56.410 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:57.114 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:57.114 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:57.792 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:57.792 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:58.473 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:58.473 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:59.170 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:59.171 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:59.874 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:57:59.875 EDT [10237] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2022-04-13 20:58:00.310 EDT [10236] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-04-13 20:58:21.742 EDT [10222] LOG:  could not open file "postmaster.pid": No such file or directory
+2022-04-13 20:58:21.743 EDT [10222] LOG:  performing immediate shutdown because data directory lock file is invalid
+2022-04-13 20:58:21.744 EDT [10222] LOG:  received immediate shutdown request
+2022-04-13 20:58:21.747 EDT [10222] LOG:  could not open file "postmaster.pid": No such file or directory
+2022-04-13 20:58:21.756 EDT [10237] LOG:  could not open temporary statistics file "pg_stat/global.tmp": No such file or directory
+2022-04-13 20:58:21.815 EDT [10222] LOG:  database system is shut down

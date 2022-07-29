@@ -1,9 +1,9 @@
 {
-    "discordtoken": "DiscordBot token",
+    "discordtoken": "Discord Bot Token Here",
     "newsapitoken": "newsapi token",
     "lavalinkpass": "youshallnotpass",
-    "dbpass": "Database password",
-    "dbuser": "Database username",
+    "dbpass": "noireXVIII",
+    "dbuser": "noire",
     "dbl_token": "DiscordBots.org token",
     "prefix": "X",
     "lavaport": "1983"

@@ -73,7 +73,7 @@ class General(commands.Cog, name="General"):
     async def time(self, ctx):
         now = datetime.datetime.now()
         msg = ("Current date and time : ")
-        timeline = (now.strftime("%Y.%m.%d %H:%M:%S"))
+        timeline = (now.strftime("%Y.%m.%d %I:%M:%S %p Military Time %H:%M:%S"))
         await ctx.send('**`{}`**'.format(msg))
         await ctx.send('**`{}`**'.format(timeline))
 

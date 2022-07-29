@@ -9,3 +9,4 @@ clint
 config
 timestring
 loadconfig
+yarl==1.0
