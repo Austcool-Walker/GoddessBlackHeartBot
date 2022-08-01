@@ -119,3 +119,128 @@
 2022-07-29 02:58:51.068000 : Austcool's Pesky BotNet : **`2022.07.28 10:58:50 PM Military Time 22:58:50`**
 2022-07-29 02:59:19.904000 : AugustusXVIII : <@380638507955257345> first GBHB update in awhile
 2022-07-29 02:59:28.653000 : AugustusXVIII : I'm gonna push to git
+2022-07-30 04:26:19.413000 : AugustusXVIII : Xcmd "cat /etc/lsb-release"
+2022-07-30 04:26:20.091000 : Austcool's Pesky BotNet : ```py
+b'DISTRIB_ID=Ubuntu\nDISTRIB_RELEASE=18.04\nDISTRIB_CODENAME=bionic\nDISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"\n'```
+2022-07-30 04:26:20.428000 : Austcool's Pesky BotNet : ✅ command **`cat /etc/lsb-release`** ran
+2022-07-30 04:26:27.695000 : AugustusXVIII : Xtime
+2022-07-30 04:26:27.917000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-07-30 04:26:28.616000 : Austcool's Pesky BotNet : **`2022.07.30 04:26:27 AM Military Time 04:26:27`**
+2022-07-30 18:35:29.105000 : Fosscord #gitlog : 
+2022-07-30 18:43:35.686000 : Aliuwucord #official-discord-updates : 
+2022-07-30 18:54:05.242000 : Fosscord #gitlog : 
+2022-07-30 18:54:05.323000 : Fosscord #gitlog : 
+2022-07-30 19:03:11.513000 : Fosscord #gitlog : 
+2022-07-30 19:52:39.371000 : Fosscord #gitlog : 
+2022-07-30 19:52:39.500000 : Fosscord #gitlog : 
+2022-07-30 19:56:26.783000 : Fosscord #gitlog : 
+2022-07-30 19:58:56.614000 : Aliuwucord #official-discord-updates : 
+2022-07-30 23:27:08.503000 : AugustusXVIII : Xtime
+2022-07-30 23:27:09.276000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-07-30 23:27:09.648000 : Austcool's Pesky BotNet : **`2022.07.30 11:27:08 PM Military Time 23:27:08`**
+2022-07-30 23:27:15.866000 : AugustusXVIII : Xinfo
+2022-07-30 23:27:16.002000 : Austcool's Pesky BotNet : 
+2022-07-31 01:35:01.296000 : AugustusXVIII : Xtest
+2022-07-31 01:35:01.923000 : Austcool's Pesky BotNet : Test
+2022-07-31 01:35:02.177000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-07-31 01:35:10.565000 : AugustusXVIII : Xservers
+2022-07-31 01:35:10.709000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    27| Austin's Empire 1.1 (formally known as) [N3RDP0RT4L HQ] | None
+```
+2022-07-31 01:35:26.610000 : AugustusXVIII : Xls ./
+2022-07-31 01:35:27.195000 : Austcool's Pesky BotNet : ['.git', '.vscode', 'Utils', 'chatlogs', 'modules', 'natives', '.databases', 'channel.ids.txt', '.DS_Store', '.gitignore', 'GoddessBlackHeartBot.code-workspace', 'GoddessBlackHeartBot.py', 'GoddessBlackHeartBot.py.old.bak', 'GoddessBlackHeartBot.service', 'GoddessBlackHeartBot.sh', 'INSTALL.md', 'LICENSE.txt', 'Lavalink.jar', 'Lavalink.service', 'Lavalink.sh', 'README.md', 'application.yml', 'bot.log', 'config.json', 'discord.log', 'download-openjdk.py', 'help.json', 'log.log', 'logfile', 'prefixes.json', 'quotes.json', 'requirements.txt', 'status.json', 'user.ids.txt', 'クイーンブラックハート-1800x1800.png']
+2022-07-31 01:35:27.407000 : Austcool's Pesky BotNet : ✅ list of files in **`./`**
+2022-07-31 02:21:34.666000 : Fosscord #gitlog : 
+2022-07-31 04:04:36.594000 : AugustusXVIII : Xhost
+2022-07-31 04:04:37.499000 : Austcool's Pesky BotNet : 
+2022-07-31 07:24:50.232000 : Fosscord #gitlog : 
+2022-07-31 10:54:56.562000 : Fosscord #gitlog : 
+2022-07-31 10:55:43.570000 : Fosscord #gitlog : 
+2022-07-31 11:13:47.422000 : Fosscord #gitlog : 
+2022-07-31 11:13:47.961000 : Fosscord #gitlog : 
+2022-07-31 11:20:09.075000 : AugustusXVIII : Xtime
+2022-07-31 11:20:09.914000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-07-31 11:20:10.250000 : Austcool's Pesky BotNet : **`2022.07.31 11:20:08 AM Military Time 11:20:08`**
+2022-07-31 11:24:07.922000 : AugustusXVIII : Xcmd "cat /etc/lsb-release"
+2022-07-31 11:24:09.317000 : Austcool's Pesky BotNet : ```py
+b'DISTRIB_ID=Ubuntu\nDISTRIB_RELEASE=18.04\nDISTRIB_CODENAME=bionic\nDISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"\n'```
+2022-07-31 11:24:09.513000 : Austcool's Pesky BotNet : ✅ command **`cat /etc/lsb-release`** ran
+2022-07-31 13:15:42.110000 : Fosscord #gitlog : 
+2022-07-31 20:48:08.015000 : AugustusXVIII : Xhost
+2022-07-31 20:48:09.727000 : Austcool's Pesky BotNet : 
+2022-07-31 20:48:15.418000 : AugustusXVIII : Xtime
+2022-07-31 20:48:15.626000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-07-31 20:48:15.900000 : Austcool's Pesky BotNet : **`2022.07.31 08:48:15 PM Military Time 20:48:15`**
+2022-07-31 21:28:57.989000 : AugustusXVIII : Xgame online playing Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]
+2022-07-31 21:28:59.402000 : Austcool's Pesky BotNet : **👌🏼** Changed the status & game to: **online** playing **Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]**
+2022-07-31 21:29:25.346000 : AugustusXVIII : Xtimer
+2022-07-31 21:29:26.120000 : Austcool's Pesky BotNet : You're missing one or more required arguments. Refer to ``Xhelp <command>`` for help.
+2022-07-31 21:30:23.440000 : AugustusXVIII : Timer 12w shit
+2022-07-31 21:30:34.736000 : AugustusXVIII : Xtimer 12w shit
+2022-07-31 21:30:35.571000 : Austcool's Pesky BotNet : Wrong time specified, e.g. `4h`, `3m` or `2s`
+2022-07-31 21:30:35.927000 : Austcool's Pesky BotNet : You used an invalid argument. Refer to ``Xhelp <command>`` for help.
+2022-07-31 21:30:51.802000 : AugustusXVIII : Xtimer 10h shit
+2022-07-31 21:30:52.513000 : Austcool's Pesky BotNet : :alarm_clock: Cooldown! Try it in 12.93s again
+2022-07-31 21:30:52.835000 : Austcool's Pesky BotNet : Please slow down! (Rate-limited) :watch:
+You can use this command in 0 hours, 0 minutes, and 12 seconds.
+2022-07-31 21:31:05.470000 : AugustusXVIII : Xtimer 10h shit
+2022-07-31 21:31:05.677000 : Austcool's Pesky BotNet : :timer: Ok <@318528448320634881>, I am setting a timer for `shit` on 10 hourn.
+2022-07-31 21:31:20.857000 : AugustusXVIII : Xping
+2022-07-31 21:31:21.626000 : Austcool's Pesky BotNet : Pang! ``Time: 623ms``
+2022-07-31 21:31:25.789000 : AugustusXVIII : Xping
+2022-07-31 21:31:26.181000 : Austcool's Pesky BotNet : Whoa! ``Time: 161ms``
+2022-07-31 21:31:30.096000 : AugustusXVIII : Xping
+2022-07-31 21:31:30.428000 : Austcool's Pesky BotNet : Ack! ``Time: 134ms``
+2022-07-31 22:45:09.071000 : AugustusXVIII : Alright
+2022-07-31 22:45:36.683000 : AugustusXVIII : The alt isn't used much I think it's fine as is.
+2022-07-31 22:46:06.251000 : AugustusXVIII : Xping
+2022-07-31 22:46:07.290000 : Austcool's Pesky BotNet : Ack! ``Time: 900ms``
+2022-07-31 22:46:43.861000 : AugustusXVIII : My rootfs is corrupted partially apt refuses to install crap but that fine
+2022-07-31 22:47:00.063000 : AugustusXVIII : I only need python3.8 for the bot rn
+2022-07-31 22:47:24.724000 : AugustusXVIII : So therefore it's not a big deal that it's not working for me rn
+2022-07-31 22:50:13.955000 : AugustusXVIII : Xgame online playing Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]
+2022-07-31 22:50:15.107000 : Austcool's Pesky BotNet : **👌🏼** Changed the status & game to: **online** playing **Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]**
+2022-08-01 01:13:55.695000 : AugustusXVIII : Xtime
+2022-08-01 01:13:56.470000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 01:13:56.753000 : Austcool's Pesky BotNet : **`2022.08.01 01:13:55 AM Military Time 01:13:55`**
+2022-08-01 01:14:32.980000 : AugustusXVIII : Xtime
+2022-08-01 01:14:33.725000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 01:14:34.127000 : Austcool's Pesky BotNet : **`2022.08.01 01:14:33 AM Military Time 01:14:33`**
+2022-08-01 01:29:06.578000 : AugustusXVIII : Xtime
+2022-08-01 01:29:06.829000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 01:29:07.122000 : Austcool's Pesky BotNet : **`2022.07.31 09:29:06 PM Military Time 21:29:06`**
+2022-08-01 01:29:15.488000 : AugustusXVIII : Fixed the timezoneing
+2022-08-01 01:30:37.201000 : AugustusXVIII : Stupid thing needed tzdata 
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+#cornfart
+2022-08-01 01:31:30.720000 : AugustusXVIII : Xtime
+2022-08-01 01:31:31.567000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 01:31:31.810000 : Austcool's Pesky BotNet : **`2022.07.31 09:31:30 PM Military Time 21:31:30`**
+2022-08-01 01:32:19.487000 : AugustusXVIII : Xgame online playing Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]
+2022-08-01 01:32:20.567000 : Austcool's Pesky BotNet : **👌🏼** Changed the status & game to: **online** playing **Stable Guarding Several StrongHolds! [N3RDP0RT4L HQ]**
+2022-08-01 02:18:30.026000 : Fosscord #gitlog : 
+2022-08-01 07:38:02.579000 : Fosscord #gitlog : 
+2022-08-01 07:38:47.399000 : Fosscord #gitlog : 
+2022-08-01 10:05:44.672000 : Fosscord #gitlog : 
+2022-08-01 10:39:39.812000 : Fosscord #gitlog : 
+2022-08-01 11:24:11.526000 : 𝕾atanic_Overlord : December 9,1935
+December 9, 1940
+December 9,1941
+December 9,1944
+Also known as International Anti-corruption Day
+2022-08-01 14:13:16.616000 : Kashima : 
+2022-08-01 14:13:50.533000 : Kashima : 
+2022-08-01 14:14:17.626000 : Kashima : 
+2022-08-01 14:14:44.460000 : Kashima : 
+2022-08-01 14:19:11.761000 : AugustusXVIII : Xservers
+2022-08-01 14:19:12.154000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    27| Austin's Empire 1.1 (formally known as) [N3RDP0RT4L HQ] | None
+```
+2022-08-01 14:19:20.133000 : AugustusXVIII : Xtime
+2022-08-01 14:19:20.323000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 14:19:20.457000 : Austcool's Pesky BotNet : **`2022.08.01 10:19:20 AM Military Time 10:19:20`**
+2022-08-01 14:30:00.838000 : Aliuwucord #official-discord-updates : 
+2022-08-01 15:52:30.845000 : AugustusXVIII : Xinfo
+2022-08-01 15:52:31.693000 : Austcool's Pesky BotNet : 

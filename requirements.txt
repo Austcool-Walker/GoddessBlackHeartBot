@@ -1,5 +1,5 @@
 lavalink
-aiohttp
+aiohttp==3.5.4
 asyncpg
 requests
 discord

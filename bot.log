@@ -5,3 +5,13 @@ Database either not detected or initialized. Starting bot without database conne
 Error in test: Command raised an exception: AttributeError: 'GoddessBlackHeartBot' object has no attribute 'AppInfo'
 Database either not detected or initialized. Starting bot without database connection.
 Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Error in timer: time is a required argument that is missing.
+Error in timer: Wrong time specified, e.g. `4h`, `3m` or `2s`
+Error in timer: You are on cooldown. Try again in 12.93s
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
+Database either not detected or initialized. Starting bot without database connection.
