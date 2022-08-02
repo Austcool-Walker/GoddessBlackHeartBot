@@ -244,3 +244,123 @@ ID                  | Member | Name | Owner
 2022-08-01 14:30:00.838000 : Aliuwucord #official-discord-updates : 
 2022-08-01 15:52:30.845000 : AugustusXVIII : Xinfo
 2022-08-01 15:52:31.693000 : Austcool's Pesky BotNet : 
+2022-08-01 16:18:56.895000 : AugustusXVIII : Xinfo
+2022-08-01 16:18:57.153000 : Austcool's Pesky BotNet : 
+2022-08-01 16:19:15.894000 : AugustusXVIII : Xcat /etc/lsb-release
+2022-08-01 16:19:16.998000 : Austcool's Pesky BotNet : b'DISTRIB_ID=Ubuntu\nDISTRIB_RELEASE=18.04\nDISTRIB_CODENAME=bionic\nDISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"\n'
+2022-08-01 16:19:17.294000 : Austcool's Pesky BotNet : ✅ listed contents in **`/etc/lsb-release`**
+2022-08-01 16:38:26.258000 : AugustusXVIII : Xload Fun
+2022-08-01 16:38:26.854000 : Austcool's Pesky BotNet : ```py
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/GoddessBlackHeartBot/modules/Debug.py", line 41, in load
+    self.bot.load_extension("modules." + module)
+  File "/usr/local/lib/python3.8/dist-packages/discord/ext/commands/bot.py", line 658, in load_extension
+    raise errors.ExtensionAlreadyLoaded(name)
+discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'modules.Fun' is already loaded.
+
+```
+2022-08-01 17:02:56.093000 : AugustusXVIII : Xtime
+2022-08-01 17:02:56.796000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-01 17:02:57.164000 : Austcool's Pesky BotNet : **`2022.08.01 01:02:56 PM Military Time 13:02:56`**
+2022-08-01 17:35:18.374000 : AugustusXVIII : Xrandomquote
+2022-08-01 17:35:19.281000 : Austcool's Pesky BotNet : I'M FINE WITH BREAKING THE LAW IF MEMES ARE INVOLVED!
+
+- ReDitto
+2022-08-01 17:35:28.791000 : 𝕾atanic_Overlord : Bruh
+2022-08-01 17:35:38.268000 : AugustusXVIII : ***sigh....*** memories
+2022-08-01 17:36:19.692000 : AugustusXVIII : finally accompished proper proot support via bionic
+2022-08-01 17:36:53.075000 : AugustusXVIII : the 2 page github releases commit attached of the scripts support  tgz backups
+2022-08-01 17:36:59.202000 : AugustusXVIII : so finally
+2022-08-01 17:37:21.914000 : AugustusXVIII : I can work on getting the lxde desktop installed and working.
+2022-08-01 18:21:07.822000 : FreeStuff #Free to keep : @free-to-keep-ping
+2022-08-01 22:10:05.783000 : CrackWatch #announcements : @everyone free game https://store.steampowered.com/app/1646730/POLE/
+2022-08-01 23:12:12.369000 : AugustusXVIII : 
+2022-08-02 02:23:52.429000 : Fosscord #gitlog : 
+2022-08-02 02:54:58.191000 : AugustusXVIII : Xinfo
+2022-08-02 02:54:58.882000 : Austcool's Pesky BotNet : 
+2022-08-02 03:03:14.564000 : AugustusXVIII : My proot Container this is why I buy android tablets over iOS!
+2022-08-02 03:03:34.269000 : AugustusXVIII : 
+2022-08-02 03:21:14.603000 : AugustusXVIII : Xgame online playing Just watching over the Empire.... 🫡
+2022-08-02 03:21:15.804000 : Austcool's Pesky BotNet : **👌🏼** Changed the status & game to: **online** playing **Just watching over the Empire.... 🫡**
+2022-08-02 03:28:33.261000 : AugustusXVIII : Xtime
+2022-08-02 03:28:33.757000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-02 03:28:33.964000 : Austcool's Pesky BotNet : **`2022.08.01 11:28:33 PM Military Time 23:28:33`**
+2022-08-02 13:52:56.945000 : AugustusXVIII : 
+2022-08-02 13:53:13.569000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:53:14.213000 : Austcool's Pesky BotNet : The Freaking iDroid: Cool. And don't worry. Nobody has considered me human in about 7 years.
+
+- Albert
+2022-08-02 13:53:29.396000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:53:29.908000 : Austcool's Pesky BotNet : Alright. Fine, Reditto. I'll Austcool back in. Also, Austcool, word of advice: Please stop giving me reasons to block you.
+
+- Albert
+2022-08-02 13:53:36.594000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:53:36.751000 : Austcool's Pesky BotNet : I'm a Star 🌟 Shining Brightly in the Distance!....
+
+- Austin (DM's with Albert June 2020)
+2022-08-02 13:53:50.624000 : AugustusXVIII : 
+2022-08-02 13:54:13.074000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:13.579000 : Austcool's Pesky BotNet : I�m going to go to bed because I�m tired and you all are crazy.
+
+- xPickle_
+2022-08-02 13:54:19.861000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:20.054000 : Austcool's Pesky BotNet : allbombson : install gentoo.
+
+- allbombson
+2022-08-02 13:54:27.064000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:27.198000 : Austcool's Pesky BotNet : com.Austcool.Walker.Reborn.V8 : Bust my nuts daddy.
+
+- Austin
+2022-08-02 13:54:35.743000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:36.041000 : Austcool's Pesky BotNet : Damn He's a F--king Simp! (Commented on the AlbertTangF--kPillow.png meme)
+
+- Jlnx102 ~ (Voice Chat [-A- Generation]
+2022-08-02 13:54:43.135000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:43.475000 : Austcool's Pesky BotNet : com.Austcool.Walker.Reborn.V8 : Bust my nuts daddy.
+
+- Austin
+2022-08-02 13:54:49.604000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:49.836000 : Austcool's Pesky BotNet : com.Austin.HasNoFriends.E0L : I need Albert my Asian daddy I love him! ❤️
+
+- Austin
+2022-08-02 13:54:56.652000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:54:56.783000 : Austcool's Pesky BotNet : install gentoo on pentium4 = housefire.
+
+- Austin.
+2022-08-02 13:55:04.186000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:55:04.307000 : Austcool's Pesky BotNet : install gentoo on pentium4 = housefire.
+
+- Austin.
+2022-08-02 13:55:11.458000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:55:11.616000 : Austcool's Pesky BotNet : JAXON QUIT BUILDING PENIS STATUES EVERYWHERE!!
+
+- Albert
+2022-08-02 13:55:18.980000 : AugustusXVIII : Xrandomquote
+2022-08-02 13:55:19.124000 : Austcool's Pesky BotNet : My motto | Austin James Walker [N3RDP0RT4L] ~  We Like to Have A Good Time. I'm just gonna party in my own world and not worry about whats going on around me. 😎
+
+- Austin
+2022-08-02 14:23:23.129000 : AugustusXVIII : Xuptime
+2022-08-02 14:23:23.780000 : Austcool's Pesky BotNet : I have been up for 0 days, 16 hours, 25 minutes, and 31 seconds.
+2022-08-02 14:23:30.588000 : AugustusXVIII : Xtime
+2022-08-02 14:23:30.755000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-02 14:23:31.005000 : Austcool's Pesky BotNet : **`2022.08.02 10:23:30 AM Military Time 10:23:30`**
+2022-08-02 14:29:15.809000 : AugustusXVIII : Xtest
+2022-08-02 14:29:16.414000 : Austcool's Pesky BotNet : Test
+2022-08-02 14:29:16.652000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-02 14:29:29.184000 : AugustusXVIII : Xhelp
+2022-08-02 14:29:29.326000 : Austcool's Pesky BotNet : 
+2022-08-02 14:29:43.693000 : AugustusXVIII : Xchrome
+2022-08-02 14:29:43.864000 : Austcool's Pesky BotNet : The current version of Chrome is 103.0.5060.134
+2022-08-02 14:30:31.558000 : AugustusXVIII : Xwhois <@&1001529166497329194>
+2022-08-02 14:30:32.278000 : Austcool's Pesky BotNet : You used an invalid argument. Refer to ``Xhelp <command>`` for help.
+2022-08-02 14:30:40.510000 : AugustusXVIII : Xwhois <@318528448320634881>
+2022-08-02 14:30:40.852000 : Austcool's Pesky BotNet : 
+2022-08-02 14:31:16.814000 : AugustusXVIII : Xchrome
+2022-08-02 14:31:17.482000 : Austcool's Pesky BotNet : The current version of Chrome is 103.0.5060.134
+2022-08-02 14:31:53.506000 : AugustusXVIII : Xhello
+2022-08-02 14:31:54.135000 : Austcool's Pesky BotNet : :wave: https://cdn.discordapp.com/attachments/102817255661772800/219519729604231168/giphy_3.gif
+2022-08-02 14:33:36.801000 : AugustusXVIII : Xecho 999339448099688549 ***Death to the CCP!!!!!!! Long Live N3RDP0RT4L HQ and the English Capitalist Empire!!!***
+2022-08-02 14:33:37.657000 : Austcool's Pesky BotNet : ***Death to the CCP!!!!!!! Long Live N3RDP0RT4L HQ and the English Capitalist Empire!!!***
+2022-08-02 14:34:20.073000 : AugustusXVIII : 
+2022-08-02 15:00:47.669000 : Aliuwucord #official-discord-updates : 
+2022-08-02 15:51:06.047000 : AugustusXVIII : 
