@@ -10,7 +10,8 @@ import requests
 import subprocess
 
 # Authorized User_ID's
-AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190, 310496481435975693, 542505944223973377, 253864655556968448, 530918840469684225)
+#AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190, 310496481435975693, 542505944223973377, 253864655556968448, 530918840469684225)
+AJW_Admins = (846112982772613171,318528448320634881)
 # Disabled User_ID's
 # 251528237748846605
 
@@ -49,7 +50,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** Restart Successful!')
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def ls(self, ctx, path: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
@@ -58,7 +59,7 @@ class Admin(commands.Cog, name="Admin"):
 
     @commands.command()
     @commands.is_owner()
-    async def cat(self, ctx, file: str):
+#    async def cat(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
             with open(file, 'rb') as f:
@@ -67,7 +68,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ listed contents in **`{}`**'.format(file))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def touch(self, ctx, text: str, file: str):
         if ctx.author.id in AJW_Admins:
             '''Writes Text to Files from path on Hard Drive'''
@@ -76,7 +77,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
     @commands.command()
-    @commands.is_owner()
+ #   @commands.is_owner()
     async def rm(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Removes Files from path on Hard Drive'''
@@ -84,7 +85,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ removed **`{}`**'.format(file))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def cmd(self, ctx, cmd: str):
         if ctx.author.id in AJW_Admins:
             '''Runs command from the computers command and directs the output to Discord'''
@@ -96,7 +97,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ command **`{}`** ran'.format(cmd))
 
     @commands.command()
-    @commands.is_owner()
+ #   @commands.is_owner()
     async def sfuser(self, ctx, userid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to user from Hard Drive'''
@@ -105,7 +106,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ sent **`{}`** to **`<#{}>`**'.format(path, userid))
 
     @commands.command()
-    @commands.is_owner()
+ #   @commands.is_owner()
     async def sfch(self, ctx, channelid: str, path: str):
         if ctx.author.id in AJW_Admins:
             '''Sends Files in path to channel from Hard Drive'''
@@ -150,7 +151,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
-    @commands.is_owner()
+#    @commands.is_owner()
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
         if ctx.author.id in AJW_Admins:
             '''Changes the game currently playing (BOT OWNER ONLY)'''
@@ -179,7 +180,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+ #   @commands.is_owner()
     async def changestatus(self, ctx, status: str):
         if ctx.author.id in AJW_Admins:
             '''Changes bot online status (BOT OWNER ONLY)'''
@@ -213,8 +214,9 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['guilds'])
-    @commands.is_owner()
+#    @commands.is_owner()
     async def servers(self, ctx):
+        if ctx.author.id in AJW_Admins:
         '''Lists the current connected guilds (BOT OWNER ONLY)'''
         msg = '```js\n'
         msg += '{!s:19s} | {!s:>5s} | {} | {}\n'.format('ID', 'Member', 'Name', 'Owner')
@@ -247,8 +249,9 @@ class Admin(commands.Cog, name="Admin"):
 
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def echo(self, ctx, channel: str, *message: str):
+        if ctx.author.id in AJW_Admins:
         '''Outputs a message as a bot on a specific channel (BOT OWNER ONLY)'''
         ch = self.bot.get_channel(int(channel))
         msg = ' '.join(message)
@@ -306,7 +309,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ Server icon from **`{}`**'.format(guildid))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def lschannels(self, ctx, guildid: str):
         logfile = 'channel.ids.txt'
         server = self.bot.get_guild(int(guildid))
@@ -318,7 +321,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ sent **`{}`** from **`{}`**'.format(logfile, server))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def lsusers(self, ctx, guildid: str):
         logfile = 'user.ids.txt'
         server = self.bot.get_guild(int(guildid))
