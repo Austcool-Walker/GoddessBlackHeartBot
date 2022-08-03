@@ -58,8 +58,8 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ list of files in **`{}`**'.format(path))
 
     @commands.command()
-    @commands.is_owner()
-#    async def cat(self, ctx, file: str):
+#    @commands.is_owner()
+    async def cat(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
             with open(file, 'rb') as f:
@@ -217,7 +217,7 @@ class Admin(commands.Cog, name="Admin"):
 #    @commands.is_owner()
     async def servers(self, ctx):
         if ctx.author.id in AJW_Admins:
-        '''Lists the current connected guilds (BOT OWNER ONLY)'''
+            '''Lists the current connected guilds (BOT OWNER ONLY)'''
         msg = '```js\n'
         msg += '{!s:19s} | {!s:>5s} | {} | {}\n'.format('ID', 'Member', 'Name', 'Owner')
         for guild in self.bot.guilds:
@@ -252,7 +252,7 @@ class Admin(commands.Cog, name="Admin"):
 #    @commands.is_owner()
     async def echo(self, ctx, channel: str, *message: str):
         if ctx.author.id in AJW_Admins:
-        '''Outputs a message as a bot on a specific channel (BOT OWNER ONLY)'''
+            '''Outputs a message as a bot on a specific channel (BOT OWNER ONLY)'''
         ch = self.bot.get_channel(int(channel))
         msg = ' '.join(message)
         await ch.send(msg)
