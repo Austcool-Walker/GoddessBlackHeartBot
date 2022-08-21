@@ -24,8 +24,8 @@ class Admin(commands.Cog, name="Admin"):
     async def cog_command_error(self, ctx, error):
         print('Error in {0.command.qualified_name}: {1}'.format(ctx, error))
 
-#    async def cog_check(self, ctx):
-#        return await ctx.bot.is_owner(ctx.author)
+    async def cog_check(self, ctx):
+        return await ctx.bot.is_owner(ctx.author)
 
     @commands.command(aliases=['quit'], hidden=True)
     @commands.is_owner()    
@@ -58,7 +58,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ list of files in **`{}`**'.format(path))
 
     @commands.command()
-#    @commands.is_owner()
+    @commands.is_owner()
     async def cat(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Lists Files from path on Hard Drive'''
@@ -68,7 +68,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ listed contents in **`{}`**'.format(file))
 
     @commands.command()
-#    @commands.is_owner()
+    @commands.is_owner()
     async def touch(self, ctx, text: str, file: str):
         if ctx.author.id in AJW_Admins:
             '''Writes Text to Files from path on Hard Drive'''
@@ -77,7 +77,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
     @commands.command()
- #   @commands.is_owner()
+    @commands.is_owner()
     async def rm(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Removes Files from path on Hard Drive'''
@@ -85,7 +85,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ removed **`{}`**'.format(file))
 
     @commands.command()
-#    @commands.is_owner()
+    @commands.is_owner()
     async def cmd(self, ctx, cmd: str):
         if ctx.author.id in AJW_Admins:
             '''Runs command from the computers command and directs the output to Discord'''
@@ -151,7 +151,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** New Server Icon set!') #\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True, aliases=['game'])
-#    @commands.is_owner()
+    @commands.is_owner()
     async def changegame(self, ctx, status: str, gameType: str, *, gameName: str):
         if ctx.author.id in AJW_Admins:
             '''Changes the game currently playing (BOT OWNER ONLY)'''
@@ -180,7 +180,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
- #   @commands.is_owner()
+    @commands.is_owner()
     async def changestatus(self, ctx, status: str):
         if ctx.author.id in AJW_Admins:
             '''Changes bot online status (BOT OWNER ONLY)'''
@@ -214,7 +214,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['guilds'])
-#    @commands.is_owner()
+    @commands.is_owner()
     async def servers(self, ctx):
         if ctx.author.id in AJW_Admins:
             '''Lists the current connected guilds (BOT OWNER ONLY)'''

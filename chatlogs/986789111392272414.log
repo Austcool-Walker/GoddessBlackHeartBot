@@ -502,3 +502,607 @@ b'\n'```
 2022-08-03 00:03:07.243000 : Austcool's Pesky BotNet : ✅ command **`echo`** ran
 2022-08-03 00:03:10.435000 : 𝕾atanic_Overlord : Ooo
 2022-08-03 00:03:15.253000 : 𝕾atanic_Overlord : :D
+2022-08-03 00:05:58.147000 : 𝕾atanic_Overlord : > Satan demonically laughs! War! demon
+2022-08-03 00:05:58.991000 : 𝕾𝖆𝖙𝖆𝖓 : > Satan demonically laughs! War!
+2022-08-03 00:06:01.237000 : AugustusXVIII : Alright you should be able to use the commands only me and you can if it worked correctly.
+2022-08-03 00:11:19.059000 : AugustusXVIII : give me on second I'm gonna test the restrictions with my alt
+2022-08-03 00:11:23.034000 : 𝕾atanic_Overlord : Okay
+2022-08-03 00:13:23.984000 : DeletedUser10000 : Xcmd "echo obama"
+2022-08-03 00:13:24.950000 : Austcool's Pesky BotNet : ```py
+b'obama\n'```
+2022-08-03 00:13:25.182000 : Austcool's Pesky BotNet : ✅ command **`echo obama`** ran
+2022-08-03 00:13:33.708000 : DeletedUser10000 : dammit
+2022-08-03 00:13:47.165000 : DeletedUser10000 : welp it doesn't work but thats fine.
+2022-08-03 00:14:15.696000 : DeletedUser10000 : its kinda risky running this this way. but eh not a big deal.
+2022-08-03 00:16:28.737000 : AugustusXVIII : its not like they have write access to /system which is the android OS
+2022-08-03 00:16:46.245000 : AugustusXVIII : So I'll be fine.
+2022-08-03 00:18:37.523000 : AugustusXVIII : its running in a ubuntu chroot in a user account that has sudo but they don't know the sudo pw
+this means they can view the ubuntu root along with android /system but they won't have r/w access.
+2022-08-03 00:18:48.707000 : AugustusXVIII : the damages are basically contained.
+2022-08-03 00:40:39.579000 : 𝕾atanic_Overlord : https://youtu.be/K5CpXLfPR0c
+2022-08-03 02:06:35.458000 : Fosscord #gitlog : 
+2022-08-03 04:41:01.767000 : AugustusXVIII : Xinfo
+2022-08-03 04:41:02.904000 : Austcool's Pesky BotNet : 
+2022-08-03 04:44:54.438000 : AugustusXVIII : **If Taiwan is invaded I shall dispatch the bot army to harass Chinese and Russian bastards!!!! Fucking China and Russia Dirty commies belong in crematoriums!!!** ***Heil <@318528448320634881>!!!!***
+2022-08-03 10:50:24.986000 : 𝕾atanic_Overlord : <@318528448320634881> calm down! It was clearly bluff
+2022-08-03 13:49:45.402000 : AugustusXVIII : Xtest
+2022-08-03 13:49:46.470000 : Austcool's Pesky BotNet : Test
+2022-08-03 13:49:46.865000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-03 15:01:46.176000 : Aliuwucord #official-discord-updates : 
+2022-08-03 16:38:46.374000 : AugustusXVIII : Xtest
+2022-08-03 16:38:54.176000 : Austcool's Pesky BotNet : Test
+2022-08-03 16:38:54.551000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-03 16:39:23.807000 : AugustusXVIII : Xcat ./modules/Admin.py
+2022-08-03 16:39:24.653000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-03 16:39:38.143000 : AugustusXVIII : Xload Admin.py
+2022-08-03 16:39:38.756000 : Austcool's Pesky BotNet : ```py
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/importlib/util.py", line 96, in find_spec
+    parent_path = parent.__path__
+AttributeError: module 'modules.Admin' has no attribute '__path__'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/GoddessBlackHeartBot/modules/Debug.py", line 41, in load
+    self.bot.load_extension("modules." + module)
+  File "/usr/local/lib/python3.8/dist-packages/discord/ext/commands/bot.py", line 660, in load_extension
+    spec = importlib.util.find_spec(name)
+  File "/usr/lib/python3.8/importlib/util.py", line 98, in find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: __path__ attribute not found on 'modules.Admin' while trying to find 'modules.Admin.py'
+
+```
+2022-08-03 16:40:07.876000 : AugustusXVIII : Xload Admin
+2022-08-03 16:40:08.942000 : Austcool's Pesky BotNet : ```py
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/GoddessBlackHeartBot/modules/Debug.py", line 41, in load
+    self.bot.load_extension("modules." + module)
+  File "/usr/local/lib/python3.8/dist-packages/discord/ext/commands/bot.py", line 658, in load_extension
+    raise errors.ExtensionAlreadyLoaded(name)
+discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'modules.Admin' is already loaded.
+
+```
+2022-08-03 16:40:38.453000 : AugustusXVIII : I may or may not have secured the bot idk
+2022-08-03 16:42:44.102000 : AugustusXVIII : Xctx.send(owner.id)
+2022-08-03 16:43:05.918000 : AugustusXVIII : Xeval ctx.send(owner.id)
+2022-08-03 16:43:06.582000 : Austcool's Pesky BotNet : ```py
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/GoddessBlackHeartBot/modules/Debug.py", line 101, in eval
+    ret = await func()
+  File "<string>", line 2, in func
+NameError: name 'owner' is not defined
+
+```
+2022-08-03 16:43:39.204000 : AugustusXVIII : Xeval await ctx.send(owner.id)
+2022-08-03 16:43:40.029000 : Austcool's Pesky BotNet : ```py
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/GoddessBlackHeartBot/modules/Debug.py", line 101, in eval
+    ret = await func()
+  File "<string>", line 2, in func
+NameError: name 'owner' is not defined
+
+```
+2022-08-03 19:24:24.911000 : AugustusXVIII : Xhost
+2022-08-03 19:24:26.529000 : Austcool's Pesky BotNet : 
+2022-08-03 19:30:33.043000 : AugustusXVIII : Xcmd "echo <:AustcoolBlobEmote:988470981511241779> "
+2022-08-03 19:30:34.534000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-03 19:30:58.191000 : AugustusXVIII : Xcmd "echo <#986789111870406668>"
+2022-08-03 19:30:59.657000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-03 19:31:15.048000 : AugustusXVIII : Xservers
+2022-08-03 19:31:15.953000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    28| Austin's Empire 1.1 (Fort Knox) [N3RDP0RT4L HQ] | None
+```
+2022-08-03 19:31:41.627000 : 𝕾atanic_Overlord : VC?
+2022-08-03 19:31:47.198000 : 𝕾atanic_Overlord : Ofc kek
+2022-08-03 19:31:56.872000 : 𝕾atanic_Overlord : It doesn't understand emotes
+2022-08-03 19:32:08.544000 : 𝕾atanic_Overlord : The way that's done at least
+2022-08-03 19:32:13.101000 : AugustusXVIII : I'm watching a video rn. Possibly in a bit. I'll let you know.
+2022-08-03 19:32:15.156000 : 𝕾atanic_Overlord : "it could see as a blank square"
+2022-08-03 19:32:17.443000 : 𝕾atanic_Overlord : Ok ty
+2022-08-03 19:32:58.717000 : AugustusXVIII : Xcmd "echo 🪪"
+2022-08-03 19:32:59.946000 : Austcool's Pesky BotNet : ```py
+b'\xf0\x9f\xaa\xaa\n'```
+2022-08-03 19:33:00.439000 : Austcool's Pesky BotNet : ✅ command **`echo 🪪`** ran
+2022-08-03 19:33:05.835000 : AugustusXVIII : Huh
+2022-08-03 19:33:12.415000 : AugustusXVIII : That works
+2022-08-03 19:33:39.280000 : AugustusXVIII : Xcmd "which python3.10"
+2022-08-03 19:33:40.892000 : Austcool's Pesky BotNet : ```py
+b'/data/data/com.termux/files/usr/bin/python3.10\n'```
+2022-08-03 19:33:41.141000 : Austcool's Pesky BotNet : ✅ command **`which python3.10`** ran
+2022-08-03 19:34:14.143000 : AugustusXVIII : Xcmd "which armcord"
+2022-08-03 19:34:15.346000 : Austcool's Pesky BotNet : ```py
+b'/usr/bin/armcord\n'```
+2022-08-03 19:34:15.744000 : Austcool's Pesky BotNet : ✅ command **`which armcord`** ran
+2022-08-03 19:34:50.982000 : AugustusXVIII : Xcmd "cat /etc/lsb-release"
+2022-08-03 19:34:52.779000 : Austcool's Pesky BotNet : ```py
+b'DISTRIB_ID=Ubuntu\nDISTRIB_RELEASE=18.04\nDISTRIB_CODENAME=bionic\nDISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"\n'```
+2022-08-03 19:34:53.230000 : Austcool's Pesky BotNet : ✅ command **`cat /etc/lsb-release`** ran
+2022-08-03 19:42:01.803000 : 𝕾atanic_Overlord : https://youtu.be/G5CtCWBKWWg
+2022-08-03 20:28:06.057000 : AugustusXVIII : Well I'm in the VC
+2022-08-03 20:32:43.683000 : AugustusXVIII : 
+2022-08-03 23:46:20.816000 : AugustusXVIII : Device crashed
+2022-08-03 23:47:05.401000 : AugustusXVIII : Let's try to build lineageOS 15 (Android Oreo 8.1.0)
+2022-08-03 23:47:31.428000 : AugustusXVIII : <@846112982772613171> device crashed
+2022-08-04 00:07:10.640000 : AugustusXVIII : https://gitlab.com/N3RDP0RT4L/android_manifests/-/blob/main/lineage-gta2swifi.xml
+https://gitlab.com/N3RDP0RT4L/android_manifests/-/raw/main/lineage-gta2swifi.xml
+2022-08-04 02:00:48.618000 : Fosscord #gitlog : 
+2022-08-04 02:22:20.581000 : AugustusXVIII : Xpm <@318528448320634881> ** https://media.discordapp.net/attachments/999293144308912178/1004572664783962162/Screenshot_from_2022-08-03_22-08-31.png **
+2022-08-04 02:22:35.651000 : AugustusXVIII : 
+2022-08-04 05:31:30.977000 : AugustusXVIII : Xpm <@318528448320634881> ** https://media.discordapp.net/attachments/999293144308912178/1004610034459746304/Screenshot_from_2022-08-04_00-11-46.png **
+2022-08-04 10:03:08.682000 : 𝕾atanic_Overlord : Ooo
+2022-08-04 10:03:24.386000 : 𝕾atanic_Overlord : Lmk how it's going
+2022-08-04 14:32:24.388000 : Aliuwucord #official-discord-updates : 
+2022-08-04 16:12:00.650000 : FreeStuff #Free to keep : @free-to-keep-ping
+2022-08-04 17:35:23.616000 : CrackWatch #announcements : @everyone Free game, thanks @「Eggo」🥒💦🐄🦶🏻👨🏾🍼  https://store.steampowered.com/app/699920/Despotism_3k/
+2022-08-04 17:35:59.208000 : FreeStuff #Free to keep : @free-to-keep-ping
+2022-08-04 17:52:51.385000 : CrackWatch #announcements : FROM OUT GREAT SPONSOR, EPIC GAMES STORE, PROVIDING PREMIUM GAMES FOR LOW PRICE, COMES ANOTHER FREE GAME! TODAY, EPIC GAMES STORE IS GIVING AWAY UNRAILED! COMPLETELY FREE, YOU KEEP IT FOREVER, NO TRICKS. EPIC GAMES STORE PROVIDES BEST GAMES FOR BEST PRICE. 
+
+REMEMBER, EVERY TIME YOU PURCHASE A GAME FROM EPIC GAMES STORE, USE CODE **CRACKWATCH**. YOU CAN ALSO USE IT ON VBUCKS STORE! THANK YOU FOR SUPPORTING US!
+
+https://store.epicgames.com/en-US/p/unrailed-e19729
+2022-08-04 20:52:10.759000 : AugustusXVIII : <@846112982772613171> get in.
+2022-08-04 20:54:19.645000 : AugustusXVIII : just a fyi matt <@846112982772613171> I was in the progress of fixing the extraction issues. the muppits repo was the solution
+2022-08-04 20:54:49.471000 : 𝕾atanic_Overlord : Tysm
+2022-08-04 20:55:07.455000 : AugustusXVIII : albert was a asshole and didn't include all the needed parts of the XML isn't that fucking great! because he was bing a dick I if I remember correctly.
+2022-08-04 20:55:07.690000 : Silicon Bot Public : Congratulations! AugustusXVIII just achieved level 4! :partying_face:
+2022-08-04 20:56:21.950000 : 𝕾atanic_Overlord : https://youtube.com/shorts/3d5HcUdOUvw?feature=share
+2022-08-04 22:14:20.033000 : Fosscord #gitlog : 
+2022-08-04 22:19:04.528000 : AugustusXVIII : hello
+2022-08-04 22:19:10.835000 : AugustusXVIII : it barely works
+2022-08-04 22:24:11.614000 : 𝕾atanic_Overlord : 
+2022-08-04 22:55:37.154000 : Fosscord #gitlog : 
+2022-08-05 02:02:11.526000 : Fosscord #gitlog : 
+2022-08-05 04:01:37.701000 : Fosscord #gitlog : 
+2022-08-05 14:03:23.751000 : Aliuwucord #official-discord-updates : 
+2022-08-06 00:58:05.255000 : 𝕾atanic_Overlord : Meme
+2022-08-06 00:58:07.248000 : 𝕾atanic_Overlord : https://c.tenor.com/CZA7Rphd07kAAAAM/ban-seven-deadly-sins.gif
+2022-08-06 00:59:04.955000 : 𝕾atanic_Overlord : https://c.tenor.com/zuwXBRcvFUEAAAAM/7ds-anime.gif
+https://c.tenor.com/-gn0jpmTsJgAAAAM/anime-picking.gif
+https://c.tenor.com/-UEfWvCNcyIAAAAM/meliodas-ban.gif
+https://c.tenor.com/g4duDhtzUtgAAAAM/zhivago-ban.gif
+https://c.tenor.com/XwW23zX9goUAAAAM/seven-deadly-sins-ban.gif
+2022-08-06 01:06:04.476000 : AugustusXVIII : 
+2022-08-06 01:06:32.156000 : AugustusXVIII : 
+2022-08-06 01:07:05.046000 : 𝕾atanic_Overlord : Bruh
+2022-08-06 01:07:11.311000 : 𝕾atanic_Overlord : Yes
+2022-08-06 01:08:40.041000 : AugustusXVIII : Nerdportal is in hibernation tbh
+2022-08-06 01:08:50.968000 : AugustusXVIII : It's not dead it's just sleeping
+2022-08-06 01:16:37.726000 : AugustusXVIII : Xtime
+2022-08-06 01:16:38.591000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-06 01:16:38.930000 : Austcool's Pesky BotNet : **`2022.08.05 09:16:37 PM Military Time 21:16:37`**
+2022-08-06 01:19:35.167000 : AugustusXVIII : Xtime
+2022-08-06 01:19:36.078000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-06 01:19:36.246000 : Austcool's Pesky BotNet : **`2022.08.05 09:19:35 PM Military Time 21:19:35`**
+2022-08-06 01:20:26.213000 : AugustusXVIII : Xhost
+2022-08-06 01:20:27.267000 : Austcool's Pesky BotNet : 
+2022-08-06 01:20:44.854000 : AugustusXVIII : Xping
+2022-08-06 01:20:46.142000 : Austcool's Pesky BotNet : Pang! ``Time: 910ms``
+2022-08-06 01:41:52.016000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.080000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.110000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.110000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.228000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.290000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.435000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.436000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.659000 : Fosscord #gitlog : 
+2022-08-06 01:41:52.584000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.063000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.155000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.170000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.207000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.216000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.216000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.222000 : Fosscord #gitlog : discord ratelimits are a pain
+2022-08-06 02:41:52.335000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.422000 : Fosscord #gitlog : 
+2022-08-06 02:41:52.457000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.281000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.329000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.392000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.392000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.374000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.430000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.443000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.467000 : Fosscord #gitlog : thanks for the autopublish backlog xD @Samuel
+2022-08-06 03:41:52.427000 : Fosscord #gitlog : 
+2022-08-06 03:41:52.579000 : Fosscord #gitlog : 
+2022-08-06 04:15:01.943000 : AugustusXVIII : 
+2022-08-06 04:19:41.371000 : AugustusXVIII : 
+2022-08-06 04:41:52.455000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.656000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.695000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.724000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.760000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.787000 : Fosscord #gitlog : 
+2022-08-06 04:41:52.945000 : Fosscord #gitlog : 
+2022-08-06 04:41:53.096000 : Fosscord #gitlog : 
+2022-08-06 04:41:53.043000 : Fosscord #gitlog : 
+2022-08-06 04:41:53.727000 : Fosscord #gitlog : 
+2022-08-06 05:41:52.988000 : Fosscord #gitlog : 
+2022-08-06 05:41:52.961000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.059000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.099000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.172000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.203000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.280000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.553000 : Fosscord #gitlog : 
+2022-08-06 05:41:53.615000 : Fosscord #gitlog : 
+2022-08-06 05:41:54.568000 : Fosscord #gitlog : 
+2022-08-06 06:41:53.938000 : Fosscord #gitlog : 
+2022-08-06 07:21:08.170000 : Fosscord #gitlog : 
+2022-08-06 08:06:40.107000 : Fosscord #gitlog : 
+2022-08-06 08:06:40.452000 : Fosscord #gitlog : 
+2022-08-06 08:09:54.701000 : Fosscord #gitlog : 
+2022-08-06 08:09:54.850000 : Fosscord #gitlog : 
+2022-08-06 13:08:29.766000 : Fosscord #gitlog : 
+2022-08-06 13:08:30.928000 : Fosscord #gitlog : 
+2022-08-06 13:14:27.365000 : Fosscord #gitlog : 
+2022-08-06 13:15:09.941000 : Fosscord #gitlog : 
+2022-08-06 13:15:12.677000 : Fosscord #gitlog : 
+2022-08-06 13:17:03.391000 : Fosscord #gitlog : 
+2022-08-06 13:19:52.086000 : Fosscord #gitlog : 
+2022-08-06 13:24:17.428000 : Fosscord #gitlog : 
+2022-08-06 13:32:33.053000 : Fosscord #gitlog : 
+2022-08-06 13:34:10.193000 : Fosscord #gitlog : 
+2022-08-06 14:08:31.081000 : Fosscord #gitlog : 
+2022-08-06 14:48:54.787000 : Aliuwucord #official-discord-updates : 
+2022-08-06 15:05:06.230000 : Fosscord #gitlog : 
+2022-08-06 15:05:06.353000 : Fosscord #gitlog : 
+2022-08-06 15:15:08.522000 : Fosscord #gitlog : 
+2022-08-06 15:15:08.724000 : Fosscord #gitlog : 
+2022-08-06 16:26:00.295000 : Fosscord #gitlog : 
+2022-08-06 18:12:40.461000 : Fosscord #gitlog : 
+2022-08-06 18:12:40.791000 : Fosscord #gitlog : 
+2022-08-06 18:22:20.039000 : Fosscord #gitlog : 
+2022-08-06 18:22:20.433000 : Fosscord #gitlog : 
+2022-08-07 02:08:16.737000 : Fosscord #gitlog : 
+2022-08-07 03:51:58.961000 : アウグストゥス18世 : Xhelp
+2022-08-07 03:52:00.207000 : Austcool's Pesky BotNet : 
+2022-08-07 03:57:18.309000 : アウグストゥス18世 : Xgamble
+2022-08-07 03:57:19.499000 : Austcool's Pesky BotNet : You're missing one or more required arguments. Refer to ``Xhelp <command>`` for help.
+2022-08-07 03:57:48.172000 : アウグストゥス18世 : Xdalily
+2022-08-07 04:27:30.779000 : アウグストゥス18世 : Xgamble
+2022-08-07 04:27:31.821000 : Austcool's Pesky BotNet : You're missing one or more required arguments. Refer to ``Xhelp <command>`` for help.
+2022-08-07 04:27:46.369000 : アウグストゥス18世 : Xgamble <@318528448320634881>
+2022-08-07 04:27:46.689000 : Austcool's Pesky BotNet : This command requires a running database to work.
+2022-08-07 04:29:35.342000 : アウグストゥス18世 : Xservers
+2022-08-07 04:29:36.542000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    28| Austin's Empire 1.1 (Fort Knox) [N3RDP0RT4L HQ] | None
+```
+2022-08-07 04:29:43.121000 : アウグストゥス18世 : Xtime
+2022-08-07 04:29:43.308000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-07 04:29:43.551000 : Austcool's Pesky BotNet : **`2022.08.07 12:29:43 AM Military Time 00:29:43`**
+2022-08-07 04:30:06.158000 : アウグストゥス18世 : Xbans
+2022-08-07 04:30:07.522000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-07 14:56:12.804000 : Fosscord #gitlog : 
+2022-08-07 16:24:29.592000 : Fosscord #gitlog : 
+2022-08-07 16:26:21.877000 : Fosscord #gitlog : 
+2022-08-07 16:26:22.359000 : Fosscord #gitlog : 
+2022-08-07 19:43:48.914000 : Fosscord #gitlog : 
+2022-08-07 20:04:27.976000 : Fosscord #gitlog : 
+2022-08-07 20:32:13.284000 : Fosscord #gitlog : 
+2022-08-07 20:40:04.931000 : Fosscord #gitlog : 
+2022-08-07 20:41:27.801000 : Fosscord #gitlog : 
+2022-08-07 21:56:40.108000 : アウグストゥス18世 : Xfish
+2022-08-07 21:56:41.070000 : Austcool's Pesky BotNet : This command requires a running database to work.
+2022-08-07 21:56:50.939000 : アウグストゥス18世 : wtf
+2022-08-08 20:50:13.172000 : Fosscord #gitlog : 
+2022-08-08 20:52:59.009000 : Fosscord #gitlog : 
+2022-08-08 20:52:59.647000 : Fosscord #gitlog : 
+2022-08-08 20:53:36.598000 : Fosscord #gitlog : 
+2022-08-08 20:53:36.630000 : Fosscord #gitlog : 
+2022-08-08 20:53:56.656000 : Fosscord #gitlog : 
+2022-08-08 20:53:56.714000 : Fosscord #gitlog : 
+2022-08-08 20:55:19.889000 : Fosscord #gitlog : 
+2022-08-08 20:55:43.934000 : Fosscord #gitlog : 
+2022-08-08 20:55:44.105000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.248000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.317000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.313000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.482000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.432000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.660000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.802000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.900000 : Fosscord #gitlog : 
+2022-08-08 21:50:13.929000 : Fosscord #gitlog : 
+2022-08-08 21:50:14.019000 : Fosscord #gitlog : 
+2022-08-08 22:50:13.467000 : Fosscord #gitlog : 
+2022-08-08 22:50:13.508000 : Fosscord #gitlog : 
+2022-08-08 22:50:13.599000 : Fosscord #gitlog : 
+2022-08-08 22:50:14.243000 : Fosscord #gitlog : 
+2022-08-08 22:50:14.444000 : Fosscord #gitlog : 
+2022-08-08 23:47:45.117000 : アウグストゥス18世 : Xsay Tbh Austin didn't break ur shit. And on top of it he was waiting for you to finish the update..............
+2022-08-08 23:47:46.370000 : Austcool's Pesky BotNet : Tbh Austin didn't break ur shit. And on top of it he was waiting for you to finish the update..............
+2022-08-08 23:48:23.441000 : アウグストゥス18世 : Xsay he was about to ask about the dist-update........
+2022-08-08 23:48:25.247000 : Austcool's Pesky BotNet : he was about to ask about the dist-update........
+2022-08-08 23:48:38.571000 : 𝕾atanic_Overlord : I know shut
+2022-08-08 23:48:39.849000 : 𝕾atanic_Overlord : Please
+2022-08-08 23:48:41.580000 : 𝕾atanic_Overlord : I'm coding
+2022-08-08 23:48:45.055000 : アウグストゥス18世 : Xsay but he was hanging out in Fosscord general and forgot about it
+2022-08-08 23:48:46.377000 : Austcool's Pesky BotNet : but he was hanging out in Fosscord general and forgot about it
+2022-08-08 23:48:48.196000 : 𝕾atanic_Overlord : It's really distracting
+2022-08-08 23:50:42.933000 : アウグストゥス18世 : Xtime
+2022-08-08 23:50:43.935000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-08 23:50:44.220000 : Austcool's Pesky BotNet : **`2022.08.08 07:50:42 PM Military Time 19:50:42`**
+2022-08-08 23:53:59.082000 : Kashima : 
+2022-08-08 23:58:26.207000 : アウグストゥス18世 : Xlog
+2022-08-08 23:58:28.174000 : Austcool's Pesky BotNet : :ok: 10 Messages have been archived!
+2022-08-09 00:00:09.871000 : アウグストゥス18世 : Xpm <@318528448320634881> https://cdn.discordapp.com/attachments/938936139732090931/1006344008857047060/Peek_2022-08-09_01-29.gif
+2022-08-09 02:46:31.374000 : アウグストゥス18世 : Xlog
+2022-08-09 02:46:32.635000 : Austcool's Pesky BotNet : :ok: 10 Messages have been archived!
+2022-08-09 02:54:11.605000 : アウグストゥス18世 : Also disrespecting me by claiming I hurt you when I've done everything in my power to shield you from harm and have been on the front lines defending you in combat of those who forsaken the name of your alpha the AntiChrist
+2022-08-09 03:06:40.754000 : アウグストゥス18世 : Ether you bow to me your Omega aka God who is greater then the power of darkness or I'll throw you so far down into the pits outside of this server that the very wolfs that I've God have been shielding you from with my walls and barriers and my sheer rage to tear them to oblivion. In order to keep you my greatest treasure Lucifer I accepted you for who you are. Who was their for you when your mom threw all your devices in the trash? Who was there for you when Ben god sick and you needed comfort?! Who was there for you when your mom got remarried and you thought your step father wasn't being faithful to your mother? Who was there for you when you got your phone taken for days And weeks at a time?! Exactly I was! I've been a good friend and have fought to stay in contact with you no matter how bad things got! Don't you ever side with Albert Tang and harass me again! I'll fucking end you with a fucking iron fist and hammer and finish you with a wall of lightning ⚡
+2022-08-09 03:08:31.640000 : アウグストゥス18世 : Xlog
+2022-08-09 03:08:32.786000 : Austcool's Pesky BotNet : :ok: 10 Messages have been archived!
+2022-08-09 03:12:52.095000 : アウグストゥス18世 : Xgame online defending the fort against invaders!
+2022-08-09 03:12:53.404000 : Austcool's Pesky BotNet : An error has occurred, and has been reported to the developer.
+2022-08-09 03:13:15.884000 : アウグストゥス18世 : Xgame online playing protecting the fort against invaders
+2022-08-09 03:13:16.822000 : Austcool's Pesky BotNet : **👌🏼** Changed the status & game to: **online** playing **protecting the fort against invaders**
+2022-08-09 13:08:51.896000 : アウグストゥス18世 : u0_a119@AugustusXVIII-SM-T380:~/GoddessBlackHeartBot$ ssh root@localhost
+ssh: connect to host localhost port 22: Connection refused
+u0_a119@AugustusXVIII-SM-T380:~/GoddessBlackHeartBot$ ssh root@localhost -p 8022
+ssh: connect to host localhost port 8022: Connection refused
+u0_a119@AugustusXVIII-SM-T380:~/GoddessBlackHeartBot$ ssh u0_a119@localhost -p 8022
+ssh: connect to host localhost port 8022: Connection refused
+u0_a119@AugustusXVIII-SM-T380:~/GoddessBlackHeartBot$ sshd
+u0_a119@AugustusXVIII-SM-T380:~/Go
+2022-08-09 14:04:49.985000 : Fosscord #gitlog : 
+2022-08-09 14:04:50.542000 : Fosscord #gitlog : 
+2022-08-09 14:08:34.666000 : Fosscord #gitlog : 
+2022-08-09 14:08:34.860000 : Fosscord #gitlog : 
+2022-08-09 14:13:19.157000 : Fosscord #gitlog : 
+2022-08-09 14:13:19.535000 : Fosscord #gitlog : 
+2022-08-09 14:15:45.684000 : Fosscord #gitlog : 
+2022-08-09 14:18:23.007000 : Fosscord #gitlog : 
+2022-08-09 14:18:23.357000 : Fosscord #gitlog : 
+2022-08-09 14:22:44.164000 : Fosscord #gitlog : 
+2022-08-09 15:04:50.536000 : Fosscord #gitlog : 
+2022-08-09 15:04:50.728000 : Fosscord #gitlog : 
+2022-08-09 15:04:50.782000 : Fosscord #gitlog : 
+2022-08-09 15:50:09.701000 : 𝕾atanic_Overlord : https://youtu.be/jNGqmcIEw-o
+2022-08-09 16:05:56.013000 : Aliuwucord #official-discord-updates : 
+2022-08-09 17:24:18.406000 : Software Updates : 
+2022-08-16 00:59:49.578000 : アウグストゥス18世 : Xtime
+2022-08-16 00:59:51.288000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-16 00:59:51.557000 : Austcool's Pesky BotNet : **`2022.08.16 12:59:49 AM Military Time 00:59:49`**
+2022-08-16 01:02:01.629000 : アウグストゥス18世 : Xtime
+2022-08-16 01:02:03.420000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-16 01:02:03.715000 : Austcool's Pesky BotNet : **`2022.08.16 01:02:01 AM Military Time 01:02:01`**
+2022-08-16 01:02:40.583000 : アウグストゥス18世 : Xtime
+2022-08-16 01:02:40.760000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-16 01:02:40.920000 : Austcool's Pesky BotNet : **`2022.08.15 09:02:40 PM Military Time 21:02:40`**
+2022-08-16 01:11:17.126000 : Fosscord #gitlog : 
+2022-08-16 02:09:52.668000 : Fosscord #gitlog : 
+2022-08-18 01:07:16.962000 : アウグストゥス18世 : Xprune 5
+2022-08-18 01:18:15.466000 : アウグストゥス18世 : Xhost
+2022-08-18 01:18:17.290000 : Austcool's Pesky BotNet : 
+2022-08-18 01:18:24.094000 : アウグストゥス18世 : Xservers
+2022-08-18 01:18:24.819000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    31| Austin's Empire 1.1 (Fort Knox) [N3RDP0RT4L HQ] | None
+1007445265713746002 |    52| 「🕹H E L L🔥DROVETH!🍻」 | None
+```
+2022-08-18 02:23:05.625000 : Fosscord #gitlog : 
+2022-08-18 03:25:07.688000 : Fosscord #gitlog : 
+2022-08-18 03:50:15.860000 : Fosscord #gitlog : 
+2022-08-18 03:57:40.487000 : Fosscord #gitlog : 
+2022-08-18 03:59:26.605000 : Fosscord #gitlog : 
+2022-08-18 04:03:57.346000 : Fosscord #gitlog : 
+2022-08-18 04:18:24.670000 : Fosscord #gitlog : 
+2022-08-18 04:20:14.303000 : Fosscord #gitlog : 
+2022-08-18 04:22:33.122000 : Fosscord #gitlog : 
+2022-08-18 04:24:06.019000 : Fosscord #gitlog : 
+2022-08-18 04:24:59.771000 : Fosscord #gitlog : 
+2022-08-18 04:25:37.683000 : Fosscord #gitlog : 
+2022-08-18 14:33:31.921000 : Fosscord #gitlog : 
+2022-08-18 14:33:32.256000 : Fosscord #gitlog : 
+2022-08-18 14:49:32.618000 : Aliuwucord #official-discord-updates : 
+2022-08-18 14:49:39.427000 : Aliuwucord #official-discord-updates : 
+2022-08-18 15:24:56.555000 : CaptainHooker [Git] : 
+2022-08-18 16:45:49.009000 : Fosscord #gitlog : 
+2022-08-18 16:50:26.104000 : Fosscord #gitlog : 
+2022-08-18 16:53:26.662000 : Fosscord #gitlog : 
+2022-08-18 17:03:38.830000 : Fosscord #gitlog : 
+2022-08-18 17:14:30.992000 : Fosscord #gitlog : 
+2022-08-18 17:24:28.562000 : CaptainHooker [Git] : 
+2022-08-18 17:24:49.941000 : CaptainHooker [Git] : 
+2022-08-18 17:28:02.667000 : Fosscord #gitlog : 
+2022-08-18 17:28:13.586000 : Fosscord #gitlog : 
+2022-08-18 17:47:34.267000 : Fosscord #gitlog : 
+2022-08-18 18:52:49.659000 : CaptainHooker [Git] : 
+2022-08-18 18:52:50.110000 : CaptainHooker [Git] : 
+2022-08-18 18:52:58.782000 : 𝕾atanic_Overlord : Epik
+2022-08-18 18:53:27.605000 : CaptainHooker [Git] : 
+2022-08-18 18:53:34.661000 : CaptainHooker [Git] : 
+2022-08-18 18:54:31.612000 : 𝕾atanic_Overlord : How's the site? <@318528448320634881>
+2022-08-18 18:58:16.528000 : アウグストゥス18世 : Haven't checked yet I loved that you contributed! Ur a very awesome friend. My device is lagging just got out of work I do think I have the OneUI 4 battery 100% lag bug.
+2022-08-18 18:58:45.961000 : 𝕾atanic_Overlord : I'm going to work in two mins until 9pm.
+2022-08-18 18:58:53.485000 : アウグストゥス18世 : Its getting faster slowly as it discharges
+2022-08-18 18:58:54.599000 : 𝕾atanic_Overlord : Yokes
+2022-08-18 18:59:12.704000 : 𝕾atanic_Overlord : Temperature versus thermal throttling is why
+2022-08-18 18:59:14.516000 : 𝕾atanic_Overlord : Unfortunately
+2022-08-18 19:00:13.780000 : 𝕾atanic_Overlord : It's the least I could do, I got to buy two over firesticks using a Amazon gift card I got to get with cash after my shift and got to rush when doing it really bad or my mom will notice.
+2022-08-18 19:00:32.010000 : 𝕾atanic_Overlord : I got to work now. Ciao
+2022-08-18 19:00:36.571000 : アウグストゥス18世 : Alright. Thanks for contributing to my site Matt! ❤️ Yeah it's thermal definitely because remember how shit my snapdragon 4.x.x ran when it was that day with no ac?
+2022-08-18 19:01:11.955000 : アウグストゥス18世 : Let me know when you get off work! 😄
+2022-08-18 19:01:12.178000 : Silicon Bot Public : Congratulations! アウグストゥス18世 just achieved level 5! :partying_face:
+2022-08-18 20:19:53.266000 : Fosscord #gitlog : 
+2022-08-18 20:23:23.240000 : Fosscord #gitlog : 
+2022-08-18 20:25:05.635000 : Fosscord #gitlog : 
+2022-08-18 20:25:06.522000 : Fosscord #gitlog : 
+2022-08-18 20:28:26.944000 : Fosscord #gitlog : 
+2022-08-18 20:32:24.201000 : Fosscord #gitlog : 
+2022-08-18 20:33:11.985000 : Fosscord #gitlog : 
+2022-08-18 20:34:46.493000 : Aliuwucord #official-discord-updates : 
+2022-08-18 20:35:21.727000 : Fosscord #gitlog : 
+2022-08-18 21:24:15.402000 : 𝕾atanic_Overlord : Your welcome
+2022-08-18 21:24:18.093000 : 𝕾atanic_Overlord : Yes
+2022-08-18 21:25:12.169000 : アウグストゥス18世 : :D
+2022-08-18 21:25:34.829000 : 𝕾atanic_Overlord : :D
+2022-08-18 21:26:02.029000 : 𝕾atanic_Overlord : I did it before work because I thought it could definitely worked on.
+2022-08-18 21:32:30.047000 : Fosscord #gitlog : 
+2022-08-18 21:32:45.560000 : 𝕾atanic_Overlord : I have a few more commits to commit when I can.
+2022-08-18 21:35:56.533000 : Fosscord #gitlog : 
+2022-08-18 21:38:41.560000 : Fosscord #gitlog : 
+2022-08-18 21:58:56.939000 : アウグストゥス18世 : :heart: :thumbup:
+2022-08-18 22:19:53.193000 : CaptainHooker [Git] : 
+2022-08-18 22:20:32.353000 : CaptainHooker [Git] : 
+2022-08-18 22:20:38.949000 : CaptainHooker [Git] : 
+2022-08-18 23:35:21.941000 : CaptainHooker [Git] : 
+2022-08-18 23:36:07.103000 : CaptainHooker [Git] : 
+2022-08-18 23:53:27.022000 : 𝕾atanic_Overlord : Please add me to the team
+2022-08-18 23:53:34.911000 : 𝕾atanic_Overlord : (gitlab nerdportal org) <@318528448320634881>
+2022-08-18 23:54:05.298000 : アウグストゥス18世 : Alright will do rn
+2022-08-18 23:55:58.993000 : 𝕾atanic_Overlord : Tysm
+2022-08-19 00:07:51.517000 : アウグストゥス18世 : I hit accept.
+2022-08-19 00:08:35.728000 : アウグストゥス18世 : Go ahead and push as much as you want go ape shit!  😅
+2022-08-19 00:15:25.692000 : 𝕾atanic_Overlord : Working still
+2022-08-19 00:15:32.827000 : 𝕾atanic_Overlord : Il finish around 9pm
+2022-08-19 00:16:52.400000 : アウグストゥス18世 : Alright.
+2022-08-19 17:47:39.175000 : アウグストゥス18世 : Xtime
+2022-08-19 17:47:39.888000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-19 17:47:39.952000 : Austcool's Pesky BotNet : **`2022.08.19 01:47:39 PM Military Time 13:47:39`**
+2022-08-19 17:47:46.737000 : アウグストゥス18世 : Xservers
+2022-08-19 17:47:47.153000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    31| Austin's Empire 1.1 (Fort Knox) [N3RDP0RT4L HQ] | None
+1007445265713746002 |    52| 「🕹H E L L🔥DROVETH!🍻」 | None
+```
+2022-08-19 18:27:53.252000 : Fosscord #gitlog : 
+2022-08-19 18:54:12.100000 : Fosscord #gitlog : 
+2022-08-19 19:35:34.580000 : Fosscord #gitlog : 
+2022-08-19 19:57:48.842000 : Fosscord #gitlog : 
+2022-08-19 20:03:06.272000 : Fosscord #gitlog : 
+2022-08-20 01:28:55.213000 : CaptainHooker [Git] : 
+2022-08-20 01:29:29.563000 : CaptainHooker [Git] : 
+2022-08-20 01:29:35.008000 : CaptainHooker [Git] : 
+2022-08-20 01:36:39.533000 : CaptainHooker [Git] : 
+2022-08-20 01:37:12.259000 : CaptainHooker [Git] : 
+2022-08-20 01:37:19.257000 : CaptainHooker [Git] : 
+2022-08-20 01:40:31.244000 : Fosscord #gitlog : 
+2022-08-20 01:40:32.300000 : Fosscord #gitlog : 
+2022-08-20 01:43:59.501000 : CaptainHooker [Git] : 
+2022-08-20 01:44:32.185000 : CaptainHooker [Git] : 
+2022-08-20 01:44:38.417000 : CaptainHooker [Git] : 
+2022-08-21 01:34:26.186000 : Divine toaster : The legendary matt
+2022-08-21 01:34:40.466000 : Divine toaster : I've heard so much about
+2022-08-21 01:35:19.226000 : アウグストゥス18世 : Yeah hes Matt alright hes my tech buddy that I've hung out on here for over 4 years
+2022-08-21 01:35:34.389000 : アウグストゥス18世 : We were high school epals
+2022-08-21 01:36:06.527000 : アウグストゥス18世 : We talk a lot in the dms mostly
+2022-08-21 01:40:27.454000 : CaptainHooker [Git] : 
+2022-08-21 01:40:59.195000 : CaptainHooker [Git] : 
+2022-08-21 01:41:04.538000 : CaptainHooker [Git] : 
+2022-08-21 01:42:42.005000 : アウグストゥス18世 : 
+2022-08-21 01:45:55.468000 : アウグストゥス18世 : Xhost
+2022-08-21 01:46:00.880000 : Austcool's Pesky BotNet : 
+2022-08-21 01:54:17.656000 : アウグストゥス18世 : Listen to Geometry Dash World Soundtrack (FULL) by Volvo on #SoundCloud
+https://soundcloud.com/user-266529265/geometry-dash-world-soundtrack-full?p=a&c=0&utm_source=other&utm_medium=text&utm_campaign=social_sharing
+2022-08-21 02:05:57.891000 : Fosscord #gitlog : 
+2022-08-21 02:17:07.199000 : アウグストゥス18世 : --userphone
+2022-08-21 02:17:07.333000 : Yggdrasil : ☎ **Calling on userphone...**
+2022-08-21 02:17:09.138000 : Yggdrasil : ☎ **The other party has picked up the userphone!** **Be nice!**
+2022-08-21 02:17:11.648000 : Yggdrasil : **gbricks**#8622 <:userphone:650883846581125142> enchanted forest is the thirteenth dungeon in dungeon quest. It was released on 2021-05-28, and followed aquatic temple's release almost 5 months prior. enchanted forest requires players to be level 170 for insane difficulty and level 175 for nightmare difficulty. It is recommended to have at least 250 million to 300 million health on insane and at least 320 million to 500 million health on nightmare. players have 11 minutes to clear the dungeon.
+2022-08-21 02:17:27.669000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:17:31.816000 : Yggdrasil : **gbricks**#8622 <:userphone:650883846581125142> that's great but enchanted forest is the thirteenth dungeon in dungeon quest. It was released on 2021-05-28, and followed aquatic temple's release almost 5 months prior. enchanted forest requires players to be level 170 for insane difficulty and level 175 for nightmare difficulty. It is recommended to have at least 250 million to 300 million health on insane and at least 320 million to 500 million health on nightmare. players have 11 minutes to clear the dungeon.
+2022-08-21 02:18:13.591000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:18:24.116000 : アウグストゥス18世 : --hangup
+2022-08-21 02:18:24.199000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:18:43.714000 : アウグストゥス18世 : --userphone
+2022-08-21 02:18:43.848000 : Yggdrasil : ☎ **Calling on userphone...**
+2022-08-21 02:18:44.006000 : Yggdrasil : ☎ **The other party has picked up the userphone!** **Say hi!**
+2022-08-21 02:18:48.231000 : Yggdrasil : **mimi!**#0595 <:userphone:650883846581125142> hi
+2022-08-21 02:18:50.790000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:18:58.687000 : アウグストゥス18世 : --hangup
+2022-08-21 02:18:58.932000 : Yggdrasil : ☎ **You hung up the userphone.**
+🛑 Some people on the phones may attempt to scam or trick you by asking you to friend them for fake gifts or rewards. Messages sent to you by these users may contain harmful content, such as malware or advertisements.
+2022-08-21 02:19:26.517000 : アウグストゥス18世 : --userphone
+2022-08-21 02:19:26.726000 : Yggdrasil : ☎ **A userphone connection has been made!** **Say hello!**
+2022-08-21 02:19:30.664000 : Yggdrasil : **rira**#6075 <:userphone:650883846581125142> want free
+2022-08-21 02:19:32.681000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:19:41.991000 : アウグストゥス18世 : --hangup
+2022-08-21 02:19:42.191000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:19:59.621000 : アウグストゥス18世 : --userphone
+2022-08-21 02:19:59.768000 : Yggdrasil : ☎ **Calling on userphone...**
+2022-08-21 02:20:02.628000 : Yggdrasil : ☎ **The other party has picked up the userphone!** 
+**Remember to follow the phone etiquette. <https://ygg.fun/etiquette>**
+2022-08-21 02:20:03.470000 : Yggdrasil : **rira**#6075 <:userphone:650883846581125142> cringy ass mf
+2022-08-21 02:20:08.874000 : Yggdrasil : **rira**#6075 <:userphone:650883846581125142> HELP
+2022-08-21 02:20:09.599000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:20:12.448000 : Yggdrasil : ☎ **The userphone connection was severed due to overload...**
+2022-08-21 02:20:26.596000 : アウグストゥス18世 : --userphone
+2022-08-21 02:20:26.756000 : Yggdrasil : ☎ **A userphone connection has been made!** **Say hi!**
+2022-08-21 02:20:28.614000 : Yggdrasil : ☎ **Sounds like there's someone new on the userphone!**
+2022-08-21 02:20:31.413000 : Yggdrasil : **Meowdi**#2167 <:userphone:650883846581125142> Hi
+2022-08-21 02:20:33.241000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:20:40.415000 : Yggdrasil : **Meowdi**#2167 <:userphone:650883846581125142> U there
+2022-08-21 02:20:41.825000 : アウグストゥス18世 : --hangup
+2022-08-21 02:20:41.967000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:20:51.307000 : アウグストゥス18世 : --userphone
+2022-08-21 02:20:51.451000 : Yggdrasil : ☎ **Calling on userphone...**
+2022-08-21 02:20:55.437000 : Yggdrasil : ☎ **The other party has picked up the userphone!** **Be nice!**
+2022-08-21 02:20:57.318000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:21:05.136000 : Yggdrasil : **Mystii0!**#3237 <:userphone:650883846581125142> hello
+2022-08-21 02:21:08.557000 : アウグストゥス18世 : --hangup
+2022-08-21 02:21:08.705000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:21:23.894000 : アウグストゥス18世 : --userphone
+2022-08-21 02:21:24.011000 : Yggdrasil : ☎ **A userphone connection has been made!** **Say hi!**
+2022-08-21 02:21:33.540000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:21:41.775000 : アウグストゥス18世 : --hangup
+2022-08-21 02:21:42.055000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:21:58.446000 : アウグストゥス18世 : --userphone
+2022-08-21 02:21:58.590000 : Yggdrasil : ☎ **A userphone connection has been made!** **Say hi!**
+2022-08-21 02:22:02.862000 : Yggdrasil : **Meowdi**#2167 <:userphone:650883846581125142> Hi
+2022-08-21 02:22:05.026000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:22:12.880000 : アウグストゥス18世 : --hangup
+2022-08-21 02:22:13.003000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 02:22:21.716000 : アウグストゥス18世 : --userphone
+2022-08-21 02:22:21.901000 : Yggdrasil : ☎ **A userphone connection has been made!** **Say hi!**
+2022-08-21 02:22:28.834000 : アウグストゥス18世 : http://n3rdp0rt4l.gitlab.io/n3rdp0rt4l/TWM/IMG_0808.JPG
+2022-08-21 02:22:38.614000 : アウグストゥス18世 : --hangup
+2022-08-21 02:22:38.743000 : Yggdrasil : ☎ **You hung up the userphone.**
+2022-08-21 03:03:37.703000 : Fosscord #gitlog : 
+2022-08-21 03:05:06.199000 : Fosscord #gitlog : 
+2022-08-21 03:25:17.902000 : Fosscord #gitlog : 
+2022-08-21 03:26:47.785000 : Fosscord #gitlog : 
+2022-08-21 03:31:15.056000 : Fosscord #gitlog : 
+2022-08-21 03:48:47.635000 : アウグストゥス18世 : Xtime
+2022-08-21 03:48:50.477000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-21 03:48:50.710000 : Austcool's Pesky BotNet : **`2022.08.20 11:48:47 PM Military Time 23:48:47`**
+2022-08-21 03:49:23.864000 : アウグストゥス18世 : Xservers
+2022-08-21 03:49:27.617000 : Austcool's Pesky BotNet : ```js
+ID                  | Member | Name | Owner
+986789111392272414  |    32| Austin's Empire 1.1 (Fort Knox) [N3RDP0RT4L HQ] | None
+1007445265713746002 |    52| 「🕹H E L L🔥DROVETH!🍻」 | None
+```
+2022-08-21 04:01:04.875000 : CaptainHooker [Git] : 
+2022-08-21 04:01:43.787000 : CaptainHooker [Git] : 
+2022-08-21 04:09:15.562000 : Fosscord #gitlog : 
+2022-08-21 10:54:51.417000 : アウグストゥス18世 : Xtime
+2022-08-21 10:54:53.749000 : Austcool's Pesky BotNet : **`Current date and time : `**
+2022-08-21 10:54:53.993000 : Austcool's Pesky BotNet : **`2022.08.21 06:54:51 AM Military Time 06:54:51`**
+2022-08-21 10:55:25.361000 : 𝕾atanic_Overlord : <@318528448320634881> gm
+2022-08-21 10:55:31.426000 : 𝕾atanic_Overlord : why r u up so early lol
+2022-08-21 10:55:47.918000 : アウグストゥス18世 : GoodMorning
+2022-08-21 10:56:04.280000 : アウグストゥス18世 : Work
+2022-08-21 10:56:51.891000 : 𝕾atanic_Overlord : oh
+2022-08-21 10:56:52.885000 : 𝕾atanic_Overlord : gm
+2022-08-21 11:06:35.301000 : アウグストゥス18世 : Gm
+2022-08-21 11:06:47.197000 : 𝕾atanic_Overlord : 
+2022-08-21 11:07:19.478000 : アウグストゥス18世 : My Fosscord Instance is hopefully going to bed added to the list on Fosscords main Website
+2022-08-21 11:07:27.143000 : 𝕾atanic_Overlord : o
+2022-08-21 11:07:37.806000 : アウグストゥス18世 : Mhmm
+2022-08-21 11:07:38.568000 : 𝕾atanic_Overlord : epik!
+2022-08-21 11:07:57.780000 : アウグストゥス18世 : Yup! Totally epic
+2022-08-21 11:08:05.234000 : 𝕾atanic_Overlord : 
+2022-08-21 11:08:37.063000 : 𝕾atanic_Overlord : 
+2022-08-21 11:08:42.593000 : 𝕾atanic_Overlord : 
+2022-08-21 11:08:50.257000 : アウグストゥス18世 : 
+2022-08-21 11:09:11.512000 : 𝕾atanic_Overlord : yes
+2022-08-21 11:10:01.243000 : 𝕾atanic_Overlord : 
+2022-08-21 11:10:37.240000 : 𝕾atanic_Overlord : <@318528448320634881> much better then ur basic html before lol
+2022-08-21 20:46:54.875000 : Fosscord #gitlog : 
+2022-08-21 20:46:55.167000 : Fosscord #gitlog : 

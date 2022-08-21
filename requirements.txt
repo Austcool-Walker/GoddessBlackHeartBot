@@ -3,10 +3,11 @@ aiohttp==3.5.4
 asyncpg
 requests
 discord
-discord.py==1.5.0
+discord.py
 dataIO
 clint
 config
 timestring
 loadconfig
 yarl==1.0
+lxml
