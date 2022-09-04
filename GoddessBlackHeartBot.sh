@@ -1,2 +1,3 @@
 #!/bin/zsh
-python3 GoddessBlackHeartBot.py  #&& java -jar Lavalink.jar
+python38 GoddessBlackHeartBot.py  #&& java -jar Lavalink.jar
+

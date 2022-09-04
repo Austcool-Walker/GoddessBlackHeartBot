@@ -1,0 +1,13 @@
+lavalink
+aiohttp
+asyncpg
+requests
+discord
+discord.py
+dataIO
+clint
+config
+timestring
+loadconfig
+yarl
+lxml
