@@ -218,7 +218,7 @@ class GoddessBlackHeartBot(commands.AutoShardedBot):
         # This function is from my Omaha Watch bot. It has been scaled down for obvious reasons.
         while not self.is_closed():
             async with aiohttp.ClientSession() as session:
-                async with session.get('https://omahaproxy.appspot.com/all.json?os=win') as resp:
+                async with session.get('https://omahaproxy.appspot.com/all.json?os=mac') as resp:
                     data = await resp.json()
                 await session.close()
             self.chrome_version = data[0]['versions'][4]['version']
