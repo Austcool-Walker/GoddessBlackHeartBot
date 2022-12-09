@@ -1,0 +1,11 @@
+--- ../GBH.py	2022-12-09 12:16:38.625436961 -0500
++++ ./GoddessBlackHeartBot.py	2022-12-09 12:17:49.215436934 -0500
+@@ -218,7 +218,7 @@
+         # This function is from my Omaha Watch bot. It has been scaled down for obvious reasons.
+         while not self.is_closed():
+             async with aiohttp.ClientSession() as session:
+-                async with session.get('https://omahaproxy.appspot.com/all.json?os=mac') as resp:
++                async with session.get('https://omahaproxy.appspot.com/all.json?os=win') as resp:
+                     data = await resp.json()
+                 await session.close()
+             self.chrome_version = data[0]['versions'][4]['version']
