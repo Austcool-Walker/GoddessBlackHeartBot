@@ -51,7 +51,7 @@ class Miscellaneous(commands.Cog, name="Miscellaneous"):
         except Exception:
             memberlist = ctx.message.guild.members
             user = memberlist[random.randint(0, len(memberlist))]
-        await ctx.send("Congratulations, {}! You're a winner!".format(user.name))
+        await ctx.send("Congratulations, You are the 999,999th visitor: Congratulations you WON!")
 
     @commands.command()
     async def loser(self, ctx):
