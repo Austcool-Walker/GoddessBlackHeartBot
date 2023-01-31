@@ -32,7 +32,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def pay(self, ctx, user: discord.User, payment):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         try:
             check = int(payment)
@@ -63,7 +63,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def gamble(self, ctx, money):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         try:
             check = int(money)
@@ -92,7 +92,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def daily(self, ctx):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         try:
             user = ctx.message.mentions[0]
@@ -113,7 +113,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def raid(self, ctx):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         sql = "SELECT money FROM users WHERE id = $1"
         tmp = await self.bot.db.fetchval(sql, ctx.message.author.id)
@@ -130,7 +130,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def mine(self, ctx):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         sql = "SELECT money FROM users WHERE id = $1"
         tmp = await self.bot.db.fetchval(sql, ctx.message.author.id)
@@ -147,7 +147,7 @@ class Economy(commands.Cog, name="THE WORLDS ECONOMY IS NOW UNDER SATANS CONTROL
     @commands.command()
     async def fish(self, ctx):
         if not self.bot.usedatabase:
-            await ctx.send("This command requires a running database to work.")
+            await ctx.send("This command requires a running database to work. I TOLD YOU NOT TO USE IT! PERISH!")
             return
         sql = "SELECT money FROM users WHERE id = $1"
         tmp = await self.bot.db.fetchval(sql, ctx.message.author.id)
