@@ -7,7 +7,7 @@ import discord
 from discord.ext import commands
 import xml.etree.ElementTree as ET
 
-class Anime(commands.Cog, name="Anime"):
+class Anime(commands.Cog, name="Broken Animes"):
     '''Alles rund um Animes'''
 
     def __init__(self, bot):
