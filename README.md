@@ -1,29 +1,26 @@
-# 女神ブラックハート Note this is a modified fork or The Weirdness Mix (TWM) discord bot. This fork is modified to fit The Overcomplicated Weirdness (TOW) Discord server.
+女神ブラックハート
 
-~~Axiro is a discord bot, designed to be weird and fun at the same time, as proven from this [Reddit thread](https://www.reddit.com/r/softwaregore/comments/ayfcbe/and_you_thought_student_debt_was_bad_try_discord/).~~
+A Modified Version of the Axiro Discord Bot
 
-You can join the official server [here](https://discord.gg/veVDS47), or invite the bot with this [link](https://discord.com/api/oauth2/authorize?client_id=791806413503463445&permissions=8&scope=bot).
+You can join the official server or invite the bot to your own server through the provided link.
 
-## Features:
+Features:
+- Basic encryption, decryption, and hash
+- Anime-related content
+- An economy run on chickens
+- Music capabilities
+- News access
+- Administrative commands (kick, ban, etc.)
 
-* Basic encryption, decryption, and hash.
-* Typical anime stuff.
-* An economy run on chickens.
-* Music capabilities
-* Access the news.
-* Do what admins need to do (kick, ban, etc.)
+Installation:
+See the INSTALL.md file for instructions.
 
-## Installation:
-
-Please refer to the INSTALL.md file for instructions on how to run an instance of this bot.
-
-## TODO:
-
-* ~~Build the mute command.~~
-* Add this bot to discordbots.org
-* Get to 200 guilds.
-* Gain access to weeb.sh
-* ~~Use aiohttp for Konachan~~
-* ~~Build music module.~~
-* Add more cool bot functions/features.
-* Complete the Encryption module.
+To-Do:
+- Build the mute command
+- List the bot on discordbots.org
+- Reach 200 guilds
+- Gain access to weeb.sh
+- Use aiohttp for Konachan
+- Build the music module
+- Add more cool bot functions/features
+- Complete the Encryption module
