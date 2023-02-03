@@ -11,9 +11,8 @@ import subprocess
 
 # Authorized User_ID's
 #AJW_Admins = (219220084982415362, 318528448320634881, 217408285542842368, 617456938904453190, 310496481435975693, 542505944223973377, 253864655556968448, 530918840469684225)
-AJW_Admins = (846112982772613171,318528448320634881)
-# Disabled User_ID's
-# 251528237748846605
+# Authorized User IDs
+AJW_Admins = (846112982772613171, 318528448320634881)
 
 class Admin(commands.Cog, name="Admin"):
     '''Commands for the bot admin'''
@@ -22,27 +21,23 @@ class Admin(commands.Cog, name="Admin"):
         self.bot = bot
 
     async def cog_command_error(self, ctx, error):
-        print('Error in {0.command.qualified_name}: {1}'.format(ctx, error))
-
-    async def cog_check(self, ctx):
-        return await ctx.bot.is_owner(ctx.author)
+        print(f'Error in {ctx.command.qualified_name}: {error}')
 
     @commands.command(aliases=['quit'], hidden=True)
-    @commands.is_owner()    
+    @commands.is_owner()
     async def shutdown(self, ctx):
         '''Turn me off :( (BOT OWNER ONLY)'''
         await ctx.send('**👌🏼** Bye!')
-        #self.bot.gamesLoop.cancel()
         await self.bot.logout()
         sys.exit(0)
 
     @commands.command(hidden=True)
     @commands.is_owner()
     async def restart(self, ctx):
-        ''''Restart me (BOT OWNER ONLY)'''
+        '''Restart me (BOT OWNER ONLY)'''
         await ctx.send('**👌🏼** See you soon!')
         try:
-                await self.bot.logout()
+            await self.bot.logout()
         except:
             pass
         finally:
@@ -50,34 +45,33 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** Restart Successful!')
 
     @commands.command()
-#    @commands.is_owner()
     async def ls(self, ctx, path: str):
+        '''Lists files from the specified path on the hard drive'''
         if ctx.author.id in AJW_Admins:
-            '''Lists Files from path on Hard Drive'''
             await ctx.send(os.listdir(path))
-        await ctx.send('✅ list of files in **`{}`**'.format(path))
+        else:
+            await ctx.send('❌ You are not authorized to use this command.')
 
     @commands.command()
-    @commands.is_owner()
     async def cat(self, ctx, file: str):
+        '''Lists the contents of the specified file on the hard drive'''
         if ctx.author.id in AJW_Admins:
-            '''Lists Files from path on Hard Drive'''
-            with open(file, 'rb') as f:
+            with open(file, 'r') as f:
                 f_contents = f.read()
                 await ctx.send(f_contents)
-        await ctx.send('✅ listed contents in **`{}`**'.format(file))
+        else:
+            await ctx.send('❌ You are not authorized to use this command.')
 
     @commands.command()
-    @commands.is_owner()
     async def touch(self, ctx, text: str, file: str):
+        '''Writes text to a file on the hard drive'''
         if ctx.author.id in AJW_Admins:
-            '''Writes Text to Files from path on Hard Drive'''
             with open(file, 'a+') as f:
                 f_contents = f.write((text) + "\r\n")
         await ctx.send('✅ wrote test to file in **`{}`**'.format(file))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def rm(self, ctx, file: str):
         if ctx.author.id in AJW_Admins:
             '''Removes Files from path on Hard Drive'''
@@ -85,7 +79,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ removed **`{}`**'.format(file))
 
     @commands.command()
-    @commands.is_owner()
+#    @commands.is_owner()
     async def cmd(self, ctx, cmd: str):
         if ctx.author.id in AJW_Admins:
             '''Runs command from the computers command and directs the output to Discord'''
@@ -115,10 +109,11 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('✅ sent **`{}`** to **`<#{}>`**'.format(path, channelid))
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def botavatar(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
-        tempBHFile = 'tempBH.png'
+        if ctx.author.id in AJW_Admins:
+            tempBHFile = 'tempBH.png'
         r = requests.get(url)
         with open(tempBHFile, 'wb') as f:
                 total_length = int(r.headers.get('content-length'))
@@ -133,7 +128,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send('**👌🏼** My new avatar!\n %s' % self.bot.user.avatar_url)
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def servericon(self, ctx, url: str):
         '''Set a new avatar (BOT OWNER ONLY)'''
         tempsvicon = 'tempsvicon.png'
@@ -180,7 +175,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** Changed the status & game to: **{discordStatus}** {gameType} **{gameName}**')
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def changestatus(self, ctx, status: str):
         if ctx.author.id in AJW_Admins:
             '''Changes bot online status (BOT OWNER ONLY)'''
@@ -197,7 +192,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(f'**👌🏼** to another status: **{discordStatus}**')
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def name(self, ctx, name):
         if ctx.author.id in AJW_Admins:
             '''changes bot global name (BOT OWNER ONLY)'''
@@ -214,7 +209,7 @@ class Admin(commands.Cog, name="Admin"):
         await ctx.send(msg)
 
     @commands.command(hidden=True, aliases=['guilds'])
-    @commands.is_owner()
+#    @commands.is_owner()
     async def servers(self, ctx):
         if ctx.author.id in AJW_Admins:
             '''Lists the current connected guilds (BOT OWNER ONLY)'''
@@ -227,7 +222,7 @@ class Admin(commands.Cog, name="Admin"):
 
 
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     async def leaveserver(self, ctx, guildid: str):
         if ctx.author.id in AJW_Admins:
             '''Leaves a server (BOT OWNER ONLY)
@@ -275,7 +270,7 @@ class Admin(commands.Cog, name="Admin"):
         else:
             await ctx.send(":x: Couldn't find anyone")
     @commands.command(hidden=True)
-    @commands.is_owner()
+#    @commands.is_owner()
     @commands.bot_has_permissions(manage_nicknames = True)
     async def nickname(self, ctx, *name):
         '''Changes the server nickname from the bot (BOT OWNER ONLY)'''
